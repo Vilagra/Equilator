@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MyEquilator</string>
+    <string name="for6">6-max</string>
+    <string name="for10">10-max</string>
+    <string name="alert_dialog_ok">ок</string>
+    <string name="alert_dialog_cancel">cancel</string>
+    <string name="card_selection">Card selecion</string>
+    <string name="cancel">cancel</string>
+    <string name="ок">ок</string>
+    <string name="flop">Flop</string>
+    <string name="turn">Turn</string>
+    <string name="river">River</string>
+    <string name="calculate">Calculate</string>
+</resources>

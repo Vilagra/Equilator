@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="positions">
+        <item>@string/utg</item>
+        <item>@string/utg1</item>
+        <item>@string/utg2</item>
+        <item>@string/mp1</item>
+        <item>@string/mp2</item>
+        <item>@string/mp3</item>
+        <item>@string/co</item>
+        <item>@string/bu</item>
+        <item>@string/sb</item>
+        <item>@string/bb</item>
+    </string-array>
+
+    <string-array name="streets">
+        <item>@string/flop</item>
+        <item>@string/turn</item>
+        <item>@string/river</item>
+    </string-array>
+
+
+    <string name="utg">UTG</string>
+    <string name="utg1">UTG+1</string>
+    <string name="utg2">UTG+2</string>
+    <string name="mp1">MP1</string>
+    <string name="mp2">MP2</string>
+    <string name="mp3">MP3</string>
+    <string name="co">CO</string>
+    <string name="bu">BU</string>
+    <string name="sb">SB</string>
+    <string name="bb">BB</string>
+</resources>

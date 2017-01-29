@@ -1,0 +1,129 @@
+package com.example.myequilator.adapters;
+
+import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.drawable.Drawable;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.example.myequilator.AllCards;
+import com.example.myequilator.MainActivity;
+import com.example.myequilator.R;
+import com.example.myequilator.entity.Card;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+/**
+ * Created by Vilagra on 10.01.2017.
+ */
+
+public class MyAdapterForCard extends RecyclerView.Adapter<MyAdapterForCard.ViewHolder>{
+
+    private List<Card> mDataset;
+    private boolean[] flags;
+    private Set<Integer> choose;
+    Context ctx;
+    ColorStateList colorStateList;
+    MyAdapterForCardListener listener;
+    int numberOfCardsWhichUserMustChoose;
+
+    public void setListener(MyAdapterForCardListener listener) {
+        this.listener = listener;
+    }
+
+    public interface MyAdapterForCardListener{
+        void onClickByCard(Set<Integer> cards);
+    }
+
+    public MyAdapterForCard(Context contexts, Set<Integer> set, int numberOfCardsWhichUserMustChoose) {
+        ctx=contexts;
+        mDataset= AllCards.allCards;
+        flags=AllCards.wasChosen;
+        choose=set;
+        this.numberOfCardsWhichUserMustChoose=numberOfCardsWhichUserMustChoose;
+    }
+
+
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        // each data item is just a string in this case
+        public ImageView imageView;
+        CardView cardView;
+        public ViewHolder(CardView card,ImageView v) {
+            super(card);
+            cardView=card;
+            imageView = v;
+
+        }
+    }
+
+
+    // Create new views (invoked by the layout manager)
+    @Override
+    public MyAdapterForCard.ViewHolder onCreateViewHolder(ViewGroup parent,
+                                                          int viewType) {
+        // create a new view
+        CardView cardView = (CardView) LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.card_item, parent, false);
+        colorStateList=cardView.getCardBackgroundColor();
+        ViewHolder vh = new ViewHolder(cardView, (ImageView) cardView.findViewById(R.id.image_card));
+        return vh;
+    }
+
+    @Override
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
+        try {
+            holder.imageView.setImageDrawable(Drawable.createFromStream(ctx.getAssets().open(mDataset.get(position).getStringOfCard()+".png"), null));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if(flags[position]==true) {
+            holder.cardView.setEnabled(false);
+            holder.cardView.setVisibility(View.INVISIBLE);
+        }
+        else {
+            holder.cardView.setEnabled(true);
+            holder.cardView.setVisibility(View.VISIBLE);
+        }
+        if(choose.contains(position)){
+            holder.cardView.setCardBackgroundColor(ctx.getResources().getColor(R.color.colorAccent));
+        }else {
+            holder.cardView.setCardBackgroundColor(colorStateList);
+        }
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(choose.size()<numberOfCardsWhichUserMustChoose){
+                    if(choose.remove(position)){
+                        holder.cardView.setCardBackgroundColor(colorStateList);
+                    }else {
+                        holder.cardView.setCardBackgroundColor(ctx.getResources().getColor(R.color.colorAccent));
+                        choose.add(position);
+                        listener.onClickByCard(choose);
+                    }
+                }
+                else{
+                    if(choose.remove(position)){
+                        listener.onClickByCard(choose);
+                        holder.cardView.setCardBackgroundColor(colorStateList);
+                    }
+                }
+            }
+        });
+    }
+
+    @Override
+    public int getItemCount() {
+        return mDataset.size();
+    }
+
+}
