@@ -62,8 +62,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         // each data item is just a string in this case
         CardView cardView;
         TextView mTextView;
-        EditText editText;
-        EditText result;
+        TextView editText;
+        TextView result;
         ImageButton range;
         ImageButton hand;
         ImageButton remove;
@@ -72,15 +72,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             super(card);
             cardView=card;
             mTextView = (TextView) card.findViewById(R.id.position);
-            editText = (EditText) card.findViewById(R.id.hand_range);
-            result = (EditText) card.findViewById(R.id.eqiuty);
+            editText = (TextView) card.findViewById(R.id.hand_range);
+            result = (TextView) card.findViewById(R.id.eqiuty);
             hand = (ImageButton) card.findViewById(R.id.hand);
             range = (ImageButton) card.findViewById(R.id.range);
             remove = (ImageButton) card.findViewById(R.id.remove);
             hand.setOnClickListener(this);
             remove.setOnClickListener(this);
-            //newFragment = new CardsDialogFragment();
-            //newFragment.setmListener(this);
         }
         public void onClick(View v) {
             switch (v.getId()) {
@@ -96,7 +94,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                         }
                         editText.setText("");
                     }
-
                     FragmentTransaction ft = act.getFragmentManager().beginTransaction();
                     CardsDialogFragment newFragment = new CardsDialogFragment();
                     newFragment.setPositionOfChoosenCard(setPositioWasChoosen);

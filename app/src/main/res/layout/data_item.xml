@@ -50,7 +50,7 @@
             android:src="@drawable/ic_x"
             android:onClick="onClick"
             android:layout_margin="5dp"/>
-        <EditText
+        <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="32dp"
@@ -59,7 +59,7 @@
             android:layout_gravity="center"
             android:background="@drawable/blue_out_line"
             />
-        <EditText
+        <TextView
             android:layout_width="50dp"
             android:layout_height="32dp"
             android:layout_margin="2dp"

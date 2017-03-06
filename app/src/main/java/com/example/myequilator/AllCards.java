@@ -8,6 +8,7 @@ import com.example.myequilator.entity.Card;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 
 /**
@@ -24,10 +25,11 @@ public class AllCards {
         for (Character rank : allRank) {
             for (Character suit : allSuit) {
                 Card card = new Card(rank, suit);
-                allCards.add(0, card); //@TODO
+                allCards.add(card); //@TODO
                 cardsMap.put(card.getStringOfCard(), card);
             }
         }
+        Collections.reverse(allCards);
     }
 
     public static Card findCardByString(String s){
