@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_18b1cb91fd52aa7bf0e2dbc998416ca4bc748da0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-24.2.1_bf4fcbe6204ced242c72c8f32283ea28e1f57725\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-25.1.0_7bbcd68d2e46646e78c44b266fbba702ce18fa66.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-24.2.1_18b1cb91fd52aa7bf0e2dbc998416ca4bc748da0.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="aa3a16c30ac55ff7858c56079a4d00b430e8fd71">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_3f6bfc04ac7a6b09c455c606b28990f7763826cc\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-24.2.1_3b267adf8f7fe04062fbfe8d527b4633436ee6af.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_5a247e74fe8bbbf6d3e7cf3fc785c88b7dea470c.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_5a247e74fe8bbbf6d3e7cf3fc785c88b7dea470c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_3b267adf8f7fe04062fbfe8d527b4633436ee6af\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-24.2.1_bf4fcbe6204ced242c72c8f32283ea28e1f57725.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_79a3aaa6f5ef2bf1d9ee31b1242c4749ea4d2d0c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\lib_calculate\build\libs\lib_calculate.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="ecde0de019015ff225db4722082e90cfcbc7a958">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\pre-dexed\debug\lib_calculate_7a966b38d452b166050ec5257d191bf653720f64.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\HoldEmShowdown.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="3799bebe547b7f842352191cc4d01ffd31e30fdb">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\pre-dexed\debug\HoldEmShowdown_91e020f9956f224ee56accb8f9646e1eae7a715a.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\HoldEmShowdown.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="3799bebe547b7f842352191cc4d01ffd31e30fdb">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\transforms\dex\debug\folders\1000\2\HoldEmShowdown_91e020f9956f224ee56accb8f9646e1eae7a715a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.1.0_3c7c2a54b3aa2f2dd4b8c609169141324953d9fe\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7f2420506110902f033406b25697cf97ee8c38b2">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-25.1.0_04593193f6fd3d6b380d59d04a4bdef4a6fdfe27.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7f2420506110902f033406b25697cf97ee8c38b2">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-25.1.0_04593193f6fd3d6b380d59d04a4bdef4a6fdfe27\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-25.1.0_3c7c2a54b3aa2f2dd4b8c609169141324953d9fe.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_0fa30244c394a9989b5b1428b981b372f34fd55c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_a2cbd28addcc04627637e993efa8ec0f6b692aec\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="aee64634871d88a419d59eb743c1258a60f19700">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-25.1.0_bd9d92b13d1a20f1bec2f1d510cf8fa816ab928f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-24.2.1_0fa30244c394a9989b5b1428b981b372f34fd55c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\commons-collections-3.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="aa12980fe4eca7331a660bdeed371d024687c68d">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\pre-dexed\debug\commons-collections-3.0_91a5006bf07fe1e9cc0568a1f3f83eee6f9efff4.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\commons-collections-3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="aa12980fe4eca7331a660bdeed371d024687c68d">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\transforms\dex\debug\folders\1000\2\commons-collections-3.0_91a5006bf07fe1e9cc0568a1f3f83eee6f9efff4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="aee64634871d88a419d59eb743c1258a60f19700">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.1.0_bd9d92b13d1a20f1bec2f1d510cf8fa816ab928f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_79a3aaa6f5ef2bf1d9ee31b1242c4749ea4d2d0c\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Vilagra\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.0\support-annotations-25.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\pre-dexed\debug\support-annotations-25.1.0_3ce6f15f5258bf8d61bb9e113cf983e27113f4cd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\commons-lang3-3.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="8873bd0bb5cb9ee37f1b04578eb7e26fcdd44cb0">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\pre-dexed\debug\commons-lang3-3.0_95c3fbcaa6615c71f6263147ba749e06cd963fcc.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\commons-lang3-3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="8873bd0bb5cb9ee37f1b04578eb7e26fcdd44cb0">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\transforms\dex\debug\folders\1000\2\commons-lang3-3.0_95c3fbcaa6615c71f6263147ba749e06cd963fcc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Vilagra\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.0\support-annotations-25.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.1.0_3ce6f15f5258bf8d61bb9e113cf983e27113f4cd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_389fad7ff667aa30dac35c6d2c714ab22fc05c83\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-25.1.0_7bbcd68d2e46646e78c44b266fbba702ce18fa66\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_389fad7ff667aa30dac35c6d2c714ab22fc05c83.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e1251d742aa5ea13942d35cae4def96506fa48fd">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_7f49f88a5e07fdcf3e794851b9c4be75b662a047\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-24.2.1_dde74d915f6b1b791164efec7a385259e3ccadd8.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.2.1_dde74d915f6b1b791164efec7a385259e3ccadd8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_6063b960f8ac85ab4e8b016d3ae717be52ff7345\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-24.2.1_6063b960f8ac85ab4e8b016d3ae717be52ff7345.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="C:\Project\lessonStartAndroid.ru\MyEquilator\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-24.2.1_a2cbd28addcc04627637e993efa8ec0f6b692aec.jar" />
+    </item>
+
+</items>
