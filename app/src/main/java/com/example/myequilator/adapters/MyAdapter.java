@@ -3,6 +3,7 @@ package com.example.myequilator.adapters;
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -17,6 +18,7 @@ import com.example.myequilator.AllCards;
 import com.example.myequilator.CardsDialogFragment;
 import com.example.myequilator.MainActivity;
 import com.example.myequilator.R;
+import com.example.myequilator.RangeActivity;
 import com.example.myequilator.entity.Card;
 
 import java.text.DecimalFormat;
@@ -79,6 +81,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             remove = (ImageButton) card.findViewById(R.id.remove);
             hand.setOnClickListener(this);
             remove.setOnClickListener(this);
+            range.setOnClickListener(this);
         }
         public void onClick(View v) {
             switch (v.getId()) {
@@ -102,6 +105,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                     newFragment.setmListener(this);
                     ft.addToBackStack(null);
                     newFragment.show(ft, "dialog");
+                    break;
+                case R.id.range:
+                    Log.d("range","ttttt");
+                    act.startActivity(new Intent(act, RangeActivity.class));
                     break;
                 case R.id.remove:
                     String s = editText.getText().toString();

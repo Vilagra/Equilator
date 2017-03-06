@@ -3,22 +3,19 @@ package com.example.myequilator.adapters;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.myequilator.AllCards;
-import com.example.myequilator.MainActivity;
 import com.example.myequilator.R;
 import com.example.myequilator.entity.Card;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -30,7 +27,7 @@ public class MyAdapterForCard extends RecyclerView.Adapter<MyAdapterForCard.View
 
     private List<Card> mDataset;
     private boolean[] flags;
-    private Set<Integer> choose;
+    private Set<Integer> choosen;
     Context ctx;
     ColorStateList colorStateList;
     MyAdapterForCardListener listener;
@@ -48,7 +45,7 @@ public class MyAdapterForCard extends RecyclerView.Adapter<MyAdapterForCard.View
         ctx=contexts;
         mDataset= AllCards.allCards;
         flags=AllCards.wasChosen;
-        choose=set;
+        choosen =set;
         this.numberOfCardsWhichUserMustChoose=numberOfCardsWhichUserMustChoose;
     }
 
@@ -94,7 +91,7 @@ public class MyAdapterForCard extends RecyclerView.Adapter<MyAdapterForCard.View
             holder.cardView.setEnabled(true);
             holder.cardView.setVisibility(View.VISIBLE);
         }
-        if(choose.contains(position)){
+        if(choosen.contains(position)){
             holder.cardView.setCardBackgroundColor(ctx.getResources().getColor(R.color.colorAccent));
         }else {
             holder.cardView.setCardBackgroundColor(colorStateList);
@@ -102,18 +99,18 @@ public class MyAdapterForCard extends RecyclerView.Adapter<MyAdapterForCard.View
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(choose.size()<numberOfCardsWhichUserMustChoose){
-                    if(choose.remove(position)){
+                if(choosen.size()<numberOfCardsWhichUserMustChoose){
+                    if(choosen.remove(position)){
                         holder.cardView.setCardBackgroundColor(colorStateList);
                     }else {
                         holder.cardView.setCardBackgroundColor(ctx.getResources().getColor(R.color.colorAccent));
-                        choose.add(position);
-                        listener.onClickByCard(choose);
+                        choosen.add(position);
+                        listener.onClickByCard(choosen);
                     }
                 }
                 else{
-                    if(choose.remove(position)){
-                        listener.onClickByCard(choose);
+                    if(choosen.remove(position)){
+                        listener.onClickByCard(choosen);
                         holder.cardView.setCardBackgroundColor(colorStateList);
                     }
                 }

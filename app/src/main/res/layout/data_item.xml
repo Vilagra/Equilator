@@ -26,7 +26,6 @@
             android:layout_height="36dp"
             android:id="@+id/range"
             android:src="@drawable/ic_domino"
-            android:onClick="onClick"
             android:layout_margin="5dp"/>
 
         <ImageButton
@@ -34,7 +33,6 @@
             android:layout_height="36dp"
             android:adjustViewBounds="true"
             android:id="@+id/hand"
-            android:onClick="onClick"
             android:src="@drawable/ic_poker"
             android:layout_margin="5dp"/>
         <ImageButton
@@ -48,7 +46,6 @@
             android:layout_height="32dp"
             android:id="@+id/remove"
             android:src="@drawable/ic_x"
-            android:onClick="onClick"
             android:layout_margin="5dp"/>
         <TextView
             android:layout_width="0dp"

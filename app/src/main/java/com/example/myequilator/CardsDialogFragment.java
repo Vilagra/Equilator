@@ -112,7 +112,7 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
             numberOfCardsWhichUserMustChoose = savedInstanceState.getInt(NUMBER_OF_CARDS);
         }
         getDialog().setTitle(getActivity().getString(R.string.card_selection));
-        View v = inflater.inflate(R.layout.activity_card_matrix, container, false);
+        View v = inflater.inflate(R.layout.card_matrix, container, false);
         RecyclerView recyclerView = (RecyclerView) v.findViewById(R.id.recycler_card);
         GridLayoutManager manager = new GridLayoutManager(this.getActivity(), 4, GridLayoutManager.HORIZONTAL,false);
         recyclerView.setLayoutManager(manager);
