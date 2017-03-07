@@ -3,30 +3,30 @@ package com.example.myequilator.adapters;
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.myequilator.AllCards;
 import com.example.myequilator.CardsDialogFragment;
-import com.example.myequilator.MainActivity;
 import com.example.myequilator.R;
 import com.example.myequilator.RangeActivity;
 import com.example.myequilator.entity.Card;
+import com.example.myequilator.entity.IndexesDataWasChosen;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-
-import mi.poker.calculation.EquityCalculation;
+import java.util.TreeSet;
 
 /**
  * Created by Vilagra on 10.01.2017.
@@ -36,27 +36,28 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     private String[] mDataset;
     private  double[] result;
-    Activity act;
-    private String[] textFromEditView;
+    Context ctx;
+    private String[] textFromTextView;
+    private IndexesDataWasChosen[] indexesDataWhichWasChoosen;
 
-    public String[] getTextFromEditView() {
-        return textFromEditView;
+    public String[] getTextFromTextView() {
+        return textFromTextView;
     }
 
-    public void setTextFromEditView(String[] textFromEditView) {
-        this.textFromEditView = textFromEditView;
+    public void setTextFromTextView(String[] textFromTextView) {
+        this.textFromTextView = textFromTextView;
     }
 
     public void setResult(double[] result) {
         this.result = result;
     }
 
-    public MyAdapter(Activity act, String[] data) {
-        this.act=act;
+    public MyAdapter(Context ctx, String[] data) {
+        this.ctx = ctx;
         mDataset=data;
-        textFromEditView=new String[data.length];
+        textFromTextView =new String[data.length];
         result=new double[data.length];
-        Arrays.fill(textFromEditView,"");
+        Arrays.fill(textFromTextView,"");
         Arrays.fill(result,-1.0);
     }
 
@@ -97,7 +98,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                         }
                         editText.setText("");
                     }
-                    FragmentTransaction ft = act.getFragmentManager().beginTransaction();
+                    FragmentTransaction ft = ((Activity)ctx).getFragmentManager().beginTransaction();
                     CardsDialogFragment newFragment = new CardsDialogFragment();
                     newFragment.setPositionOfChoosenCard(setPositioWasChoosen);
                     newFragment.setPositionOfAdapter(getAdapterPosition());
@@ -107,8 +108,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                     newFragment.show(ft, "dialog");
                     break;
                 case R.id.range:
-                    Log.d("range","ttttt");
-                    act.startActivity(new Intent(act, RangeActivity.class));
+                    ctx.startActivity(new Intent(ctx, RangeActivity.class));
                     break;
                 case R.id.remove:
                     String s = editText.getText().toString();
@@ -117,7 +117,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                         int position = AllCards.allCards.indexOf(card);
                         AllCards.wasChosen[position] = false;
                     }
-                    textFromEditView[getAdapterPosition()]="";
+                    textFromTextView[getAdapterPosition()]="";
                     editText.setText("");
                     break;
             }
@@ -125,21 +125,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         @Override
         public void onDialogOkClick(DialogFragment dialog, Set<Integer> positionOfChoosenCard) {
             String s = "";
-            int indexPervoious = -1;
-            //@TODO set to sorted list
-            for (Integer integer : positionOfChoosenCard) {
-                int indexCurrent = integer;
-                AllCards.wasChosen[indexCurrent] = true;
-                if (indexCurrent > indexPervoious) {
-                    s += AllCards.allCards.get(indexCurrent).getStringOfCard();
-                    indexPervoious = indexCurrent;
-                } else {
-                    s = AllCards.allCards.get(indexCurrent).getStringOfCard() + s;
+            positionOfChoosenCard=new TreeSet<Integer>(positionOfChoosenCard);
+            for (Integer index : positionOfChoosenCard) {
+                AllCards.wasChosen[index] = true;
+                s += AllCards.allCards.get(index).getStringOfCard();
                 }
-            }
             editText.setText(s);
-            //Log.e(MainActivity.MY_LOG, positionWhichHaveText.toString());
-            textFromEditView[getAdapterPosition()]=s;
+            textFromTextView[getAdapterPosition()]=s;
         }
 
         @Override
@@ -163,7 +155,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.mTextView.setText(mDataset[position]);
-        String s=textFromEditView[position];
+        String s= textFromTextView[position];
         holder.editText.setText(s);
         if(result[position]!=-1.0){
             holder.result.setText(new DecimalFormat("#.#").format(result[position]*100));

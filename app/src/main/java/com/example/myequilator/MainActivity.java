@@ -18,7 +18,6 @@ import com.example.myequilator.adapters.MyAdapter;
 import com.example.myequilator.adapters.StreetAdapter;
 import com.example.myequilator.adapters.MyAdapterForCard;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Map;
 
@@ -71,7 +70,6 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
             String currentTag = savedInstanceState.getString(CURRENT_TAG);
             String[] textFomEditText = savedInstanceState.getStringArray(STRNGS_FROM_ADAPTER);
             textFomEditTextStreet = savedInstanceState.getStringArray(STRNGS_FROM_STREET_ADAPTER);
-            Log.d(MY_LOG,Arrays.toString(textFomEditTextStreet));
             tabHost.setCurrentTabByTag(currentTag);
             setRecycler(currentTag, textFomEditText);
         } else {
@@ -116,13 +114,13 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
                 break;
             case "tag2":
                 recyclerView = (RecyclerView) tabHost.findViewById(R.id.tab2).findViewById(R.id.recycler);
-                myAdapter = new MyAdapter(MainActivity.this, dataForRecycler);
+                myAdapter = new MyAdapter(this, dataForRecycler);
                 break;
             default:
                 throw new IllegalArgumentException();
         }
         if (textFomEditText != null) {
-            myAdapter.setTextFromEditView(textFomEditText);
+            myAdapter.setTextFromTextView(textFomEditText);
         }
         LinearLayoutManager manager = new LinearLayoutManager(this, OrientationHelper.VERTICAL, false);
         recyclerView.setLayoutManager(manager);
@@ -133,7 +131,7 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putStringArray(STRNGS_FROM_ADAPTER, myAdapter.getTextFromEditView());
+        outState.putStringArray(STRNGS_FROM_ADAPTER, myAdapter.getTextFromTextView());
         outState.putString(CURRENT_TAG, tabHost.getCurrentTabTag());
         outState.putStringArray(STRNGS_FROM_STREET_ADAPTER,streetAdapter.getTextFromEditViewStreet());
     }
@@ -144,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
                 Thread t=new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        String[] hand = myAdapter.getTextFromEditView();
+                        String[] hand = myAdapter.getTextFromTextView();
                         double[] equity =new double[hand.length];
                         Arrays.fill(equity,-1.0);
                         String hands="";
