@@ -34,12 +34,10 @@ public class StreetAdapter extends RecyclerView.Adapter<StreetAdapter.ViewHolder
     private String[] textFromEditViewStreet;
 
     public String[] getTextFromEditViewStreet() {
-        Log.d(MainActivity.MY_LOG+"get",Arrays.toString(textFromEditViewStreet));
         return textFromEditViewStreet;
     }
 
     public void setTextFromEditViewStreet(String[] textFromEditViewStreet) {
-        Log.d(MainActivity.MY_LOG+"getset",Arrays.toString(textFromEditViewStreet));
         this.textFromEditViewStreet = textFromEditViewStreet;
     }
 
@@ -122,7 +120,6 @@ public class StreetAdapter extends RecyclerView.Adapter<StreetAdapter.ViewHolder
             }
             editText.setText(s);
             textFromEditViewStreet[getAdapterPosition()] = s;
-            Log.d(MainActivity.MY_LOG,Arrays.toString(textFromEditViewStreet));
         }
 
         @Override

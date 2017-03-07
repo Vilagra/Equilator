@@ -3,6 +3,7 @@ package com.example.myequilator;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
@@ -35,20 +36,12 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
     int positionOfAdapterBeforeRotate = -1;
 
 
-    public final static String MY_LOG = "my_logs";
-    public final static String STRNGS_FROM_ADAPTER = "strings_from_adapter";
-    public final static String STRNGS_FROM_STREET_ADAPTER = "strings_from_street_adapter";
-    public final static String CURRENT_TAG = "curent_tag";
-    public final static String EQUITY = "equity";
-
-
-    MyAdapterForCard myAdapterForCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d(MY_LOG, "createAct");
+        Log.d(Constants.MY_LOG, "createAct");
 
         tabHost = (TabHost) findViewById(android.R.id.tabhost);
         tabHost.setup();
@@ -67,9 +60,9 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
         String[] textFomEditTextStreet = null;
 
         if (savedInstanceState != null) {
-            String currentTag = savedInstanceState.getString(CURRENT_TAG);
-            String[] textFomEditText = savedInstanceState.getStringArray(STRNGS_FROM_ADAPTER);
-            textFomEditTextStreet = savedInstanceState.getStringArray(STRNGS_FROM_STREET_ADAPTER);
+            String currentTag = savedInstanceState.getString(Constants.CURRENT_TAG);
+            String[] textFomEditText = savedInstanceState.getStringArray(Constants.STRNGS_FROM_ADAPTER);
+            textFomEditTextStreet = savedInstanceState.getStringArray(Constants.STRNGS_FROM_STREET_ADAPTER);
             tabHost.setCurrentTabByTag(currentTag);
             setRecycler(currentTag, textFomEditText);
         } else {
@@ -131,9 +124,9 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putStringArray(STRNGS_FROM_ADAPTER, myAdapter.getTextFromTextView());
-        outState.putString(CURRENT_TAG, tabHost.getCurrentTabTag());
-        outState.putStringArray(STRNGS_FROM_STREET_ADAPTER,streetAdapter.getTextFromEditViewStreet());
+        outState.putStringArray(Constants.STRNGS_FROM_ADAPTER, myAdapter.getTextFromTextView());
+        outState.putString(Constants.CURRENT_TAG, tabHost.getCurrentTabTag());
+        outState.putStringArray(Constants.STRNGS_FROM_STREET_ADAPTER,streetAdapter.getTextFromEditViewStreet());
     }
     public void onClick(View v){
         switch (v.getId()){
@@ -161,22 +154,18 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
                             board+=s;
                         }
                         Result result=EquityCalculation.calculateExhaustiveEnumration(hands,board,"");
-                        Log.d(MY_LOG,result.toString());
                         Map<Integer,HandInfo> mapResult=result.getMap();
                         int positionInResult=0;
                         for (int i = 0; i < hand.length; i++) {
                             if(!hand[i].equals("")){
-                                Log.d(MY_LOG, String.valueOf(i));
                                 equity[i]=mapResult.get(positionInResult++).getEquity();
                             }
                         }
                         Message msg= handler.obtainMessage();
                         Bundle bundle= new Bundle();
-                        Log.d(MY_LOG,Arrays.toString(equity));
-                        bundle.putDoubleArray(EQUITY,equity);
+                        bundle.putDoubleArray(Constants.EQUITY,equity);
                         msg.setData(bundle);
                         myAdapter.setResult(equity);
-                        //myAdapter.notifyDataSetChanged();
                         handler.sendEmptyMessage(1);
                         progressDialog.dismiss();
                     }
@@ -197,26 +186,21 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
 
     @Override
     protected void onDestroy() {
-        //Log.d(MY_LOG, "destroy");
         super.onDestroy();
     }
 
 
     @Override
     protected void onStart() {
-        //Log.d(MY_LOG, "start");
         super.onStart();
 
     }
 
     @Override
     protected void onResume() {
-        //Log.d(MY_LOG, "resume");
         super.onResume();
         if (positionOfAdapterBeforeRotate != -1) {
-            //((LinearLayoutManager)recyclerView.getLayoutManager()).scrollToPositionWithOffset(positionOfAdapterBeforeRotate,4);
             recyclerView.scrollToPosition(positionOfAdapterBeforeRotate);
-            Log.d(MainActivity.MY_LOG, "scroll" + positionOfAdapterBeforeRotate);
             positionOfAdapterBeforeRotate = -1;
         }
 
@@ -225,6 +209,11 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
     @Override
     public void setPosition(int i) {
         positionOfAdapterBeforeRotate = i;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }
 

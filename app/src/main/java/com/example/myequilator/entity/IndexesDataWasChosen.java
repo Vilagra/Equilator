@@ -1,5 +1,7 @@
 package com.example.myequilator.entity;
 
+import java.util.Set;
+
 /**
  * Created by Vilagra on 07.03.2017.
  */
@@ -8,15 +10,15 @@ public class IndexesDataWasChosen {
 
     public enum Type{CARD,RANGE};
 
-    int[] indexesDataWasChosen;
+    Set<Integer> indexesDataWasChosen;
     Type type;
 
-    public IndexesDataWasChosen(int[] indexesDataWasChosen,Type type) {
+    public IndexesDataWasChosen(Set<Integer> indexesDataWasChosen, Type type) {
         this.indexesDataWasChosen = indexesDataWasChosen;
         this.type=type;
     }
 
-    public int[] getIndexesDataWasChosen() {
+    public Set<Integer> getIndexesDataWasChosen() {
         return indexesDataWasChosen;
     }
 

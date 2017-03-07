@@ -78,11 +78,6 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
         }
     }
 
-
-    //AlertDialog alertDialog;
-
-
-
     @Override
     public void onStop() {
 
@@ -94,7 +89,6 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(MainActivity.MY_LOG,"createfrag");
         // Pick a style based on the num.
         int style = DialogFragment.STYLE_NORMAL, theme = android.R.style.Theme_Holo_Light_DialogWhenLarge;
         setStyle(style, theme);
@@ -106,7 +100,6 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Log.d(MainActivity.MY_LOG,"createfragview");
         if(savedInstanceState!=null) {
             positionOfChoosenCard = new HashSet<>(savedInstanceState.getIntegerArrayList(WAS_CHOSEN));
             numberOfCardsWhichUserMustChoose = savedInstanceState.getInt(NUMBER_OF_CARDS);
@@ -129,11 +122,6 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
             public void onClick(View v) {
                 if(mListener==null){
                     RecyclerView recyclerViewFromActivity = (RecyclerView) getActivity().findViewById(R.id.recycler);
-                    for (int i = 0; i < recyclerViewFromActivity.getAdapter().getItemCount(); i++) {
-                        if(recyclerViewFromActivity.findViewHolderForLayoutPosition(i)!=null){
-                            Log.d(MainActivity.MY_LOG,recyclerViewFromActivity.findViewHolderForLayoutPosition(i).toString());
-                        }
-                    }
                     setmListener((CardDialogFragmentListener) recyclerViewFromActivity.findViewHolderForAdapterPosition(positionOfAdapter));
                 }
                 mListener.onDialogOkClick(CardsDialogFragment.this, positionOfChoosenCard);
@@ -145,8 +133,7 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
             public void onClick(View v) {
                 if(mListener==null){
                     RecyclerView recyclerView = (RecyclerView) getActivity().findViewById(R.id.recycler);
-                    setmListener((CardDialogFragmentListener) recyclerView.findViewHolderForAdapterPosition(2));
-                    Log.d(MainActivity.MY_LOG, recyclerView.findViewHolderForAdapterPosition(2).toString());
+                    setmListener((CardDialogFragmentListener) recyclerView.findViewHolderForAdapterPosition(positionOfAdapter));
                 }
                 mListener.onDialogCancelClick(CardsDialogFragment.this);
                 dismiss();
