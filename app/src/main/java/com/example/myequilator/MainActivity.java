@@ -22,6 +22,7 @@ import com.example.myequilator.entity.IndexesDataWasChosen;
 
 import java.util.Arrays;
 import java.util.Map;
+import java.util.Set;
 
 import mi.poker.calculation.EquityCalculation;
 import mi.poker.calculation.HandInfo;
@@ -217,7 +218,17 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+        //super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode==RESULT_OK){
+            if(requestCode==Constants.REQUEST_CODE_RANGE){
+                int positionOfAdapter= data.getIntExtra(Constants.POSITION_OF_ADAPTER,-1);
+                Set<Integer> indexesData= (Set<Integer>) data.getSerializableExtra(Constants.INDEXES_DATA_WAS_CHOSEN);
+                String string = AllCards.getStringFromRange(indexesData);
+                myAdapter.addToIndexesDataWasChosen(positionOfAdapter,indexesData);
+                myAdapter.addToTextFromTextView(positionOfAdapter,string);
+                myAdapter.notifyDataSetChanged();
+            }
+        }
     }
 }
 

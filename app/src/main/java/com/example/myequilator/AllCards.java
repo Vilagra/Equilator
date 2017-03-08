@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Set;
 
 /**
  * Created by Vilagra on 11.01.2017.
@@ -70,6 +71,15 @@ public class AllCards {
             }
             
         }
+    }
+
+    public static String getStringFromRange(Set<Integer> set){
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Integer integer : set) {
+            stringBuilder.append(allCombinations.get(integer));
+            stringBuilder.append(",");
+        }
+        return stringBuilder.toString();
     }
 
     public static Card findCardByString(String s) {

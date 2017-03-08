@@ -41,6 +41,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private String[] textFromTextView;
     private IndexesDataWasChosen[] arrayIndexesDataWhichWasChoosen;
 
+    public void addToIndexesDataWasChosen(int position,Set<Integer> set){
+        arrayIndexesDataWhichWasChoosen[position]=new IndexesDataWasChosen(set, IndexesDataWasChosen.Type.RANGE);
+    }
+    public void addToTextFromTextView(int position,String text){
+        textFromTextView[position]=text;
+    }
+
     public IndexesDataWasChosen[] getArrayIndexesDataWhichWasChoosen() {
         return arrayIndexesDataWhichWasChoosen;
     }
@@ -98,7 +105,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
         public void onClick(View v) {
             int position = getAdapterPosition();
-            Set<Integer> setPositioWasChoosen=new HashSet<>();
+            Set<Integer> setPositioWasChoosen=new TreeSet<>();
             IndexesDataWasChosen indexes=arrayIndexesDataWhichWasChoosen[position];
             switch (v.getId()) {
                 case R.id.hand:
@@ -120,9 +127,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                     newFragment.show(ft, "dialog");
                     break;
                 case R.id.range:
-                    Bundle bundle = new Bundle();
-                    bundle.putInt(Constants.POSITION_OF_ADAPTER,position);
-                    ((Activity)ctx).startActivityForResult(new Intent(ctx, RangeActivity.class), Constants.REQUEST_CODE_RANGE);
+                    ((Activity)ctx).startActivityForResult(new Intent(ctx, RangeActivity.class).putExtra(Constants.POSITION_OF_ADAPTER,position), Constants.REQUEST_CODE_RANGE);
                     //ctx.startActivity(new Intent(ctx, RangeActivity.class));
                     break;
                 case R.id.remove:

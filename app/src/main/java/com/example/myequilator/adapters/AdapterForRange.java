@@ -7,6 +7,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,6 +16,7 @@ import com.example.myequilator.AllCards;
 import com.example.myequilator.R;
 
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -70,22 +72,48 @@ public class AdapterForRange extends RecyclerView.Adapter<AdapterForRange.ViewHo
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        String value=mDataset.get(position);
+        final String value=mDataset.get(position);
         holder.textView.setText(value);
+        setColor(value,holder.textView);
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(choosen.remove(position)){
+                    setColor(value,holder.textView);
+                }
+                else {
+                    choosen.add(position);
+                    holder.textView.setBackgroundColor(ContextCompat.getColor(ctx, R.color.yellow));
+                }
+            }
+        });
+
+    }
+
+    void setColor(String value, View v){
         if(value.matches("\\w+s")){
-            holder.textView.setBackgroundColor(ContextCompat.getColor(ctx,R.color.cyan));
+            v.setBackgroundColor(ContextCompat.getColor(ctx,R.color.cyan));
         }
         else if(value.matches("\\w+o")){
-            holder.textView.setBackgroundColor(ContextCompat.getColor(ctx,R.color.purple));
+            v.setBackgroundColor(ContextCompat.getColor(ctx,R.color.purple));
         }
         else{
-            holder.textView.setBackgroundColor(ContextCompat.getColor(ctx,R.color.blue));
+            v.setBackgroundColor(ContextCompat.getColor(ctx,R.color.blue));
         }
 
+    }
+
+    public Set<Integer> getChoosen() {
+        return choosen;
+    }
+
+    public void setChoosen(Set<Integer> choosen) {
+        this.choosen = choosen;
     }
 
     @Override
     public int getItemCount() {
         return mDataset.size();
     }
+
 }
