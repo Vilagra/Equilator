@@ -16,7 +16,7 @@ public class RangeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.range_matrix);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_range);
-        GridLayoutManager manager = new GridLayoutManager(this, 13, GridLayoutManager.HORIZONTAL,false);
+        GridLayoutManager manager = new GridLayoutManager(this, 13, GridLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(new AdapterForRange(this,new HashSet<Integer>()));
     }

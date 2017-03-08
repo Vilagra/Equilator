@@ -22,6 +22,7 @@ public class AllCards {
     public static final ArrayList<String> allCombinations = new ArrayList<>();
     public static final HashMap<String, Card> cardsMap = new HashMap<>();
     public static final boolean[] wasChosen = new boolean[52];
+
     static {
         for (Character rank : allRank) {
             for (Character suit : allSuit) {
@@ -31,30 +32,51 @@ public class AllCards {
             }
         }
         Collections.reverse(allCards);
-        for (Character rank: allRank){
-            boolean afterPocket=false;
-            for (Character rank2: allRank){
-                if (!afterPocket){
-                    if(rank.equals(rank2)){
-                        allCombinations.add(""+rank+rank2);
-                        afterPocket=true;
+        for (Character rank : allRank) {
+            boolean afterPocket = false;
+            for (Character rank2 : allRank) {
+                if (!afterPocket) {
+                    if (rank.equals(rank2)) {
+                        allCombinations.add("" + rank + rank2);
+                        afterPocket = true;
                         continue;
-                    }else{
-                        allCombinations.add(""+rank+rank2+"o");
+                    } else {
+                        allCombinations.add("" + rank + rank2 + "s");
                     }
-                }else {
-                    allCombinations.add(""+rank2+rank+"s");
+                } else {
+                    allCombinations.add("" + rank2 + rank + "o");
                 }
             }
         }
         Collections.reverse(allCombinations);
     }
 
-    public static Card findCardByString(String s){
+    public static void main(String[] args) {
+        System.out.println(allCombinations);
+        for (int i = 0; i < allCombinations.size(); ) {
+            System.out.print(allCombinations.get(i)+" ");
+            i+=14;
+        }
+        System.out.println();
+        for (int i = 0; i < 13; i++) {
+            for (int j = i+1; j < 13; j++) {
+                System.out.print(allCombinations.get(i*13+j)+" ");
+            }
+        }
+        System.out.println();
+        for (int i = 0; i < 13; i++) {
+            for (int j = i+1; j < 13; j++) {
+                System.out.print(allCombinations.get(j*13+i)+" ");
+            }
+            
+        }
+    }
+
+    public static Card findCardByString(String s) {
         return cardsMap.get(s);
     }
 
-    public static void resetWasChosen(){
+    public static void resetWasChosen() {
         Arrays.fill(wasChosen, false);
     }
 }
