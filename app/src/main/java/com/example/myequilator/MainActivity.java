@@ -18,6 +18,7 @@ import android.widget.TabHost;
 import com.example.myequilator.adapters.MyAdapter;
 import com.example.myequilator.adapters.StreetAdapter;
 import com.example.myequilator.adapters.MyAdapterForCard;
+import com.example.myequilator.entity.IndexesDataWasChosen;
 
 import java.util.Arrays;
 import java.util.Map;
@@ -63,15 +64,16 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
             String currentTag = savedInstanceState.getString(Constants.CURRENT_TAG);
             String[] textFomEditText = savedInstanceState.getStringArray(Constants.STRNGS_FROM_ADAPTER);
             textFomEditTextStreet = savedInstanceState.getStringArray(Constants.STRNGS_FROM_STREET_ADAPTER);
+            IndexesDataWasChosen[] indexesDataWasChosen = (IndexesDataWasChosen[]) savedInstanceState.getSerializable(Constants.INDEXES_DATA_WAS_CHOSEN);
             tabHost.setCurrentTabByTag(currentTag);
-            setRecycler(currentTag, textFomEditText);
+            setRecycler(currentTag, textFomEditText,indexesDataWasChosen);
         } else {
             tabHost.setCurrentTabByTag("tag1");
-            setRecycler("tag1", null);
+            setRecycler("tag1", null,null);
         }
         tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             public void onTabChanged(String tabId) {
-                setRecycler(tabId, null);
+                setRecycler(tabId, null,null);
                 AllCards.resetWasChosen();
             }
         });
@@ -97,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
 
     }
 
-    private void setRecycler(String tag, String[] textFomEditText) {
+    private void setRecycler(String tag, String[] textFomEditText,IndexesDataWasChosen[] indexesDataWasChosen) {
         String[] dataForRecycler = getResources().getStringArray(R.array.positions);
         tabHost.findViewById(R.id.tab1).findViewById(R.id.recycler);
         switch (tag) {
@@ -114,6 +116,7 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
         }
         if (textFomEditText != null) {
             myAdapter.setTextFromTextView(textFomEditText);
+            myAdapter.setArrayIndexesDataWhichWasChoosen(indexesDataWasChosen);
         }
         LinearLayoutManager manager = new LinearLayoutManager(this, OrientationHelper.VERTICAL, false);
         recyclerView.setLayoutManager(manager);
@@ -127,6 +130,7 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
         outState.putStringArray(Constants.STRNGS_FROM_ADAPTER, myAdapter.getTextFromTextView());
         outState.putString(Constants.CURRENT_TAG, tabHost.getCurrentTabTag());
         outState.putStringArray(Constants.STRNGS_FROM_STREET_ADAPTER,streetAdapter.getTextFromEditViewStreet());
+        outState.putSerializable(Constants.INDEXES_DATA_WAS_CHOSEN,myAdapter.getArrayIndexesDataWhichWasChoosen());
     }
     public void onClick(View v){
         switch (v.getId()){

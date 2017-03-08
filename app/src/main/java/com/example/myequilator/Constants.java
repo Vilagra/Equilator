@@ -14,4 +14,5 @@ public class Constants {
     public final static String STRNGS_FROM_STREET_ADAPTER = "strings_from_street_adapter";
     public final static String CURRENT_TAG = "curent_tag";
     public final static String EQUITY = "equity";
+    public final static String INDEXES_DATA_WAS_CHOSEN = "indexes_data";
 }

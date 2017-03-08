@@ -41,6 +41,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private String[] textFromTextView;
     private IndexesDataWasChosen[] arrayIndexesDataWhichWasChoosen;
 
+    public IndexesDataWasChosen[] getArrayIndexesDataWhichWasChoosen() {
+        return arrayIndexesDataWhichWasChoosen;
+    }
+
+    public void setArrayIndexesDataWhichWasChoosen(IndexesDataWasChosen[] arrayIndexesDataWhichWasChoosen) {
+        this.arrayIndexesDataWhichWasChoosen = arrayIndexesDataWhichWasChoosen;
+    }
+
     public String[] getTextFromTextView() {
         return textFromTextView;
     }

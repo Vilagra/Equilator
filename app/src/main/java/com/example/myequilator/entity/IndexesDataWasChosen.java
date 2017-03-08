@@ -1,12 +1,13 @@
 package com.example.myequilator.entity;
 
+import java.io.Serializable;
 import java.util.Set;
 
 /**
  * Created by Vilagra on 07.03.2017.
  */
 
-public class IndexesDataWasChosen {
+public class IndexesDataWasChosen implements Serializable{
 
     public enum Type{CARD,RANGE};
 
