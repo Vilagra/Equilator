@@ -15,6 +15,7 @@ import com.example.myequilator.adapters.MyAdapterForCard;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * Created by Vilagra on 12.01.2017.
@@ -28,7 +29,7 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
 
     //MyAdapterForCard myAdapterForCard;
     CardDialogFragmentListener mListener;
-    Set<Integer> positionOfChoosenCard;
+    Set<Integer> positionOfChoosenCard = new TreeSet<>();
     int positionOfAdapter;
     int numberOfCardsWhichUserMustChoose;
 

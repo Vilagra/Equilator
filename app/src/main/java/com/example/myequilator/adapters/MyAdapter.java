@@ -41,21 +41,24 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private String[] textFromTextView;
     private IndexesDataWasChosen[] arrayIndexesDataWhichWasChoosen;
 
-    public void setToIndexesDataWasChosen(int position, Set<Integer> set,IndexesDataWasChosen.Type type){
+    public void replacedIndexesDataWasChosen(int position, Set<Integer> set, IndexesDataWasChosen.Type type){
         IndexesDataWasChosen indexesDataWasChosen=arrayIndexesDataWhichWasChoosen[position];
         if(indexesDataWasChosen!=null&&indexesDataWasChosen.getType()== IndexesDataWasChosen.Type.CARD){
-            Set<Integer> setPositioWasChoosen = indexesDataWasChosen.getIndexesDataWasChosen();
-            for (Integer integer : setPositioWasChoosen) {
-                AllCards.wasChosen[integer] = false;
-            }
+            uncheckFlags(indexesDataWasChosen.getIndexesDataWasChosen());
         }
-        if (set.size()==0){
+        if (set==null||set.size()==0){
             arrayIndexesDataWhichWasChoosen[position]=null;
         }
         arrayIndexesDataWhichWasChoosen[position]=new IndexesDataWasChosen(set, type);
     }
-    public void setToTextFromTextView(int position, String text){
+    public void replacedToTextFromTextView(int position, String text){
         textFromTextView[position]=text;
+    }
+
+    public void uncheckFlags(Set<Integer> setPositioWasChoosen){
+        for (Integer integer : setPositioWasChoosen) {
+            AllCards.wasChosen[integer] = false;
+        }
     }
 
     public IndexesDataWasChosen[] getArrayIndexesDataWhichWasChoosen() {
@@ -115,21 +118,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
         public void onClick(View v) {
             int position = getAdapterPosition();
-            Set<Integer> setPositioWasChoosen=new TreeSet<>();
+            //Set<Integer> setPositioWasChoosen=new TreeSet<>();
             IndexesDataWasChosen indexes=arrayIndexesDataWhichWasChoosen[position];
             switch (v.getId()) {
                 case R.id.hand:
-                    if(indexes!=null) {
-                        setPositioWasChoosen = indexes.getIndexesDataWasChosen();
-                        for (Integer integer : setPositioWasChoosen) {
-                            AllCards.wasChosen[integer] = false;
-                        }
-                        textFromTextView[position] = "";
-                        rangeOrHandTextView.setText("");
-                    }
                     FragmentTransaction ft = ((Activity) ctx).getFragmentManager().beginTransaction();
                     CardsDialogFragment newFragment = new CardsDialogFragment();
-                    newFragment.setPositionOfChoosenCard(setPositioWasChoosen);
+                    if(indexes!=null&&indexes.getType()==IndexesDataWasChosen.Type.CARD){
+                        uncheckFlags(indexes.getIndexesDataWasChosen());
+                        newFragment.setPositionOfChoosenCard(indexes.getIndexesDataWasChosen());
+                    }
                     newFragment.setPositionOfAdapter(getAdapterPosition());
                     newFragment.setNumberOfCardsWhichUserMustChoose(2);
                     newFragment.setmListener(this);
@@ -146,12 +144,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                     break;
                 case R.id.remove:
                     if(indexes!=null) {
-                        setPositioWasChoosen=indexes.getIndexesDataWasChosen();
-                        for (Integer integer : setPositioWasChoosen) {
-                            AllCards.wasChosen[integer] = false;
-                        }
-                        arrayIndexesDataWhichWasChoosen[position] = null;
-                        textFromTextView[position] = "";
+                        replacedIndexesDataWasChosen(position,null,null);
+                        replacedToTextFromTextView(position,null);
                         rangeOrHandTextView.setText("");
                         break;
                     }
@@ -161,14 +155,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         @Override
         public void onDialogOkClick(DialogFragment dialog, Set<Integer> positionOfChoosenCard) {
             String s = "";
-            positionOfChoosenCard = new TreeSet<Integer>(positionOfChoosenCard);
             for (Integer index : positionOfChoosenCard) {
                 AllCards.wasChosen[index] = true;
                 s += AllCards.allCards.get(index).getStringOfCard();
             }
             rangeOrHandTextView.setText(s);
-            textFromTextView[getAdapterPosition()] = s;
-            arrayIndexesDataWhichWasChoosen[getAdapterPosition()] = new IndexesDataWasChosen(positionOfChoosenCard, IndexesDataWasChosen.Type.CARD);
+            replacedToTextFromTextView(getAdapterPosition(),s);
+            replacedIndexesDataWasChosen(getAdapterPosition(),positionOfChoosenCard, IndexesDataWasChosen.Type.CARD);
         }
 
         @Override

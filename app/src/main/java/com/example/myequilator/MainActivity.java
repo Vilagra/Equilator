@@ -224,8 +224,8 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
                 int positionOfAdapter= data.getIntExtra(Constants.POSITION_OF_ADAPTER,-1);
                 Set<Integer> indexesData= (Set<Integer>) data.getSerializableExtra(Constants.INDEXES_DATA_WAS_CHOSEN);
                 String string = AllCards.getStringFromRange(indexesData);
-                myAdapter.setToIndexesDataWasChosen(positionOfAdapter,indexesData,IndexesDataWasChosen.Type.RANGE);
-                myAdapter.setToTextFromTextView(positionOfAdapter,string);
+                myAdapter.replacedIndexesDataWasChosen(positionOfAdapter,indexesData,IndexesDataWasChosen.Type.RANGE);
+                myAdapter.replacedToTextFromTextView(positionOfAdapter,string);
                 myAdapter.notifyDataSetChanged();
             }
         }
