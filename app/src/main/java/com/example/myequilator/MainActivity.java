@@ -17,7 +17,6 @@ import android.widget.TabHost;
 
 import com.example.myequilator.adapters.MyAdapter;
 import com.example.myequilator.adapters.StreetAdapter;
-import com.example.myequilator.adapters.MyAdapterForCard;
 import com.example.myequilator.entity.IndexesDataWasChosen;
 
 import java.util.Arrays;
@@ -66,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
             String[] textFomEditText = savedInstanceState.getStringArray(Constants.STRNGS_FROM_ADAPTER);
             textFomEditTextStreet = savedInstanceState.getStringArray(Constants.STRNGS_FROM_STREET_ADAPTER);
             IndexesDataWasChosen[] indexesDataWasChosen = (IndexesDataWasChosen[]) savedInstanceState.getSerializable(Constants.INDEXES_DATA_WAS_CHOSEN);
+            Log.d(Constants.MY_LOG,Arrays.toString(indexesDataWasChosen));
             tabHost.setCurrentTabByTag(currentTag);
             setRecycler(currentTag, textFomEditText,indexesDataWasChosen);
         } else {
@@ -224,8 +224,8 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
                 int positionOfAdapter= data.getIntExtra(Constants.POSITION_OF_ADAPTER,-1);
                 Set<Integer> indexesData= (Set<Integer>) data.getSerializableExtra(Constants.INDEXES_DATA_WAS_CHOSEN);
                 String string = AllCards.getStringFromRange(indexesData);
-                myAdapter.addToIndexesDataWasChosen(positionOfAdapter,indexesData);
-                myAdapter.addToTextFromTextView(positionOfAdapter,string);
+                myAdapter.setToIndexesDataWasChosen(positionOfAdapter,indexesData,IndexesDataWasChosen.Type.RANGE);
+                myAdapter.setToTextFromTextView(positionOfAdapter,string);
                 myAdapter.notifyDataSetChanged();
             }
         }

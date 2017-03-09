@@ -26,4 +26,12 @@ public class IndexesDataWasChosen implements Serializable{
     public Type getType() {
         return type;
     }
+
+    @Override
+    public String toString() {
+        return "IndexesDataWasChosen{" +
+                "indexesDataWasChosen=" + indexesDataWasChosen +
+                ", type=" + type +
+                '}';
+    }
 }

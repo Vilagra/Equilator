@@ -74,23 +74,27 @@ public class AdapterForRange extends RecyclerView.Adapter<AdapterForRange.ViewHo
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         final String value=mDataset.get(position);
         holder.textView.setText(value);
-        setColor(value,holder.textView);
+        setColor(value,holder.textView,position);
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(choosen.remove(position)){
-                    setColor(value,holder.textView);
+                    setColor(value,holder.textView,position);
                 }
                 else {
                     choosen.add(position);
-                    holder.textView.setBackgroundColor(ContextCompat.getColor(ctx, R.color.yellow));
+                    setColor(value,holder.textView,position);
                 }
             }
         });
 
     }
 
-    void setColor(String value, View v){
+    void setColor(String value, View v,int position){
+        if(choosen.contains(position)){
+            v.setBackgroundColor(ContextCompat.getColor(ctx, R.color.yellow));
+            return;
+        }
         if(value.matches("\\w+s")){
             v.setBackgroundColor(ContextCompat.getColor(ctx,R.color.cyan));
         }

@@ -41,10 +41,20 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private String[] textFromTextView;
     private IndexesDataWasChosen[] arrayIndexesDataWhichWasChoosen;
 
-    public void addToIndexesDataWasChosen(int position,Set<Integer> set){
-        arrayIndexesDataWhichWasChoosen[position]=new IndexesDataWasChosen(set, IndexesDataWasChosen.Type.RANGE);
+    public void setToIndexesDataWasChosen(int position, Set<Integer> set,IndexesDataWasChosen.Type type){
+        IndexesDataWasChosen indexesDataWasChosen=arrayIndexesDataWhichWasChoosen[position];
+        if(indexesDataWasChosen!=null&&indexesDataWasChosen.getType()== IndexesDataWasChosen.Type.CARD){
+            Set<Integer> setPositioWasChoosen = indexesDataWasChosen.getIndexesDataWasChosen();
+            for (Integer integer : setPositioWasChoosen) {
+                AllCards.wasChosen[integer] = false;
+            }
+        }
+        if (set.size()==0){
+            arrayIndexesDataWhichWasChoosen[position]=null;
+        }
+        arrayIndexesDataWhichWasChoosen[position]=new IndexesDataWasChosen(set, type);
     }
-    public void addToTextFromTextView(int position,String text){
+    public void setToTextFromTextView(int position, String text){
         textFromTextView[position]=text;
     }
 
@@ -127,8 +137,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                     newFragment.show(ft, "dialog");
                     break;
                 case R.id.range:
-                    ((Activity)ctx).startActivityForResult(new Intent(ctx, RangeActivity.class).putExtra(Constants.POSITION_OF_ADAPTER,position), Constants.REQUEST_CODE_RANGE);
-                    //ctx.startActivity(new Intent(ctx, RangeActivity.class));
+                    Intent intent = new Intent(ctx, RangeActivity.class);
+                    intent.putExtra(Constants.POSITION_OF_ADAPTER,position);
+                    if(indexes!=null&&indexes.getType()==IndexesDataWasChosen.Type.RANGE){
+                        intent.putExtra(Constants.INDEXES_DATA_WAS_CHOSEN,(HashSet)indexes.getIndexesDataWasChosen());
+                    }
+                    ((Activity)ctx).startActivityForResult(intent, Constants.REQUEST_CODE_RANGE);
                     break;
                 case R.id.remove:
                     if(indexes!=null) {
