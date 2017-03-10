@@ -69,15 +69,123 @@ public class AllCards {
             for (int j = i+1; j < 13; j++) {
                 System.out.print(allCombinations.get(j*13+i)+" ");
             }
-            
         }
     }
 
     public static String getStringFromRange(Set<Integer> set){
         StringBuilder stringBuilder = new StringBuilder();
-        for (Integer integer : set) {
-            stringBuilder.append(allCombinations.get(integer));
-            stringBuilder.append(",");
+        String startOfRange="";
+        String endOfRange="";
+        boolean rangeIsInterrupted=true;
+        String firstHand=allCombinations.get(0);
+        for (int i = 0; i < allCombinations.size(); i+=14) {
+            if(set.contains(i)){
+                String value=allCombinations.get(i);
+                if(startOfRange.equals("")){
+                    startOfRange=value;
+                    endOfRange=value;
+                    rangeIsInterrupted=false;
+                }
+                else {
+                    endOfRange=value;
+                }
+            }
+            else{
+                rangeIsInterrupted=true;
+            }
+            if((rangeIsInterrupted||i+14>=allCombinations.size())&&!startOfRange.equals("")){
+                if(startOfRange.equals(endOfRange)){
+                    stringBuilder.append(startOfRange+",");
+                }
+                else if (startOfRange.equals(firstHand)){
+                    stringBuilder.append(endOfRange+"+,");
+                }
+                else {
+                    stringBuilder.append(startOfRange+"-"+endOfRange+",");
+                }
+                startOfRange="";
+                endOfRange="";
+                firstHand="";
+                rangeIsInterrupted=true;
+            }
+        }
+        for (int i = 0; i < 13; i++) {
+            for (int j = i+1; j < 13; j++) {
+                if(j==i+1){
+                    firstHand=allCombinations.get(i*13+j);
+                }
+                if(set.contains(i*13+j)){
+                    String value=allCombinations.get(i*13+j);
+                    if(startOfRange.equals("")){
+                        startOfRange=value;
+                        endOfRange=value;
+                        rangeIsInterrupted=false;
+                    }
+                    else {
+                        endOfRange=value;
+                    }
+                }
+                else{
+                    rangeIsInterrupted=true;
+                }
+                if((rangeIsInterrupted||j+1>=13)&&!startOfRange.equals("")){
+                    if(startOfRange.equals(endOfRange)){
+                        stringBuilder.append(startOfRange+",");
+                    }
+                    else if (startOfRange.equals(firstHand)){
+                        stringBuilder.append(endOfRange+"+,");
+                    }
+                    else {
+                        stringBuilder.append(startOfRange+"-"+endOfRange+",");
+                    }
+                    startOfRange="";
+                    endOfRange="";
+                    firstHand="";
+                    rangeIsInterrupted=true;
+                }
+
+                //System.out.print(allCombinations.get(i*13+j)+" ");
+            }
+        }
+        System.out.println();
+        for (int i = 0; i < 13; i++) {
+            for (int j = i+1; j < 13; j++) {
+                if (j==i+1){
+                    firstHand=allCombinations.get(j*13+i);
+                }
+                if(set.contains(j*13+i)){
+                    String value=allCombinations.get(j*13+i);
+                    if(startOfRange.equals("")){
+                        startOfRange=value;
+                        endOfRange=value;
+                        rangeIsInterrupted=false;
+                    }
+                    else {
+                        endOfRange=value;
+                    }
+                }
+                else{
+                    rangeIsInterrupted=true;
+                }
+                if((rangeIsInterrupted||j+1>=13)&&!startOfRange.equals("")){
+                    if(startOfRange.equals(endOfRange)){
+                        stringBuilder.append(startOfRange+",");
+                    }
+                    else if (startOfRange.equals(firstHand)){
+                        stringBuilder.append(endOfRange+"+,");
+                    }
+                    else {
+                        stringBuilder.append(startOfRange+"-"+endOfRange+",");
+                    }
+                    startOfRange="";
+                    endOfRange="";
+                    firstHand="";
+                    rangeIsInterrupted=true;
+                }
+            }
+        }
+        if(stringBuilder.length()>0) {
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
         }
         return stringBuilder.toString();
     }
