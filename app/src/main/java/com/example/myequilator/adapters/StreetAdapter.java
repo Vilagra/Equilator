@@ -49,7 +49,7 @@ public class StreetAdapter extends RecyclerView.Adapter<StreetAdapter.ViewHolder
         Arrays.fill(textFromEditViewStreet, "");
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements CardsDialogFragment.CardDialogFragmentListener, View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         // each data item is just a string in this case
         CardView cardView;
         TextView mTextView;
@@ -94,7 +94,7 @@ public class StreetAdapter extends RecyclerView.Adapter<StreetAdapter.ViewHolder
                         default:
                             newFragment.setNumberOfCardsWhichUserMustChoose(1);
                     }
-                    newFragment.setmListener(this);
+                    //newFragment.setmListener(this);
                     ft.addToBackStack(null);
                     newFragment.show(ft, "dialog");
                     break;
@@ -111,6 +111,7 @@ public class StreetAdapter extends RecyclerView.Adapter<StreetAdapter.ViewHolder
             }
         }
 
+/*
         @Override
         public void onDialogOkClick(DialogFragment dialog, Set<Integer> positionOfChoosenCard) {
             String s = "";
@@ -125,6 +126,7 @@ public class StreetAdapter extends RecyclerView.Adapter<StreetAdapter.ViewHolder
         @Override
         public void onDialogCancelClick(DialogFragment dialog) {
         }
+*/
 
 
     }

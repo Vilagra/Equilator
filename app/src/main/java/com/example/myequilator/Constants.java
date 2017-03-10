@@ -6,6 +6,7 @@ package com.example.myequilator;
 
 public class Constants {
     public final static int REQUEST_CODE_RANGE = 1;
+    public final static int REQUEST_CODE_CARD = 2;
     public final static String POSITION_OF_ADAPTER="position_of_adapter";
 
 

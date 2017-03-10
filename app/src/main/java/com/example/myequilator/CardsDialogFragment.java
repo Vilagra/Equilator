@@ -1,6 +1,8 @@
 package com.example.myequilator;
 
 import android.app.DialogFragment;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -33,6 +35,9 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
     int positionOfAdapter;
     int numberOfCardsWhichUserMustChoose;
 
+    Button buttonOk;
+    Button buttonCancel;
+
     public void setNumberOfCardsWhichUserMustChoose(int numberOfCardsWhichUserMustChoose) {
         this.numberOfCardsWhichUserMustChoose = numberOfCardsWhichUserMustChoose;
     }
@@ -41,15 +46,17 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
         this.positionOfAdapter = positionOfAdapter;
     }
 
-    Button buttonOk;
-    Button buttonCancel;
-
     public interface CardDialogFragmentListener {
-        public void onDialogOkClick(DialogFragment dialog, Set<Integer> card);
+        public void onDialogOkClick(DialogFragment dialog, Intent data);
         public void onDialogCancelClick(DialogFragment dialog);
     }
     public interface SetterPositionOfAdapter{
         void setPosition(int i);
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
     }
 
     @Override
@@ -60,9 +67,9 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
         outState.putInt(NUMBER_OF_CARDS,numberOfCardsWhichUserMustChoose);
     }
 
-    public void setmListener(CardDialogFragmentListener mListener) {
-        this.mListener = mListener;
-    }
+    //public void setmListener(CardDialogFragmentListener mListener) {
+       // this.mListener = mListener;
+    //}
 
     public void setPositionOfChoosenCard(Set<Integer> positionOfChoosenCard) {
         this.positionOfChoosenCard = positionOfChoosenCard;
@@ -93,6 +100,7 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
         // Pick a style based on the num.
         int style = DialogFragment.STYLE_NORMAL, theme = android.R.style.Theme_Holo_Light_DialogWhenLarge;
         setStyle(style, theme);
+        mListener= (CardDialogFragmentListener) getActivity();
 
     }
 
@@ -121,21 +129,25 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
         buttonOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mListener==null){
-                    RecyclerView recyclerViewFromActivity = (RecyclerView) getActivity().findViewById(R.id.recycler);
+/*                if(mListener==null){
+                    RecyclerView recyclerViewFromActivity =0 (RecyclerView) getActivity().findViewById(R.id.recycler);
                     setmListener((CardDialogFragmentListener) recyclerViewFromActivity.findViewHolderForAdapterPosition(positionOfAdapter));
-                }
-                mListener.onDialogOkClick(CardsDialogFragment.this, positionOfChoosenCard);
+                }*/
+                //mListener.onDialogOkClick(CardsDialogFragment.this, positionOfChoosenCard);
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra(Constants.INDEXES_DATA_WAS_CHOSEN,(TreeSet)positionOfChoosenCard);
+                resultIntent.putExtra(Constants.POSITION_OF_ADAPTER, positionOfAdapter);
+                mListener.onDialogOkClick(CardsDialogFragment.this,resultIntent);
                 dismiss();
             }
         });
         buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mListener==null){
+/*                if(mListener==null){
                     RecyclerView recyclerView = (RecyclerView) getActivity().findViewById(R.id.recycler);
                     setmListener((CardDialogFragmentListener) recyclerView.findViewHolderForAdapterPosition(positionOfAdapter));
-                }
+                }*/
                 mListener.onDialogCancelClick(CardsDialogFragment.this);
                 dismiss();
             }

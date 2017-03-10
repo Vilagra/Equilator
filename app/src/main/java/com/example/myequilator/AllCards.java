@@ -81,6 +81,24 @@ public class AllCards {
         }
         return stringBuilder.toString();
     }
+    public static String getStringFromCard(Set<Integer> set){
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Integer integer : set) {
+            stringBuilder.append(allCards.get(integer).getStringOfCard());
+        }
+        return stringBuilder.toString();
+    }
+
+    public static void unCheckFlags(Set<Integer> setPositioWasChoosen){
+        for (Integer integer : setPositioWasChoosen) {
+            wasChosen[integer] = false;
+        }
+    }
+    public static void checkFlags(Set<Integer> setPositioWasChoosen){
+        for (Integer integer : setPositioWasChoosen) {
+            wasChosen[integer] = true;
+        }
+    }
 
     public static Card findCardByString(String s) {
         return cardsMap.get(s);
