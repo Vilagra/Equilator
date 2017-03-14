@@ -186,7 +186,6 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
                 });
                 progressDialog.show();
                 t.start();
-
         }
     }
 

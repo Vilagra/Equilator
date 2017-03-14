@@ -1,22 +1,17 @@
 package com.example.myequilator.adapters;
 
 import android.content.Context;
-import android.content.res.ColorStateList;
-import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.myequilator.AllCards;
 import com.example.myequilator.R;
 
-import java.io.IOException;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -40,7 +35,7 @@ public class AdapterForRange extends RecyclerView.Adapter<AdapterForRange.ViewHo
 
     public AdapterForRange(Context contexts, Set<Integer> set) {
         ctx = contexts;
-        mDataset = AllCards.allCombinations;
+        mDataset = AllCards.allCombinationsInRecyclerOrderInStrings;
         choosen = set;
     }
 
