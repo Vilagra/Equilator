@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -15,7 +16,7 @@ import java.util.Set;
 
 public class AllCards {
     private static final Character[] allSuit = {'d', 's', 'h', 'c'};
-    private static final Character[] allRank = {'2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A'};
+    private static final Character[] allRank = {'A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2'};
     private static final String handsRankingInProcent ="AA=0.5,KK=0.9,QQ=1.4,JJ=1.8,TT=2.3,99=3.0,88=5.3,77=10.3,66=16.1,55=25.6,44=36.7,33=48.6,22=59.6," +
             "AKs=2.6,AQs=3.3,AJs=4.5,ATs=5.6,A9s=9.8,A8s=12.7,A7s=14.2,A6s=16.4,A5s=15.7,A4s=19.2,A3s=21.9,A2s=23.4,KQs=4.8,KJs=6.8,KTs=7.1,K9s=13.0,K8s=19.5," +
             "K7s=20.7,K6s=23.7,K5s=27.1,K4s=31.4,K3s=34.7,K2s=38.8,QJs=7.4,QTs=9.8,Q9s=15.4,Q8s=22.2,Q7s=27.5,Q6s=32.6,Q5s=35.3,Q4s=40.0,Q3s=45.4,Q2s=47.8,JTs=11.5," +
@@ -41,7 +42,7 @@ public class AllCards {
                 cardsMap.put(card.getStringOfCard(), card);
             }
         }
-        Collections.reverse(allCards);
+        //Collections.reverse(allCards);
         HashMap<String,Double> hashMap = new HashMap<>();
         for (String s : handsRankingInProcent.split(",")) {
             String[] strings=s.split("=");
@@ -59,24 +60,25 @@ public class AllCards {
                         afterPocket = true;
                         continue;
                     } else {
-                        String combination="" + rank + rank2 + "s";
+                        String combination="" + rank2 + rank + "o";
                         allCombinationsInRecyclerOrderInStrings.add(combination);
                         allCombinationsInRankingOrder.add(new Combination(combination,allCombinationsInRecyclerOrderInStrings.indexOf(combination),
-                                Combination.Kind.SUITED,hashMap.get(combination)));
+                                Combination.Kind.OFFSUITED,hashMap.get(combination)));
                     }
                 } else {
-                    String combination="" + rank2 + rank + "o";
+                    String combination="" + rank + rank2 + "s";
                     allCombinationsInRecyclerOrderInStrings.add(combination);
                     allCombinationsInRankingOrder.add(new Combination(combination,allCombinationsInRecyclerOrderInStrings.indexOf(combination),
-                            Combination.Kind.OFFSUITED,hashMap.get(combination)));
+                            Combination.Kind.SUITED,hashMap.get(combination)));
                 }
             }
         }
-        Collections.reverse(allCombinationsInRecyclerOrderInStrings);
+        Collections.sort(allCombinationsInRankingOrder);
+        //Collections.reverse(allCombinationsInRecyclerOrderInStrings);
     }
 
     public static void main(String[] args) {
-        System.out.println(allCombinationsInRecyclerOrderInStrings);
+/*        System.out.println(allCombinationsInRecyclerOrderInStrings);
         for (int i = 0; i < allCombinationsInRecyclerOrderInStrings.size(); ) {
             System.out.print(allCombinationsInRecyclerOrderInStrings.get(i)+"="+0.0+",");
             i+=14;
@@ -92,7 +94,19 @@ public class AllCards {
             for (int j = i+1; j < 13; j++) {
                 System.out.print(allCombinationsInRecyclerOrderInStrings.get(j*13+i)+"="+0.0+",");
             }
+        }*/
+    }
+    public static Set<Integer> getIndexesByRecyclerBaseOnRanking(double ranking){
+        Set<Integer> set = new HashSet<>();
+        for (Combination combination : allCombinationsInRankingOrder) {
+            if (combination.getRankingOfHand()<=ranking){
+                set.add(combination.getIndexInMatrixForRecycler());
+            }
+            else{
+                break;
+            }
         }
+        return set;
     }
 
     public static String getStringFromRange(Set<Integer> set){
