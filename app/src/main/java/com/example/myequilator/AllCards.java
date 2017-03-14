@@ -17,7 +17,7 @@ import java.util.Set;
 public class AllCards {
     private static final Character[] allSuit = {'d', 's', 'h', 'c'};
     private static final Character[] allRank = {'A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2'};
-    private static final String handsRankingInProcent ="AA=0.5,KK=0.9,QQ=1.4,JJ=1.8,TT=2.3,99=3.0,88=5.3,77=10.3,66=16.1,55=25.6,44=36.7,33=48.6,22=59.6," +
+    private static final String combinationsRankingInProcent ="AA=0.5,KK=0.9,QQ=1.4,JJ=1.8,TT=2.3,99=3.0,88=5.3,77=10.3,66=16.1,55=25.6,44=36.7,33=48.6,22=59.6," +
             "AKs=2.6,AQs=3.3,AJs=4.5,ATs=5.6,A9s=9.8,A8s=12.7,A7s=14.2,A6s=16.4,A5s=15.7,A4s=19.2,A3s=21.9,A2s=23.4,KQs=4.8,KJs=6.8,KTs=7.1,K9s=13.0,K8s=19.5," +
             "K7s=20.7,K6s=23.7,K5s=27.1,K4s=31.4,K3s=34.7,K2s=38.8,QJs=7.4,QTs=9.8,Q9s=15.4,Q8s=22.2,Q7s=27.5,Q6s=32.6,Q5s=35.3,Q4s=40.0,Q3s=45.4,Q2s=47.8,JTs=11.5," +
             "J9s=17.6,J8s=24.0,J7s=32.9,J6s=41.2,J5s=45.7,J4s=48.1,J3s=53.4,J2s=57.3,T9s=18.9,T8s=24.3,T7s=33.2,T6s=43.3,T5s=52.2,T4s=56.1,T3s=59.1,T2s=62.0,98s=26.8," +
@@ -44,7 +44,7 @@ public class AllCards {
             }
         }
         HashMap<String,Double> hashMap = new HashMap<>();
-        for (String s : handsRankingInProcent.split(",")) {
+        for (String s : combinationsRankingInProcent.split(",")) {
             String[] strings=s.split("=");
             hashMap.put(strings[0],Double.valueOf(strings[1]));
         }

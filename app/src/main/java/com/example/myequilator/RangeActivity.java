@@ -20,6 +20,7 @@ import android.widget.TextView;
 import com.example.myequilator.adapters.AdapterForRange;
 import com.example.myequilator.entity.Combination;
 
+import java.text.DecimalFormat;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -74,6 +75,9 @@ public class RangeActivity extends AppCompatActivity implements View.OnClickList
             case R.id.procent:
                 final EditText input = new EditText(this);
                 input.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+                input.setHint("00.0");
+                input.setBackground(getResources().getDrawable(R.drawable.blue_out_line));
+                input.setMaxWidth(40);
                 //input.setInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL);
                 //input.setRawInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL);
                 AlertDialog.Builder alert = new AlertDialog.Builder(this);
@@ -85,11 +89,16 @@ public class RangeActivity extends AppCompatActivity implements View.OnClickList
                     public void onClick(DialogInterface dialog, int which) {
                         String str = input.getText().toString();
                         double res;
-                        if(str.matches("[-+]?\\d*\\.?\\d+")){
+                        if(str.matches("[-+]?\\d*\\.?\\d*")){
+                            if(str.matches("\\d*\\.\\d\\d+")){
+                                str = String.format("%.1f", Double.valueOf(str));
+                                str=str.replace(",",".");
+                            }
                             res=Double.valueOf(str);
                             res=res>100?100:res;
                             procent.setText(String.valueOf(res));
-                            setInAdapterRangeByProcent(res);
+                            seekBar.setProgress((int) (res*10));
+                            //setInAdapterRangeByProcent(res);
                         }
                     }
                 });
