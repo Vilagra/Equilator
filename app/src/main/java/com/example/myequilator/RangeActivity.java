@@ -1,10 +1,16 @@
 package com.example.myequilator;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.InputType;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,7 +18,9 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.example.myequilator.adapters.AdapterForRange;
+import com.example.myequilator.entity.Combination;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,7 +29,7 @@ public class RangeActivity extends AppCompatActivity implements View.OnClickList
     Button buttonCancel;
     AdapterForRange adapterForRange;
     SeekBar seekBar;
-    EditText procent;
+    TextView procent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +47,10 @@ public class RangeActivity extends AppCompatActivity implements View.OnClickList
         buttonOk = (Button) findViewById(R.id.ok);
         buttonCancel = (Button) findViewById(R.id.cancel);
         seekBar = (SeekBar) findViewById(R.id.sbWeight);
-        procent = (EditText) findViewById(R.id.procent);
+        seekBar.setMax(1000);
+        procent = (TextView) findViewById(R.id.procent);
         seekBar.setOnSeekBarChangeListener(this);
+        procent.setOnClickListener(this);
         buttonOk.setOnClickListener(this);
         buttonCancel.setOnClickListener(this);
     }
@@ -61,15 +71,38 @@ public class RangeActivity extends AppCompatActivity implements View.OnClickList
                 setResult(RESULT_CANCELED);
                 finish();
                 break;
+            case R.id.procent:
+                final EditText input = new EditText(this);
+                input.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+                //input.setInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL);
+                //input.setRawInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL);
+                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                alert.setTitle("Range").
+                        setMessage("EnterRange").
+                        setView(input).
+                        setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String str = input.getText().toString();
+                        double res;
+                        if(str.matches("[-+]?\\d*\\.?\\d+")){
+                            res=Double.valueOf(str);
+                            res=res>100?100:res;
+                            procent.setText(String.valueOf(res));
+                            setInAdapterRangeByProcent(res);
+                        }
+                    }
+                });
+                alert.show();
         }
     }
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        double progres = progress/10;
-        procent.setText(String.valueOf(progres));
-        adapterForRange.setChoosen(AllCards.getIndexesByRecyclerBaseOnRanking(progres));
-        adapterForRange.notifyDataSetChanged();
+        double progress2 = progress/10.0;
+        procent.setText(String.valueOf(progress2));
+        setInAdapterRangeByProcent(progress2);
+
     }
 
     @Override
@@ -80,5 +113,12 @@ public class RangeActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
 
+    }
+
+    private void setInAdapterRangeByProcent(double progress){
+        int index= Collections.binarySearch(AllCards.allCombinationsInRankingOrder,new Combination(null,-1,null,progress));
+        index=index<0?(-(index)-2):index+1;
+        adapterForRange.setChoosen(AllCards.getIndexesByRecyclerBaseOnRanking(index));
+        adapterForRange.notifyDataSetChanged();
     }
 }

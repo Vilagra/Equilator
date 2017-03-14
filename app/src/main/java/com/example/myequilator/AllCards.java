@@ -31,10 +31,11 @@ public class AllCards {
     public static final ArrayList<Card> allCards = new ArrayList<>(52);
     public static final ArrayList<String> allCombinationsInRecyclerOrderInStrings = new ArrayList<>();
     public static final ArrayList<Combination> allCombinationsInRankingOrder = new ArrayList<>();
+    public static final ArrayList<Integer> inexesForRecyclerByRanking=new ArrayList<>();
     public static final HashMap<String, Card> cardsMap = new HashMap<>();
     public static final boolean[] wasChosen = new boolean[52];
 
-    static {
+    public static void initializeData() {
         for (Character rank : allRank) {
             for (Character suit : allSuit) {
                 Card card = new Card(rank, suit);
@@ -42,7 +43,6 @@ public class AllCards {
                 cardsMap.put(card.getStringOfCard(), card);
             }
         }
-        //Collections.reverse(allCards);
         HashMap<String,Double> hashMap = new HashMap<>();
         for (String s : handsRankingInProcent.split(",")) {
             String[] strings=s.split("=");
@@ -74,7 +74,10 @@ public class AllCards {
             }
         }
         Collections.sort(allCombinationsInRankingOrder);
-        //Collections.reverse(allCombinationsInRecyclerOrderInStrings);
+        for (Combination combination : allCombinationsInRankingOrder) {
+            inexesForRecyclerByRanking.add(combination.getIndexInMatrixForRecycler());
+        }
+
     }
 
     public static void main(String[] args) {
@@ -95,18 +98,17 @@ public class AllCards {
                 System.out.print(allCombinationsInRecyclerOrderInStrings.get(j*13+i)+"="+0.0+",");
             }
         }*/
+        initializeData();
+        int index = -43;
+        System.out.println(index<0?(-(-index)-2):index+1);
+        System.out.println((-(-3))-2);
     }
-    public static Set<Integer> getIndexesByRecyclerBaseOnRanking(double ranking){
-        Set<Integer> set = new HashSet<>();
-        for (Combination combination : allCombinationsInRankingOrder) {
-            if (combination.getRankingOfHand()<=ranking){
-                set.add(combination.getIndexInMatrixForRecycler());
-            }
-            else{
-                break;
-            }
+    public static Set<Integer> getIndexesByRecyclerBaseOnRanking(int index){
+        if(index>0) {
+            return new HashSet<>(inexesForRecyclerByRanking.subList(0, index));
+        }else {
+            return new HashSet<>();
         }
-        return set;
     }
 
     public static String getStringFromRange(Set<Integer> set){
