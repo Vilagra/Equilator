@@ -21,9 +21,9 @@ public class Card {
         stringOfCard = ""+rank+suit;
     }
 
-    public Drawable getPicture() {
-        return picture;
-    }
+    //public Drawable getPicture() {
+        //return picture;
+    //}
 
     @Override
     public boolean equals(Object o) {
@@ -45,7 +45,6 @@ public class Card {
     }
 
     public Drawable getPicture(Context context) {
-
         if(picture!=null) {
             return picture;
         }

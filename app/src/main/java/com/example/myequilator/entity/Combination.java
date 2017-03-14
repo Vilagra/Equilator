@@ -28,4 +28,30 @@ public class Combination implements Comparable<Combination> {
         this.kind = kind;
         this.rankingOfHand = rankingOfHand;
     }
+
+    @Override
+    public String toString() {
+        return "Combination{" +
+                "combination='" + combination + '\'' +
+                ", rankingOfHand=" + rankingOfHand +
+                ", kind=" + kind +
+                ", indexInMatrixForRecycler=" + indexInMatrixForRecycler +
+                '}';
+    }
+
+    public String getCombination() {
+        return combination;
+    }
+
+    public int getIndexInMatrixForRecycler() {
+        return indexInMatrixForRecycler;
+    }
+
+    public Kind getKind() {
+        return kind;
+    }
+
+    public double getRankingOfHand() {
+        return rankingOfHand;
+    }
 }

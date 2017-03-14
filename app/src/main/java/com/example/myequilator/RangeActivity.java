@@ -7,16 +7,21 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
 import com.example.myequilator.adapters.AdapterForRange;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class RangeActivity extends AppCompatActivity implements View.OnClickListener {
+public class RangeActivity extends AppCompatActivity implements View.OnClickListener,SeekBar.OnSeekBarChangeListener {
     Button buttonOk;
     Button buttonCancel;
     AdapterForRange adapterForRange;
+    SeekBar seekBar;
+    EditText procent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +38,9 @@ public class RangeActivity extends AppCompatActivity implements View.OnClickList
         recyclerView.setAdapter(adapterForRange);
         buttonOk = (Button) findViewById(R.id.ok);
         buttonCancel = (Button) findViewById(R.id.cancel);
+        seekBar = (SeekBar) findViewById(R.id.sbWeight);
+        procent = (EditText) findViewById(R.id.procent);
+        seekBar.setOnSeekBarChangeListener(this);
         buttonOk.setOnClickListener(this);
         buttonCancel.setOnClickListener(this);
     }
@@ -54,5 +62,23 @@ public class RangeActivity extends AppCompatActivity implements View.OnClickList
                 finish();
                 break;
         }
+    }
+
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+        double progres = progress/10;
+        procent.setText(String.valueOf(progres));
+        adapterForRange.setChoosen(AllCards.getIndexesByRecyclerBaseOnRanking(progres));
+        adapterForRange.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+
     }
 }
