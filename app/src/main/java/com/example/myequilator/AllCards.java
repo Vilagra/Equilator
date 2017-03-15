@@ -98,10 +98,7 @@ public class AllCards {
                 System.out.print(allCombinationsInRecyclerOrderInStrings.get(j*13+i)+"="+0.0+",");
             }
         }*/
-        initializeData();
-        int index = -43;
-        System.out.println(index<0?(-(-index)-2):index+1);
-        System.out.println((-(-3))-2);
+
     }
     public static Set<Integer> getIndexesByRecyclerBaseOnRanking(int index){
         if(index>0) {
@@ -117,7 +114,7 @@ public class AllCards {
         String endOfRange="";
         boolean rangeIsInterrupted=true;
         String firstHand= allCombinationsInRecyclerOrderInStrings.get(0);
-        for (int i = 0; i < allCombinationsInRecyclerOrderInStrings.size(); i+=14) {
+        for (int i = 0; i < allCombinationsInRecyclerOrderInStrings.size(); i+=14) {  //go through all pockets AA KK etc
             if(set.contains(i)){
                 String value= allCombinationsInRecyclerOrderInStrings.get(i);
                 if(startOfRange.equals("")){
@@ -148,7 +145,7 @@ public class AllCards {
                 rangeIsInterrupted=true;
             }
         }
-        for (int i = 0; i < 13; i++) {
+        for (int i = 0; i < 13; i++) {     //go through all suited AKs,AQs etc
             for (int j = i+1; j < 13; j++) {
                 if(j==i+1){
                     firstHand= allCombinationsInRecyclerOrderInStrings.get(i*13+j);
@@ -182,12 +179,9 @@ public class AllCards {
                     firstHand="";
                     rangeIsInterrupted=true;
                 }
-
-                //System.out.print(allCombinationsInRecyclerOrderInStrings.get(i*13+j)+" ");
             }
         }
-        //System.out.println();
-        for (int i = 0; i < 13; i++) {
+        for (int i = 0; i < 13; i++) {  //go through all offsuited AKo AQo etc
             for (int j = i+1; j < 13; j++) {
                 if (j==i+1){
                     firstHand= allCombinationsInRecyclerOrderInStrings.get(j*13+i);

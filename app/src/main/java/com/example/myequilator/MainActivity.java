@@ -86,7 +86,6 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
         recyclerViewPosition.setLayoutManager(manager);
         streetAdapter = new StreetAdapter(MainActivity.this, dataForRecycler);
         if (textFomEditTextStreet != null) {
-            //Log.d(MY_LOG,Arrays.toString(textFomEditTextStreet));
             streetAdapter.setTextFromEditViewStreet(textFomEditTextStreet);
         }
         recyclerViewPosition.setAdapter(streetAdapter);
@@ -94,8 +93,6 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
         handler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
-                //double[] equity =msg.getData().getDoubleArray(EQUITY);
-                //myPositionAdapter.setResult(equity);
                 myPositionAdapter.notifyDataSetChanged();
             }
         };

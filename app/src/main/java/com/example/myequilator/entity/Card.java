@@ -21,9 +21,7 @@ public class Card {
         stringOfCard = ""+rank+suit;
     }
 
-    //public Drawable getPicture() {
-        //return picture;
-    //}
+
 
     @Override
     public boolean equals(Object o) {
