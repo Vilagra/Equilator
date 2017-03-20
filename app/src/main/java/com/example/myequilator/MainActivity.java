@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
     RecyclerView recyclerView;
     StreetAdapter streetAdapter;
     Handler handler;
+    private static boolean RUN_ONCE = true;
 
     int positionOfAdapterBeforeRotate = -1;
 
@@ -44,8 +45,10 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d(Constants.MY_LOG, "createAct");
-
-        AllCards.initializeData();
+        if(RUN_ONCE) {
+            AllCards.initializeData();
+            RUN_ONCE=false;
+        }
         tabHost = (TabHost) findViewById(android.R.id.tabhost);
         tabHost.setup();
 
