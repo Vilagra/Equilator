@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -29,11 +30,13 @@ public class AllCards {
             "85o=75.9,84o=86.4,83o=94.6,82o=96.4,76o=61.7,75o=74.7,74o=85.5,73o=93.7,72o=99.1,65o=71.6,64o=83.4,63o=91.0,62o=98.2,54o=80.1,53o=89.1,52o=95.5,43o=91.9," +
             "42o=97.3,32o=100.0";
     public static final ArrayList<Card> allCards = new ArrayList<>(52);
-    public static final ArrayList<String> allCombinationsInRecyclerOrderInStrings = new ArrayList<>();
-    public static final ArrayList<Combination> allCombinationsInRankingOrder = new ArrayList<>();
-    public static final ArrayList<Integer> inexesForRecyclerByRanking=new ArrayList<>();
     public static final HashMap<String, Card> cardsMap = new HashMap<>();
     public static final boolean[] wasChosen = new boolean[52];
+    public static final ArrayList<String> allCombinationsInRecyclerOrderInStrings = new ArrayList<>();
+    public static final ArrayList<Combination> allCombinationsInRankingOrder = new ArrayList<>();
+    public static final Map<String,Combination> combinationsMap = new HashMap<>();
+    public static final ArrayList<Integer> inexesForRecyclerByRanking=new ArrayList<>();
+
 
     public static void initializeData() {
         for (Character rank : allRank) {
@@ -50,27 +53,30 @@ public class AllCards {
         }
         for (Character rank : allRank) {
             boolean afterPocket = false;
+            String stringCombination="";
+            Combination combination=null;
             for (Character rank2 : allRank) {
                 if (!afterPocket) {
                     if (rank.equals(rank2)) {
-                        String combination="" + rank + rank2;
-                        allCombinationsInRecyclerOrderInStrings.add(combination);
-                        allCombinationsInRankingOrder.add(new Combination(combination,allCombinationsInRecyclerOrderInStrings.indexOf(combination),
-                                Combination.Kind.POCKET,hashMap.get(combination)));
+                        stringCombination="" + rank + rank2;
+                        allCombinationsInRecyclerOrderInStrings.add(stringCombination);
+                        combination= new Combination(stringCombination,allCombinationsInRecyclerOrderInStrings.indexOf(stringCombination),
+                                Combination.Kind.POCKET,hashMap.get(stringCombination));
                         afterPocket = true;
-                        continue;
                     } else {
-                        String combination="" + rank2 + rank + "o";
-                        allCombinationsInRecyclerOrderInStrings.add(combination);
-                        allCombinationsInRankingOrder.add(new Combination(combination,allCombinationsInRecyclerOrderInStrings.indexOf(combination),
-                                Combination.Kind.OFFSUITED,hashMap.get(combination)));
+                        stringCombination="" + rank2 + rank + "o";
+                        allCombinationsInRecyclerOrderInStrings.add(stringCombination);
+                        combination = new Combination(stringCombination,allCombinationsInRecyclerOrderInStrings.indexOf(stringCombination),
+                                Combination.Kind.OFFSUITED,hashMap.get(stringCombination));
                     }
                 } else {
-                    String combination="" + rank + rank2 + "s";
-                    allCombinationsInRecyclerOrderInStrings.add(combination);
-                    allCombinationsInRankingOrder.add(new Combination(combination,allCombinationsInRecyclerOrderInStrings.indexOf(combination),
-                            Combination.Kind.SUITED,hashMap.get(combination)));
+                    stringCombination="" + rank + rank2 + "s";
+                    allCombinationsInRecyclerOrderInStrings.add(stringCombination);
+                    combination=new Combination(stringCombination,allCombinationsInRecyclerOrderInStrings.indexOf(stringCombination),
+                            Combination.Kind.SUITED,hashMap.get(stringCombination));
                 }
+                combinationsMap.put(stringCombination,combination);
+                allCombinationsInRankingOrder.add(combination);
             }
         }
         Collections.sort(allCombinationsInRankingOrder);

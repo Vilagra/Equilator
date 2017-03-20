@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.example.myequilator.AllCards;
 import com.example.myequilator.R;
+import com.example.myequilator.entity.Combination;
+import com.example.myequilator.entity.IndexesDataWasChosen;
 
 import java.util.List;
 import java.util.Set;
@@ -23,6 +25,12 @@ public class AdapterForRange extends RecyclerView.Adapter<AdapterForRange.ViewHo
     private List<String> mDataset;
     private Set<Integer> choosen;
     Context ctx;
+
+    int choosenColor;
+    int pocketColor;
+    int suitColor;
+    int offsuitColor;
+
     //MyAdapterForRangeListener listener;
 
 /*    public void setListener(MyAdapterForRangeListener listener) {
@@ -37,6 +45,10 @@ public class AdapterForRange extends RecyclerView.Adapter<AdapterForRange.ViewHo
         ctx = contexts;
         mDataset = AllCards.allCombinationsInRecyclerOrderInStrings;
         choosen = set;
+        choosenColor=ContextCompat.getColor(ctx, R.color.yellow);
+        suitColor=ContextCompat.getColor(ctx,R.color.cyan);
+        offsuitColor=ContextCompat.getColor(ctx,R.color.purple);
+        pocketColor = ContextCompat.getColor(ctx,R.color.blue);
     }
 
 
@@ -69,35 +81,35 @@ public class AdapterForRange extends RecyclerView.Adapter<AdapterForRange.ViewHo
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         final String value=mDataset.get(position);
         holder.textView.setText(value);
-        setColor(value,holder.textView,position);
+        final Combination.Kind kind=AllCards.combinationsMap.get(value).getKind();
+        setColor(kind,holder.textView,position);
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(choosen.remove(position)){
-                    setColor(value,holder.textView,position);
+                    setColor(kind,holder.textView,position);
                 }
                 else {
                     choosen.add(position);
-                    setColor(value,holder.textView,position);
+                    setColor(kind,holder.textView,position);
                 }
             }
         });
 
     }
 
-    void setColor(String value, View v,int position){
+    void setColor(Combination.Kind kind, View v, int position){
         if(choosen.contains(position)){
-            v.setBackgroundColor(ContextCompat.getColor(ctx, R.color.yellow));
-            return;
+            v.setBackgroundColor(choosenColor);
         }
-        if(value.matches("\\w+s")){
-            v.setBackgroundColor(ContextCompat.getColor(ctx,R.color.cyan));
+        else if(kind== Combination.Kind.SUITED){
+            v.setBackgroundColor(suitColor);
         }
-        else if(value.matches("\\w+o")){
-            v.setBackgroundColor(ContextCompat.getColor(ctx,R.color.purple));
+        else if(kind== Combination.Kind.OFFSUITED){
+            v.setBackgroundColor(offsuitColor);
         }
         else{
-            v.setBackgroundColor(ContextCompat.getColor(ctx,R.color.blue));
+            v.setBackgroundColor(pocketColor);
         }
 
     }
