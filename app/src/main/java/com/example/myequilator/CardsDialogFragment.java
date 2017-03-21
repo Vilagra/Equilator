@@ -48,7 +48,7 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
 
     public interface CardDialogFragmentListener {
         public void onDialogOkClick(DialogFragment dialog, Intent data);
-        public void onDialogCancelClick(DialogFragment dialog);
+        public void onDialogCancelClick(DialogFragment dialog, int positionOfAdapter);
     }
     public interface SetterPositionOfAdapter{
         void setPosition(int i);
@@ -148,7 +148,7 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
                     RecyclerView recyclerView = (RecyclerView) getActivity().findViewById(R.id.recycler);
                     setmListener((CardDialogFragmentListener) recyclerView.findViewHolderForAdapterPosition(positionOfAdapter));
                 }*/
-                mListener.onDialogCancelClick(CardsDialogFragment.this);
+                mListener.onDialogCancelClick(CardsDialogFragment.this,positionOfAdapter);
                 dismiss();
             }
         });

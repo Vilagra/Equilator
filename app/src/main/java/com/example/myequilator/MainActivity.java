@@ -23,7 +23,6 @@ import com.example.myequilator.entity.IndexesDataWasChosen;
 
 import java.util.Arrays;
 import java.util.Map;
-import java.util.Set;
 
 import mi.poker.calculation.EquityCalculation;
 import mi.poker.calculation.HandInfo;
@@ -237,8 +236,11 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
     }
 
     @Override
-    public void onDialogCancelClick(DialogFragment dialog) {
-
+    public void onDialogCancelClick(DialogFragment dialog, int positionOfAdapter) {
+        IndexesDataWasChosen indexes=myPositionAdapter.getArrayIndexesDataWhichWasChoosen()[positionOfAdapter];
+        if (indexes!=null&&indexes.getType()== IndexesDataWasChosen.Type.CARD){
+            AllCards.checkFlags(indexes.getIndexesDataWasChosen());
+        }
     }
     public void updateMyPositionAdapter(DataFromIntent dataFromIntent){
         myPositionAdapter.replacedIndexesDataWasChosen(dataFromIntent);

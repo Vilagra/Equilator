@@ -83,18 +83,21 @@ public class MyAdapterForCard extends RecyclerView.Adapter<MyAdapterForCard.View
         } catch (IOException e) {
             e.printStackTrace();
         }
-        if(flags[position]==true) {
-            holder.cardView.setEnabled(false);
-            holder.cardView.setVisibility(View.INVISIBLE);
-        }
-        else {
-            holder.cardView.setEnabled(true);
-            holder.cardView.setVisibility(View.VISIBLE);
-        }
+
         if(choosen.contains(position)){
             holder.cardView.setCardBackgroundColor(ctx.getResources().getColor(R.color.colorAccent));
         }else {
-            holder.cardView.setCardBackgroundColor(colorStateList);
+            if(flags[position]==true) {
+                holder.cardView.setEnabled(false);
+                holder.cardView.setCardBackgroundColor(ctx.getResources().getColor(R.color.grey));
+                //holder.cardView.setVisibility(View.INVISIBLE);
+            }
+            else {
+                holder.cardView.setEnabled(true);
+                holder.cardView.setVisibility(View.VISIBLE);
+                holder.cardView.setCardBackgroundColor(colorStateList);
+            }
+
         }
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override

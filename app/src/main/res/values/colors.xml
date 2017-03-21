@@ -9,5 +9,6 @@
     <color name="blue">#42a5f5</color>
     <color name="cyan"> #00bcd4</color>
     <color name="yellow">#ffff00</color>
+    <color name="grey">#757575</color>
 
 </resources>

@@ -3,6 +3,7 @@ package com.example.myequilator.adapters;
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -18,6 +19,8 @@ import com.example.myequilator.CardsDialogFragment;
 import com.example.myequilator.MainActivity;
 import com.example.myequilator.R;
 import com.example.myequilator.entity.Card;
+import com.example.myequilator.entity.DataFromIntent;
+import com.example.myequilator.entity.IndexesDataWasChosen;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -30,8 +33,24 @@ import java.util.Set;
 public class StreetAdapter extends RecyclerView.Adapter<StreetAdapter.ViewHolder> {
 
     private String[] mDataset;
-    Activity act;
+    Context ctx;
     private String[] textFromEditViewStreet;
+    private IndexesDataWasChosen[] arrayIndexesDataWhichWasChoosen;
+
+    public void replacedIndexesDataWasChosen(DataFromIntent dataFromIntent) {
+        int position = dataFromIntent.getPositionOfAdapter();
+        IndexesDataWasChosen perviousIndexesDataWasChosen = arrayIndexesDataWhichWasChoosen[position];
+        if (perviousIndexesDataWasChosen != null) {
+            AllCards.unCheckFlags(perviousIndexesDataWasChosen.getIndexesDataWasChosen());
+        }
+        arrayIndexesDataWhichWasChoosen[position] = new IndexesDataWasChosen(dataFromIntent.getIndexesDataWasChosen(), dataFromIntent.getType());
+        AllCards.checkFlags(dataFromIntent.getIndexesDataWasChosen());
+
+    }
+
+    public void replacedToTextFromTextView(DataFromIntent dataFromIntent) {
+        textFromEditViewStreet[dataFromIntent.getPositionOfAdapter()] = dataFromIntent.getTextFromTextView();
+    }
 
     public String[] getTextFromEditViewStreet() {
         return textFromEditViewStreet;
@@ -42,8 +61,8 @@ public class StreetAdapter extends RecyclerView.Adapter<StreetAdapter.ViewHolder
     }
 
 
-    public StreetAdapter(Activity act, String[] data) {
-        this.act = act;
+    public StreetAdapter(Context ctx, String[] data) {
+        this.ctx = ctx;
         mDataset = data;
         textFromEditViewStreet = new String[data.length];
         Arrays.fill(textFromEditViewStreet, "");
@@ -75,7 +94,7 @@ public class StreetAdapter extends RecyclerView.Adapter<StreetAdapter.ViewHolder
                     Set<Integer> setPositioWasChoosen = new HashSet<>();
                     if (!editText.getText().toString().equals("")) {
                         String s = editText.getText().toString();
-                        for (int i = 0; i < s.length(); i +=2) {
+                        for (int i = 0; i < s.length(); i += 2) {
                             Card card = AllCards.findCardByString(s.substring(i, i + 2));
                             int position = AllCards.allCards.indexOf(card);
                             AllCards.wasChosen[position] = false;
@@ -83,11 +102,11 @@ public class StreetAdapter extends RecyclerView.Adapter<StreetAdapter.ViewHolder
                         }
                         editText.setText("");
                     }
-                    FragmentTransaction ft = StreetAdapter.this.act.getFragmentManager().beginTransaction();
+                    FragmentTransaction ft = ((Activity)ctx).getFragmentManager().beginTransaction();
                     CardsDialogFragment newFragment = new CardsDialogFragment();
                     newFragment.setPositionOfChoosenCard(setPositioWasChoosen);
                     newFragment.setPositionOfAdapter(getAdapterPosition());
-                    switch (mTextView.getText().toString()){
+                    switch (mTextView.getText().toString()) {
                         case "Flop":
                             newFragment.setNumberOfCardsWhichUserMustChoose(3);
                             break;
@@ -100,7 +119,7 @@ public class StreetAdapter extends RecyclerView.Adapter<StreetAdapter.ViewHolder
                     break;
                 case R.id.remove_street:
                     String s = editText.getText().toString();
-                    for (int i = 0; i < s.length(); i +=2) {
+                    for (int i = 0; i < s.length(); i += 2) {
                         Card card = AllCards.findCardByString(s.substring(i, i + 2));
                         int position = AllCards.allCards.indexOf(card);
                         AllCards.wasChosen[position] = false;
@@ -145,8 +164,8 @@ public class StreetAdapter extends RecyclerView.Adapter<StreetAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        if(mDataset[position].equals("Flop")){
-            holder.editText.getLayoutParams().width=200;
+        if (mDataset[position].equals("Flop")) {
+            holder.editText.getLayoutParams().width = 200;
         }
         holder.mTextView.setText(mDataset[position]);
         String s = textFromEditViewStreet[position];

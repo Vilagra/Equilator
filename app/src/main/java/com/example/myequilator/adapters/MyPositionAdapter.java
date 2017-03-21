@@ -62,9 +62,6 @@ public class MyPositionAdapter extends RecyclerView.Adapter<MyPositionAdapter.Vi
     }
 
 
-
-
-
     public IndexesDataWasChosen[] getArrayIndexesDataWhichWasChoosen() {
         return arrayIndexesDataWhichWasChoosen;
     }
@@ -122,7 +119,6 @@ public class MyPositionAdapter extends RecyclerView.Adapter<MyPositionAdapter.Vi
 
         public void onClick(View v) {
             int position = getAdapterPosition();
-            //Set<Integer> setPositioWasChoosen=new TreeSet<>();
             IndexesDataWasChosen indexes=arrayIndexesDataWhichWasChoosen[position];
             switch (v.getId()) {
                 case R.id.hand:
