@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TabHost;
 
+import com.example.myequilator.adapters.MyAdapter;
 import com.example.myequilator.adapters.MyPositionAdapter;
 import com.example.myequilator.adapters.StreetAdapter;
 import com.example.myequilator.entity.DataFromIntent;
@@ -220,11 +221,19 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
             switch (requestCode) {
                 case Constants.REQUEST_CODE_RANGE:
                     dataFromIntent = new DataFromIntent(data, IndexesDataWasChosen.Type.RANGE);
-                    updateMyPositionAdapter(dataFromIntent);
+                    updateMyPositionAdapter(dataFromIntent,myPositionAdapter);
                     break;
                 case Constants.REQUEST_CODE_CARD:
                     dataFromIntent = new DataFromIntent(data, IndexesDataWasChosen.Type.CARD);
-                    updateMyPositionAdapter(dataFromIntent);
+                    String type_of_adapter = data.getStringExtra(Constants.KIND_OF_ADAPTER);
+                    switch (type_of_adapter){
+                        case Constants.POSITION_ADAPTER:
+                            updateMyPositionAdapter(dataFromIntent,myPositionAdapter);
+                            break;
+                        case Constants.STREET_ADAPTER:
+                            updateMyPositionAdapter(dataFromIntent,streetAdapter);
+                            break;
+                    }
                     break;
             }
         }
@@ -242,10 +251,10 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
             AllCards.checkFlags(indexes.getIndexesDataWasChosen());
         }
     }
-    public void updateMyPositionAdapter(DataFromIntent dataFromIntent){
-        myPositionAdapter.replacedIndexesDataWasChosen(dataFromIntent);
-        myPositionAdapter.replacedToTextFromTextView(dataFromIntent);
-        myPositionAdapter.notifyDataSetChanged();
+    public void updateMyPositionAdapter(DataFromIntent dataFromIntent, MyAdapter adapter){
+        adapter.replacedIndexesDataWasChosen(dataFromIntent);
+        adapter.replacedToTextFromTextView(dataFromIntent);
+        adapter.notifyDataSetChanged();
     }
 
 }

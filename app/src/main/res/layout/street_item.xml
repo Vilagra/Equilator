@@ -35,8 +35,8 @@
             android:onClick="onClick"
             android:src="@drawable/ic_x" />
 
-        <EditText
-            android:id="@+id/hand_range_street"
+        <TextView
+            android:id="@+id/hand_text"
             android:layout_width="30dp"
             android:layout_height="32dp"
             android:layout_gravity="center"

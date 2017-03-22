@@ -34,6 +34,7 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
     Set<Integer> positionOfChoosenCard = new TreeSet<>();
     int positionOfAdapter;
     int numberOfCardsWhichUserMustChoose;
+    String kindOfAdapter;
 
     Button buttonOk;
     Button buttonCancel;
@@ -44,6 +45,10 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
 
     public void setPositionOfAdapter(int positionOfAdapter) {
         this.positionOfAdapter = positionOfAdapter;
+    }
+
+    public void setKindOfAdapter(String kindOfAdapter) {
+        this.kindOfAdapter = kindOfAdapter;
     }
 
     public interface CardDialogFragmentListener {
@@ -79,7 +84,7 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
     public void onClickByCard(Set<Integer> positionOfChoosenCard) {
         if(positionOfChoosenCard.size()==numberOfCardsWhichUserMustChoose){
             buttonOk.setEnabled(true);
-            setPositionOfChoosenCard(positionOfChoosenCard);
+            //setPositionOfChoosenCard(positionOfChoosenCard);
         }
         else{
             buttonOk.setEnabled(false);
@@ -118,7 +123,7 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
         RecyclerView recyclerView = (RecyclerView) v.findViewById(R.id.recycler_card);
         GridLayoutManager manager = new GridLayoutManager(this.getActivity(), 4, GridLayoutManager.HORIZONTAL,false);
         recyclerView.setLayoutManager(manager);
-        MyAdapterForCard myAdapterForCard=new MyAdapterForCard(getActivity(),positionOfChoosenCard,numberOfCardsWhichUserMustChoose);
+        final MyAdapterForCard myAdapterForCard=new MyAdapterForCard(getActivity(),positionOfChoosenCard,numberOfCardsWhichUserMustChoose);
         myAdapterForCard.setListener(this);
         recyclerView.setAdapter(myAdapterForCard);
         buttonOk= (Button) v.findViewById(R.id.ok);
@@ -135,8 +140,9 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
                 }*/
                 //mListener.onDialogOkClick(CardsDialogFragment.this, positionOfChoosenCard);
                 Intent resultIntent = new Intent();
-                resultIntent.putExtra(Constants.INDEXES_DATA_WAS_CHOSEN,(TreeSet)positionOfChoosenCard);
+                resultIntent.putExtra(Constants.INDEXES_DATA_WAS_CHOSEN,(TreeSet)myAdapterForCard.getChoosen());
                 resultIntent.putExtra(Constants.POSITION_OF_ADAPTER, positionOfAdapter);
+                resultIntent.putExtra(Constants.KIND_OF_ADAPTER,kindOfAdapter);
                 mListener.onDialogOkClick(CardsDialogFragment.this,resultIntent);
                 dismiss();
             }
@@ -144,10 +150,6 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
         buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-/*                if(mListener==null){
-                    RecyclerView recyclerView = (RecyclerView) getActivity().findViewById(R.id.recycler);
-                    setmListener((CardDialogFragmentListener) recyclerView.findViewHolderForAdapterPosition(positionOfAdapter));
-                }*/
                 mListener.onDialogCancelClick(CardsDialogFragment.this,positionOfAdapter);
                 dismiss();
             }

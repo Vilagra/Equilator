@@ -16,12 +16,15 @@ import android.widget.TextView;
 
 import com.example.myequilator.AllCards;
 import com.example.myequilator.CardsDialogFragment;
+import com.example.myequilator.Constants;
 import com.example.myequilator.MainActivity;
 import com.example.myequilator.R;
 import com.example.myequilator.entity.Card;
 import com.example.myequilator.entity.DataFromIntent;
 import com.example.myequilator.entity.IndexesDataWasChosen;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -30,7 +33,7 @@ import java.util.Set;
  * Created by Vilagra on 10.01.2017.
  */
 
-public class StreetAdapter extends RecyclerView.Adapter<StreetAdapter.ViewHolder> {
+public class StreetAdapter extends MyAdapter<StreetAdapter.ViewHolder> {
 
     private String[] mDataset;
     Context ctx;
@@ -65,6 +68,7 @@ public class StreetAdapter extends RecyclerView.Adapter<StreetAdapter.ViewHolder
         this.ctx = ctx;
         mDataset = data;
         textFromEditViewStreet = new String[data.length];
+        arrayIndexesDataWhichWasChoosen = new IndexesDataWasChosen[data.length];
         Arrays.fill(textFromEditViewStreet, "");
     }
 
@@ -72,7 +76,7 @@ public class StreetAdapter extends RecyclerView.Adapter<StreetAdapter.ViewHolder
         // each data item is just a string in this case
         CardView cardView;
         TextView mTextView;
-        EditText editText;
+        TextView handText;
         ImageButton hand;
         ImageButton remove;
 
@@ -80,7 +84,7 @@ public class StreetAdapter extends RecyclerView.Adapter<StreetAdapter.ViewHolder
             super(card);
             cardView = card;
             mTextView = (TextView) card.findViewById(R.id.street);
-            editText = (EditText) card.findViewById(R.id.hand_range_street);
+            handText = (TextView) card.findViewById(R.id.hand_text);
             hand = (ImageButton) card.findViewById(R.id.hand_street);
             remove = (ImageButton) card.findViewById(R.id.remove_street);
             hand.setOnClickListener(this);
@@ -89,23 +93,18 @@ public class StreetAdapter extends RecyclerView.Adapter<StreetAdapter.ViewHolder
         }
 
         public void onClick(View v) {
+            int position = getAdapterPosition();
+            IndexesDataWasChosen indexes=arrayIndexesDataWhichWasChoosen[position];
             switch (v.getId()) {
                 case R.id.hand_street:
-                    Set<Integer> setPositioWasChoosen = new HashSet<>();
-                    if (!editText.getText().toString().equals("")) {
-                        String s = editText.getText().toString();
-                        for (int i = 0; i < s.length(); i += 2) {
-                            Card card = AllCards.findCardByString(s.substring(i, i + 2));
-                            int position = AllCards.allCards.indexOf(card);
-                            AllCards.wasChosen[position] = false;
-                            setPositioWasChoosen.add(position);
-                        }
-                        editText.setText("");
-                    }
                     FragmentTransaction ft = ((Activity)ctx).getFragmentManager().beginTransaction();
                     CardsDialogFragment newFragment = new CardsDialogFragment();
-                    newFragment.setPositionOfChoosenCard(setPositioWasChoosen);
-                    newFragment.setPositionOfAdapter(getAdapterPosition());
+                    if (indexes != null) {
+                        AllCards.unCheckFlags(indexes.getIndexesDataWasChosen());
+                        newFragment.setPositionOfChoosenCard(indexes.getIndexesDataWasChosen());
+                    }
+
+                    newFragment.setPositionOfAdapter(position);
                     switch (mTextView.getText().toString()) {
                         case "Flop":
                             newFragment.setNumberOfCardsWhichUserMustChoose(3);
@@ -113,19 +112,13 @@ public class StreetAdapter extends RecyclerView.Adapter<StreetAdapter.ViewHolder
                         default:
                             newFragment.setNumberOfCardsWhichUserMustChoose(1);
                     }
-                    //newFragment.setmListener(this);
+                    newFragment.setKindOfAdapter(Constants.STREET_ADAPTER);
                     ft.addToBackStack(null);
                     newFragment.show(ft, "dialog");
                     break;
                 case R.id.remove_street:
-                    String s = editText.getText().toString();
-                    for (int i = 0; i < s.length(); i += 2) {
-                        Card card = AllCards.findCardByString(s.substring(i, i + 2));
-                        int position = AllCards.allCards.indexOf(card);
-                        AllCards.wasChosen[position] = false;
-                    }
-                    textFromEditViewStreet[getAdapterPosition()] = "";
-                    editText.setText("");
+                    removedDataByCurrentPosition(position);
+                    handText.setText("");
                     break;
             }
         }
@@ -150,6 +143,15 @@ public class StreetAdapter extends RecyclerView.Adapter<StreetAdapter.ViewHolder
 
     }
 
+    private void removedDataByCurrentPosition(int position) {
+        IndexesDataWasChosen indexesDataWasChosen=arrayIndexesDataWhichWasChoosen[position];
+        if(indexesDataWasChosen!=null) {
+            AllCards.unCheckFlags(indexesDataWasChosen.getIndexesDataWasChosen());
+        }
+        arrayIndexesDataWhichWasChoosen[position]=null;
+        textFromEditViewStreet[position]=null;
+    }
+
 
     // Create new views (invoked by the layout manager)
     @Override
@@ -165,11 +167,11 @@ public class StreetAdapter extends RecyclerView.Adapter<StreetAdapter.ViewHolder
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         if (mDataset[position].equals("Flop")) {
-            holder.editText.getLayoutParams().width = 200;
+            holder.handText.getLayoutParams().width = 200;
         }
         holder.mTextView.setText(mDataset[position]);
         String s = textFromEditViewStreet[position];
-        holder.editText.setText(s);
+        holder.handText.setText(s);
     }
 
     @Override

@@ -24,12 +24,13 @@ import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * Created by Vilagra on 10.01.2017.
  */
 
-public class MyPositionAdapter extends RecyclerView.Adapter<MyPositionAdapter.ViewHolder> {
+public class MyPositionAdapter extends MyAdapter<MyPositionAdapter.ViewHolder> {
 
     private String[] mDataset;
     private double[] result;
@@ -120,16 +121,18 @@ public class MyPositionAdapter extends RecyclerView.Adapter<MyPositionAdapter.Vi
         public void onClick(View v) {
             int position = getAdapterPosition();
             IndexesDataWasChosen indexes=arrayIndexesDataWhichWasChoosen[position];
+
             switch (v.getId()) {
                 case R.id.hand:
                     FragmentTransaction ft = ((Activity) ctx).getFragmentManager().beginTransaction();
                     CardsDialogFragment newFragment = new CardsDialogFragment();
                     if(indexes!=null&&indexes.getType()==IndexesDataWasChosen.Type.CARD){
                         AllCards.unCheckFlags(indexes.getIndexesDataWasChosen());
-                        newFragment.setPositionOfChoosenCard(indexes.getIndexesDataWasChosen());
+                        newFragment.setPositionOfChoosenCard(new TreeSet<>(indexes.getIndexesDataWasChosen()));
                     }
                     newFragment.setPositionOfAdapter(getAdapterPosition());
                     newFragment.setNumberOfCardsWhichUserMustChoose(2);
+                    newFragment.setKindOfAdapter(Constants.POSITION_ADAPTER);
                     ft.addToBackStack(null);
                     newFragment.show(ft, "dialog");
                     break;
@@ -161,6 +164,7 @@ public class MyPositionAdapter extends RecyclerView.Adapter<MyPositionAdapter.Vi
         ViewHolder vh = new ViewHolder(cardView);
         return vh;
     }
+
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {

@@ -76,6 +76,10 @@ public class MyAdapterForCard extends RecyclerView.Adapter<MyAdapterForCard.View
         return vh;
     }
 
+    public Set<Integer> getChoosen() {
+        return choosen;
+    }
+
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         try {
@@ -89,8 +93,8 @@ public class MyAdapterForCard extends RecyclerView.Adapter<MyAdapterForCard.View
         }else {
             if(flags[position]==true) {
                 holder.cardView.setEnabled(false);
-                holder.cardView.setCardBackgroundColor(ctx.getResources().getColor(R.color.grey));
-                //holder.cardView.setVisibility(View.INVISIBLE);
+                //holder.cardView.setCardBackgroundColor(ctx.getResources().getColor(R.color.grey));
+                holder.cardView.setVisibility(View.INVISIBLE);
             }
             else {
                 holder.cardView.setEnabled(true);
