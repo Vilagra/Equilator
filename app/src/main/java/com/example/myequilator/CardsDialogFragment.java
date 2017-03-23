@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.myequilator.adapters.MyAdapterForCard;
+import com.example.myequilator.entity.Combination;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -53,7 +54,7 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
 
     public interface CardDialogFragmentListener {
         public void onDialogOkClick(DialogFragment dialog, Intent data);
-        public void onDialogCancelClick(DialogFragment dialog, int positionOfAdapter);
+        public void onDialogCancelClick(DialogFragment dialog, int positionOfAdapter, String kindOfAdapter);
     }
     public interface SetterPositionOfAdapter{
         void setPosition(int i);
@@ -150,7 +151,7 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
         buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mListener.onDialogCancelClick(CardsDialogFragment.this,positionOfAdapter);
+                mListener.onDialogCancelClick(CardsDialogFragment.this,positionOfAdapter,kindOfAdapter);
                 dismiss();
             }
         });

@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * Created by Vilagra on 10.01.2017.
@@ -39,6 +40,15 @@ public class StreetAdapter extends MyAdapter<StreetAdapter.ViewHolder> {
     Context ctx;
     private String[] textFromEditViewStreet;
     private IndexesDataWasChosen[] arrayIndexesDataWhichWasChoosen;
+
+    public void setArrayIndexesDataWhichWasChoosen(IndexesDataWasChosen[] arrayIndexesDataWhichWasChoosen) {
+        this.arrayIndexesDataWhichWasChoosen = arrayIndexesDataWhichWasChoosen;
+    }
+
+    public IndexesDataWasChosen[] getArrayIndexesDataWhichWasChoosen() {
+
+        return arrayIndexesDataWhichWasChoosen;
+    }
 
     public void replacedIndexesDataWasChosen(DataFromIntent dataFromIntent) {
         int position = dataFromIntent.getPositionOfAdapter();
@@ -101,7 +111,7 @@ public class StreetAdapter extends MyAdapter<StreetAdapter.ViewHolder> {
                     CardsDialogFragment newFragment = new CardsDialogFragment();
                     if (indexes != null) {
                         AllCards.unCheckFlags(indexes.getIndexesDataWasChosen());
-                        newFragment.setPositionOfChoosenCard(indexes.getIndexesDataWasChosen());
+                        newFragment.setPositionOfChoosenCard(new TreeSet<>(indexes.getIndexesDataWasChosen()));
                     }
 
                     newFragment.setPositionOfAdapter(position);

@@ -20,4 +20,6 @@ public class Constants {
     public final static String POSITION_ADAPTER = "position_adapter";
     public static final String KIND_OF_ADAPTER = "kind_of_adapter" ;
 
+    public static final String INDEXES_DATA_WAS_CHOSEN_BY_POSITION_ADAPTER = "indexes_from_position_adapter";
+    public static final String INDEXES_DATA_WAS_CHOSEN_BY_STREET_ADAPTER = "indexes_from_street_adapter";
 }

@@ -45,9 +45,9 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d(Constants.MY_LOG, "createAct");
-        if(RUN_ONCE) {
+        if (RUN_ONCE) {
             AllCards.initializeData();
-            RUN_ONCE=false;
+            RUN_ONCE = false;
         }
         tabHost = (TabHost) findViewById(android.R.id.tabhost);
         tabHost.setup();
@@ -64,15 +64,16 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
         tabSpec.setContent(R.id.tab2);
         tabHost.addTab(tabSpec);
         String[] textFomEditTextStreet = null;
+        IndexesDataWasChosen[] indexesFromStreetAdapter = null;
 
         if (savedInstanceState != null) {
             String currentTag = savedInstanceState.getString(Constants.CURRENT_TAG);
             String[] textFomEditText = savedInstanceState.getStringArray(Constants.STRNGS_FROM_ADAPTER);
+            IndexesDataWasChosen[] indexesFromPositionAdapter = (IndexesDataWasChosen[]) savedInstanceState.getSerializable(Constants.INDEXES_DATA_WAS_CHOSEN_BY_POSITION_ADAPTER);
+            indexesFromStreetAdapter = (IndexesDataWasChosen[]) savedInstanceState.getSerializable(Constants.INDEXES_DATA_WAS_CHOSEN_BY_STREET_ADAPTER);
             textFomEditTextStreet = savedInstanceState.getStringArray(Constants.STRNGS_FROM_STREET_ADAPTER);
-            IndexesDataWasChosen[] indexesDataWasChosen = (IndexesDataWasChosen[]) savedInstanceState.getSerializable(Constants.INDEXES_DATA_WAS_CHOSEN);
-            Log.d(Constants.MY_LOG, Arrays.toString(indexesDataWasChosen));
             tabHost.setCurrentTabByTag(currentTag);
-            setRecycler(currentTag, textFomEditText, indexesDataWasChosen);
+            setRecycler(currentTag, textFomEditText, indexesFromPositionAdapter);
         } else {
             tabHost.setCurrentTabByTag("tag1");
             setRecycler("tag1", null, null);
@@ -90,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
         streetAdapter = new StreetAdapter(MainActivity.this, dataForRecycler);
         if (textFomEditTextStreet != null) {
             streetAdapter.setTextFromEditViewStreet(textFomEditTextStreet);
+            streetAdapter.setArrayIndexesDataWhichWasChoosen(indexesFromStreetAdapter);
         }
         recyclerViewPosition.setAdapter(streetAdapter);
 
@@ -130,10 +132,11 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putStringArray(Constants.STRNGS_FROM_ADAPTER, myPositionAdapter.getTextFromTextView());
         outState.putString(Constants.CURRENT_TAG, tabHost.getCurrentTabTag());
         outState.putStringArray(Constants.STRNGS_FROM_STREET_ADAPTER, streetAdapter.getTextFromEditViewStreet());
-        outState.putSerializable(Constants.INDEXES_DATA_WAS_CHOSEN, myPositionAdapter.getArrayIndexesDataWhichWasChoosen());
+        outState.putStringArray(Constants.STRNGS_FROM_ADAPTER, myPositionAdapter.getTextFromTextView());
+        outState.putSerializable(Constants.INDEXES_DATA_WAS_CHOSEN_BY_STREET_ADAPTER, streetAdapter.getArrayIndexesDataWhichWasChoosen());
+        outState.putSerializable(Constants.INDEXES_DATA_WAS_CHOSEN_BY_POSITION_ADAPTER, myPositionAdapter.getArrayIndexesDataWhichWasChoosen());
     }
 
     public void onClick(View v) {
@@ -221,17 +224,17 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
             switch (requestCode) {
                 case Constants.REQUEST_CODE_RANGE:
                     dataFromIntent = new DataFromIntent(data, IndexesDataWasChosen.Type.RANGE);
-                    updateMyPositionAdapter(dataFromIntent,myPositionAdapter);
+                    updateMyPositionAdapter(dataFromIntent, myPositionAdapter);
                     break;
                 case Constants.REQUEST_CODE_CARD:
                     dataFromIntent = new DataFromIntent(data, IndexesDataWasChosen.Type.CARD);
                     String type_of_adapter = data.getStringExtra(Constants.KIND_OF_ADAPTER);
-                    switch (type_of_adapter){
+                    switch (type_of_adapter) {
                         case Constants.POSITION_ADAPTER:
-                            updateMyPositionAdapter(dataFromIntent,myPositionAdapter);
+                            updateMyPositionAdapter(dataFromIntent, myPositionAdapter);
                             break;
                         case Constants.STREET_ADAPTER:
-                            updateMyPositionAdapter(dataFromIntent,streetAdapter);
+                            updateMyPositionAdapter(dataFromIntent, streetAdapter);
                             break;
                     }
                     break;
@@ -242,16 +245,26 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
     @Override
     public void onDialogOkClick(DialogFragment dialog, Intent data) {
         onActivityResult(Constants.REQUEST_CODE_CARD, RESULT_OK, data);
+
     }
 
     @Override
-    public void onDialogCancelClick(DialogFragment dialog, int positionOfAdapter) {
-        IndexesDataWasChosen indexes=myPositionAdapter.getArrayIndexesDataWhichWasChoosen()[positionOfAdapter];
-        if (indexes!=null&&indexes.getType()== IndexesDataWasChosen.Type.CARD){
+    public void onDialogCancelClick(DialogFragment dialog, int positionOfAdapter, String kindOfAdapter) {
+        IndexesDataWasChosen indexes=null;
+        switch (kindOfAdapter) {
+            case (Constants.POSITION_ADAPTER):
+                indexes = myPositionAdapter.getArrayIndexesDataWhichWasChoosen()[positionOfAdapter];
+                break;
+            case(Constants.STREET_ADAPTER):
+                indexes = streetAdapter.getArrayIndexesDataWhichWasChoosen()[positionOfAdapter];
+        }
+
+        if (indexes != null && indexes.getType() == IndexesDataWasChosen.Type.CARD) {
             AllCards.checkFlags(indexes.getIndexesDataWasChosen());
         }
     }
-    public void updateMyPositionAdapter(DataFromIntent dataFromIntent, MyAdapter adapter){
+
+    public void updateMyPositionAdapter(DataFromIntent dataFromIntent, MyAdapter adapter) {
         adapter.replacedIndexesDataWasChosen(dataFromIntent);
         adapter.replacedToTextFromTextView(dataFromIntent);
         adapter.notifyDataSetChanged();
