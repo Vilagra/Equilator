@@ -257,8 +257,8 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
                 break;
             case(Constants.STREET_ADAPTER):
                 indexes = streetAdapter.getArrayIndexesDataWhichWasChoosen()[positionOfAdapter];
+                break;
         }
-
         if (indexes != null && indexes.getType() == IndexesDataWasChosen.Type.CARD) {
             AllCards.checkFlags(indexes.getIndexesDataWasChosen());
         }

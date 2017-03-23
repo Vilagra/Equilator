@@ -115,6 +115,9 @@ public class AllCards {
     }
 
     public static String getStringFromRange(Set<Integer> set){
+        if(set.size()==169){
+            return "random";
+        }
         StringBuilder stringBuilder = new StringBuilder();
         String startOfRange="";
         String endOfRange="";

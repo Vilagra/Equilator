@@ -102,6 +102,7 @@ public class MyPositionAdapter extends MyAdapter<MyPositionAdapter.ViewHolder> {
         ImageButton range;
         ImageButton hand;
         ImageButton remove;
+        ImageButton random;
 
         //CardsDialogFragment newFragment;
         public ViewHolder(CardView card) {
@@ -113,9 +114,11 @@ public class MyPositionAdapter extends MyAdapter<MyPositionAdapter.ViewHolder> {
             hand = (ImageButton) card.findViewById(R.id.hand);
             range = (ImageButton) card.findViewById(R.id.range);
             remove = (ImageButton) card.findViewById(R.id.remove);
+            random = (ImageButton) card.findViewById(R.id.random);
             hand.setOnClickListener(this);
             remove.setOnClickListener(this);
             range.setOnClickListener(this);
+            random.setOnClickListener(this);
         }
 
         public void onClick(View v) {
@@ -148,8 +151,13 @@ public class MyPositionAdapter extends MyAdapter<MyPositionAdapter.ViewHolder> {
                     if(indexes!=null) {
                         removedDataByCurrentPosition(position);
                         rangeOrHandTextView.setText("");
-                        break;
                     }
+                    break;
+                case R.id.random:
+                    arrayIndexesDataWhichWasChoosen[position]=new IndexesDataWasChosen(AllCards.getIndexesByRecyclerBaseOnRanking(169), IndexesDataWasChosen.Type.RANGE);
+                    textFromTextView[position]="random";
+                    rangeOrHandTextView.setText("random");
+                    break;
             }
         }
     }

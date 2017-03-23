@@ -83,7 +83,6 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Pick a style based on the num.
         int style = DialogFragment.STYLE_NORMAL, theme = android.R.style.Theme_Holo_Light_DialogWhenLarge;
         setStyle(style, theme);
         mListener= (CardDialogFragmentListener) getActivity();
