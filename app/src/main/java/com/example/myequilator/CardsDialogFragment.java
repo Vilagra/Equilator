@@ -26,11 +26,7 @@ import java.util.TreeSet;
 
 public class CardsDialogFragment extends DialogFragment implements MyAdapterForCard.MyAdapterForCardListener{
 
-    static final String WAS_CHOSEN= "was chosen";
-    static final String ADAPTER_POSITION= "adapter position";
-    static final String NUMBER_OF_CARDS= "number cards";
-
-    //MyAdapterForCard myAdapterForCard;
+    MyAdapterForCard myAdapterForCard;
     CardDialogFragmentListener mListener;
     Set<Integer> positionOfChoosenCard = new TreeSet<>();
     int positionOfAdapter;
@@ -47,6 +43,9 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
     public void setPositionOfAdapter(int positionOfAdapter) {
         this.positionOfAdapter = positionOfAdapter;
     }
+    public void setPositionOfChoosenCard(Set<Integer> positionOfChoosenCard) {
+        this.positionOfChoosenCard = positionOfChoosenCard;
+    }
 
     public void setKindOfAdapter(String kindOfAdapter) {
         this.kindOfAdapter = kindOfAdapter;
@@ -56,8 +55,15 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
         public void onDialogOkClick(DialogFragment dialog, Intent data);
         public void onDialogCancelClick(DialogFragment dialog, int positionOfAdapter, String kindOfAdapter);
     }
-    public interface SetterPositionOfAdapter{
-        void setPosition(int i);
+
+    @Override
+    public void onClickByCard(Set<Integer> positionOfChoosenCard) {
+        if(positionOfChoosenCard.size()==numberOfCardsWhichUserMustChoose){
+            buttonOk.setEnabled(true);
+        }
+        else{
+            buttonOk.setEnabled(false);
+        }
     }
 
     @Override
@@ -68,37 +74,11 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putIntegerArrayList(WAS_CHOSEN,new ArrayList<Integer>(positionOfChoosenCard));
-        outState.putInt(ADAPTER_POSITION,positionOfAdapter);
-        outState.putInt(NUMBER_OF_CARDS,numberOfCardsWhichUserMustChoose);
+        outState.putIntegerArrayList(Constants.WAS_CHOSEN,new ArrayList<Integer>(myAdapterForCard.getChoosen()));
+        outState.putInt(Constants.POSITION_OF_ADAPTER,positionOfAdapter);
+        outState.putInt(Constants.NUMBER_OF_CARDS,numberOfCardsWhichUserMustChoose);
+        outState.putString(Constants.KIND_OF_ADAPTER,kindOfAdapter);
     }
-
-    //public void setmListener(CardDialogFragmentListener mListener) {
-       // this.mListener = mListener;
-    //}
-
-    public void setPositionOfChoosenCard(Set<Integer> positionOfChoosenCard) {
-        this.positionOfChoosenCard = positionOfChoosenCard;
-    }
-
-    @Override
-    public void onClickByCard(Set<Integer> positionOfChoosenCard) {
-        if(positionOfChoosenCard.size()==numberOfCardsWhichUserMustChoose){
-            buttonOk.setEnabled(true);
-            //setPositionOfChoosenCard(positionOfChoosenCard);
-        }
-        else{
-            buttonOk.setEnabled(false);
-        }
-    }
-
-    @Override
-    public void onStop() {
-
-        super.onStop();
-    }
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -116,15 +96,17 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         if(savedInstanceState!=null) {
-            positionOfChoosenCard = new HashSet<>(savedInstanceState.getIntegerArrayList(WAS_CHOSEN));
-            numberOfCardsWhichUserMustChoose = savedInstanceState.getInt(NUMBER_OF_CARDS);
+            positionOfChoosenCard = new TreeSet<>(savedInstanceState.getIntegerArrayList(Constants.WAS_CHOSEN));
+            numberOfCardsWhichUserMustChoose = savedInstanceState.getInt(Constants.NUMBER_OF_CARDS);
+            positionOfAdapter = savedInstanceState.getInt(Constants.POSITION_OF_ADAPTER);
+            kindOfAdapter= savedInstanceState.getString(Constants.KIND_OF_ADAPTER);
         }
         getDialog().setTitle(getActivity().getString(R.string.card_selection));
         View v = inflater.inflate(R.layout.card_matrix, container, false);
         RecyclerView recyclerView = (RecyclerView) v.findViewById(R.id.recycler_card);
         GridLayoutManager manager = new GridLayoutManager(this.getActivity(), 4, GridLayoutManager.HORIZONTAL,false);
         recyclerView.setLayoutManager(manager);
-        final MyAdapterForCard myAdapterForCard=new MyAdapterForCard(getActivity(),positionOfChoosenCard,numberOfCardsWhichUserMustChoose);
+        myAdapterForCard=new MyAdapterForCard(getActivity(),positionOfChoosenCard,numberOfCardsWhichUserMustChoose);
         myAdapterForCard.setListener(this);
         recyclerView.setAdapter(myAdapterForCard);
         buttonOk= (Button) v.findViewById(R.id.ok);
@@ -135,11 +117,6 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
         buttonOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-/*                if(mListener==null){
-                    RecyclerView recyclerViewFromActivity =0 (RecyclerView) getActivity().findViewById(R.id.recycler);
-                    setmListener((CardDialogFragmentListener) recyclerViewFromActivity.findViewHolderForAdapterPosition(positionOfAdapter));
-                }*/
-                //mListener.onDialogOkClick(CardsDialogFragment.this, positionOfChoosenCard);
                 Intent resultIntent = new Intent();
                 resultIntent.putExtra(Constants.INDEXES_DATA_WAS_CHOSEN,(TreeSet)myAdapterForCard.getChoosen());
                 resultIntent.putExtra(Constants.POSITION_OF_ADAPTER, positionOfAdapter);
@@ -155,22 +132,8 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
                 dismiss();
             }
         });
-        if(savedInstanceState!=null){
-            //positionOfChoosenCard=new HashSet<>(savedInstanceState.getIntegerArrayList(WAS_CHOSEN));
-            positionOfAdapter = savedInstanceState.getInt(ADAPTER_POSITION);
-            SetterPositionOfAdapter setterOfAdapter = (SetterPositionOfAdapter) getActivity();
-            setterOfAdapter.setPosition(positionOfAdapter);
-
-        }
         return v;
     }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-
-    }
-
 
 }
 
