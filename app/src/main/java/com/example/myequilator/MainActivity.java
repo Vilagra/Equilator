@@ -44,9 +44,8 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d(Constants.MY_LOG, "createAct");
         if (RUN_ONCE) {
-            AllCards.initializeData();
+            AllCards.initializeData(getApplicationContext());
             RUN_ONCE = false;
         }
         tabHost = (TabHost) findViewById(android.R.id.tabhost);

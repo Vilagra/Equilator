@@ -29,7 +29,8 @@ public class MyAdapterForCard extends RecyclerView.Adapter<MyAdapterForCard.View
     private boolean[] flags;
     private Set<Integer> choosen;
     Context ctx;
-    ColorStateList colorStateList;
+    ColorStateList defaultColor;
+    ColorStateList marked;
     MyAdapterForCardListener listener;
     int numberOfCardsWhichUserMustChoose;
 
@@ -46,6 +47,7 @@ public class MyAdapterForCard extends RecyclerView.Adapter<MyAdapterForCard.View
         mDataset= AllCards.allCards;
         flags=AllCards.wasChosen;
         choosen =set;
+        marked=ColorStateList.valueOf(ContextCompat.getColor(ctx,R.color.colorAccent));
         this.numberOfCardsWhichUserMustChoose=numberOfCardsWhichUserMustChoose;
     }
 
@@ -68,10 +70,11 @@ public class MyAdapterForCard extends RecyclerView.Adapter<MyAdapterForCard.View
     @Override
     public MyAdapterForCard.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                           int viewType) {
-        // create a new view
         CardView cardView = (CardView) LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.card_item, parent, false);
-        colorStateList=cardView.getCardBackgroundColor();
+        if(defaultColor ==null) {
+            defaultColor = cardView.getCardBackgroundColor();
+        }
         ViewHolder vh = new ViewHolder(cardView, (ImageView) cardView.findViewById(R.id.image_card));
         return vh;
     }
@@ -89,7 +92,7 @@ public class MyAdapterForCard extends RecyclerView.Adapter<MyAdapterForCard.View
         }
 
         if(choosen.contains(position)){
-            holder.cardView.setCardBackgroundColor(ctx.getResources().getColor(R.color.colorAccent));
+            holder.cardView.setCardBackgroundColor(marked);
         }else {
             if(flags[position]==true) {
                 holder.cardView.setEnabled(false);
@@ -99,7 +102,7 @@ public class MyAdapterForCard extends RecyclerView.Adapter<MyAdapterForCard.View
             else {
                 holder.cardView.setEnabled(true);
                 holder.cardView.setVisibility(View.VISIBLE);
-                holder.cardView.setCardBackgroundColor(colorStateList);
+                holder.cardView.setCardBackgroundColor(defaultColor);
             }
 
         }
@@ -108,17 +111,17 @@ public class MyAdapterForCard extends RecyclerView.Adapter<MyAdapterForCard.View
             public void onClick(View v) {
                 if(choosen.size()<numberOfCardsWhichUserMustChoose){
                     if(choosen.remove(position)){
-                        holder.cardView.setCardBackgroundColor(colorStateList);
+                        holder.cardView.setCardBackgroundColor(defaultColor);
                     }else {
-                        holder.cardView.setCardBackgroundColor(ctx.getResources().getColor(R.color.colorAccent));
+                        holder.cardView.setCardBackgroundColor(marked);
                         choosen.add(position);
                         listener.onClickByCard(choosen);
                     }
                 }
                 else{
                     if(choosen.remove(position)){
+                        holder.cardView.setCardBackgroundColor(defaultColor);
                         listener.onClickByCard(choosen);
-                        holder.cardView.setCardBackgroundColor(colorStateList);
                     }
                 }
             }

@@ -42,21 +42,17 @@ public class Card {
         return result;
     }
 
-    public Drawable getPicture(Context context) {
-        if(picture!=null) {
-            return picture;
-        }
-        else{
-            try {
-                picture=Drawable.createFromStream(context.getAssets().open(getStringOfCard()+".png"), null);
-            } catch (IOException e) {
-                e.printStackTrace();
-                System.exit(1);
-            }
-            return picture;
-        }
+    public Drawable getPicture() {
+        return picture;
     }
 
+    public void setPicture(Context ctx) {
+        try {
+            picture=Drawable.createFromStream(ctx.getAssets().open(getStringOfCard()+".png"), null);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public Character getRank() {
         return rank;

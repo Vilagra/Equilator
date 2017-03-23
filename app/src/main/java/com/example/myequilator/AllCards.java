@@ -1,5 +1,7 @@
 package com.example.myequilator;
 
+import android.content.Context;
+
 import com.example.myequilator.entity.Card;
 import com.example.myequilator.entity.Combination;
 
@@ -38,10 +40,11 @@ public class AllCards {
     public static final ArrayList<Integer> inexesForRecyclerByRanking=new ArrayList<>();
 
 
-    public static void initializeData() {
+    public static void initializeData(Context context) {
         for (Character rank : allRank) {
             for (Character suit : allSuit) {
                 Card card = new Card(rank, suit);
+                card.setPicture(context);
                 allCards.add(card);
                 cardsMap.put(card.getStringOfCard(), card);
             }
@@ -86,26 +89,6 @@ public class AllCards {
 
     }
 
-    public static void main(String[] args) {
-/*        System.out.println(allCombinationsInRecyclerOrderInStrings);
-        for (int i = 0; i < allCombinationsInRecyclerOrderInStrings.size(); ) {
-            System.out.print(allCombinationsInRecyclerOrderInStrings.get(i)+"="+0.0+",");
-            i+=14;
-        }
-        System.out.println();
-        for (int i = 0; i < 13; i++) {
-            for (int j = i+1; j < 13; j++) {
-                System.out.print(allCombinationsInRecyclerOrderInStrings.get(i*13+j)+"="+0.0+",");
-            }
-        }
-        System.out.println();
-        for (int i = 0; i < 13; i++) {
-            for (int j = i+1; j < 13; j++) {
-                System.out.print(allCombinationsInRecyclerOrderInStrings.get(j*13+i)+"="+0.0+",");
-            }
-        }*/
-
-    }
     public static Set<Integer> getIndexesByRecyclerBaseOnRanking(int index){
         if(index>0) {
             return new HashSet<>(inexesForRecyclerByRanking.subList(0, index));
