@@ -96,7 +96,6 @@ public class MyAdapterForCard extends RecyclerView.Adapter<MyAdapterForCard.View
         }else {
             if(flags[position]==true) {
                 holder.cardView.setEnabled(false);
-                //holder.cardView.setCardBackgroundColor(ctx.getResources().getColor(R.color.grey));
                 holder.cardView.setVisibility(View.INVISIBLE);
             }
             else {

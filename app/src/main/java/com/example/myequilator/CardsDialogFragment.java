@@ -52,8 +52,8 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
     }
 
     public interface CardDialogFragmentListener {
-        public void onDialogOkClick(DialogFragment dialog, Intent data);
-        public void onDialogCancelClick(DialogFragment dialog, int positionOfAdapter, String kindOfAdapter);
+        void onDialogOkClick(DialogFragment dialog, Intent data);
+        void onDialogCancelClick(DialogFragment dialog, int positionOfAdapter, String kindOfAdapter);
     }
 
     @Override

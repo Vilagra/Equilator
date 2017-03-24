@@ -31,16 +31,6 @@ public class AdapterForRange extends RecyclerView.Adapter<AdapterForRange.ViewHo
     int suitColor;
     int offsuitColor;
 
-    //MyAdapterForRangeListener listener;
-
-/*    public void setListener(MyAdapterForRangeListener listener) {
-        this.listener = listener;
-    }
-
-    public interface MyAdapterForRangeListener{
-        void onClickByCard(Set<Integer> cards);
-    }*/
-
     public AdapterForRange(Context contexts, Set<Integer> set) {
         ctx = contexts;
         mDataset = AllCards.allCombinationsInRecyclerOrderInStrings;
