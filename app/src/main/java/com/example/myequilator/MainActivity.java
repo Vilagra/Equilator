@@ -12,7 +12,6 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -32,12 +31,16 @@ import mi.poker.calculation.HandInfo;
 import mi.poker.calculation.Result;
 
 public class MainActivity extends AppCompatActivity implements CardsDialogFragment.CardDialogFragmentListener {
+
     MyPositionAdapter myPositionAdapter;
-    TabHost tabHost;
-    RecyclerView recyclerView;
     StreetAdapter streetAdapter;
+
+    TabHost tabHost;
+    RecyclerView recyclerViewPosition;
+
     Handler handler;
     GestureDetector mGestureDetector;
+
     private static boolean RUN_ONCE = true;
 
     int positionOfAdapterBeforeRotate = -1;
@@ -51,51 +54,11 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
             AllCards.initializeData(getApplicationContext());
             RUN_ONCE = false;
         }
-        tabHost = (TabHost) findViewById(android.R.id.tabhost);
-        tabHost.setup();
 
-        TabHost.TabSpec tabSpec;
-        tabSpec = tabHost.newTabSpec("tag1");
-        tabSpec.setIndicator(getString(R.string.for6));
-        tabSpec.setContent(R.id.tab1);
-        tabHost.addTab(tabSpec);
+        setTab();
 
+        setRecycler(savedInstanceState);
 
-        tabSpec = tabHost.newTabSpec("tag2");
-        tabSpec.setIndicator(getString(R.string.for10));
-        tabSpec.setContent(R.id.tab2);
-        tabHost.addTab(tabSpec);
-        String[] textFomEditTextStreet = null;
-        IndexesDataWasChosen[] indexesFromStreetAdapter = null;
-
-        if (savedInstanceState != null) {
-            String currentTag = savedInstanceState.getString(Constants.CURRENT_TAG);
-            String[] textFomEditText = savedInstanceState.getStringArray(Constants.STRNGS_FROM_ADAPTER);
-            IndexesDataWasChosen[] indexesFromPositionAdapter = (IndexesDataWasChosen[]) savedInstanceState.getSerializable(Constants.INDEXES_DATA_WAS_CHOSEN_BY_POSITION_ADAPTER);
-            indexesFromStreetAdapter = (IndexesDataWasChosen[]) savedInstanceState.getSerializable(Constants.INDEXES_DATA_WAS_CHOSEN_BY_STREET_ADAPTER);
-            textFomEditTextStreet = savedInstanceState.getStringArray(Constants.STRNGS_FROM_STREET_ADAPTER);
-            tabHost.setCurrentTabByTag(currentTag);
-            setRecycler(currentTag, textFomEditText, indexesFromPositionAdapter);
-        } else {
-            tabHost.setCurrentTabByTag("tag1");
-            setRecycler("tag1", null, null);
-        }
-        tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
-            public void onTabChanged(String tabId) {
-                setRecycler(tabId, null, null);
-                AllCards.resetWasChosen();
-            }
-        });
-        String[] dataForRecycler = getResources().getStringArray(R.array.streets);
-        RecyclerView recyclerViewPosition = (RecyclerView) findViewById(R.id.recycler_street);
-        LinearLayoutManager manager = new LinearLayoutManager(this, OrientationHelper.HORIZONTAL, false);
-        recyclerViewPosition.setLayoutManager(manager);
-        streetAdapter = new StreetAdapter(MainActivity.this, dataForRecycler);
-        if (textFomEditTextStreet != null) {
-            streetAdapter.setTextFromEditViewStreet(textFomEditTextStreet);
-            streetAdapter.setArrayIndexesDataWhichWasChoosen(indexesFromStreetAdapter);
-        }
-        recyclerViewPosition.setAdapter(streetAdapter);
 
         handler = new Handler() {
             @Override
@@ -106,13 +69,13 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
         mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener() {
             @Override
             public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-                if(velocityY<2000) {
-                    if (velocityX < 0) {
+                if(velocityY<2200&&velocityY>-2200) {
+                    if (velocityX < -3000) {
                         if (tabHost.getCurrentTabTag().equals("tag1")) {
                             tabHost.setCurrentTabByTag("tag2");
                         }
                     }
-                    if (velocityX > 6000) {
+                    if (velocityX > 3000) {
                         if (tabHost.getCurrentTabTag().equals("tag2")) {
                             tabHost.setCurrentTabByTag("tag1");
                         }
@@ -124,35 +87,72 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
 
     }
 
-    private void setRecycler(String tag, String[] textFomEditText, IndexesDataWasChosen[] indexesDataWasChosen) {
-        String[] dataForRecycler = getResources().getStringArray(R.array.positions);
+    private void setTab(){
+        tabHost = (TabHost) findViewById(android.R.id.tabhost);
+        tabHost.setup();
+        TabHost.TabSpec tabSpec;
+        tabSpec = tabHost.newTabSpec("tag1");
+        tabSpec.setIndicator(getString(R.string.for6));
+        tabSpec.setContent(R.id.tab1);
+        tabHost.addTab(tabSpec);
+        tabSpec = tabHost.newTabSpec("tag2");
+        tabSpec.setIndicator(getString(R.string.for10));
+        tabSpec.setContent(R.id.tab2);
+        tabHost.addTab(tabSpec);
+        tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+            public void onTabChanged(String tabId) {
+                setRecycler(tabId);
+                AllCards.resetWasChosen();
+            }
+        });
+    }
+
+    private void setRecycler(String tag) {
+        String[] dataForRecyclerPosition = getResources().getStringArray(R.array.positions);
+        String[] dataForRecyclerStreet = getResources().getStringArray(R.array.streets);
         tabHost.findViewById(R.id.tab1).findViewById(R.id.recycler);
         switch (tag) {
             case "tag1":
-                recyclerView = (RecyclerView) tabHost.findViewById(R.id.tab1).findViewById(R.id.recycler);
-                myPositionAdapter = new MyPositionAdapter(this, Arrays.copyOfRange(dataForRecycler, 4, dataForRecycler.length));
+                recyclerViewPosition = (RecyclerView) tabHost.findViewById(R.id.tab1).findViewById(R.id.recycler);
+                myPositionAdapter = new MyPositionAdapter(this, Arrays.copyOfRange(dataForRecyclerPosition, 4, dataForRecyclerPosition.length));
                 break;
             case "tag2":
-                recyclerView = (RecyclerView) tabHost.findViewById(R.id.tab2).findViewById(R.id.recycler);
-                myPositionAdapter = new MyPositionAdapter(this, dataForRecycler);
+                recyclerViewPosition = (RecyclerView) tabHost.findViewById(R.id.tab2).findViewById(R.id.recycler);
+                myPositionAdapter = new MyPositionAdapter(this, dataForRecyclerPosition);
                 break;
             default:
                 throw new IllegalArgumentException();
         }
-        if (textFomEditText != null) {
-            myPositionAdapter.setTextFromTextView(textFomEditText);
-            myPositionAdapter.setArrayIndexesDataWhichWasChoosen(indexesDataWasChosen);
+        RecyclerView recyclerViewStreet = (RecyclerView) findViewById(R.id.recycler_street);
+        LinearLayoutManager managerStreet = new LinearLayoutManager(this, OrientationHelper.HORIZONTAL, false);
+        LinearLayoutManager managerPosition = new LinearLayoutManager(this, OrientationHelper.VERTICAL, false);
+        recyclerViewPosition.setLayoutManager(managerPosition);
+        recyclerViewStreet.setLayoutManager(managerStreet);
+        streetAdapter = new StreetAdapter(MainActivity.this, dataForRecyclerStreet);
+        recyclerViewPosition.setAdapter(myPositionAdapter);
+        recyclerViewStreet.setAdapter(streetAdapter);
+    }
+
+    private void setRecycler(Bundle savedInstanceState){
+        if(savedInstanceState==null) {
+            setRecycler("tag1");
         }
-        LinearLayoutManager manager = new LinearLayoutManager(this, OrientationHelper.VERTICAL, false);
-        recyclerView.setLayoutManager(manager);
-        recyclerView.setAdapter(myPositionAdapter);
-    }
+        else{
+            String currentTag = savedInstanceState.getString(Constants.CURRENT_TAG);
+            tabHost.setCurrentTabByTag(currentTag);
+            setRecycler(currentTag);
+            String[] textFomEditTextPosition = savedInstanceState.getStringArray(Constants.STRNGS_FROM_ADAPTER);
+            String[]textFomEditTextStreet = savedInstanceState.getStringArray(Constants.STRNGS_FROM_STREET_ADAPTER);
+            IndexesDataWasChosen[] indexesFromPositionAdapter = (IndexesDataWasChosen[]) savedInstanceState.getSerializable(Constants.INDEXES_DATA_WAS_CHOSEN_BY_POSITION_ADAPTER);
+            IndexesDataWasChosen[] indexesFromStreetAdapter = (IndexesDataWasChosen[]) savedInstanceState.getSerializable(Constants.INDEXES_DATA_WAS_CHOSEN_BY_STREET_ADAPTER);
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-
-        return mGestureDetector.onTouchEvent(event);
+            myPositionAdapter.setTextFromTextView(textFomEditTextPosition);
+            myPositionAdapter.setArrayIndexesDataWhichWasChoosen(indexesFromPositionAdapter);
+            streetAdapter.setTextFromEditViewStreet(textFomEditTextStreet);
+            streetAdapter.setArrayIndexesDataWhichWasChoosen(indexesFromStreetAdapter);
+        }
     }
+    
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
@@ -239,10 +239,12 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
     @Override
     protected void onResume() {
         super.onResume();
+/*
         if (positionOfAdapterBeforeRotate != -1) {
-            recyclerView.scrollToPosition(positionOfAdapterBeforeRotate);
+            recyclerViewPosition.scrollToPosition(positionOfAdapterBeforeRotate);
             positionOfAdapterBeforeRotate = -1;
         }
+*/
 
     }
 
