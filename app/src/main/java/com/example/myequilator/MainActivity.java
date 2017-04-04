@@ -13,6 +13,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TabHost;
 
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
     RecyclerView recyclerView;
     StreetAdapter streetAdapter;
     Handler handler;
+    GestureDetector mGestureDetector;
     private static boolean RUN_ONCE = true;
 
     int positionOfAdapterBeforeRotate = -1;
@@ -100,6 +103,24 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
                 myPositionAdapter.notifyDataSetChanged();
             }
         };
+        mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener() {
+            @Override
+            public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+                if(velocityY<2000) {
+                    if (velocityX < 0) {
+                        if (tabHost.getCurrentTabTag().equals("tag1")) {
+                            tabHost.setCurrentTabByTag("tag2");
+                        }
+                    }
+                    if (velocityX > 6000) {
+                        if (tabHost.getCurrentTabTag().equals("tag2")) {
+                            tabHost.setCurrentTabByTag("tag1");
+                        }
+                    }
+                }
+                return true;
+            }
+        });
 
     }
 
@@ -127,6 +148,17 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
         recyclerView.setAdapter(myPositionAdapter);
     }
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+
+        return mGestureDetector.onTouchEvent(event);
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        mGestureDetector.onTouchEvent(ev);
+        return super.dispatchTouchEvent(ev);
+    }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -249,12 +281,12 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
 
     @Override
     public void onDialogCancelClick(DialogFragment dialog, int positionOfAdapter, String kindOfAdapter) {
-        IndexesDataWasChosen indexes=null;
+        IndexesDataWasChosen indexes = null;
         switch (kindOfAdapter) {
             case (Constants.POSITION_ADAPTER):
                 indexes = myPositionAdapter.getArrayIndexesDataWhichWasChoosen()[positionOfAdapter];
                 break;
-            case(Constants.STREET_ADAPTER):
+            case (Constants.STREET_ADAPTER):
                 indexes = streetAdapter.getArrayIndexesDataWhichWasChoosen()[positionOfAdapter];
                 break;
         }
