@@ -25,10 +25,13 @@ import com.example.myequilator.entity.IndexesDataWasChosen;
 
 import java.util.Arrays;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import mi.poker.calculation.EquityCalculation;
+import mi.poker.calculation.ExhaustiveEnumeration;
 import mi.poker.calculation.HandInfo;
 import mi.poker.calculation.Result;
+import mi.poker.common.model.testbed.spears2p2.Hand;
 
 public class MainActivity extends AppCompatActivity implements CardsDialogFragment.CardDialogFragmentListener {
 
@@ -66,24 +69,7 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
                 myPositionAdapter.notifyDataSetChanged();
             }
         };
-        mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener() {
-            @Override
-            public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-                if(velocityY<2200&&velocityY>-2200) {
-                    if (velocityX < -3000) {
-                        if (tabHost.getCurrentTabTag().equals("tag1")) {
-                            tabHost.setCurrentTabByTag("tag2");
-                        }
-                    }
-                    if (velocityX > 3000) {
-                        if (tabHost.getCurrentTabTag().equals("tag2")) {
-                            tabHost.setCurrentTabByTag("tag1");
-                        }
-                    }
-                }
-                return true;
-            }
-        });
+
 
     }
 
@@ -152,13 +138,7 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
             streetAdapter.setArrayIndexesDataWhichWasChoosen(indexesFromStreetAdapter);
         }
     }
-    
 
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        mGestureDetector.onTouchEvent(ev);
-        return super.dispatchTouchEvent(ev);
-    }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -173,55 +153,78 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.calculate:
-                final ProgressDialog progressDialog = new ProgressDialog(this);
-                Thread t = new Thread(new Runnable() {
+               calculation();
+        }
+    }
+
+    public void calculation(){
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String[] hand = myPositionAdapter.getTextFromTextView();
+                double[] equity = new double[hand.length];
+                Arrays.fill(equity, -1.0);
+                String hands = "";
+                for (String s1 : hand) {
+                    if (!s1.equals("")) {
+                        if (hands.equals("")) {
+                            hands += s1;
+                        } else {
+                            hands += "," + s1;
+                        }
+                    }
+                }
+                String board = "";
+                for (String s : streetAdapter.getTextFromEditViewStreet()) {
+                    board += s;
+                }
+                final ExhaustiveEnumeration exhaustiveEnumeration = new ExhaustiveEnumeration();
+                Result result = exhaustiveEnumeration.getResult();
+                final String finalHands = hands;
+                final String finalBoard = board;
+                new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        String[] hand = myPositionAdapter.getTextFromTextView();
-                        double[] equity = new double[hand.length];
-                        Arrays.fill(equity, -1.0);
-                        String hands = "";
-                        for (String s1 : hand) {
-                            if (!s1.equals("")) {
-                                if (hands.equals("")) {
-                                    hands += s1;
-                                } else {
-                                    hands += "," + s1;
-                                }
-                            }
-                        }
-                        String board = "";
-                        for (String s : streetAdapter.getTextFromEditViewStreet()) {
-                            board += s;
-                        }
-                        Result result = EquityCalculation.calculateExhaustiveEnumration(hands, board, "");
-                        Map<Integer, HandInfo> mapResult = result.getMap();
-                        int positionInResult = 0;
-                        for (int i = 0; i < hand.length; i++) {
-                            if (!hand[i].equals("")) {
-                                equity[i] = mapResult.get(positionInResult++).getEquity();
-                            }
-                        }
-                        Message msg = handler.obtainMessage();
-                        Bundle bundle = new Bundle();
-                        bundle.putDoubleArray(Constants.EQUITY, equity);
-                        msg.setData(bundle);
-                        myPositionAdapter.setResult(equity);
-                        handler.sendEmptyMessage(1);
-                        progressDialog.dismiss();
+                        exhaustiveEnumeration.calculate(finalHands, finalBoard,"");
                     }
-                });
-                progressDialog.setTitle(getString(R.string.calculate));
-                progressDialog.setMessage("Calculating in progress...");
-                progressDialog.setButton(Dialog.BUTTON_NEGATIVE, getString(R.string.cancel), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        progressDialog.dismiss();
+                }).start();
+                while(!exhaustiveEnumeration.isReady()){
+                    result=exhaustiveEnumeration.getResult();
+                    if(result!=null)
+                        sendResult(hand,equity,result);
+                    try {
+                        TimeUnit.MILLISECONDS.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
-                });
-                progressDialog.show();
-                t.start();
+                }
+                sendResult(hand,equity,result);
+                progressDialog.dismiss();
+            }
+        });
+        progressDialog.setTitle(getString(R.string.calculate));
+        progressDialog.setMessage("Calculating in progress...");
+        progressDialog.setButton(Dialog.BUTTON_NEGATIVE, getString(R.string.cancel), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                progressDialog.dismiss();
+            }
+        });
+        //progressDialog.show();
+        t.start();
+    }
+
+    public void sendResult(String[] hand,double[] equity,Result result){
+        Map<Integer, HandInfo> mapResult = result.getMap();
+        int positionInResult = 0;
+        for (int i = 0; i < hand.length; i++) {
+            if (!hand[i].equals("")) {
+                equity[i] = mapResult.get(positionInResult++).getEquity();
+            }
         }
+        myPositionAdapter.setResult(equity);
+        handler.sendEmptyMessage(1);
     }
 
     @Override

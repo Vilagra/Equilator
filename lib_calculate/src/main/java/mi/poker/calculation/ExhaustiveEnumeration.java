@@ -15,6 +15,7 @@ public class ExhaustiveEnumeration implements Calculation {
 	private CardSet board;
 	private CardSet deadCards;
 	private Result result;
+	private boolean isReady=false;
 
 	public Result calculate(String playerHands, String boardCards, String deadCards) {
 		result = new Result(playerHands);
@@ -27,7 +28,12 @@ public class ExhaustiveEnumeration implements Calculation {
 		deck.removeAll(this.deadCards);
 		enumerate(0, new LinkedList<CardSet>(), deck); // starting enumeration from player 0
 		result.calculateStatistic();
+		isReady=true;
 		return result;
+	}
+
+	public boolean isReady() {
+		return isReady;
 	}
 
 	/**
@@ -100,6 +106,8 @@ public class ExhaustiveEnumeration implements Calculation {
 	}
 
 	public Result getResult() {
+		if(result!=null)
+		result.calculateStatistic();
 		return result;
 	}
 
