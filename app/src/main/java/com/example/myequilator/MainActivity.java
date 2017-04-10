@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
     }
 
     private void setTab(){
-        tabHost = (TabHost) findViewById(android.R.id.tabhost);
+        tabHost = (TabHost) findViewById(R.id.tabhost);
         tabHost.setup();
         TabHost.TabSpec tabSpec;
         tabSpec = tabHost.newTabSpec("tag1");

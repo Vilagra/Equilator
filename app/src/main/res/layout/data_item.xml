@@ -64,6 +64,8 @@
             android:layout_height="32dp"
             android:layout_margin="2dp"
             android:background="@drawable/blue_out_line"
+            android:paddingLeft="3dp"
+            android:gravity="center_vertical"
             android:layout_gravity="center"
             android:id="@+id/eqiuty"
             />

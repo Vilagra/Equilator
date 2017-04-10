@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:orientation="vertical">
+    android:background="@color/colorAccent2"
 
-
+        >
         <TabHost
             android:id="@+id/tabhost"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
-
+            android:layout_height="wrap_content"
+            android:layout_above="@id/recycler_street"
+            android:background="@color/white"
+            >
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-
                 <TabWidget
                     android:id="@android:id/tabs"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"></TabWidget>
+                    android:layout_height="50dp"></TabWidget>
 
                 <FrameLayout
                     android:id="@android:id/tabcontent"
@@ -42,16 +42,20 @@
         </TabHost>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_street"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         >
-
     </android.support.v7.widget.RecyclerView>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/calculate"
         android:text="@string/calculate"
+        android:layout_toRightOf="@id/recycler_street"
+        android:layout_alignParentBottom="true"
+        android:textSize="10dp"
+        android:layout_marginBottom="5dp"
         android:onClick="onClick"/>
 
-    </LinearLayout>
+    </RelativeLayout>

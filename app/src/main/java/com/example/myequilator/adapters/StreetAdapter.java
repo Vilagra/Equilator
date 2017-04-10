@@ -177,7 +177,7 @@ public class StreetAdapter extends MyAdapter<StreetAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         if (mDataset[position].equals("Flop")) {
-            holder.handText.getLayoutParams().width = 200;
+            holder.handText.getLayoutParams().width = 170;
         }
         holder.mTextView.setText(mDataset[position]);
         String s = textFromEditViewStreet[position];
