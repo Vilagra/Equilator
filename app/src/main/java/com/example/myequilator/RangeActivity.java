@@ -2,15 +2,12 @@ package com.example.myequilator;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.Editable;
 import android.text.InputType;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,7 +17,6 @@ import android.widget.TextView;
 import com.example.myequilator.adapters.AdapterForRange;
 import com.example.myequilator.entity.Combination;
 
-import java.text.DecimalFormat;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -36,15 +32,6 @@ public class RangeActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.range_matrix);
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_range);
-        GridLayoutManager manager = new GridLayoutManager(this, 13, GridLayoutManager.VERTICAL, false);
-        recyclerView.setLayoutManager(manager);
-        Set<Integer> idexesDataWasChoosen = (Set<Integer>) getIntent().getSerializableExtra(Constants.INDEXES_DATA_WAS_CHOSEN);
-        adapterForRange = new AdapterForRange(this, new HashSet<Integer>());
-        if (idexesDataWasChoosen != null) {
-            adapterForRange.setChoosen(idexesDataWasChoosen);
-        }
-        recyclerView.setAdapter(adapterForRange);
         buttonOk = (Button) findViewById(R.id.ok);
         buttonCancel = (Button) findViewById(R.id.cancel);
         seekBar = (SeekBar) findViewById(R.id.sbWeight);
@@ -54,6 +41,21 @@ public class RangeActivity extends AppCompatActivity implements View.OnClickList
         procent.setOnClickListener(this);
         buttonOk.setOnClickListener(this);
         buttonCancel.setOnClickListener(this);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_range);
+        GridLayoutManager manager = new GridLayoutManager(this, 13, GridLayoutManager.VERTICAL, false);
+        recyclerView.setLayoutManager(manager);
+        Set<Integer> idexesDataWasChoosen = (Set<Integer>) getIntent().getSerializableExtra(Constants.INDEXES_DATA_WAS_CHOSEN);
+        adapterForRange = new AdapterForRange(this, new HashSet<Integer>());
+        if (idexesDataWasChoosen != null) {
+            adapterForRange.setChoosen(idexesDataWasChoosen);
+            int lastIndex = AllCards.areAllHandsInRankingOrder(new HashSet(idexesDataWasChoosen));
+            if(lastIndex!=-1){
+                double currenProcent=AllCards.allCombinationsInRankingOrder.get(lastIndex).getRankingOfHand();
+                setViewByProcent(currenProcent);
+            }
+        }
+        recyclerView.setAdapter(adapterForRange);
+
     }
 
 
@@ -78,8 +80,6 @@ public class RangeActivity extends AppCompatActivity implements View.OnClickList
                 input.setHint("00.0");
                 input.setBackground(getResources().getDrawable(R.drawable.blue_out_line));
                 input.setMaxWidth(40);
-                //input.setInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL);
-                //input.setRawInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL);
                 AlertDialog.Builder alert = new AlertDialog.Builder(this);
                 alert.setTitle("Range").
                         setMessage("EnterRange").
@@ -94,16 +94,19 @@ public class RangeActivity extends AppCompatActivity implements View.OnClickList
                                 str = String.format("%.1f", Double.valueOf(str));
                                 str=str.replace(",",".");
                             }
-                            res=Double.valueOf(str);
-                            res=res>100?100:res;
-                            procent.setText(String.valueOf(res));
-                            seekBar.setProgress((int) (res*10));
-                            //setInAdapterRangeByProcent(res);
+                            setViewByProcent(Double.valueOf(str));
+
                         }
                     }
                 });
                 alert.show();
         }
+    }
+
+    private void setViewByProcent(Double res){
+        res=res>100?100:res;
+        procent.setText(String.valueOf(res));
+        seekBar.setProgress((int) (res*10));
     }
 
     @Override
