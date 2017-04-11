@@ -4,12 +4,14 @@ import android.app.Activity;
 import android.app.DialogFragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.os.Handler;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -34,8 +36,10 @@ import java.util.TreeSet;
  * Created by Vilagra on 10.01.2017.
  */
 
-public class StreetAdapter extends MyAdapter<StreetAdapter.ViewHolder> {
+public class StreetAdapter extends MyAdapter<RecyclerView.ViewHolder> {
 
+    private static final int VIEW_TYPE_FOOTER = 0;
+    private static final int VIEW_TYPE_CELL = 1;
     private String[] mDataset;
     Context ctx;
     private String[] textFromEditViewStreet;
@@ -80,6 +84,14 @@ public class StreetAdapter extends MyAdapter<StreetAdapter.ViewHolder> {
         textFromEditViewStreet = new String[data.length];
         arrayIndexesDataWhichWasChoosen = new IndexesDataWasChosen[data.length];
         Arrays.fill(textFromEditViewStreet, "");
+    }
+    public class ButtonHolder extends RecyclerView.ViewHolder{
+        Button button;
+
+        public ButtonHolder(Button itemView) {
+            super(itemView);
+            button=itemView;
+        }
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -152,6 +164,11 @@ public class StreetAdapter extends MyAdapter<StreetAdapter.ViewHolder> {
 
 
     }
+    @Override
+    public int getItemViewType(int position) {
+        return (position == mDataset.length) ? VIEW_TYPE_FOOTER : VIEW_TYPE_CELL;
+    }
+
 
     private void removedDataByCurrentPosition(int position) {
         IndexesDataWasChosen indexesDataWasChosen=arrayIndexesDataWhichWasChoosen[position];
@@ -165,28 +182,37 @@ public class StreetAdapter extends MyAdapter<StreetAdapter.ViewHolder> {
 
     // Create new views (invoked by the layout manager)
     @Override
-    public StreetAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                        int viewType) {
+        RecyclerView.ViewHolder vh;
         // create a new view
-        CardView cardView = (CardView) LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.street_item, parent, false);
-        ViewHolder vh = new ViewHolder(cardView);
+        if(viewType==VIEW_TYPE_CELL) {
+            CardView cardView = (CardView) LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.street_item, parent, false);
+            vh = new ViewHolder(cardView);
+        }else{
+            Button buttonView = (Button) LayoutInflater.from(parent.getContext()).inflate(R.layout.button,parent,false);
+            vh= new ButtonHolder(buttonView);
+        }
         return vh;
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        if (mDataset[position].equals("Flop")) {
-            holder.handText.getLayoutParams().width = 170;
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        if(holder instanceof ViewHolder) {
+            ViewHolder sHolder = (ViewHolder) holder;
+            if (mDataset[position].equals("Flop")) {
+                sHolder.handText.getLayoutParams().width = 170;
+            }
+            sHolder.mTextView.setText(mDataset[position]);
+            String s = textFromEditViewStreet[position];
+            sHolder.handText.setText(s);
         }
-        holder.mTextView.setText(mDataset[position]);
-        String s = textFromEditViewStreet[position];
-        holder.handText.setText(s);
     }
 
     @Override
     public int getItemCount() {
-        return mDataset.length;
+        return mDataset.length+1;
     }
 
 

@@ -5,10 +5,13 @@ import android.app.DialogFragment;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
@@ -32,6 +35,8 @@ import mi.poker.calculation.ExhaustiveEnumeration;
 import mi.poker.calculation.HandInfo;
 import mi.poker.calculation.Result;
 import mi.poker.common.model.testbed.spears2p2.Hand;
+
+import static android.content.res.Configuration.ORIENTATION_PORTRAIT;
 
 public class MainActivity extends AppCompatActivity implements CardsDialogFragment.CardDialogFragmentListener {
 
@@ -110,7 +115,16 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
                 throw new IllegalArgumentException();
         }
         RecyclerView recyclerViewStreet = (RecyclerView) findViewById(R.id.recycler_street);
-        LinearLayoutManager managerStreet = new LinearLayoutManager(this, OrientationHelper.HORIZONTAL, false);
+        RecyclerView.LayoutManager managerStreet;
+        if ((getResources().getConfiguration().screenLayout &
+                Configuration.SCREENLAYOUT_SIZE_MASK) ==
+                Configuration.SCREENLAYOUT_SIZE_NORMAL&&getResources().getConfiguration().orientation== ORIENTATION_PORTRAIT) {
+            managerStreet = new GridLayoutManager(this, 2,OrientationHelper.HORIZONTAL, false);
+        }
+        else {
+            managerStreet = new LinearLayoutManager(this, OrientationHelper.HORIZONTAL, false);
+        }
+
         LinearLayoutManager managerPosition = new LinearLayoutManager(this, OrientationHelper.VERTICAL, false);
         recyclerViewPosition.setLayoutManager(managerPosition);
         recyclerViewStreet.setLayoutManager(managerStreet);
