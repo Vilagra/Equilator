@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.app.DialogFragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -85,12 +88,13 @@ public class StreetAdapter extends MyAdapter<RecyclerView.ViewHolder> {
         arrayIndexesDataWhichWasChoosen = new IndexesDataWasChosen[data.length];
         Arrays.fill(textFromEditViewStreet, "");
     }
-    public class ButtonHolder extends RecyclerView.ViewHolder{
+
+    public class ButtonHolder extends RecyclerView.ViewHolder {
         Button button;
 
         public ButtonHolder(Button itemView) {
             super(itemView);
-            button=itemView;
+            button = itemView;
         }
     }
 
@@ -116,10 +120,10 @@ public class StreetAdapter extends MyAdapter<RecyclerView.ViewHolder> {
 
         public void onClick(View v) {
             int position = getAdapterPosition();
-            IndexesDataWasChosen indexes=arrayIndexesDataWhichWasChoosen[position];
+            IndexesDataWasChosen indexes = arrayIndexesDataWhichWasChoosen[position];
             switch (v.getId()) {
                 case R.id.hand_street:
-                    FragmentTransaction ft = ((Activity)ctx).getFragmentManager().beginTransaction();
+                    FragmentTransaction ft = ((Activity) ctx).getFragmentManager().beginTransaction();
                     CardsDialogFragment newFragment = new CardsDialogFragment();
                     if (indexes != null) {
                         AllCards.unCheckFlags(indexes.getIndexesDataWasChosen());
@@ -140,30 +144,11 @@ public class StreetAdapter extends MyAdapter<RecyclerView.ViewHolder> {
                     break;
                 case R.id.remove_street:
                     removedDataByCurrentPosition(position);
-                    handText.setText("");
                     break;
             }
         }
-
-/*
-        @Override
-        public void onDialogOkClick(DialogFragment dialog, Set<Integer> positionOfChoosenCard) {
-            String s = "";
-            for (Integer integer : positionOfChoosenCard) {
-                AllCards.wasChosen[integer] = true;
-                    s += AllCards.allCards.get(integer).getStringOfCard();
-            }
-            editText.setText(s);
-            textFromEditViewStreet[getAdapterPosition()] = s;
-        }
-
-        @Override
-        public void onDialogCancelClick(DialogFragment dialog) {
-        }
-*/
-
-
     }
+
     @Override
     public int getItemViewType(int position) {
         return (position == mDataset.length) ? VIEW_TYPE_FOOTER : VIEW_TYPE_CELL;
@@ -171,35 +156,39 @@ public class StreetAdapter extends MyAdapter<RecyclerView.ViewHolder> {
 
 
     private void removedDataByCurrentPosition(int position) {
-        IndexesDataWasChosen indexesDataWasChosen=arrayIndexesDataWhichWasChoosen[position];
-        if(indexesDataWasChosen!=null) {
-            AllCards.unCheckFlags(indexesDataWasChosen.getIndexesDataWasChosen());
+        for (int i = position; i < mDataset.length; i++) {
+            IndexesDataWasChosen indexesDataWasChosen = arrayIndexesDataWhichWasChoosen[i];
+            if (indexesDataWasChosen != null) {
+                AllCards.unCheckFlags(indexesDataWasChosen.getIndexesDataWasChosen());
+            }
+            arrayIndexesDataWhichWasChoosen[i] = null;
+            textFromEditViewStreet[i] = "";
+            this.notifyDataSetChanged();
         }
-        arrayIndexesDataWhichWasChoosen[position]=null;
-        textFromEditViewStreet[position]=null;
+
     }
 
 
     // Create new views (invoked by the layout manager)
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                       int viewType) {
+                                                      int viewType) {
         RecyclerView.ViewHolder vh;
         // create a new view
-        if(viewType==VIEW_TYPE_CELL) {
+        if (viewType == VIEW_TYPE_CELL) {
             CardView cardView = (CardView) LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.street_item, parent, false);
             vh = new ViewHolder(cardView);
-        }else{
-            Button buttonView = (Button) LayoutInflater.from(parent.getContext()).inflate(R.layout.button,parent,false);
-            vh= new ButtonHolder(buttonView);
+        } else {
+            Button buttonView = (Button) LayoutInflater.from(parent.getContext()).inflate(R.layout.button, parent, false);
+            vh = new ButtonHolder(buttonView);
         }
         return vh;
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if(holder instanceof ViewHolder) {
+        if (holder instanceof ViewHolder) {
             ViewHolder sHolder = (ViewHolder) holder;
             if (mDataset[position].equals("Flop")) {
                 sHolder.handText.getLayoutParams().width = 170;
@@ -207,12 +196,37 @@ public class StreetAdapter extends MyAdapter<RecyclerView.ViewHolder> {
             sHolder.mTextView.setText(mDataset[position]);
             String s = textFromEditViewStreet[position];
             sHolder.handText.setText(s);
+            if (position == 1 || position == 2) {
+                if (arrayIndexesDataWhichWasChoosen[position - 1] == null) {
+                    setImageButtonEnabled(ctx, false, sHolder.hand, R.drawable.ic_poker);
+                }
+                else {
+                    setImageButtonEnabled(ctx,true,sHolder.hand,R.drawable.ic_poker);
+                }
+            }
         }
+    }
+
+    public static void setImageButtonEnabled(Context ctxt, boolean enabled, ImageButton item,
+                                             int iconResId) {
+        item.setEnabled(enabled);
+        Drawable originalIcon = ctxt.getResources().getDrawable(iconResId);
+        Drawable icon = enabled ? originalIcon : convertDrawableToGrayScale(originalIcon);
+        item.setImageDrawable(icon);
+    }
+
+    public static Drawable convertDrawableToGrayScale(Drawable drawable) {
+        if (drawable == null) {
+            return null;
+        }
+        Drawable res = drawable.mutate();
+        res.setColorFilter(Color.GRAY, PorterDuff.Mode.SRC_IN);
+        return res;
     }
 
     @Override
     public int getItemCount() {
-        return mDataset.length+1;
+        return mDataset.length + 1;
     }
 
 
