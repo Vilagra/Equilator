@@ -25,8 +25,11 @@ import com.example.myequilator.adapters.MyPositionAdapter;
 import com.example.myequilator.adapters.StreetAdapter;
 import com.example.myequilator.entity.DataFromIntent;
 import com.example.myequilator.entity.IndexesDataWasChosen;
+import com.stevebrecher.showdown.Showdown;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -35,6 +38,7 @@ import mi.poker.calculation.ExhaustiveEnumeration;
 import mi.poker.calculation.HandInfo;
 import mi.poker.calculation.Result;
 import mi.poker.common.model.testbed.spears2p2.Hand;
+
 
 import static android.content.res.Configuration.ORIENTATION_PORTRAIT;
 
@@ -180,40 +184,21 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
                 double[] equity = new double[hand.length];
                 Arrays.fill(equity, -1.0);
                 String hands = "";
-                for (String s1 : hand) {
-                    if (!s1.equals("")) {
+                String board = "";
+                for (String s : hand) {
+                    if (!s.equals("")) {
                         if (hands.equals("")) {
-                            hands += s1;
+                            hands += s;
                         } else {
-                            hands += "," + s1;
+                            hands += "," + s;
                         }
                     }
                 }
-                String board = "";
                 for (String s : streetAdapter.getTextFromEditViewStreet()) {
                     board += s;
                 }
-                final ExhaustiveEnumeration exhaustiveEnumeration = new ExhaustiveEnumeration();
-                Result result = exhaustiveEnumeration.getResult();
-                final String finalHands = hands;
-                final String finalBoard = board;
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        exhaustiveEnumeration.calculate(finalHands, finalBoard,"");
-                    }
-                }).start();
-                while(!exhaustiveEnumeration.isReady()){
-                    result=exhaustiveEnumeration.getResult();
-                    if(result!=null)
-                        sendResult(hand,equity,result);
-                    try {
-                        TimeUnit.MILLISECONDS.sleep(500);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-                sendResult(hand,equity,result);
+                double[] res = Showdown.calculate(hands,board);
+                sendResult(hand,equity,res);
                 progressDialog.dismiss();
             }
         });
@@ -225,16 +210,16 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
                 progressDialog.dismiss();
             }
         });
-        //progressDialog.show();
+        progressDialog.show();
         t.start();
     }
 
-    public void sendResult(String[] hand,double[] equity,Result result){
-        Map<Integer, HandInfo> mapResult = result.getMap();
+    public void sendResult(String[] hand,double[] equity,double[] result){
+        //Map<Integer, HandInfo> mapResult = result.getMap();
         int positionInResult = 0;
         for (int i = 0; i < hand.length; i++) {
             if (!hand[i].equals("")) {
-                equity[i] = mapResult.get(positionInResult++).getEquity();
+                equity[i] = result[positionInResult++];
             }
         }
         myPositionAdapter.setResult(equity);

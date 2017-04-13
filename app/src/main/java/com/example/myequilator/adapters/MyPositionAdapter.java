@@ -59,7 +59,7 @@ public class MyPositionAdapter extends MyAdapter<MyPositionAdapter.ViewHolder> {
             AllCards.unCheckFlags(indexesDataWasChosen.getIndexesDataWasChosen());
         }
         arrayIndexesDataWhichWasChoosen[position]=null;
-        textFromTextView[position]=null;
+        textFromTextView[position]="";
     }
 
 
@@ -180,7 +180,7 @@ public class MyPositionAdapter extends MyAdapter<MyPositionAdapter.ViewHolder> {
         String s = textFromTextView[position];
         holder.rangeOrHandTextView.setText(s);
         if (result[position] != -1.0) {
-            holder.result.setText(new DecimalFormat("#.#").format(result[position] * 100));
+            holder.result.setText(new DecimalFormat("#.#").format(result[position]));
         } else {
             holder.result.setText("");
         }

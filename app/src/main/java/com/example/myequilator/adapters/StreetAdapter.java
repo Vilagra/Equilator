@@ -89,12 +89,18 @@ public class StreetAdapter extends MyAdapter<RecyclerView.ViewHolder> {
         Arrays.fill(textFromEditViewStreet, "");
     }
 
-    public class ButtonHolder extends RecyclerView.ViewHolder {
+    public class ButtonHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         Button button;
 
         public ButtonHolder(Button itemView) {
             super(itemView);
             button = itemView;
+            button.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            ((MainActivity)ctx).calculation();
         }
     }
 
