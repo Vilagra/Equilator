@@ -23,7 +23,6 @@ import com.example.myequilator.entity.IndexesDataWasChosen;
 import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Set;
 import java.util.TreeSet;
 
 /**
@@ -33,7 +32,12 @@ import java.util.TreeSet;
 public class MyPositionAdapter extends MyAdapter<MyPositionAdapter.ViewHolder> {
 
     private String[] mDataset;
-    private double[] result;
+
+    public double[] getEquity() {
+        return equity;
+    }
+
+    private double[] equity;
     Context ctx;
     private String[] textFromTextView;
     private IndexesDataWasChosen[] arrayIndexesDataWhichWasChoosen;
@@ -60,6 +64,7 @@ public class MyPositionAdapter extends MyAdapter<MyPositionAdapter.ViewHolder> {
         }
         arrayIndexesDataWhichWasChoosen[position]=null;
         textFromTextView[position]="";
+        equity[position] = -1.0;
     }
 
 
@@ -79,18 +84,18 @@ public class MyPositionAdapter extends MyAdapter<MyPositionAdapter.ViewHolder> {
         this.textFromTextView = textFromTextView;
     }
 
-    public void setResult(double[] result) {
-        this.result = result;
+    public void setEquity(double[] equity) {
+        this.equity = equity;
     }
 
     public MyPositionAdapter(Context ctx, String[] data) {
         this.ctx = ctx;
         mDataset = data;
         textFromTextView = new String[data.length];
-        result = new double[data.length];
+        equity = new double[data.length];
         arrayIndexesDataWhichWasChoosen = new IndexesDataWasChosen[data.length];
         Arrays.fill(textFromTextView, "");
-        Arrays.fill(result, -1.0);
+        Arrays.fill(equity, -1.0);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -151,6 +156,7 @@ public class MyPositionAdapter extends MyAdapter<MyPositionAdapter.ViewHolder> {
                     if(indexes!=null) {
                         removedDataByCurrentPosition(position);
                         rangeOrHandTextView.setText("");
+                        result.setText("");
                     }
                     break;
                 case R.id.random:
@@ -179,8 +185,8 @@ public class MyPositionAdapter extends MyAdapter<MyPositionAdapter.ViewHolder> {
         holder.mTextView.setText(mDataset[position]);
         String s = textFromTextView[position];
         holder.rangeOrHandTextView.setText(s);
-        if (result[position] != -1.0) {
-            holder.result.setText(new DecimalFormat("#.#").format(result[position]));
+        if (equity[position] != -1.0) {
+            holder.result.setText(new DecimalFormat("#.#").format(equity[position])+"%");
         } else {
             holder.result.setText("");
         }

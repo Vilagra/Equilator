@@ -7455,3 +7455,48 @@ pots won:                     65981,17     90193,17
 
                               2c3c         7c7d
 % chance of outright win      9,973587    13,653177
+
+990 pots with board cards: 9h 8h 8d
+
+                              AsKs         JhTh
+% chance of outright win     30,202020    68,888889
+% chance of win or split     31,111111    69,797980
+expected return, % of pot    30,656566    69,343434
+fair pot odds:1               2,261944     0,442098
+pots won:                       303,50       686,50
+
+990 pots with board cards: 9h 8h 8d
+
+                              AsKs         JhTh
+% chance of outright win     30,202020    68,888889
+% chance of win or split     31,111111    69,797980
+expected return, % of pot    30,656566    69,343434
+fair pot odds:1               2,261944     0,442098
+pots won:                       303,50       686,50
+
+990 pots with board cards: 9h 8h 8d
+
+                              AsKs         JhTh
+% chance of outright win     30,202020    68,888889
+% chance of win or split     31,111111    69,797980
+expected return, % of pot    30,656566    69,343434
+fair pot odds:1               2,261944     0,442098
+pots won:                       303,50       686,50
+
+990 pots with board cards: 9h 8h 8d
+
+                              AsKs         JhTh
+% chance of outright win     30,202020    68,888889
+% chance of win or split     31,111111    69,797980
+expected return, % of pot    30,656566    69,343434
+fair pot odds:1               2,261944     0,442098
+pots won:                       303,50       686,50
+
+990 pots with board cards: 9h 8h 8d
+
+                              AsKs         JhTh
+% chance of outright win     30,202020    68,888889
+% chance of win or split     31,111111    69,797980
+expected return, % of pot    30,656566    69,343434
+fair pot odds:1               2,261944     0,442098
+pots won:                       303,50       686,50

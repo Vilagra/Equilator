@@ -30,7 +30,6 @@ public final class Showdown {
         Enumerator[] enumerators = new Enumerator[threads];
         UserInput ui = UserInput.newUserInput(cards, bord);
         long nanosecs = System.nanoTime();
-
         for (int i = 0; i < enumerators.length; i++) {
             enumerators[i] = new Enumerator(i, threads,
                     ui.deck(), ui.holeCards(), ui.nUnknown(), ui.boardCards());
@@ -44,6 +43,7 @@ public final class Showdown {
         }
         nanosecs = System.nanoTime() - nanosecs;
         System.out.println(nanosecs);
+        //Output.resultsOut(ui,enumerators,outStream);
         return Output.result(ui, enumerators);
     }
 
@@ -51,7 +51,7 @@ public final class Showdown {
         //System.out.println(Arrays.toString(calculate()));
         //if (getArgs(args)) {
 
-            //openOutFile();
+            openOutFile();
             //showIntro();
 /*
             Enumerator[] enumerators = new Enumerator[threads];
@@ -85,6 +85,7 @@ public final class Showdown {
                     ui = UserInput.newUserInput("", "");
             }*/
         //}
+        System.out.println(Arrays.toString(calculate("AsKs,JhTh","9h8h8d")));
     }
 
     private static boolean getArgs(String[] args) {

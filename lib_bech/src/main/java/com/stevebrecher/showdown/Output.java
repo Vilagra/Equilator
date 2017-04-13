@@ -18,11 +18,11 @@ final class Output {
 		final double nPots = ui.nPots();
 		for (Enumerator e : enumerators)
 			for (int i = 0; i < nPlayers; i++) {
-				wins[i] += e.getWins()[i]+e.getPartialPots()[i];
-				//partialPots[i] += e.getPartialPots()[i];
+				wins[i] += e.getWins()[i];
+				partialPots[i] += e.getPartialPots()[i];
 			}
 		for (int i = 0; i < nPlayers; i++) {
-			result[i]= wins[i] * 100.0 / nPots;
+			result[i]= (wins[i]+partialPots[i]) * 100.0 / nPots;
 		}
 		return result;
 	}
@@ -86,7 +86,7 @@ final class Output {
 					f.printf(FP_FORMAT, wins[i] * 100.0 / nPots);
 					--n;
 				}
-				/*f.printf("%n%% chance of win or split ");
+				f.printf("%n%% chance of win or split ");
 				for (int i = j; i < j + HANDS_PER_LINE && i < nbrToPrint; ++i)
 					f.printf(FP_FORMAT, (wins[i] + splits[i]) * 100.0 / nPots);
 				f.printf("%nexpected return, %% of pot");
@@ -98,12 +98,12 @@ final class Output {
 						f.printf(FP_FORMAT, (nPots - (wins[i] + partialPots[i])) / (wins[i] + partialPots[i]));
 					else
 						f.print(" infinite");
-				}*/
-/*				f.printf("%npots won:                ");
+				}
+				f.printf("%npots won:                ");
 				for (int i = j; i < j + HANDS_PER_LINE && i < nbrToPrint; ++i) {
 					f.printf("%13.2f", wins[i] + partialPots[i]);
 
-				}*/
+				}
 				f.println();
 				j += HANDS_PER_LINE;
 			}

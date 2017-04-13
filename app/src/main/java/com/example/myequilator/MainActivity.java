@@ -6,7 +6,6 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
@@ -15,8 +14,8 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.GestureDetector;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TabHost;
 
@@ -27,17 +26,7 @@ import com.example.myequilator.entity.DataFromIntent;
 import com.example.myequilator.entity.IndexesDataWasChosen;
 import com.stevebrecher.showdown.Showdown;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-
-import mi.poker.calculation.EquityCalculation;
-import mi.poker.calculation.ExhaustiveEnumeration;
-import mi.poker.calculation.HandInfo;
-import mi.poker.calculation.Result;
-import mi.poker.common.model.testbed.spears2p2.Hand;
 
 
 import static android.content.res.Configuration.ORIENTATION_PORTRAIT;
@@ -145,11 +134,13 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
             String currentTag = savedInstanceState.getString(Constants.CURRENT_TAG);
             tabHost.setCurrentTabByTag(currentTag);
             setRecycler(currentTag);
+            double[] equity = savedInstanceState.getDoubleArray(Constants.EQUITY);
             String[] textFomEditTextPosition = savedInstanceState.getStringArray(Constants.STRNGS_FROM_ADAPTER);
             String[]textFomEditTextStreet = savedInstanceState.getStringArray(Constants.STRNGS_FROM_STREET_ADAPTER);
             IndexesDataWasChosen[] indexesFromPositionAdapter = (IndexesDataWasChosen[]) savedInstanceState.getSerializable(Constants.INDEXES_DATA_WAS_CHOSEN_BY_POSITION_ADAPTER);
             IndexesDataWasChosen[] indexesFromStreetAdapter = (IndexesDataWasChosen[]) savedInstanceState.getSerializable(Constants.INDEXES_DATA_WAS_CHOSEN_BY_STREET_ADAPTER);
 
+            myPositionAdapter.setEquity(equity);
             myPositionAdapter.setTextFromTextView(textFomEditTextPosition);
             myPositionAdapter.setArrayIndexesDataWhichWasChoosen(indexesFromPositionAdapter);
             streetAdapter.setTextFromEditViewStreet(textFomEditTextStreet);
@@ -164,6 +155,7 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
         outState.putString(Constants.CURRENT_TAG, tabHost.getCurrentTabTag());
         outState.putStringArray(Constants.STRNGS_FROM_STREET_ADAPTER, streetAdapter.getTextFromEditViewStreet());
         outState.putStringArray(Constants.STRNGS_FROM_ADAPTER, myPositionAdapter.getTextFromTextView());
+        outState.putDoubleArray(Constants.EQUITY,myPositionAdapter.getEquity());
         outState.putSerializable(Constants.INDEXES_DATA_WAS_CHOSEN_BY_STREET_ADAPTER, streetAdapter.getArrayIndexesDataWhichWasChoosen());
         outState.putSerializable(Constants.INDEXES_DATA_WAS_CHOSEN_BY_POSITION_ADAPTER, myPositionAdapter.getArrayIndexesDataWhichWasChoosen());
     }
@@ -217,12 +209,13 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
     public void sendResult(String[] hand,double[] equity,double[] result){
         //Map<Integer, HandInfo> mapResult = result.getMap();
         int positionInResult = 0;
+        Log.d("equity",Arrays.toString(result));
         for (int i = 0; i < hand.length; i++) {
             if (!hand[i].equals("")) {
                 equity[i] = result[positionInResult++];
             }
         }
-        myPositionAdapter.setResult(equity);
+        myPositionAdapter.setEquity(equity);
         handler.sendEmptyMessage(1);
     }
 
