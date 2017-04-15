@@ -2,8 +2,12 @@ package com.stevebrecher.showdown;
 
 import com.stevebrecher.poker.*;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
+
+import sun.rmi.runtime.Log;
 
 final class Enumerator extends Thread {
 
@@ -24,9 +28,10 @@ final class Enumerator extends Thread {
 	private final int	firstUnknown;
 	private final int	secondUnknown;
 	public int trail=0;
+	private ArrayList<ArrayList<long[]>> arrayListRanges= new ArrayList<>();
 
 	Enumerator(final int instance, final int instances, final CardSet deck,
-				final CardSet[] holeCards, final int nUnknown, final CardSet boardCards) {
+				final CardSet[] holeCards,String[] range, final int nUnknown, final CardSet boardCards) {
 
 		super("Enumerator" + instance);
 		startIx = instance;
@@ -37,7 +42,8 @@ final class Enumerator extends Thread {
 		int i = 0;
 		for (Card c : deck)
 			this.deck[i++] = HandEval.encode(c);
-		nPlayers = holeCards.length + nUnknown;
+		parseRange(range,deck);
+		nPlayers = holeCards.length + nUnknown+range.length;
 		holeHand = new long[nPlayers];
 		i = 0;
 		for (CardSet cs : holeCards)
@@ -54,8 +60,25 @@ final class Enumerator extends Thread {
 		limitIx3 = nCardsInDeck - 3;
 		limitIx4 = nCardsInDeck - 2;
 		limitIx5 = nCardsInDeck - 1;
-		firstUnknown = nPlayers - nUnknown;
+		firstUnknown = nPlayers - nUnknown-range.length;
 		secondUnknown = firstUnknown + 1;
+	}
+
+	public void parseRange(String[] ranges,CardSet deck){
+		for (String range : ranges) {
+			String[] rangeInString=range.split(",");
+			ArrayList<long[]> arrayListRange= new ArrayList<>();
+			for (String s : rangeInString) {
+				Card card1=new Card(s.substring(0,2));
+				Card card2 = new Card(s.substring(2));
+				if(deck.contains(card1)&&deck.contains(card2)) {
+					long code1 = HandEval.encode(card1);
+					long code2 = HandEval.encode(card2);
+					arrayListRange.add(new long[]{code1,code2});
+				}
+			}
+			arrayListRanges.add(arrayListRange);
+		}
 	}
 
 	long[] getWins() {
@@ -71,12 +94,11 @@ final class Enumerator extends Thread {
 	}
 
 	@Override public final void run() {
-
-		if (nUnknown > 0)
-			//enumBoards();
 		randomBoard();
+/*		if (nUnknown > 0)
+			enumBoards();
 		else
-			enumBoardsNoUnknown();
+			enumBoardsNoUnknown();*/
 	}
 
 	private void enum2GuysNoFlop() { // special case for speed of EnumBoardsNoUnknown
@@ -216,25 +238,7 @@ final class Enumerator extends Thread {
 			}
 		}
 	}
-	private void randomBoard(){
-		while(trail<1000000){
-			Random random = new Random();
-			HashSet<Integer> set= new HashSet<>();
-			while (set.size()!=5){
-				set.add(random.nextInt(50));
-			}
-			long result=0;
-			for (Integer integer : set) {
-				dealt[integer]=true;
-				result+=deck[integer];
-			}
-			board5=result;
-			enumUnknowns();
-			for (Integer integer : set) {
-				dealt[integer]=false;
-			}
-		}
-	}
+
 
 	private void enumBoards() {
 		switch (nBoardCards) {
@@ -333,6 +337,60 @@ final class Enumerator extends Thread {
 			}
 		}
 	}
+	private void randomBoard(){
+		while(trail<1000000){
+			Random random = new Random();
+			HashSet<Integer> set= new HashSet<>();
+			while (set.size()!=5){
+				set.add(random.nextInt(dealt.length));
+			}
+			long result=0;
+			HashSet<Long> set2 = new HashSet<>();
+			for (Integer integer : set) {
+				dealt[integer]=true;
+				set2.add(deck[integer]);
+				result+=deck[integer];
+			}
+			board5=result;
+			vsRange(set2,0);
+			for (Integer integer : set) {
+				dealt[integer]=false;
+			}
+		}
+	}
+	//recursively
+	private void vsRange(Set set,int index){
+		ArrayList<long[]> current = arrayListRanges.get(index);
+		for (long[] longs : current) {
+			if(set.contains(longs[0])||set.contains(longs[1])){
+				continue;
+			}
+			else{
+				holeHand[firstUnknown+index]=longs[0]|longs[1];
+				set.add(longs[0]);
+				set.add(longs[1]);
+				if(index==arrayListRanges.size()-1) {
+					potResults();
+				}else{
+					vsRange(set,index+1);
+				}
+				set.remove(longs[0]);
+				set.remove(longs[1]);
+			}
+		}
+	}
+	
+//	private void vsRange(Set set){
+//		for (long[] longs : range1) {
+//			if(set.contains(longs[0])||set.contains(longs[1])){
+//				continue;
+//			}
+//			else{
+//				holeHand[firstUnknown]=longs[0]|longs[1];
+//				potResults();
+//			}
+//		}
+//	}
 
 	private void enumUnknowns() {
 		//System.out.println(startIx+" "+board5);

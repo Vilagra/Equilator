@@ -34,7 +34,7 @@ final class Output {
 		final CardSet deadCards = ui.deadCards();
 		final int nUnknown = ui.nUnknown();
 		double nPots = ui.nPots();
-		final int nPlayers = holeCards.length+ nUnknown;
+		final int nPlayers = holeCards.length+ nUnknown+ui.getRange().length;
 		long[] wins = new long[nPlayers], splits = new long[nPlayers];
 		double[] partialPots = new double[nPlayers];
 		int j, n, nbrToPrint;
@@ -77,7 +77,7 @@ final class Output {
 			while (n > 0) {
 				f.printf("%n                     ");
 				for (int i = j; i < j + HANDS_PER_LINE && i < nbrToPrint; ++i)
-					if (i >= nPlayers - nUnknown) {
+					if (i >= nPlayers - nUnknown-1) {
 						f.print("         Unknown");
 						if (nUnknown > 1)
 							f.print("s");

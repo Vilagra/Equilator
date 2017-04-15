@@ -30,12 +30,16 @@ final class UserInput {
 	private static final BufferedReader
 							stdin = new BufferedReader(new InputStreamReader(System.in));
 	private static boolean	userQuits;
+	private String[] range;
+
 
 	private UserInput() {}
 	
-	static UserInput newUserInput(String cards,String board,int numberOfRandom) {
+	static UserInput newUserInput(String cards,String board,String[] range,int numberOfRandom) {
 		UserInput ui = new UserInput();
 		ui.nUnknown=numberOfRandom;
+		ui.range=range;
+
 		if (ui.getUserInput(cards,board))
 			return ui;
 		else
@@ -61,6 +65,10 @@ final class UserInput {
 		return nUnknown;
 	}
 
+	public String[] getRange() {
+		return range;
+	}
+
 	double nPots() {
 		return nPots;
 	}
@@ -80,7 +88,7 @@ final class UserInput {
 			out.println();
 			if (getHoleCards(cards))
 				//if (getNbrUnknown())
-					if (holeCards.length+nUnknown < 2)
+					if (holeCards.length+nUnknown+range.length < 2)
 						out.println("At least two players are required.");
 					else
 						if (getBoard(board))
