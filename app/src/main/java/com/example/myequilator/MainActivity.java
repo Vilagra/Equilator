@@ -27,7 +27,12 @@ import com.example.myequilator.entity.IndexesDataWasChosen;
 import com.stevebrecher.showdown.Showdown;
 
 import java.util.Arrays;
+import java.util.Map;
 
+
+import mi.poker.calculation.EquityCalculation;
+import mi.poker.calculation.HandInfo;
+import mi.poker.calculation.Result;
 
 import static android.content.res.Configuration.ORIENTATION_PORTRAIT;
 
@@ -179,6 +184,9 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
                 String board = "";
                 for (String s : hand) {
                     if (!s.equals("")) {
+                        if(s.length()>4){
+                            s=s.replace(",","|");
+                        }
                         if (hands.equals("")) {
                             hands += s;
                         } else {
@@ -189,8 +197,13 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
                 for (String s : streetAdapter.getTextFromEditViewStreet()) {
                     board += s;
                 }
+                long start = System.currentTimeMillis();
+                Result result=EquityCalculation.calculateMonteCarlo(hands,board,"");
+
+                long end = System.currentTimeMillis()-start;
+                Log.d("seconds", String.valueOf(end));
                 double[] res = Showdown.calculate(hands,board);
-                sendResult(hand,equity,res);
+                sendResult(hand,equity,new double[2],result);
                 progressDialog.dismiss();
             }
         });
@@ -206,13 +219,14 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
         t.start();
     }
 
-    public void sendResult(String[] hand,double[] equity,double[] result){
-        //Map<Integer, HandInfo> mapResult = result.getMap();
+    public void sendResult(String[] hand, double[] equity, double[] result, Result result1){
+        Map<Integer, HandInfo> mapResult = result1.getMap();
         int positionInResult = 0;
         Log.d("equity",Arrays.toString(result));
         for (int i = 0; i < hand.length; i++) {
             if (!hand[i].equals("")) {
-                equity[i] = result[positionInResult++];
+                //equity[i] = result[positionInResult++];
+                equity[i]=mapResult.get(positionInResult++).getEquity();
             }
         }
         myPositionAdapter.setEquity(equity);

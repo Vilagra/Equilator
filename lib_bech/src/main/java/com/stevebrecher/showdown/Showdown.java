@@ -28,8 +28,9 @@ public final class Showdown {
 
     public static double[] calculate(String cards,String bord) {
         Enumerator[] enumerators = new Enumerator[threads];
-        UserInput ui = UserInput.newUserInput(cards, bord);
-        long nanosecs = System.nanoTime();
+        UserInput ui = UserInput.newUserInput(cards, bord,1);
+        //ui.setnPots(419514480*threads);
+        long nanosecs = System.currentTimeMillis();
         for (int i = 0; i < enumerators.length; i++) {
             enumerators[i] = new Enumerator(i, threads,
                     ui.deck(), ui.holeCards(), ui.nUnknown(), ui.boardCards());
@@ -41,9 +42,9 @@ public final class Showdown {
             } catch (InterruptedException never) {
             }
         }
-        nanosecs = System.nanoTime() - nanosecs;
-        System.out.println(nanosecs);
-        //Output.resultsOut(ui,enumerators,outStream);
+        nanosecs = System.currentTimeMillis() - nanosecs;
+        System.out.println("sec"+nanosecs);
+        Output.resultsOut(ui,enumerators,outStream);
         return Output.result(ui, enumerators);
     }
 
@@ -85,7 +86,7 @@ public final class Showdown {
                     ui = UserInput.newUserInput("", "");
             }*/
         //}
-        System.out.println(Arrays.toString(calculate("AsKs,JhTh","9h8h8d")));
+        System.out.println(Arrays.toString(calculate("AsKs","")));
     }
 
     private static boolean getArgs(String[] args) {

@@ -33,8 +33,9 @@ final class UserInput {
 
 	private UserInput() {}
 	
-	static UserInput newUserInput(String cards,String board) {
+	static UserInput newUserInput(String cards,String board,int numberOfRandom) {
 		UserInput ui = new UserInput();
+		ui.nUnknown=numberOfRandom;
 		if (ui.getUserInput(cards,board))
 			return ui;
 		else
@@ -79,7 +80,7 @@ final class UserInput {
 			out.println();
 			if (getHoleCards(cards))
 				//if (getNbrUnknown())
-					if (holeCards.length < 2)
+					if (holeCards.length+nUnknown < 2)
 						out.println("At least two players are required.");
 					else
 						if (getBoard(board))
@@ -301,5 +302,10 @@ final class UserInput {
 			// *= the number of ORDERED sets of hole cards for the players with unknown cards
 			enums *= combos(deck.size(), 2*nUnknown) * factorial(2*nUnknown) / ((1 << nUnknown)/* 2^^nUnknown */);
 		return enums;
+	}
+
+
+	public void setnPots(int nPots) {
+		this.nPots = nPots;
 	}
 }

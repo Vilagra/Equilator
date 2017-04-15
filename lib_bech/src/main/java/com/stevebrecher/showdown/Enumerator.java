@@ -2,6 +2,9 @@ package com.stevebrecher.showdown;
 
 import com.stevebrecher.poker.*;
 
+import java.util.HashSet;
+import java.util.Random;
+
 final class Enumerator extends Thread {
 
 	private final int	nPlayers;
@@ -20,7 +23,7 @@ final class Enumerator extends Thread {
 	private long		board1, board2, board3, board4, board5;
 	private final int	firstUnknown;
 	private final int	secondUnknown;
-
+	public int trail=0;
 
 	Enumerator(final int instance, final int instances, final CardSet deck,
 				final CardSet[] holeCards, final int nUnknown, final CardSet boardCards) {
@@ -70,7 +73,8 @@ final class Enumerator extends Thread {
 	@Override public final void run() {
 
 		if (nUnknown > 0)
-			enumBoards();
+			//enumBoards();
+		randomBoard();
 		else
 			enumBoardsNoUnknown();
 	}
@@ -112,7 +116,7 @@ final class Enumerator extends Thread {
 	}
 
 	private void potResults() {
-
+		trail++;
 		int eval, bestEval = 0;
 		int winningPlayer = 0, waysSplit = 0;
 		double partialPot;
@@ -212,9 +216,27 @@ final class Enumerator extends Thread {
 			}
 		}
 	}
+	private void randomBoard(){
+		while(trail<1000000){
+			Random random = new Random();
+			HashSet<Integer> set= new HashSet<>();
+			while (set.size()!=5){
+				set.add(random.nextInt(50));
+			}
+			long result=0;
+			for (Integer integer : set) {
+				dealt[integer]=true;
+				result+=deck[integer];
+			}
+			board5=result;
+			enumUnknowns();
+			for (Integer integer : set) {
+				dealt[integer]=false;
+			}
+		}
+	}
 
 	private void enumBoards() {
-
 		switch (nBoardCards) {
 		case 0:
 			for (int deckIx1 = startIx; deckIx1 <= limitIx1; deckIx1 += increment) {
@@ -232,6 +254,9 @@ final class Enumerator extends Thread {
 								for (int deckIx51 = deckIx4 + 1; deckIx51 <= limitIx5; ++deckIx51) {
 									dealt[deckIx51] = true;
 									board5 = board4 | deck[deckIx51];
+								/*	if(trail>=419514480){
+										break;
+									}*/
 									enumUnknowns();
 									dealt[deckIx51] = false;
 								}
@@ -310,15 +335,17 @@ final class Enumerator extends Thread {
 	}
 
 	private void enumUnknowns() {
-		
+		//System.out.println(startIx+" "+board5);
 		if (nUnknown == 1)
 			for (int deckIx1 = 0; deckIx1 <= limitIx4; ++deckIx1) {
+				//if(trail>=419514480) break;
 				if (dealt[deckIx1])
 					continue;
 				for (int deckIx2 = deckIx1 + 1; deckIx2 <= limitIx5; ++deckIx2) {
 					if (dealt[deckIx2])
 						continue;
 					holeHand[firstUnknown] = deck[deckIx1] | deck[deckIx2];
+					/*if(trail>=419514480) break;*/
 					potResults();
 				}
 			}

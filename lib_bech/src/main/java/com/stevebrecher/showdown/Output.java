@@ -15,9 +15,10 @@ final class Output {
 		long[] wins = new long[holeCards.length];
 		double[] result = new double[holeCards.length];
 		double[] partialPots = new double[nPlayers];
-		final double nPots = ui.nPots();
+		double nPots = ui.nPots();
 		for (Enumerator e : enumerators)
 			for (int i = 0; i < nPlayers; i++) {
+
 				wins[i] += e.getWins()[i];
 				partialPots[i] += e.getPartialPots()[i];
 			}
@@ -32,18 +33,22 @@ final class Output {
 		final CardSet boardCards = ui.boardCards();
 		final CardSet deadCards = ui.deadCards();
 		final int nUnknown = ui.nUnknown();
-		final double nPots = ui.nPots();
+		double nPots = ui.nPots();
 		final int nPlayers = holeCards.length+ nUnknown;
 		long[] wins = new long[nPlayers], splits = new long[nPlayers];
 		double[] partialPots = new double[nPlayers];
 		int j, n, nbrToPrint;
-
-		for (Enumerator e : enumerators)
+		long yoy=0;
+		for (Enumerator e : enumerators) {
+			yoy+=e.trail;
+			System.out.println(yoy+" "+e.trail);
 			for (int i = 0; i < nPlayers; i++) {
 				wins[i] += e.getWins()[i];
 				splits[i] += e.getSplits()[i];
 				partialPots[i] += e.getPartialPots()[i];
 			}
+		}
+		nPots=yoy;
 
 		nbrToPrint = nPlayers;
 		if (nUnknown == 2) {

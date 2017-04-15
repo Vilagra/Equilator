@@ -3,6 +3,8 @@
     package="com.example.myequilator">
 
     <application
+        android:hardwareAccelerated="false"
+        android:largeHeap="true"
         android:allowBackup="true"
         android:icon="@mipmap/chip1"
         android:label="@string/app_name"

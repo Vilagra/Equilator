@@ -54,7 +54,7 @@ public class MonteCarloSimulation implements Calculation {
 			baseDeck.remove(currentHands[j]);
 		}
 //		return calculateMonteCarlo(orderList,randomHandId,baseDeck,currentHands,staticBoard,result,hands,1000000);// FIXME 1000000 ?
-		return calculateMonteCarloRayW(orderList,randomHandId,baseDeck,currentHands,staticBoard,result,hands,1000000);// FIXME 1000000 ?
+		return calculateMonteCarloRayW(orderList,randomHandId,baseDeck,currentHands,staticBoard,result,hands,10000);// FIXME 1000000 ?
 	}
 	
 	public Result calculateMonteCarlo(List<Integer> rangeHandId,List<Integer> randomHandId, CardSet baseDeck,

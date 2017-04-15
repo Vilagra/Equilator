@@ -7500,3 +7500,534 @@ pots won:                       303,50       686,50
 expected return, % of pot    30,656566    69,343434
 fair pot odds:1               2,261944     0,442098
 pots won:                       303,50       686,50
+
+2 097 572 400 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     66,219608    32,130343
+% chance of win or split     67,869657    33,780392
+expected return, % of pot    67,044632    32,955368
+fair pot odds:1               0,491544     2,034407
+pots won:                1406309703,00 691262697,00
+
+2 097 572 400 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     66,219608    32,130343
+% chance of win or split     67,869657    33,780392
+expected return, % of pot    67,044632    32,955368
+fair pot odds:1               0,491544     2,034407
+pots won:                1406309703,00 691262697,00
+
+2 097 572 400 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     66,219608    32,130343
+% chance of win or split     67,869657    33,780392
+expected return, % of pot    67,044632    32,955368
+fair pot odds:1               0,491544     2,034407
+pots won:                1406309703,00 691262697,00
+
+2 097 572 400 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     66,219608    32,130343
+% chance of win or split     67,869657    33,780392
+expected return, % of pot    67,044632    32,955368
+fair pot odds:1               0,491544     2,034407
+pots won:                1406309703,00 691262697,00
+
+2 097 572 400 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     66,219608    32,130343
+% chance of win or split     67,869657    33,780392
+expected return, % of pot    67,044632    32,955368
+fair pot odds:1               0,491544     2,034407
+pots won:                1406309703,00 691262697,00
+
+2 097 572 400 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win      1,197266     1,095319
+% chance of win or split      1,264787     1,162841
+expected return, % of pot     1,231027     1,129080
+fair pot odds:1              80,233006    87,567672
+pots won:                  25821676,50  23683273,50
+
+2 097 572 400 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win      1,197266     1,095319
+% chance of win or split      1,264787     1,162841
+expected return, % of pot     1,231027     1,129080
+fair pot odds:1              80,233006    87,567672
+pots won:                  25821676,50  23683273,50
+
+2 097 572 400 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     14,052463     9,120610
+% chance of win or split     14,478335     9,546482
+expected return, % of pot    14,265399     9,333546
+fair pot odds:1               6,009969     9,714042
+pots won:                 299227072,00 195777878,00
+
+2 097 572 400 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     66,219608    32,130343
+% chance of win or split     67,869657    33,780392
+expected return, % of pot    67,044632    32,955368
+fair pot odds:1               0,491544     2,034407
+pots won:                1406309703,00 691262697,00
+
+2 097 572 400 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     14,052463     9,120610
+% chance of win or split     14,478335     9,546482
+expected return, % of pot    14,265399     9,333546
+fair pot odds:1               6,009969     9,714042
+pots won:                 299227072,00 195777878,00
+
+10 000 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win 251135,220000229751,190000
+% chance of win or split 265298,310000243914,280000
+expected return, % of pot258216,765000236832,735000
+fair pot odds:1              -0,999613    -0,999578
+pots won:                  25821676,50  23683273,50
+
+50 000 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win      5,372000    46,854000
+% chance of win or split     62,046000   103,528000
+expected return, % of pot    33,709000    75,191000
+fair pot odds:1               1,966567     0,329946
+pots won:                     16854,50     37595,50
+
+50 000 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win      5,372000    46,854000
+% chance of win or split     62,046000   103,528000
+expected return, % of pot    33,709000    75,191000
+fair pot odds:1               1,966567     0,329946
+pots won:                     16854,50     37595,50
+
+50 000 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win      5,372000    46,854000
+% chance of win or split     62,046000   103,528000
+expected return, % of pot    33,709000    75,191000
+fair pot odds:1               1,966567     0,329946
+pots won:                     16854,50     37595,50
+
+50 000 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win      5,372000    46,854000
+% chance of win or split     62,046000   103,528000
+expected return, % of pot    33,709000    75,191000
+fair pot odds:1               1,966567     0,329946
+pots won:                     16854,50     37595,50
+
+54 450 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win      4,932966    43,024793
+% chance of win or split     56,975207    95,067034
+expected return, % of pot    30,954086    69,045914
+fair pot odds:1               2,230591     0,448312
+pots won:                     16854,50     37595,50
+
+54 450 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win      3,028466    36,910927
+% chance of win or split     54,925620    88,808081
+expected return, % of pot    28,977043    62,859504
+fair pot odds:1               2,451008     0,590849
+pots won:                     15778,00     34227,00
+
+50 000 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win      3,298000    40,186000
+% chance of win or split     59,814000    96,702000
+expected return, % of pot    31,556000    68,444000
+fair pot odds:1               2,168969     0,461048
+pots won:                     15778,00     34222,00
+
+500 000 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     15,440000    66,011200
+% chance of win or split     33,988800    84,560000
+expected return, % of pot    24,714400    75,285600
+fair pot odds:1               3,046224     0,328275
+pots won:                    123572,00    376428,00
+
+5 000 000 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     36,284240    57,564940
+% chance of win or split     42,435060    63,715760
+expected return, % of pot    39,359650    60,640350
+fair pot odds:1               1,540673     0,649067
+pots won:                   1967982,50   3032017,50
+
+50 000 000 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     50,759168    46,382558
+% chance of win or split     53,617442    49,240832
+expected return, % of pot    52,188305    47,811695
+fair pot odds:1               0,916138     1,091538
+pots won:                  26094152,50  23905847,50
+
+500 000 000 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     59,628811    38,571253
+% chance of win or split     61,428747    40,371189
+expected return, % of pot    60,528779    39,471221
+fair pot odds:1               0,652107     1,533491
+pots won:                 302643894,50 197356105,50
+
+2 097 572 400 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     61,892195    30,238961
+% chance of win or split     63,435122    31,781888
+expected return, % of pot    62,663659    31,010424
+fair pot odds:1               0,595821     2,224722
+pots won:                1314415606,50 650466103,50
+
+2 097 572 400 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     61,892195    30,238961
+% chance of win or split     63,435122    31,781888
+expected return, % of pot    62,663659    31,010424
+fair pot odds:1               0,595821     2,224722
+pots won:                1314415606,50 650466103,50
+
+3 929 763 420 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     33,035923    16,140516
+% chance of win or split     33,859484    16,964077
+expected return, % of pot    33,447703    16,552297
+fair pot odds:1               1,989742     5,041458
+pots won:                1314415606,50 650466103,50
+
+3 929 763 420 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     33,035923    16,140516
+% chance of win or split     33,859484    16,964077
+expected return, % of pot    33,447703    16,552297
+fair pot odds:1               1,989742     5,041458
+pots won:                1314415606,50 650466103,50
+
+0 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win      Infinity     Infinity
+% chance of win or split      Infinity     Infinity
+expected return, % of pot     Infinity     Infinity
+fair pot odds:1              -1,000000    -1,000000
+pots won:                1314415606,50 650466103,50
+
+1 964 881 710 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     66,071845    32,281033
+% chance of win or split     67,718967    33,928155
+expected return, % of pot    66,895406    33,104594
+fair pot odds:1               0,494871     2,020729
+pots won:                1314415606,50 650466103,50
+
+2 097 572 400 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     66,219608    32,130343
+% chance of win or split     67,869657    33,780392
+expected return, % of pot    67,044632    32,955368
+fair pot odds:1               0,491544     2,034407
+pots won:                1406309703,00 691262697,00
+
+2 097 572 400 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     66,219608    32,130343
+% chance of win or split     67,869657    33,780392
+expected return, % of pot    67,044632    32,955368
+fair pot odds:1               0,491544     2,034407
+pots won:                1406309703,00 691262697,00
+
+54 450 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     40,538108    20,958678
+% chance of win or split     79,041322    59,461892
+expected return, % of pot    59,789715    40,210285
+fair pot odds:1               0,672528     1,486926
+pots won:                     32555,50     21894,50
+
+504 900 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     51,205585    22,936621
+% chance of win or split     77,063379    48,794415
+expected return, % of pot    64,134482    35,865518
+fair pot odds:1               0,559224     1,788193
+pots won:                    323815,00    181085,00
+
+5 004 450 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     47,464796    24,202080
+% chance of win or split     75,797920    52,535204
+expected return, % of pot    61,631358    38,368642
+fair pot odds:1               0,622551     1,606295
+pots won:                   3084310,50   1920139,50
+
+5 004 450 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     48,241165    23,758935
+% chance of win or split     76,241065    51,758835
+expected return, % of pot    62,241115    37,758885
+fair pot odds:1               0,606655     1,648383
+pots won:                   3114825,50   1889624,50
+
+504 900 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     48,827094    23,261438
+% chance of win or split     76,738562    51,172906
+expected return, % of pot    62,782828    37,217172
+fair pot odds:1               0,592792     1,686932
+pots won:                    316990,50    187909,50
+
+5 004 450 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     48,102789    23,788808
+% chance of win or split     76,211192    51,897211
+expected return, % of pot    62,156990    37,843010
+fair pot odds:1               0,608830     1,642496
+pots won:                   3110615,50   1893834,50
+
+50 004 900 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     48,518885    23,925309
+% chance of win or split     76,074691    51,481115
+expected return, % of pot    62,296788    37,703212
+fair pot odds:1               0,605219     1,652294
+pots won:                  31151446,50  18853453,50
+
+500 004 450 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     48,638335    23,898807
+% chance of win or split     76,101193    51,361665
+expected return, % of pot    62,369764    37,630236
+fair pot odds:1               0,603341     1,657437
+pots won:                 311851595,50 188152854,50
+
+5 000 004 900 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     48,646559    23,919829
+% chance of win or split     76,080171    51,353441
+expected return, % of pot    62,363365    37,636635
+fair pot odds:1               0,603506     1,656986
+pots won:                3118171301,501881833598,50
+
+50 004 900 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     65,644355    32,684733
+% chance of win or split     67,315267    34,355645
+expected return, % of pot    66,479811    33,520189
+fair pot odds:1               0,504216     1,983277
+pots won:                  33243163,00  16761737,00
+
+50 004 900 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     65,795946    32,564761
+% chance of win or split     67,435239    34,204054
+expected return, % of pot    66,615593    33,384407
+fair pot odds:1               0,501150     1,995410
+pots won:                  33311060,50  16693839,50
+
+50 004 900 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     65,623219    32,718378
+% chance of win or split     67,281622    34,376781
+expected return, % of pot    66,452421    33,547579
+fair pot odds:1               0,504836     1,980841
+pots won:                  33229466,50  16775433,50
+
+500 004 450 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     65,687427    32,632943
+% chance of win or split     67,367057    34,312573
+expected return, % of pot    66,527242    33,472758
+fair pot odds:1               0,503144     1,987504
+pots won:                 332639172,00 167365278,00
+
+50 004 900 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     65,705087    32,533818
+% chance of win or split     67,466182    34,294913
+expected return, % of pot    66,585635    33,414365
+fair pot odds:1               0,501825     1,992725
+pots won:                  33296080,00  16708820,00
+
+50 004 900 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     65,677844    32,632014
+% chance of win or split     67,367986    34,322156
+expected return, % of pot    66,522915    33,477085
+fair pot odds:1               0,503241     1,987118
+pots won:                  33264717,00  16740183,00
+
+5 004 450 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     66,191829    32,117855
+% chance of win or split     67,882145    33,808171
+expected return, % of pot    67,036987    32,963013
+fair pot odds:1               0,491714     2,033703
+pots won:                   3354832,50   1649617,50
+
+5 004 450 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     65,045969    33,334592
+% chance of win or split     66,665408    34,954031
+expected return, % of pot    65,855688    34,144312
+fair pot odds:1               0,518472     1,928746
+pots won:                   3295715,00   1708735,00
+
+5 004 450 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     65,772423    32,615872
+% chance of win or split     67,384128    34,227577
+expected return, % of pot    66,578275    33,421725
+fair pot odds:1               0,501991     1,992066
+pots won:                   3331876,50   1672573,50
+
+5 004 450 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     65,904025    32,577986
+% chance of win or split     67,422014    34,095975
+expected return, % of pot    66,663020    33,336980
+fair pot odds:1               0,500082     1,999672
+pots won:                   3336117,50   1668332,50
+
+5 004 450 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     65,786390    32,513843
+% chance of win or split     67,486157    34,213610
+expected return, % of pot    66,636274    33,363726
+fair pot odds:1               0,500684     1,997267
+pots won:                   3334779,00   1669671,00
+
+5 004 450 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     65,303900    33,005865
+% chance of win or split     66,994135    34,696100
+expected return, % of pot    66,149017    33,850983
+fair pot odds:1               0,511738     1,954124
+pots won:                   3310394,50   1694055,50
+
+5 004 450 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     65,713035    32,429398
+% chance of win or split     67,570602    34,286965
+expected return, % of pot    66,641819    33,358181
+fair pot odds:1               0,500559     1,997765
+pots won:                   3335056,50   1669393,50
+
+5 004 450 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     66,397386    31,978439
+% chance of win or split     68,021561    33,602614
+expected return, % of pot    67,209474    32,790526
+fair pot odds:1               0,487885     2,049661
+pots won:                   3363464,50   1640985,50
+
+5 004 450 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     66,393750    31,934838
+% chance of win or split     68,065162    33,606250
+expected return, % of pot    67,229456    32,770544
+fair pot odds:1               0,487443     2,051521
+pots won:                   3364464,50   1639985,50
+
+5 004 450 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     66,263426    32,138397
+% chance of win or split     67,861603    33,736574
+expected return, % of pot    67,062514    32,937486
+fair pot odds:1               0,491146     2,036054
+pots won:                   3356110,00   1648340,00
+
+5 004 450 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     66,157720    32,145251
+% chance of win or split     67,854749    33,842280
+expected return, % of pot    67,006234    32,993766
+fair pot odds:1               0,492398     2,030876
+pots won:                   3353293,50   1651156,50
+
+5 004 450 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     66,291880    32,210972
+% chance of win or split     67,789028    33,708120
+expected return, % of pot    67,040454    32,959546
+fair pot odds:1               0,491637     2,034022
+pots won:                   3355006,00   1649444,00
+
+5 004 450 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     66,317238    31,986592
+% chance of win or split     68,013408    33,682762
+expected return, % of pot    67,165323    32,834677
+fair pot odds:1               0,488864     2,045561
+pots won:                   3361255,00   1643195,00
+
+5 004 450 pots with board cards: (unspecified)
+
+                              AsKs         Unknown
+% chance of outright win     65,999540    32,437611
+% chance of win or split     67,562389    34,000460
+expected return, % of pot    66,780965    33,219035
+fair pot odds:1               0,497433     2,010322
+pots won:                   3342020,00   1662430,00
