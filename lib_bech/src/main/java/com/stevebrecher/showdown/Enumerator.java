@@ -338,7 +338,7 @@ final class Enumerator extends Thread {
 		}
 	}
 	private void randomBoard(){
-		while(trail<1000000){
+		while(trail<500000){
 			Random random = new Random();
 			HashSet<Integer> set= new HashSet<>();
 			while (set.size()!=5){

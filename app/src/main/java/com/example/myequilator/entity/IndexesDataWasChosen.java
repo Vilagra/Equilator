@@ -9,7 +9,7 @@ import java.util.Set;
 
 public class IndexesDataWasChosen implements Serializable{
 
-    public enum Type{CARD,RANGE};
+    public enum Type{HAND,RANGE};
 
     Set<Integer> indexesDataWasChosen;
     Type type;

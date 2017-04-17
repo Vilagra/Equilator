@@ -88,9 +88,8 @@ final class UserInput {
 			out.println();
 			if (getHoleCards(cards))
 				//if (getNbrUnknown())
-					if (holeCards.length+nUnknown+range.length < 2)
-						out.println("At least two players are required.");
-					else
+	/*				if (holeCards.length+nUnknown+range.length < 2)
+						out.println("At least two players are required.");*/
 						if (getBoard(board))
 							if (getDeadCards()) {
 								nPots = nbrEnumerations();
@@ -195,14 +194,14 @@ final class UserInput {
 			return false;*/
 		if (!getCards(cards, holes))
 			return false;
-		if (deck.size() < 5) {
+/*		if (deck.size() < 5) {
 			out.println("Too many cards -- not enough left for the board.");
 			return false;
 		}
 		if ((holes.size() % 2) != 0 || holes.size() < 2) {
 			out.println("Number of hole cards must be at least two, and even.");
 			return false;
-		}
+		}*/
 		holeCards = new CardSet[holes.size()/2];
 		Iterator<Card> iter = holes.iterator();
 		for (int i = 0; i < holeCards.length; ++i) {
@@ -229,9 +228,7 @@ final class UserInput {
 	}
 
 	private boolean getDeadCards() {
-
 		String s="";
-
 /*		if (deck.size() < (5 - boardCards.size()))
 			return true;
 		if ((s = getResponse("Dead/exposed cards [none]: ", deadHelp)) == null)
@@ -245,32 +242,6 @@ final class UserInput {
 		return true;
 	}
 
-	private boolean getNbrUnknown() {
-
-		String s, prompt;
-		int max;
-
-		nUnknown = 0;
-		max = (deck.size() - (5 - boardCards.size())/2);
-		if (max <= 0)
-			return true;
-		if (max > 2)
-			max = 2;
-		prompt = String.format("Number of players with unknown hole cards (0 to %d) [0]: ", max);
-		do {
-			if ((s = getResponse(prompt, unknownHelp)) == null)
-				return false;
-			if (s.length() == 0)
-				return true;
-			nUnknown = 0;
-			try {
-				nUnknown = Integer.parseInt(s);
-			} catch (NumberFormatException e) {
-				nUnknown = -1; // force loop continue
-			}
-		} while (nUnknown < 0 || nUnknown > max);
-		return true;
-	}
 
 	private static boolean userConfirm(double nDeals) {
 

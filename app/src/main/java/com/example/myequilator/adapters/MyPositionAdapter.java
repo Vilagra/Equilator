@@ -45,11 +45,11 @@ public class MyPositionAdapter extends MyAdapter<MyPositionAdapter.ViewHolder> {
     public void replacedIndexesDataWasChosen(DataFromIntent dataFromIntent){
         int position = dataFromIntent.getPositionOfAdapter();
         IndexesDataWasChosen perviousIndexesDataWasChosen=arrayIndexesDataWhichWasChoosen[position];
-        if(perviousIndexesDataWasChosen!=null&&perviousIndexesDataWasChosen.getType()== IndexesDataWasChosen.Type.CARD){
+        if(perviousIndexesDataWasChosen!=null&&perviousIndexesDataWasChosen.getType()== IndexesDataWasChosen.Type.HAND){
             AllCards.unCheckFlags(perviousIndexesDataWasChosen.getIndexesDataWasChosen());
         }
         arrayIndexesDataWhichWasChoosen[position]=new IndexesDataWasChosen(dataFromIntent.getIndexesDataWasChosen(), dataFromIntent.getType());
-        if(dataFromIntent.getType()== IndexesDataWasChosen.Type.CARD){
+        if(dataFromIntent.getType()== IndexesDataWasChosen.Type.HAND){
             AllCards.checkFlags(dataFromIntent.getIndexesDataWasChosen());
         }
     }
@@ -59,7 +59,7 @@ public class MyPositionAdapter extends MyAdapter<MyPositionAdapter.ViewHolder> {
 
     public void removedDataByCurrentPosition(int position){
         IndexesDataWasChosen indexesDataWasChosen=arrayIndexesDataWhichWasChoosen[position];
-        if(indexesDataWasChosen!=null&&indexesDataWasChosen.getType()== IndexesDataWasChosen.Type.CARD){
+        if(indexesDataWasChosen!=null&&indexesDataWasChosen.getType()== IndexesDataWasChosen.Type.HAND){
             AllCards.unCheckFlags(indexesDataWasChosen.getIndexesDataWasChosen());
         }
         arrayIndexesDataWhichWasChoosen[position]=null;
@@ -134,7 +134,7 @@ public class MyPositionAdapter extends MyAdapter<MyPositionAdapter.ViewHolder> {
                 case R.id.hand:
                     FragmentTransaction ft = ((Activity) ctx).getFragmentManager().beginTransaction();
                     CardsDialogFragment newFragment = new CardsDialogFragment();
-                    if(indexes!=null&&indexes.getType()==IndexesDataWasChosen.Type.CARD){
+                    if(indexes!=null&&indexes.getType()==IndexesDataWasChosen.Type.HAND){
                         AllCards.unCheckFlags(indexes.getIndexesDataWasChosen());
                         newFragment.setPositionOfChoosenCard(new TreeSet<>(indexes.getIndexesDataWasChosen()));
                     }

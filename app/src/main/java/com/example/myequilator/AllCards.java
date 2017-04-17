@@ -286,28 +286,18 @@ public class AllCards {
         result.deleteCharAt(result.length()-1);
         return result.toString();
     }
-    public static String getSetOfHandFromCombinations(int[] indexesWereChoosen){
+    public static String getSetOfHandFromCombinations(Set<Integer> indexesWereChoosen){
         StringBuilder result = new StringBuilder("");
         for (Integer integer : indexesWereChoosen) {
             result.append(getSetOfHandFromCombination(allCombinationsInRecyclerOrder.get(integer)));
             result.append(',');
         }
+        result.deleteCharAt(result.length()-1);
         return result.toString();
     }
 
 
-    public static void main(String[] args) {
-        initializeData(null);
-        //System.out.println(allCombinationsInRankingOrder);
-        String range1 = getSetOfHandFromCombinations(new int[]{0,14,28});
-        String range2 = getSetOfHandFromCombinations(new int[]{7,17,25,11,145,134,123});
-        System.out.println(range2);
-        String[] ranges = new String[]{range1,range2};
-        for (int i = 0; i < 5; i++) {
-            System.out.println(Arrays.toString(Showdown.calculate("AsKs","",ranges)));
-        }
 
-    }
 
 }
 

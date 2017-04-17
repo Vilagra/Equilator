@@ -26,11 +26,11 @@ import com.example.myequilator.entity.DataFromIntent;
 import com.example.myequilator.entity.IndexesDataWasChosen;
 import com.stevebrecher.showdown.Showdown;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 
 
-import mi.poker.calculation.EquityCalculation;
 import mi.poker.calculation.HandInfo;
 import mi.poker.calculation.Result;
 
@@ -177,33 +177,33 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
-                String[] hand = myPositionAdapter.getTextFromTextView();
-                double[] equity = new double[hand.length];
-                Arrays.fill(equity, -1.0);
+                IndexesDataWasChosen[] indexes = myPositionAdapter.getArrayIndexesDataWhichWasChoosen();
                 String hands = "";
                 String board = "";
-                for (String s : hand) {
-                    if (!s.equals("")) {
-                        if(s.length()>4){
-                            s=s.replace(",","|");
+                ArrayList<String> ranges = new ArrayList<>();
+                for (IndexesDataWasChosen indexesDataWasChosen : indexes) {
+                    if(indexesDataWasChosen!=null){
+                        if(indexesDataWasChosen.getType()== IndexesDataWasChosen.Type.RANGE){
+                            ranges.add(AllCards.getSetOfHandFromCombinations(indexesDataWasChosen.getIndexesDataWasChosen()));
                         }
-                        if (hands.equals("")) {
-                            hands += s;
-                        } else {
-                            hands += "," + s;
+                        if(indexesDataWasChosen.getType()== IndexesDataWasChosen.Type.HAND){
+                            for (Integer i : indexesDataWasChosen.getIndexesDataWasChosen()) {
+                                hands+=AllCards.allCards.get(i).getStringOfCard()+",";
+                            }
                         }
                     }
                 }
                 for (String s : streetAdapter.getTextFromEditViewStreet()) {
                     board += s;
                 }
+                if(hands.length()<0){
+                    hands=hands.substring(0,hands.length()-1);
+                }
                 long start = System.currentTimeMillis();
-                Result result=EquityCalculation.calculateMonteCarlo(hands,board,"");
-
+                double[] res = Showdown.calculate(hands,board,ranges.toArray(new String[0]));
                 long end = System.currentTimeMillis()-start;
                 Log.d("seconds", String.valueOf(end));
-                double[] res = Showdown.calculate(hands,board);
-                sendResult(hand,equity,new double[2],result);
+                sendResult(indexes,res);
                 progressDialog.dismiss();
             }
         });
@@ -219,14 +219,19 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
         t.start();
     }
 
-    public void sendResult(String[] hand, double[] equity, double[] result, Result result1){
-        Map<Integer, HandInfo> mapResult = result1.getMap();
+    public void sendResult(IndexesDataWasChosen[] indexes, double[] result){
+        double[] equity = new double[indexes.length];
+        Arrays.fill(equity, -1.0);
         int positionInResult = 0;
         Log.d("equity",Arrays.toString(result));
-        for (int i = 0; i < hand.length; i++) {
-            if (!hand[i].equals("")) {
-                //equity[i] = result[positionInResult++];
-                equity[i]=mapResult.get(positionInResult++).getEquity();
+        for (int i = 0; i < indexes.length; i++) {
+            if(indexes[i]!=null&&indexes[i].getType()== IndexesDataWasChosen.Type.HAND){
+                equity[i]=result[positionInResult++];
+            }
+        }
+        for (int i = 0; i < indexes.length; i++) {
+            if(indexes[i]!=null&&indexes[i].getType()== IndexesDataWasChosen.Type.RANGE){
+                equity[i]=result[positionInResult++];
             }
         }
         myPositionAdapter.setEquity(equity);
@@ -269,7 +274,7 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
                     updateMyPositionAdapter(dataFromIntent, myPositionAdapter);
                     break;
                 case Constants.REQUEST_CODE_CARD:
-                    dataFromIntent = new DataFromIntent(data, IndexesDataWasChosen.Type.CARD);
+                    dataFromIntent = new DataFromIntent(data, IndexesDataWasChosen.Type.HAND);
                     String type_of_adapter = data.getStringExtra(Constants.KIND_OF_ADAPTER);
                     switch (type_of_adapter) {
                         case Constants.POSITION_ADAPTER:
@@ -301,7 +306,7 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
                 indexes = streetAdapter.getArrayIndexesDataWhichWasChoosen()[positionOfAdapter];
                 break;
         }
-        if (indexes != null && indexes.getType() == IndexesDataWasChosen.Type.CARD) {
+        if (indexes != null && indexes.getType() == IndexesDataWasChosen.Type.HAND) {
             AllCards.checkFlags(indexes.getIndexesDataWasChosen());
         }
     }

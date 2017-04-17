@@ -26,7 +26,7 @@ public class DataFromIntent {
         if (type== IndexesDataWasChosen.Type.RANGE){
             return AllCards.getStringFromRange(indexesDataWasChosen);
         }
-        if (type== IndexesDataWasChosen.Type.CARD){
+        if (type== IndexesDataWasChosen.Type.HAND){
             return AllCards.getStringFromCard(indexesDataWasChosen);
         }
         return null;

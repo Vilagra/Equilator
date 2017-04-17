@@ -27,7 +27,7 @@ public final class Showdown {
     private static PrintStream outStream;
 
     public static double[] calculate(String cards,String bord,String[] ranges) {
-        openOutFile();
+        //openOutFile();
         Enumerator[] enumerators = new Enumerator[threads];
         System.out.println();
         UserInput ui = UserInput.newUserInput(cards, bord,ranges,0);
@@ -46,7 +46,7 @@ public final class Showdown {
         }
         nanosecs = System.currentTimeMillis() - nanosecs;
         System.out.println("sec"+nanosecs);
-        Output.resultsOut(ui,enumerators,outStream);
+        //Output.resultsOut(ui,enumerators,outStream);
         return Output.result(ui, enumerators);
     }
 
