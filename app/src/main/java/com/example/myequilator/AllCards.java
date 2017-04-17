@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.example.myequilator.entity.Card;
 import com.example.myequilator.entity.Combination;
+import com.stevebrecher.showdown.Showdown;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,25 +36,29 @@ public class AllCards {
     public static final HashMap<String, Card> cardsMap = new HashMap<>();
     public static final boolean[] wasChosen = new boolean[52];
     public static final ArrayList<String> allCombinationsInRecyclerOrderInStrings = new ArrayList<>();
+    public static final ArrayList<Combination> allCombinationsInRecyclerOrder = new ArrayList<>();
     public static final ArrayList<Combination> allCombinationsInRankingOrder = new ArrayList<>();
     public static final Map<String, Combination> combinationsMap = new HashMap<>();
     public static final ArrayList<Integer> inexesForRecyclerByRanking = new ArrayList<>();
 
 
     public static void initializeData(Context context) {
+        //all cards
         for (Character rank : allRank) {
             for (Character suit : allSuit) {
                 Card card = new Card(rank, suit);
-                card.setPicture(context);
+                //card.setPicture(context);
                 allCards.add(card);
                 cardsMap.put(card.getStringOfCard(), card);
             }
         }
+        //parse combination by ranking
         HashMap<String, Double> hashMap = new HashMap<>();
         for (String s : combinationsRankingInProcent.split(",")) {
             String[] strings = s.split("=");
             hashMap.put(strings[0], Double.valueOf(strings[1]));
         }
+        //
         for (Character rank : allRank) {
             boolean afterPocket = false;
             String stringCombination = "";
@@ -79,6 +84,7 @@ public class AllCards {
                             Combination.Kind.SUITED, hashMap.get(stringCombination));
                 }
                 combinationsMap.put(stringCombination, combination);
+                allCombinationsInRecyclerOrder.add(combination);
                 allCombinationsInRankingOrder.add(combination);
             }
         }
@@ -99,16 +105,15 @@ public class AllCards {
 
     //if all hands in ranking order return last index which enter in this range if not return -1
     public static int areAllHandsInRankingOrder(Set<Integer> chosenIndexes) {
-        int result=-1;
+        int result = -1;
         for (int i = 0; i < inexesForRecyclerByRanking.size(); i++) {
-            if(chosenIndexes.remove(inexesForRecyclerByRanking.get(i))){
-                if(i+1==inexesForRecyclerByRanking.size()){
-                    result=i;
+            if (chosenIndexes.remove(inexesForRecyclerByRanking.get(i))) {
+                if (i + 1 == inexesForRecyclerByRanking.size()) {
+                    result = i;
                 }
-            }
-            else{
-                if(chosenIndexes.isEmpty()){
-                    result=i>0?i-1:result;
+            } else {
+                if (chosenIndexes.isEmpty()) {
+                    result = i > 0 ? i - 1 : result;
                 }
                 break;
             }
@@ -250,7 +255,61 @@ public class AllCards {
         Arrays.fill(wasChosen, false);
     }
 
+    public static String getSetOfHandFromCombination(Combination comb){
+        StringBuilder result = new StringBuilder();
+        if(comb.getKind()== Combination.Kind.POCKET){
+            char rank =comb.getCombination().charAt(0);
+            for (int i = 0; i < allSuit.length-1; i++) {
+                for (int j = i+1; j < allSuit.length; j++) {
+                    result.append(new char[]{rank,allSuit[i],rank,allSuit[j],','});
+                }
+            }
+        }
+        if(comb.getKind()==Combination.Kind.SUITED){
+            char rank1 = comb.getCombination().charAt(0);
+            char rank2 = comb.getCombination().charAt(1);
+            for (Character suit : allSuit) {
+                result.append(new char[]{rank1,suit,rank2,suit,','});
+            }
+        }
+        if(comb.getKind()==Combination.Kind.OFFSUITED){
+            char rank1 = comb.getCombination().charAt(0);
+            char rank2 = comb.getCombination().charAt(1);
+            for (Character suit1 : allSuit) {
+                for (Character suit2 : allSuit) {
+                    if(suit1!=suit2){
+                        result.append(new char[]{rank1,suit1,rank2,suit2,','});
+                    }
+                }
+            }
+        }
+        result.deleteCharAt(result.length()-1);
+        return result.toString();
     }
+    public static String getSetOfHandFromCombinations(int[] indexesWereChoosen){
+        StringBuilder result = new StringBuilder("");
+        for (Integer integer : indexesWereChoosen) {
+            result.append(getSetOfHandFromCombination(allCombinationsInRecyclerOrder.get(integer)));
+            result.append(',');
+        }
+        return result.toString();
+    }
+
+
+    public static void main(String[] args) {
+        initializeData(null);
+        //System.out.println(allCombinationsInRankingOrder);
+        String range1 = getSetOfHandFromCombinations(new int[]{0,14,28});
+        String range2 = getSetOfHandFromCombinations(new int[]{7,17,25,11,145,134,123});
+        System.out.println(range2);
+        String[] ranges = new String[]{range1,range2};
+        for (int i = 0; i < 5; i++) {
+            System.out.println(Arrays.toString(Showdown.calculate("AsKs","",ranges)));
+        }
+
+    }
+
+}
 
 
 

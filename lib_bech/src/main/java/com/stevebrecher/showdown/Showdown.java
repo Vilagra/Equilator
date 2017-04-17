@@ -26,9 +26,11 @@ public final class Showdown {
 
     private static PrintStream outStream;
 
-    public static double[] calculate(String cards,String bord) {
+    public static double[] calculate(String cards,String bord,String[] ranges) {
+        openOutFile();
         Enumerator[] enumerators = new Enumerator[threads];
-        UserInput ui = UserInput.newUserInput(cards, bord,new String[]{"AcAs,AcAh,AcAd,AsAh,AsAd,AhAd,KcKs,KcKh,KcKd,KsKh,KsKd,KhKd,QcQs,QcQh,QcQd,QsQh,QsQd,QhQd,3c2c,3s2s,3h2h,3d2d"},0);
+        System.out.println();
+        UserInput ui = UserInput.newUserInput(cards, bord,ranges,0);
         //ui.setnPots(419514480*threads);
         long nanosecs = System.currentTimeMillis();
         for (int i = 0; i < enumerators.length; i++) {
@@ -86,9 +88,9 @@ public final class Showdown {
                     ui = UserInput.newUserInput("", "");
             }*/
         //}
-        for (int i = 0; i < 20; i++) {
+/*        for (int i = 0; i < 20; i++) {
             System.out.println(Arrays.toString(calculate("AsKs","")));
-        }
+        }*/
 
     }
 

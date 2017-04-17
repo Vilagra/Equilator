@@ -11,17 +11,18 @@ final class Output {
 	private static final String FP_FORMAT = "%13.6f";
 	static double[] result(UserInput ui, Enumerator[] enumerators){
 		final CardSet[] holeCards = ui.holeCards();
-		final int nPlayers = holeCards.length;
-		long[] wins = new long[holeCards.length];
-		double[] result = new double[holeCards.length];
+		final int nPlayers = holeCards.length+ui.nUnknown()+ui.getRange().length;
+		long[] wins = new long[nPlayers];
+		double[] result = new double[nPlayers];
 		double[] partialPots = new double[nPlayers];
-		double nPots = ui.nPots();
-		for (Enumerator e : enumerators)
+		double nPots = 0;
+		for (Enumerator e : enumerators) {
+			nPots += e.trail;
 			for (int i = 0; i < nPlayers; i++) {
-
 				wins[i] += e.getWins()[i];
 				partialPots[i] += e.getPartialPots()[i];
 			}
+		}
 		for (int i = 0; i < nPlayers; i++) {
 			result[i]= (wins[i]+partialPots[i]) * 100.0 / nPots;
 		}
@@ -77,7 +78,7 @@ final class Output {
 			while (n > 0) {
 				f.printf("%n                     ");
 				for (int i = j; i < j + HANDS_PER_LINE && i < nbrToPrint; ++i)
-					if (i >= nPlayers - nUnknown-1) {
+					if (i >= nPlayers - nUnknown-2) {
 						f.print("         Unknown");
 						if (nUnknown > 1)
 							f.print("s");
