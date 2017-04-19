@@ -9,7 +9,6 @@ import java.util.Random;
 import java.util.Set;
 
 
-
 final class Enumerator extends Thread {
 
     private final int nPlayers;
@@ -28,7 +27,7 @@ final class Enumerator extends Thread {
     private long board1, board2, board3, board4, board5;
     private final int firstRangePlayer;
     public int trail = 0;
-    static int board=0;
+    static int board = 0;
     private ArrayList<ArrayList<int[]>> arrayListRanges = new ArrayList<>();
 
     Enumerator(final int instance, final int instances, final CardSet deck,
@@ -73,7 +72,7 @@ final class Enumerator extends Thread {
                 Card card2 = new Card(s.substring(2));
                 int index1 = deck.getIndex(card1);
                 int index2 = deck.getIndex(card2);
-                if (index1!=-1 && index2!=-1) {
+                if (index1 != -1 && index2 != -1) {
                     //long code1 = HandEval.encode(card1);
                     //long code2 = HandEval.encode(card2);
                     arrayListRange.add(new int[]{index1, index2});
@@ -130,7 +129,7 @@ final class Enumerator extends Thread {
                             handValue0 = HandEval.hand7Eval(board5 | holeHand[0]);
                             handValue1 = HandEval.hand7Eval(board5 | holeHand[1]);
                             /*
-							 * wins[1], splits[1], and partialPots can be inferred
+                             * wins[1], splits[1], and partialPots can be inferred
 							 */
                             ++pots;
                             if (handValue0 > handValue1)
@@ -150,14 +149,13 @@ final class Enumerator extends Thread {
 
     private void potResults() {
         trail++;
-        System.out.println(trail);
         int eval, bestEval = 0;
         int winningPlayer = 0, waysSplit = 0;
         double partialPot;
 
         for (int i = 0; i < nPlayers; ++i) {
             handValue[i] = eval = HandEval.hand7Eval(board5 | holeHand[i]);
-            if(eval==0){
+            if (eval == 0) {
                 HandEval.hand7Eval(board5 | holeHand[i]);
             }
             if (eval > bestEval) {
@@ -182,7 +180,7 @@ final class Enumerator extends Thread {
     }
 
     private void enumBoardsNoUnknown() {
-		/*
+        /*
 		 * This is the same as EnumBoards except each case calls
 		 * potResults directly.  This one is called when there are
 		 * no players with unspecified hole cards (rangePlayers == 0).
@@ -362,7 +360,6 @@ final class Enumerator extends Thread {
                     set.add(deck[deckIx5]);
                     board5 = constantBoard | deck[deckIx5];
                     vsRange(0);
-                    System.out.println("board"+" "+board++);
                     //dealt[deckIx5] = false;
                     set.remove(deck[deckIx5]);
                 }
@@ -370,16 +367,15 @@ final class Enumerator extends Thread {
     }
 
     private void randomBoard() {
-        while (trail < 5000) {
-            System.out.println(trail);
+        while (trail < 500000) {
             Random random = new Random();
             HashSet<Integer> set = new HashSet<>();
             long result = 0;
             while (set.size() != 5) {
-                int r=random.nextInt(dealt.length);
-                if(!dealt[r]){
+                int r = random.nextInt(dealt.length);
+                if (!dealt[r]) {
                     set.add(r);
-                    dealt[r]=true;
+                    dealt[r] = true;
                     result += deck[r];
                 }
             }
@@ -390,34 +386,63 @@ final class Enumerator extends Thread {
                 result += deck[integer];
             }*/
             board5 = result;
-            vsRandomHandFromRange(0);
+            //vsRandomHandFromRangeWithShuffle(0);
             //vsRandomHandFromRange(0);
+            vsRange(0);
             for (Integer integer : set) {
                 dealt[integer] = false;
             }
         }
     }
-    private void vsRandomHandFromRange(int index){
+
+    private void vsRandomHandFromRangeWithShuffle(int index) {
+        ArrayList<int[]> current = arrayListRanges.get(index);
+        Collections.shuffle(current);
+        int[] indexes = current.get(0);
+        if (dealt[indexes[0]] || dealt[indexes[1]]) {
+            return;
+        } else {
+            holeHand[firstRangePlayer + index] = deck[indexes[0]] | deck[indexes[1]];
+            dealt[indexes[0]] = true;
+            dealt[indexes[1]] = true;
+            if (index == arrayListRanges.size() - 1) {
+                potResults();
+            } else {
+                vsRandomHandFromRange(index + 1);
+            }
+            dealt[indexes[0]] = false;
+            dealt[indexes[1]] = false;
+        }
+    }
+
+
+
+
+    private void vsRandomHandFromRange(int index) {
         ArrayList<int[]> current = arrayListRanges.get(index);
         //Collections.shuffle(current);
         Random random = new Random();
-        int i = random.nextInt(current.size());
-        while (true){
-            int indexes[] = current.get(i%current.size());
+        int r = random.nextInt(current.size());
+        int i = 0;
+        while (true) {
+            int indexes[] = current.get((r + i) % current.size());
             if (dealt[indexes[0]] || dealt[indexes[1]]) {
                 i++;
+                if (i > current.size()) {
+                    break;
+                }
                 continue;
             } else {
                 holeHand[firstRangePlayer + index] = deck[indexes[0]] | deck[indexes[1]];
-                dealt[indexes[0]]=true;
-                dealt[indexes[1]]=true;
+                dealt[indexes[0]] = true;
+                dealt[indexes[1]] = true;
                 if (index == arrayListRanges.size() - 1) {
                     potResults();
                 } else {
                     vsRandomHandFromRange(index + 1);
                 }
-                dealt[indexes[0]]=false;
-                dealt[indexes[1]]=false;
+                dealt[indexes[0]] = false;
+                dealt[indexes[1]] = false;
                 break;
             }
         }
@@ -431,15 +456,15 @@ final class Enumerator extends Thread {
                 continue;
             } else {
                 holeHand[firstRangePlayer + index] = deck[indexes[0]] | deck[indexes[1]];
-                dealt[indexes[0]]=true;
-                dealt[indexes[1]]=true;
+                dealt[indexes[0]] = true;
+                dealt[indexes[1]] = true;
                 if (index == arrayListRanges.size() - 1) {
                     potResults();
                 } else {
                     vsRange(index + 1);
                 }
-                dealt[indexes[0]]=false;
-                dealt[indexes[1]]=false;
+                dealt[indexes[0]] = false;
+                dealt[indexes[1]] = false;
             }
         }
     }
