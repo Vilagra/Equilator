@@ -35,7 +35,7 @@ public final class Showdown {
         long nanosecs = System.currentTimeMillis();
         for (int i = 0; i < enumerators.length; i++) {
             enumerators[i] = new Enumerator(i, threads,
-                    ui.deck(), ui.holeCards(),ui.getRange(), ui.nUnknown(), ui.boardCards());
+                    ui.deck(), ui.holeCards(),ui.getRange(), ui.boardCards());
             enumerators[i].start();
         }
         for (Enumerator enumerator : enumerators) {
@@ -91,6 +91,8 @@ public final class Showdown {
 /*        for (int i = 0; i < 20; i++) {
             System.out.println(Arrays.toString(calculate("AsKs","")));
         }*/
+
+
 
     }
 

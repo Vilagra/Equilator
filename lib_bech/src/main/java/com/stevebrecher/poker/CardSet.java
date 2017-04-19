@@ -26,6 +26,10 @@ public class CardSet implements Set<Card> {
 				madeDeck.add(new Card(rank, suit));
 	}
 
+	public int getIndex(Card card){
+		return cards.indexOf(card);
+	}
+
 	/**
 	 * Return an ordered 52-card deck.
 	 * @return a 52-card deck in order from clubs to spades and within each suit from deuce to Ace.
