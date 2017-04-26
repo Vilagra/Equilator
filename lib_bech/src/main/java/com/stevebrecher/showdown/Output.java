@@ -19,12 +19,11 @@ final class Output {
 				partialPots[i] += e.getPartialPots()[i];
 			}
 		}
-/*		if(ui.getRange().length==0){
-			nPots=ui.nPots();
+		if(ui.getRange().length==0){
 			if(ui.boardCards().size()==5){
 				nPots = nPots*enumerators.length;
 			}
-		}*/
+		}
 		for (int i = 0; i < nPlayers; i++) {
 			result[i]= (wins[i]+partialPots[i]) * 100.0 / nPots;
 		}

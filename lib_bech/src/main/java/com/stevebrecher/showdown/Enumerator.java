@@ -26,10 +26,12 @@ final class Enumerator extends Thread {
     private final int firstRangePlayer;
     public int trail = 0;
     static int board = 0;
+    CalculatingInProgressListener calculatingInProgressListener;
+    int amountTrailForProgressDisplay=5000;
     private ArrayList<ArrayList<int[]>> arrayListRanges = new ArrayList<>();
 
     Enumerator(final int instance, final int instances, final CardSet deck,
-               final CardSet[] holeCards, String[] range, final CardSet boardCards) {
+               final CardSet[] holeCards, String[] range, final CardSet boardCards, CalculatingInProgressListener listener) {
 
         super("Enumerator" + instance);
         startIx = instance;
@@ -59,6 +61,7 @@ final class Enumerator extends Thread {
         limitIx4 = nCardsInDeck - 2;
         limitIx5 = nCardsInDeck - 1;
         firstRangePlayer = nPlayers - rangePlayers;
+        calculatingInProgressListener=listener;
     }
 
     public void parseRange(String[] ranges, CardSet deck) {
@@ -138,7 +141,6 @@ final class Enumerator extends Thread {
     }
 
     private void potResults() {
-        trail++;
         int eval, bestEval = 0;
         int winningPlayer = 0, waysSplit = 0;
         double partialPot;
@@ -166,6 +168,11 @@ final class Enumerator extends Thread {
                     --waysSplit;
                 }
             }
+        }
+        trail++;
+        if(trail>amountTrailForProgressDisplay){
+            calculatingInProgressListener.sendProgress(wins,partialPots,trail);
+            amountTrailForProgressDisplay+=5000;
         }
     }
 
@@ -250,7 +257,7 @@ final class Enumerator extends Thread {
 
 
     private void randomBoard() {
-        while (trail < 100000) {
+        while (trail < 1000000) {
             Random random = new Random();
             HashSet<Integer> set = new HashSet<>();
             long result = constantBoard;

@@ -73,7 +73,15 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
         handler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
-                myPositionAdapter.notifyDataSetChanged();
+                Bundle bundle = msg.getData();
+                long[] wins = bundle.getLongArray(Constants.WINS);
+                double[] result = new double[wins.length];
+                double[] partialPots = bundle.getDoubleArray(Constants.PARTIAL_POTS);
+                double nPots = bundle.getLong(Constants.TRAIL);
+                for (int i = 0; i < result.length; i++) {
+                    result[i]= (wins[i]+partialPots[i]) * 100.0 / nPots;
+                }
+                sendResult(result);
             }
         };
         progressDialog = new ProgressDialog(this);
@@ -266,21 +274,29 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
     @Override
     public Loader<double[]> onCreateLoader(int id, Bundle args) {
         if(id==Constants.LOADER_ID){
-            return new CalculationLoader(this,myPositionAdapter.getArrayIndexesDataWhichWasChoosen(),streetAdapter.getTextFromEditViewStreet());
+            return new CalculationLoader(this,myPositionAdapter.getArrayIndexesDataWhichWasChoosen(),streetAdapter.getTextFromEditViewStreet(),handler);
         }
         return null;
     }
 
     @Override
     public void onLoadFinished(Loader<double[]> loader, double[] data) {
-        sendResult(data);
-        progressDialog.dismiss();
+        if(!isResultDelivered) {
+            sendResult(data);
+            progressDialog.dismiss();
+        }
         isResultDelivered=true;
     }
 
     @Override
     public void onLoaderReset(Loader<double[]> loader) {
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        progressDialog.dismiss();
     }
 }
 
