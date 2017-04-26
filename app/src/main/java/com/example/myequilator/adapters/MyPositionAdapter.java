@@ -186,7 +186,7 @@ public class MyPositionAdapter extends MyAdapter<MyPositionAdapter.ViewHolder> {
         String s = textFromTextView[position];
         holder.rangeOrHandTextView.setText(s);
         if (equity[position] != -1.0) {
-            holder.result.setText(new DecimalFormat("#.#").format(equity[position])+"%");
+            holder.result.setText(new DecimalFormat("#.##").format(equity[position])+"%");
         } else {
             holder.result.setText("");
         }

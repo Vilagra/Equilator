@@ -27,6 +27,7 @@ import com.example.myequilator.adapters.MyPositionAdapter;
 import com.example.myequilator.adapters.StreetAdapter;
 import com.example.myequilator.entity.DataFromIntent;
 import com.example.myequilator.entity.IndexesDataWasChosen;
+import com.example.myequilator.entity.Progress;
 import com.stevebrecher.showdown.Showdown;
 
 import java.util.ArrayList;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
 
     TabHost tabHost;
     RecyclerView recyclerViewPosition;
+    Progress progress;
 
     Handler handler;
 
@@ -74,14 +76,8 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
             @Override
             public void handleMessage(Message msg) {
                 Bundle bundle = msg.getData();
-                long[] wins = bundle.getLongArray(Constants.WINS);
-                double[] result = new double[wins.length];
-                double[] partialPots = bundle.getDoubleArray(Constants.PARTIAL_POTS);
-                double nPots = bundle.getLong(Constants.TRAIL);
-                for (int i = 0; i < result.length; i++) {
-                    result[i]= (wins[i]+partialPots[i]) * 100.0 / nPots;
-                }
-                sendResult(result);
+                progress=new Progress(bundle);
+                sendResult(progress.result());
             }
         };
         progressDialog = new ProgressDialog(this);

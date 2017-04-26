@@ -170,7 +170,7 @@ final class Enumerator extends Thread {
             }
         }
         trail++;
-        if(trail>amountTrailForProgressDisplay){
+        if(trail>amountTrailForProgressDisplay&&startIx==0){
             calculatingInProgressListener.sendProgress(wins,partialPots,trail);
             amountTrailForProgressDisplay+=5000;
         }
@@ -257,7 +257,7 @@ final class Enumerator extends Thread {
 
 
     private void randomBoard() {
-        while (trail < 1000000) {
+        while (trail < 15000) {
             Random random = new Random();
             HashSet<Integer> set = new HashSet<>();
             long result = constantBoard;

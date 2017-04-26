@@ -8,7 +8,7 @@ import java.util.*;
 
 public final class Showdown {
 
-    static int threads = 5;
+    static int threads = 8;
 
 
     public static double[] calculate(String cards,String bord,String[] ranges,CalculatingInProgressListener listener) {
