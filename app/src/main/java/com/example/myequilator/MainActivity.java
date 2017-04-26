@@ -2,10 +2,13 @@ package com.example.myequilator;
 
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.app.LoaderManager;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.Loader;
 import android.content.res.Configuration;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
@@ -31,12 +34,9 @@ import java.util.Arrays;
 import java.util.Map;
 
 
-import mi.poker.calculation.HandInfo;
-import mi.poker.calculation.Result;
-
 import static android.content.res.Configuration.ORIENTATION_PORTRAIT;
 
-public class MainActivity extends AppCompatActivity implements CardsDialogFragment.CardDialogFragmentListener {
+public class MainActivity extends AppCompatActivity implements CardsDialogFragment.CardDialogFragmentListener, LoaderManager.LoaderCallbacks<double[]> {
 
     MyPositionAdapter myPositionAdapter;
     StreetAdapter streetAdapter;
@@ -45,12 +45,11 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
     RecyclerView recyclerViewPosition;
 
     Handler handler;
-    GestureDetector mGestureDetector;
+
+    boolean isResultDelivered= true;
+    ProgressDialog progressDialog;
 
     private static boolean RUN_ONCE = true;
-
-    int positionOfAdapterBeforeRotate = -1;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,18 +61,35 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
         }
 
         setTab();
+        if (savedInstanceState != null) {
+            setRecycler(savedInstanceState);
+            isResultDelivered = savedInstanceState.getBoolean(Constants.IS_RESULT_DELIVERED);
+        }
+        else{
+            setRecycler("tag1");
+        }
 
-        setRecycler(savedInstanceState);
-
-
+        getLoaderManager().initLoader(Constants.LOADER_ID, null, this);
         handler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
                 myPositionAdapter.notifyDataSetChanged();
             }
         };
-
-
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle(getString(R.string.calculate));
+        progressDialog.setMessage("Calculating in progress...");
+        progressDialog.setButton(Dialog.BUTTON_NEGATIVE, getString(R.string.cancel), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                progressDialog.dismiss();
+            }
+        });
+        progressDialog.setCancelable(false);
+        progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        if(!isResultDelivered){
+            progressDialog.show();
+        }
     }
 
     private void setTab(){
@@ -132,10 +148,6 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
     }
 
     private void setRecycler(Bundle savedInstanceState){
-        if(savedInstanceState==null) {
-            setRecycler("tag1");
-        }
-        else{
             String currentTag = savedInstanceState.getString(Constants.CURRENT_TAG);
             tabHost.setCurrentTabByTag(currentTag);
             setRecycler(currentTag);
@@ -150,7 +162,6 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
             myPositionAdapter.setArrayIndexesDataWhichWasChoosen(indexesFromPositionAdapter);
             streetAdapter.setTextFromEditViewStreet(textFomEditTextStreet);
             streetAdapter.setArrayIndexesDataWhichWasChoosen(indexesFromStreetAdapter);
-        }
     }
 
 
@@ -163,6 +174,7 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
         outState.putDoubleArray(Constants.EQUITY,myPositionAdapter.getEquity());
         outState.putSerializable(Constants.INDEXES_DATA_WAS_CHOSEN_BY_STREET_ADAPTER, streetAdapter.getArrayIndexesDataWhichWasChoosen());
         outState.putSerializable(Constants.INDEXES_DATA_WAS_CHOSEN_BY_POSITION_ADAPTER, myPositionAdapter.getArrayIndexesDataWhichWasChoosen());
+        outState.putBoolean(Constants.IS_RESULT_DELIVERED,isResultDelivered);
     }
 
     public void onClick(View v) {
@@ -173,57 +185,16 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
     }
 
     public void calculation(){
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        Thread t = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                IndexesDataWasChosen[] indexes = myPositionAdapter.getArrayIndexesDataWhichWasChoosen();
-                String hands = "";
-                String board = "";
-                ArrayList<String> ranges = new ArrayList<>();
-                for (IndexesDataWasChosen indexesDataWasChosen : indexes) {
-                    if(indexesDataWasChosen!=null){
-                        if(indexesDataWasChosen.getType()== IndexesDataWasChosen.Type.RANGE){
-                            ranges.add(AllCards.getSetOfHandFromCombinations(indexesDataWasChosen.getIndexesDataWasChosen()));
-                        }
-                        if(indexesDataWasChosen.getType()== IndexesDataWasChosen.Type.HAND){
-                            for (Integer i : indexesDataWasChosen.getIndexesDataWasChosen()) {
-                                hands+=AllCards.allCards.get(i).getStringOfCard()+",";
-                            }
-                        }
-                    }
-                }
-                for (String s : streetAdapter.getTextFromEditViewStreet()) {
-                    board += s;
-                }
-                if(hands.length()<0){
-                    hands=hands.substring(0,hands.length()-1);
-                }
-                long start = System.currentTimeMillis();
-                double[] res = Showdown.calculate(hands,board,ranges.toArray(new String[0]));
-                long end = System.currentTimeMillis()-start;
-                Log.d("seconds", String.valueOf(end));
-                sendResult(indexes,res);
-                progressDialog.dismiss();
-            }
-        });
-        progressDialog.setTitle(getString(R.string.calculate));
-        progressDialog.setMessage("Calculating in progress...");
-        progressDialog.setButton(Dialog.BUTTON_NEGATIVE, getString(R.string.cancel), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                progressDialog.dismiss();
-            }
-        });
+        getLoaderManager().restartLoader(Constants.LOADER_ID,null,this).forceLoad();
         progressDialog.show();
-        t.start();
+        isResultDelivered=false;
     }
 
-    public void sendResult(IndexesDataWasChosen[] indexes, double[] result){
+    public void sendResult(double[] result){
+        IndexesDataWasChosen[] indexes = myPositionAdapter.getArrayIndexesDataWhichWasChoosen();
         double[] equity = new double[indexes.length];
         Arrays.fill(equity, -1.0);
         int positionInResult = 0;
-        Log.d("equity",Arrays.toString(result));
         for (int i = 0; i < indexes.length; i++) {
             if(indexes[i]!=null&&indexes[i].getType()== IndexesDataWasChosen.Type.HAND){
                 equity[i]=result[positionInResult++];
@@ -235,37 +206,12 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
             }
         }
         myPositionAdapter.setEquity(equity);
-        handler.sendEmptyMessage(1);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-/*
-        if (positionOfAdapterBeforeRotate != -1) {
-            recyclerViewPosition.scrollToPosition(positionOfAdapterBeforeRotate);
-            positionOfAdapterBeforeRotate = -1;
-        }
-*/
-
+        myPositionAdapter.notifyDataSetChanged();
     }
 
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        //super.onActivityResult(requestCode, resultCode, data);
         DataFromIntent dataFromIntent;
         if (resultCode == RESULT_OK) {
             switch (requestCode) {
@@ -317,6 +263,25 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
         adapter.notifyDataSetChanged();
     }
 
+    @Override
+    public Loader<double[]> onCreateLoader(int id, Bundle args) {
+        if(id==Constants.LOADER_ID){
+            return new CalculationLoader(this,myPositionAdapter.getArrayIndexesDataWhichWasChoosen(),streetAdapter.getTextFromEditViewStreet());
+        }
+        return null;
+    }
+
+    @Override
+    public void onLoadFinished(Loader<double[]> loader, double[] data) {
+        sendResult(data);
+        progressDialog.dismiss();
+        isResultDelivered=true;
+    }
+
+    @Override
+    public void onLoaderReset(Loader<double[]> loader) {
+
+    }
 }
 
 

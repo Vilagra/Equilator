@@ -220,10 +220,10 @@ final class UserInput {
 			return false;*/
 		if (!getCards(s, boardCards))
 			return false;
-		if (boardCards.size() > 4) {
+/*		if (boardCards.size() > 4) {
 			out.println("Number of board cards cannot exceed 4 (flop and turn).");
 			return false;
-		}
+		}*/
 		return true;
 	}
 

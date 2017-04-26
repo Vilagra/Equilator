@@ -1,1 +1,1 @@
-include ':app', ':lib_calculate', ':lib_bech'
+include ':app', ':lib_bech'

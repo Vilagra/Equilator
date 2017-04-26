@@ -3,10 +3,8 @@ package com.stevebrecher.showdown;
 import com.stevebrecher.poker.*;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Random;
-import java.util.Set;
 
 
 final class Enumerator extends Thread {
@@ -73,8 +71,6 @@ final class Enumerator extends Thread {
                 int index1 = deck.getIndex(card1);
                 int index2 = deck.getIndex(card2);
                 if (index1 != -1 && index2 != -1) {
-                    //long code1 = HandEval.encode(card1);
-                    //long code2 = HandEval.encode(card2);
                     arrayListRange.add(new int[]{index1, index2});
                 }
             }
@@ -99,16 +95,9 @@ final class Enumerator extends Thread {
         if (rangePlayers == 0) {
             enumBoardsNoUnknown();
         }
-/*        else if((rangePlayers == 1 && arrayListRanges.size() < 20)|| nBoardCards > 0){
-            enumBoards();
-        }*/
         else {
             randomBoard();
         }
-/*		if (rangePlayers > 0)
-            enumBoards();
-		else
-			enumBoardsNoUnknown();*/
     }
 
     private void enum2GuysNoFlop() { // special case for speed of EnumBoardsNoUnknown
@@ -132,6 +121,7 @@ final class Enumerator extends Thread {
                              * wins[1], splits[1], and partialPots can be inferred
 							 */
                             ++pots;
+                            ++trail;
                             if (handValue0 > handValue1)
                                 ++wins0;
                             else if (handValue0 == handValue1)
@@ -251,127 +241,21 @@ final class Enumerator extends Thread {
                     board5 = constantBoard | deck[deckIx5];
                     potResults();
                 }
+                break;
+            case 5:
+                potResults();
+                break;
         }
     }
 
-    private void enumBoards() {
-        HashSet<Long> set = new HashSet<>();
-        switch (nBoardCards) {
-            case 0:
-                for (int deckIx1 = startIx; deckIx1 <= limitIx1; deckIx1 += increment) {
-                    //dealt[deckIx1] = true;
-                    set.add(deck[deckIx1]);
-                    board1 = deck[deckIx1];
-                    for (int deckIx2 = deckIx1 + 1; deckIx2 <= limitIx2; ++deckIx2) {
-                        //dealt[deckIx2] = true;
-                        set.add(deck[deckIx2]);
-                        board2 = board1 | deck[deckIx2];
-                        for (int deckIx3 = deckIx2 + 1; deckIx3 <= limitIx3; ++deckIx3) {
-                            //dealt[deckIx3] = true;
-                            set.add(deck[deckIx3]);
-                            board3 = board2 | deck[deckIx3];
-                            for (int deckIx4 = deckIx3 + 1; deckIx4 <= limitIx4; ++deckIx4) {
-                                //dealt[deckIx4] = true;
-                                set.add(deck[deckIx4]);
-                                board4 = board3 | deck[deckIx4];
-                                for (int deckIx51 = deckIx4 + 1; deckIx51 <= limitIx5; ++deckIx51) {
-                                    //dealt[deckIx51] = true;
-                                    board5 = board4 | deck[deckIx51];
-                                    set.add(deck[deckIx51]);
-                                    vsRange(0);
-                                    //dealt[deckIx51] = false;
-                                    set.remove(deck[deckIx51]);
-                                }
-                                //dealt[deckIx4] = false;
-                                set.remove(deck[deckIx4]);
-                            }
-                            //dealt[deckIx3] = false;
-                            set.remove(deck[deckIx3]);
-                        }
-                        //dealt[deckIx2] = false;
-                        set.remove(deck[deckIx2]);
-                    }
-                    //dealt[deckIx1] = false;
-                    set.remove(deck[deckIx1]);
-                }
-                break;
-/*            case 1:
-                for (int deckIx2 = startIx; deckIx2 <= limitIx2; deckIx2 += increment) {
-                    dealt[deckIx2] = true;
-                    board2 = constantBoard | deck[deckIx2];
-                    for (int deckIx3 = deckIx2 + 1; deckIx3 <= limitIx3; ++deckIx3) {
-                        dealt[deckIx3] = true;
-                        board3 = board2 | deck[deckIx3];
-                        for (int deckIx4 = deckIx3 + 1; deckIx4 <= limitIx4; ++deckIx4) {
-                            dealt[deckIx4] = true;
-                            board4 = board3 | deck[deckIx4];
-                            for (int deckIx51 = deckIx4 + 1; deckIx51 <= limitIx5; ++deckIx51) {
-                                dealt[deckIx51] = true;
-                                board5 = board4 | deck[deckIx51];
-                                //enumUnknowns();
-                                dealt[deckIx51] = false;
-                            }
-                            dealt[deckIx4] = false;
-                        }
-                        dealt[deckIx3] = false;
-                    }
-                    dealt[deckIx2] = false;
-                }
-                break;
-            case 2:
-                for (int deckIx3 = startIx; deckIx3 <= limitIx3; deckIx3 += increment) {
-                    dealt[deckIx3] = true;
-                    board3 = constantBoard | deck[deckIx3];
-                    for (int deckIx4 = deckIx3 + 1; deckIx4 <= limitIx4; ++deckIx4) {
-                        dealt[deckIx4] = true;
-                        board4 = board3 | deck[deckIx4];
-                        for (int deckIx51 = deckIx4 + 1; deckIx51 <= limitIx5; ++deckIx51) {
-                            dealt[deckIx51] = true;
-                            board5 = board4 | deck[deckIx51];
-                            //enumUnknowns();
-                            dealt[deckIx51] = false;
-                        }
-                        dealt[deckIx4] = false;
-                    }
-                    dealt[deckIx3] = false;
-                }
-                break;*/
-            case 3:
-                for (int deckIx4 = startIx; deckIx4 <= limitIx4; deckIx4 += increment) {
-                    //dealt[deckIx4] = true;
-                    set.add(deck[deckIx4]);
-                    board4 = constantBoard | deck[deckIx4];
-                    for (int deckIx51 = deckIx4 + 1; deckIx51 <= limitIx5; ++deckIx51) {
-                        //dealt[deckIx4] = true;
-                        set.add(deck[deckIx51]);
-                        board5 = board4 | deck[deckIx51];
-                        vsRange(0);
-                        //dealt[deckIx51] = false;
-                        set.remove(deck[deckIx51]);
-                    }
-                    //dealt[deckIx4] = false;
-                    set.remove(deck[deckIx4]);
-                }
-                break;
-            case 4:
-                // enum 1 board card:
-                for (int deckIx5 = startIx; deckIx5 <= limitIx5; deckIx5 += increment) {
-                    //dealt[deckIx5] = true;
-                    set.add(deck[deckIx5]);
-                    board5 = constantBoard | deck[deckIx5];
-                    vsRange(0);
-                    //dealt[deckIx5] = false;
-                    set.remove(deck[deckIx5]);
-                }
-        }
-    }
 
     private void randomBoard() {
-        while (trail < 5000000) {
+        while (trail < 100000) {
             Random random = new Random();
             HashSet<Integer> set = new HashSet<>();
-            long result = 0;
-            while (set.size() != 5) {
+            long result = constantBoard;
+            int amountMissingCardInBoard = 5 - nBoardCards;
+            while (set.size() != amountMissingCardInBoard) {
                 int r = random.nextInt(dealt.length);
                 if (!dealt[r]) {
                     set.add(r);
@@ -379,26 +263,19 @@ final class Enumerator extends Thread {
                     result += deck[r];
                 }
             }
-/*            HashSet<Long> set2 = new HashSet<>();
-            for (Integer integer : set) {
-                dealt[integer] = true;
-                set2.add(deck[integer]);
-                result += deck[integer];
-            }*/
             board5 = result;
-            //vsRandomHandFromRangeWithShuffle(0);
-            //vsRandomHandFromRange(0);
-            vsRange(0);
+            vsRandomHandFromRange(0);
+
             for (Integer integer : set) {
                 dealt[integer] = false;
             }
         }
     }
 
-    private void vsRandomHandFromRangeWithShuffle(int index) {
+    private void vsRandomHandFromRange(int index) {
         ArrayList<int[]> current = arrayListRanges.get(index);
-        Collections.shuffle(current);
-        int[] indexes = current.get(0);
+        Random random =new Random();
+        int[] indexes = current.get(random.nextInt(current.size()));
         if (dealt[indexes[0]] || dealt[indexes[1]]) {
             return;
         } else {
@@ -416,128 +293,4 @@ final class Enumerator extends Thread {
     }
 
 
-
-
-    private void vsRandomHandFromRange(int index) {
-        ArrayList<int[]> current = arrayListRanges.get(index);
-        //Collections.shuffle(current);
-        Random random = new Random();
-        int r = random.nextInt(current.size());
-        int i = 0;
-        while (true) {
-            int indexes[] = current.get((r + i) % current.size());
-            if (dealt[indexes[0]] || dealt[indexes[1]]) {
-                i++;
-                if (i > current.size()) {
-                    break;
-                }
-                continue;
-            } else {
-                holeHand[firstRangePlayer + index] = deck[indexes[0]] | deck[indexes[1]];
-                dealt[indexes[0]] = true;
-                dealt[indexes[1]] = true;
-                if (index == arrayListRanges.size() - 1) {
-                    potResults();
-                } else {
-                    vsRandomHandFromRange(index + 1);
-                }
-                dealt[indexes[0]] = false;
-                dealt[indexes[1]] = false;
-                break;
-            }
-        }
-    }
-
-    //recursively
-    private void vsRange(int index) {
-        ArrayList<int[]> current = arrayListRanges.get(index);
-        for (int[] indexes : current) {
-            if (dealt[indexes[0]] || dealt[indexes[1]]) {
-                continue;
-            } else {
-                holeHand[firstRangePlayer + index] = deck[indexes[0]] | deck[indexes[1]];
-                dealt[indexes[0]] = true;
-                dealt[indexes[1]] = true;
-                if (index == arrayListRanges.size() - 1) {
-                    potResults();
-                } else {
-                    vsRange(index + 1);
-                }
-                dealt[indexes[0]] = false;
-                dealt[indexes[1]] = false;
-            }
-        }
-    }
-
-//	private void vsRange(Set set){
-//		for (long[] longs : range1) {
-//			if(set.contains(longs[0])||set.contains(longs[1])){
-//				continue;
-//			}
-//			else{
-//				holeHand[firstRangePlayer]=longs[0]|longs[1];
-//				potResults();
-//			}
-//		}
-//	}
-
-/*	private void enumUnknowns() {
-		//System.out.println(startIx+" "+board5);
-		if (rangePlayers == 1)
-			for (int deckIx1 = 0; deckIx1 <= limitIx4; ++deckIx1) {
-				if (dealt[deckIx1])
-					continue;
-				for (int deckIx2 = deckIx1 + 1; deckIx2 <= limitIx5; ++deckIx2) {
-					if (dealt[deckIx2])
-						continue;
-					holeHand[firstRangePlayer] = deck[deckIx1] | deck[deckIx2];
-					potResults();
-				}
-			}
-		else {
-			for (int deckIx1 = 0; deckIx1 <= limitIx2; ++deckIx1) {
-				if (dealt[deckIx1])
-					continue;
-				for (int deckIx2 = deckIx1 + 1; deckIx2 <= limitIx3; ++deckIx2) {
-					if (dealt[deckIx2])
-						continue;
-					for (int deckIx3 = deckIx2 + 1; deckIx3 <= limitIx4; ++deckIx3) {
-						if (dealt[deckIx3])
-							continue;
-						for (int deckIx4 = deckIx3 + 1; deckIx4 <= limitIx5; ++deckIx4) {
-							*//*
-							 * The first "unknown" holding wx and the second
-							 * holding yz is equivalent, w/r the results of
-							 * interest, to the first holding yz and the
-							 * second wx. So we tally only one of the
-							 * two cases, i.e., (4C2)/2 total.  The totals
-							 * of wins, splits, etc., will be doubled later.
-							 *//*
-							if (dealt[deckIx4])
-								continue;
-							final long card1 = deck[deckIx1];
-							final long card2 = deck[deckIx2];
-							final long card3 = deck[deckIx3];
-							final long card4 = deck[deckIx4];
-							holeHand[firstRangePlayer] = card1 | card2;
-							holeHand[secondUnknown] = card3 | card4;
-							potResults();
-							holeHand[firstRangePlayer] = card1 | card3;
-							holeHand[secondUnknown] = card2 | card4;
-							potResults();
-							holeHand[firstRangePlayer] = card1 | card4;
-							holeHand[secondUnknown] = card2 | card3;
-							potResults();
-						}
-					}
-				}
-			}
-			//double totals as indicated above
-			for (int i = 0; i < nPlayers; i++) {
-				wins[i] *= 2;
-				splits[i] *= 2;
-				partialPots[i] *= 2.0;
-			}
-		}
-	}*/
 }
