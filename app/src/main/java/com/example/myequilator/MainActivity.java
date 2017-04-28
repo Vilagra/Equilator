@@ -21,6 +21,7 @@ import android.util.Log;
 import android.view.GestureDetector;
 import android.view.View;
 import android.widget.TabHost;
+import android.widget.Toast;
 
 import com.example.myequilator.adapters.MyAdapter;
 import com.example.myequilator.adapters.MyPositionAdapter;
@@ -70,8 +71,6 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
         else{
             setRecycler("tag1");
         }
-
-        getLoaderManager().initLoader(Constants.LOADER_ID, null, this);
         handler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
@@ -80,12 +79,16 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
                 sendResult(progress.result());
             }
         };
+        getLoaderManager().initLoader(Constants.LOADER_ID, null, this);
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle(getString(R.string.calculate));
         progressDialog.setMessage("Calculating in progress...");
         progressDialog.setButton(Dialog.BUTTON_NEGATIVE, getString(R.string.cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                Loader<double[]> loader=getLoaderManager().getLoader(Constants.LOADER_ID);
+                ((CalculationLoader)loader).setCancel(true);
                 progressDialog.dismiss();
             }
         });
@@ -181,17 +184,17 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
         outState.putBoolean(Constants.IS_RESULT_DELIVERED,isResultDelivered);
     }
 
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.calculate:
-               calculation();
-        }
-    }
-
     public void calculation(){
-        getLoaderManager().restartLoader(Constants.LOADER_ID,null,this).forceLoad();
-        progressDialog.show();
-        isResultDelivered=false;
+        if(myPositionAdapter.amountPlayers()<2){
+            Toast.makeText(this,R.string.not_enough,Toast.LENGTH_SHORT).show();
+        }
+        else {
+            //getLoaderManager().restartLoader(Constants.LOADER_ID,null,this).forceLoad();
+            Loader loader = getLoaderManager().initLoader(Constants.LOADER_ID, null, this);
+            progressDialog.show();
+            isResultDelivered = false;
+            loader.forceLoad();
+        }
     }
 
     public void sendResult(double[] result){

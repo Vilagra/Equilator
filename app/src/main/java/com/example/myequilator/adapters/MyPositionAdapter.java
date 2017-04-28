@@ -88,6 +88,16 @@ public class MyPositionAdapter extends MyAdapter<MyPositionAdapter.ViewHolder> {
         this.equity = equity;
     }
 
+    public int amountPlayers(){
+        int res=0;
+        for (IndexesDataWasChosen indexesDataWasChosen : arrayIndexesDataWhichWasChoosen) {
+            if(indexesDataWasChosen!=null){
+                res++;
+            }
+        }
+        return res;
+    }
+
     public MyPositionAdapter(Context ctx, String[] data) {
         this.ctx = ctx;
         mDataset = data;
