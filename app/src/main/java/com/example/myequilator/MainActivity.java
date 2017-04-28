@@ -73,8 +73,7 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
                 sendResult(progress.result());
             }
         };
-        getLoaderManager().initLoader(Constants.LOADER_ID, null, this);
-
+        Loader loader=getLoaderManager().initLoader(Constants.LOADER_ID, null, this);
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle(getString(R.string.calculate));
         progressDialog.setMessage("Calculating in progress...");
@@ -90,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
         progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         if(!isResultDelivered){
             progressDialog.show();
+            ((CalculationLoader)loader).setHandler(handler);
         }
     }
 
@@ -183,8 +183,8 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
             Toast.makeText(this,R.string.not_enough,Toast.LENGTH_SHORT).show();
         }
         else {
-            //getLoaderManager().restartLoader(Constants.LOADER_ID,null,this).forceLoad();
-            Loader loader = getLoaderManager().initLoader(Constants.LOADER_ID, null, this);
+            Loader loader = getLoaderManager().restartLoader(Constants.LOADER_ID,null,this);
+            //Loader loader = getLoaderManager().initLoader(Constants.LOADER_ID, null, this);
             progressDialog.show();
             isResultDelivered = false;
             loader.forceLoad();

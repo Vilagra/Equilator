@@ -30,6 +30,7 @@ public class CalculationLoader extends AsyncTaskLoader<double[]> implements Calc
     Enumerator[] enumerators = new Enumerator[threads];
 
     public void setHandler(Handler handler) {
+
         this.handler = handler;
     }
 
@@ -74,7 +75,7 @@ public class CalculationLoader extends AsyncTaskLoader<double[]> implements Calc
         long nanosecs = System.currentTimeMillis();
         for (int i = 0; i < enumerators.length; i++) {
             enumerators[i] = new Enumerator(i, threads,
-                    ui.deck(), ui.holeCards(),ui.getRange(), ui.boardCards(),this,100000);
+                    ui.deck(), ui.holeCards(),ui.getRange(), ui.boardCards(),this,300000);
             enumerators[i].start();
         }
         for (Enumerator enumerator : enumerators) {
