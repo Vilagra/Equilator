@@ -11,4 +11,5 @@
     <string name="turn">Turn</string>
     <string name="river">River</string>
     <string name="calculate">Calculate</string>
+    <string name="not_enough">Not enough players for calculation must be at least 2!</string>
 </resources>

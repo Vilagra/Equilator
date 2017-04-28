@@ -5,9 +5,10 @@ import com.stevebrecher.poker.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 
-final class Enumerator extends Thread {
+public final class Enumerator extends Thread {
 
     private final int nPlayers;
     private final int rangePlayers;
@@ -24,14 +25,15 @@ final class Enumerator extends Thread {
     private final int limitIx1, limitIx2, limitIx3, limitIx4, limitIx5;
     private long board1, board2, board3, board4, board5;
     private final int firstRangePlayer;
-    public int trail = 0;
-    static int board = 0;
+    public int gameAmount = 0;
     CalculatingInProgressListener calculatingInProgressListener;
-    int amountTrailForProgressDisplay=5000;
+    int amountGameForProgressDisplay =5000;
+    int amountOfNeededGames;
+    AtomicBoolean stopCalculation = new AtomicBoolean(false);
     private ArrayList<ArrayList<int[]>> arrayListRanges = new ArrayList<>();
 
-    Enumerator(final int instance, final int instances, final CardSet deck,
-               final CardSet[] holeCards, String[] range, final CardSet boardCards, CalculatingInProgressListener listener) {
+    public Enumerator(final int instance, final int instances, final CardSet deck,
+                      final CardSet[] holeCards, String[] range, final CardSet boardCards, CalculatingInProgressListener listener, int amountOfNeededGames) {
 
         super("Enumerator" + instance);
         startIx = instance;
@@ -62,6 +64,11 @@ final class Enumerator extends Thread {
         limitIx5 = nCardsInDeck - 1;
         firstRangePlayer = nPlayers - rangePlayers;
         calculatingInProgressListener=listener;
+        this.amountOfNeededGames=amountOfNeededGames;
+    }
+
+    public void setStopCalculation(boolean stopCalculation) {
+        this.stopCalculation = new AtomicBoolean(true);
     }
 
     public void parseRange(String[] ranges, CardSet deck) {
@@ -124,7 +131,7 @@ final class Enumerator extends Thread {
                              * wins[1], splits[1], and partialPots can be inferred
 							 */
                             ++pots;
-                            ++trail;
+                            ++gameAmount;
                             if (handValue0 > handValue1)
                                 ++wins0;
                             else if (handValue0 == handValue1)
@@ -169,10 +176,10 @@ final class Enumerator extends Thread {
                 }
             }
         }
-        trail++;
-        if(trail>amountTrailForProgressDisplay&&startIx==0){
-            calculatingInProgressListener.sendProgress(wins,partialPots,trail);
-            amountTrailForProgressDisplay+=5000;
+        gameAmount++;
+        if(gameAmount > amountGameForProgressDisplay &&startIx==0){
+            calculatingInProgressListener.sendProgress(wins,partialPots, gameAmount);
+            amountGameForProgressDisplay +=5000;
         }
     }
 
@@ -257,7 +264,8 @@ final class Enumerator extends Thread {
 
 
     private void randomBoard() {
-        while (trail < 15000) {
+        while (gameAmount < amountOfNeededGames&&!this.isInterrupted()) {
+            //System.out.println(this.isInterrupted());
             Random random = new Random();
             HashSet<Integer> set = new HashSet<>();
             long result = constantBoard;

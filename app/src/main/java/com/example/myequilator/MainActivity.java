@@ -17,9 +17,6 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.GestureDetector;
-import android.view.View;
 import android.widget.TabHost;
 import android.widget.Toast;
 
@@ -29,11 +26,8 @@ import com.example.myequilator.adapters.StreetAdapter;
 import com.example.myequilator.entity.DataFromIntent;
 import com.example.myequilator.entity.IndexesDataWasChosen;
 import com.example.myequilator.entity.Progress;
-import com.stevebrecher.showdown.Showdown;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Map;
 
 
 import static android.content.res.Configuration.ORIENTATION_PORTRAIT;
@@ -88,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Loader<double[]> loader=getLoaderManager().getLoader(Constants.LOADER_ID);
-                ((CalculationLoader)loader).setCancel(true);
+                ((CalculationLoader)loader).finishLoad();
                 progressDialog.dismiss();
             }
         });

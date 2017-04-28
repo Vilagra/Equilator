@@ -24,13 +24,13 @@ public class Progress {
 
 /*    public void increaceData(Bundle bundle){
         double[] partialPots = bundle.getDoubleArray(Constants.PARTIAL_POTS);
-        trail+=bundle.getLong(Constants.TRAIL);
+        gameAmount+=bundle.getLong(Constants.TRAIL);
         long[] wins2 = bundle.getLongArray(Constants.WINS);
         for (int i = 0; i < wins2.length; i++) {
             wins[i]+=wins2[i];
             partial[i]+=partialPots[i];
         }
-        Log.d("qqqqq", String.valueOf(trail)+ Arrays.toString(wins));
+        Log.d("qqqqq", String.valueOf(gameAmount)+ Arrays.toString(wins));
     }*/
 
 

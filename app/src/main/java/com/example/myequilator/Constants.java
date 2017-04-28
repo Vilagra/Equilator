@@ -28,5 +28,5 @@ public class Constants {
     public static final String INDEXES_DATA_WAS_CHOSEN_BY_STREET_ADAPTER = "indexes_from_street_adapter";
     public static final String WINS = "wins";
     public static final String PARTIAL_POTS = "partial pots";
-    public static final String TRAIL = "trail";
+    public static final String TRAIL = "gameAmount";
 }
