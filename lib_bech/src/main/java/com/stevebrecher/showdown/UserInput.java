@@ -11,7 +11,7 @@ import static com.stevebrecher.showdown.Help.*;
 import com.stevebrecher.poker.Card;
 import com.stevebrecher.poker.CardSet;
 
-final class UserInput {
+public final class UserInput {
 
 	/*
 	 * Cards specified by user, stored in input order so
@@ -35,7 +35,7 @@ final class UserInput {
 
 	private UserInput() {}
 	
-	static UserInput newUserInput(String cards,String board,String[] range,int numberOfRandom) {
+	public static UserInput newUserInput(String cards, String board, String[] range, int numberOfRandom) {
 		UserInput ui = new UserInput();
 		ui.nUnknown=numberOfRandom;
 		ui.range=range;
@@ -46,14 +46,14 @@ final class UserInput {
 			return null;
 	}
 
-	CardSet[] holeCards() {
+	public CardSet[] holeCards() {
 		CardSet[] result = new CardSet[holeCards.length];
 		for (int i = 0; i < holeCards.length; ++i)
 			result[i] = new CardSet(holeCards[i]);
 		return result;
 	}
 
-	CardSet boardCards() {
+	public CardSet boardCards() {
 		return new CardSet(boardCards);
 	}
 
@@ -73,7 +73,7 @@ final class UserInput {
 		return nPots;
 	}
 	
-	CardSet deck() {
+	public CardSet deck() {
 		return new CardSet(deck);
 	}
 
