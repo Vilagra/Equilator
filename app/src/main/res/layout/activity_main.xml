@@ -2,52 +2,134 @@
 
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical"
-    android:background="@color/colorAccent2">
 
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/colorAccent2"
+    android:orientation="vertical">
 
-        <TabHost
-            android:id="@+id/tabhost"
+    <TabHost
+        android:id="@+id/tabhost"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@color/white">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"></TabWidget>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp">
 
+                <TextView
+                    android:layout_width="43dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:gravity="center"
+                    android:text="@string/position"
+                    android:textSize="11dp"/>
 
-                <TabWidget
-                    android:id="@android:id/tabs"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"></TabWidget>
+                <TextView
+                    android:layout_width="36dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_gravity="center"
+                    android:text="@string/range"
+                    android:gravity="center"
+                    android:textSize="11dp"/>
 
-                <FrameLayout
-                    android:id="@android:id/tabcontent"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="36dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/hand"
+                    android:gravity="center"
+                    android:textSize="11dp"
+                    android:layout_gravity="center"
+                     />
 
-                    <include
-                        android:id="@+id/tab1"
-                        layout="@layout/excerpt" />
+                <TextView
+                    android:layout_width="38dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:text="@string/random"
+                    android:textSize="11dp"
+                    android:gravity="center"
+                    android:layout_gravity="center" />
 
-                    <include
-                        android:id="@+id/tab2"
-                        layout="@layout/excerpt" />
+                <TextView
+                    android:layout_width="32dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/delete"
+                    android:textSize="11dp"
+                    android:paddingLeft="2dp"
+                    android:layout_gravity="center"/>
+  />
 
-                </FrameLayout>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/hands"
+                    android:textSize="11dp"/>
+
+                <TextView
+                    android:id="@+id/eqiuty"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:gravity="center"
+                    android:text="@string/equity"
+                    android:textSize="11dp" />
+
             </LinearLayout>
-        </TabHost>
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <include
+                    android:id="@+id/tab1"
+                    layout="@layout/excerpt" />
+
+                <include
+                    android:id="@+id/tab2"
+                    layout="@layout/excerpt" />
+
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_street"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-    </android.support.v7.widget.RecyclerView>
+        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
 
 
-    </LinearLayout>
+</LinearLayout>

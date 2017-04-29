@@ -18,4 +18,9 @@
     <string name="help">Help</string>
     <string name="position">position</string>
     <string name="range">range</string>
+    <string name="hand">hand</string>
+    <string name="random">random</string>
+    <string name="delete">delete</string>
+    <string name="hands">hands</string>
+    <string name="equity">equity</string>
 </resources>
