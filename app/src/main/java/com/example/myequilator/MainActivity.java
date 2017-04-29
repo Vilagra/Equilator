@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.LoaderManager;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.Loader;
@@ -11,12 +12,19 @@ import android.content.res.Configuration;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.Settings;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.View;
 import android.widget.TabHost;
 import android.widget.Toast;
 
@@ -26,6 +34,8 @@ import com.example.myequilator.adapters.StreetAdapter;
 import com.example.myequilator.entity.DataFromIntent;
 import com.example.myequilator.entity.IndexesDataWasChosen;
 import com.example.myequilator.entity.Progress;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import java.util.Arrays;
 
@@ -46,12 +56,31 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
     boolean isResultDelivered= true;
     ProgressDialog progressDialog;
 
+    private AdView mAdView;
+
     private static boolean RUN_ONCE = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(false);
+
+        LayoutInflater inflator = (LayoutInflater) this .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View v = inflator.inflate(R.layout.ads, null);
+
+        mAdView = (AdView) v.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().addTestDevice("BC44035CB7EB870A409150BDE200B894").build();
+        mAdView.loadAd(adRequest);
+        actionBar.setCustomView(v);
+
+        Toolbar parent =(Toolbar) v.getParent();
+        parent.setPadding(0,0,0,0);//for tab otherwise give space in tab
+        parent.setContentInsetsAbsolute(0,0);
+
+
         if (RUN_ONCE) {
             AllCards.initializeData(getApplicationContext());
             RUN_ONCE = false;
@@ -74,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
             }
         };
         Loader loader=getLoaderManager().initLoader(Constants.LOADER_ID, null, this);
-        progressDialog = new ProgressDialog(this);
+        progressDialog = new ProgressDialog(this, R.style.MyProgress);
         progressDialog.setTitle(getString(R.string.calculate));
         progressDialog.setMessage("Calculating in progress...");
         progressDialog.setButton(Dialog.BUTTON_NEGATIVE, getString(R.string.cancel), new DialogInterface.OnClickListener() {
@@ -92,6 +121,12 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
             ((CalculationLoader)loader).setHandler(handler);
         }
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
 
     private void setTab(){
         tabHost = (TabHost) findViewById(R.id.tabhost);
@@ -105,12 +140,20 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
         tabSpec.setIndicator(getString(R.string.for10));
         tabSpec.setContent(R.id.tab2);
         tabHost.addTab(tabSpec);
+        setTabColor(tabHost);
         tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             public void onTabChanged(String tabId) {
                 setRecycler(tabId);
                 AllCards.resetWasChosen();
+                setTabColor(tabHost);
             }
         });
+    }
+    public void setTabColor(TabHost tabhost) {
+
+        for(int i=0;i<tabhost.getTabWidget().getChildCount();i++)
+            tabhost.getTabWidget().getChildAt(i).setBackgroundColor(getResources().getColor(R.color.white)); //unselected
+            tabhost.getTabWidget().getChildAt(tabhost.getCurrentTab()).setBackgroundColor(getResources().getColor(R.color.cyan));
     }
 
     private void setRecycler(String tag) {
@@ -287,9 +330,22 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
     }
 
     @Override
+    protected void onPause() {
+        mAdView.pause();
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mAdView.resume();
+    }
+
+    @Override
     protected void onDestroy() {
-        super.onDestroy();
         progressDialog.dismiss();
+        mAdView.destroy();
+        super.onDestroy();
     }
 }
 

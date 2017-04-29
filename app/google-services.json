@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "649373108570",
+    "firebase_url": "https://myequilatorgit.firebaseio.com",
+    "project_id": "myequilatorgit",
+    "storage_bucket": "myequilatorgit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:649373108570:android:e6e1107c378d68e9",
+        "android_client_info": {
+          "package_name": "com.example.myequilator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "649373108570-9vtrikbhlus89f8cu2l8eu4nj6dfbauj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myequilator",
+            "certificate_hash": "df7ecf131fe0fb88f46a6f126250446f7234fd24"
+          }
+        },
+        {
+          "client_id": "649373108570-nkr7f1l5fh4abmkiak924oi7rijsdhjb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5Qqgm6-tZ-5rGsgQ1WdVpU_OXUQ_7GKg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "649373108570-nkr7f1l5fh4abmkiak924oi7rijsdhjb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

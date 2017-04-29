@@ -6,6 +6,25 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:actionBarStyle">@style/CustomActionBar</item>
+        <item name="actionBarStyle">@style/CustomActionBar</item>
     </style>
+
+    <style name="MyProgress" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/cyan</item>
+        <item name="android:textColorPrimary">@color/cyan</item>
+        <item name="android:textColorSecondary">@color/cyan</item>
+        <item name="android:textColor">@color/cyan</item>
+    </style>
+    <style name="CustomActionBar" parent="Base.ThemeOverlay.AppCompat.Dark.ActionBar">
+          <item name="android:background">@color/cyan</item>
+          <item name="background">@color/blue</item>
+        <item name="android:height">@dimen/bar_height</item>
+        <item name="height">@dimen/bar_height</item>
+
+<!--        <item name="actionBarTheme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>-->
+
+    </style>
+
 
 </resources>
