@@ -1,21 +1,29 @@
 package com.example.myequilator;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.InputType;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.example.myequilator.adapters.AdapterForRange;
 import com.example.myequilator.entity.Combination;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -27,11 +35,25 @@ public class RangeActivity extends AppCompatActivity implements View.OnClickList
     AdapterForRange adapterForRange;
     SeekBar seekBar;
     TextView procent;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.range_matrix);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(false);
+
+        LayoutInflater inflator = (LayoutInflater) this .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View v = inflator.inflate(R.layout.ads, null);
+
+        mAdView = (AdView) v.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().addTestDevice("BC44035CB7EB870A409150BDE200B894").build();
+        mAdView.loadAd(adRequest);
+        actionBar.setCustomView(v);
+
         buttonOk = (Button) findViewById(R.id.ok);
         buttonCancel = (Button) findViewById(R.id.cancel);
         seekBar = (SeekBar) findViewById(R.id.sbWeight);

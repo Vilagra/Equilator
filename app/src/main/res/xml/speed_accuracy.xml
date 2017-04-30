@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListPreference
+        android:defaultValue="@string/vFaster"
+        android:dialogTitle="@string/speed_accuracy"
+        android:entries="@array/pref_speed_accuracy_entries"
+        android:entryValues="@array/pref_speed_accuracy_values"
+        android:key="@string/speed_accuracy"
+        android:summary="%s"
+        android:title="@string/hands_quantity" />
+</PreferenceScreen>

@@ -3,12 +3,13 @@
     package="com.example.myequilator">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
-        android:hardwareAccelerated="false"
-        android:largeHeap="true"
         android:allowBackup="true"
+        android:hardwareAccelerated="false"
         android:icon="@mipmap/chip1"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
@@ -18,7 +19,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RangeActivity"></activity>
+        <activity android:name=".RangeActivity" />
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/speed_accuracy"
+            android:theme="@style/AppTheme2"></activity>
     </application>
 
 </manifest>

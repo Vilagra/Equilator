@@ -4,9 +4,11 @@ import android.content.AsyncTaskLoader;
 import android.content.Context;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.preference.PreferenceManager;
 
 import com.example.myequilator.entity.IndexesDataWasChosen;
 import com.stevebrecher.showdown.CalculatingInProgressListener;
@@ -72,10 +74,12 @@ public class CalculationLoader extends AsyncTaskLoader<double[]> implements Calc
             hands = hands.substring(0, hands.length() - 1);
         }
         UserInput ui = UserInput.newUserInput(hands, board,ranges.toArray(new String[0]),0);
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this.getContext());
+        int numberOfHands = Integer.valueOf(sharedPref.getString(getContext().getString(R.string.speed_accuracy), "-1"));
         long nanosecs = System.currentTimeMillis();
         for (int i = 0; i < enumerators.length; i++) {
             enumerators[i] = new Enumerator(i, threads,
-                    ui.deck(), ui.holeCards(),ui.getRange(), ui.boardCards(),this,300000);
+                    ui.deck(), ui.holeCards(),ui.getRange(), ui.boardCards(),this,numberOfHands);
             enumerators[i].start();
         }
         for (Enumerator enumerator : enumerators) {

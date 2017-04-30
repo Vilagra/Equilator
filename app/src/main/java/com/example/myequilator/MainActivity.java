@@ -12,6 +12,7 @@ import android.content.res.Configuration;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Handler;
 import android.os.Message;
+import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -71,6 +72,8 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
         LayoutInflater inflator = (LayoutInflater) this .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View v = inflator.inflate(R.layout.ads, null);
 
+        PreferenceManager.setDefaultValues(this.getApplicationContext(), R.xml.speed_accuracy, true);
+
         mAdView = (AdView) v.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().addTestDevice("BC44035CB7EB870A409150BDE200B894").build();
         mAdView.loadAd(adRequest);
@@ -125,6 +128,7 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
+        menu.findItem(R.id.speed).setIntent(new Intent(this,SettingsActivity.class));
         return true;
     }
 
