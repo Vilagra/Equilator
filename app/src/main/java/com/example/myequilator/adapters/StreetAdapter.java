@@ -2,6 +2,7 @@ package com.example.myequilator.adapters;
 
 import android.app.Activity;
 import android.app.DialogFragment;
+import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.graphics.Color;
@@ -23,6 +24,7 @@ import com.example.myequilator.AllCards;
 import com.example.myequilator.CardsDialogFragment;
 import com.example.myequilator.Constants;
 import com.example.myequilator.MainActivity;
+import com.example.myequilator.MainActivity2;
 import com.example.myequilator.R;
 import com.example.myequilator.entity.Card;
 import com.example.myequilator.entity.DataFromIntent;
@@ -47,6 +49,7 @@ public class StreetAdapter extends MyAdapter<RecyclerView.ViewHolder> {
     Context ctx;
     private String[] textFromEditViewStreet;
     private IndexesDataWasChosen[] arrayIndexesDataWhichWasChoosen;
+    private Fragment fragment;
 
     public void setArrayIndexesDataWhichWasChoosen(IndexesDataWasChosen[] arrayIndexesDataWhichWasChoosen) {
         this.arrayIndexesDataWhichWasChoosen = arrayIndexesDataWhichWasChoosen;
@@ -81,11 +84,17 @@ public class StreetAdapter extends MyAdapter<RecyclerView.ViewHolder> {
     }
 
 
-    public StreetAdapter(Context ctx, String[] data) {
+    public StreetAdapter(Context ctx, String[] data, Fragment fragment) {
         this.ctx = ctx;
         mDataset = data;
         textFromEditViewStreet = new String[data.length];
         arrayIndexesDataWhichWasChoosen = new IndexesDataWasChosen[data.length];
+        this.fragment = fragment;
+        Arrays.fill(textFromEditViewStreet, "");
+    }
+
+    public void clean() {
+        arrayIndexesDataWhichWasChoosen = new IndexesDataWasChosen[mDataset.length];
         Arrays.fill(textFromEditViewStreet, "");
     }
 
@@ -100,7 +109,7 @@ public class StreetAdapter extends MyAdapter<RecyclerView.ViewHolder> {
 
         @Override
         public void onClick(View v) {
-            ((MainActivity)ctx).calculation();
+            ((Calculation)fragment).calculation();
         }
     }
 
@@ -135,7 +144,7 @@ public class StreetAdapter extends MyAdapter<RecyclerView.ViewHolder> {
                         AllCards.unCheckFlags(indexes.getIndexesDataWasChosen());
                         newFragment.setPositionOfChoosenCard(new TreeSet<>(indexes.getIndexesDataWasChosen()));
                     }
-
+                    //newFragment.setmListener((CardsDialogFragment.CardDialogFragmentListener) fragment);
                     newFragment.setPositionOfAdapter(position);
                     switch (mTextView.getText().toString()) {
                         case "Flop":
@@ -233,6 +242,10 @@ public class StreetAdapter extends MyAdapter<RecyclerView.ViewHolder> {
     @Override
     public int getItemCount() {
         return mDataset.length + 1;
+    }
+
+    public interface Calculation{
+        void calculation();
     }
 
 

@@ -16,13 +16,14 @@
         <item name="android:textColorSecondary">@color/cyan</item>
         <item name="android:textColor">@color/cyan</item>
     </style>
+
     <style name="CustomActionBar" parent="Base.ThemeOverlay.AppCompat.Dark.ActionBar">
-          <item name="android:background">@color/cyan</item>
-          <item name="background">@color/colorPrimary</item>
+        <item name="android:background">@color/cyan</item>
+        <item name="background">@color/colorPrimary</item>
         <item name="android:height">@dimen/bar_height</item>
         <item name="height">@dimen/bar_height</item>
 
-<!--        <item name="actionBarTheme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>-->
+        <!--        <item name="actionBarTheme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>-->
 
     </style>
 
@@ -33,6 +34,15 @@
         <item name="colorAccent">@color/colorAccent</item>
 
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
 </resources>

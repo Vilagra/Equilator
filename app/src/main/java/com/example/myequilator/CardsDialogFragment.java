@@ -3,6 +3,7 @@ package com.example.myequilator;
 import android.app.DialogFragment;
 import android.content.Context;
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -35,6 +36,14 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
 
     Button buttonOk;
     Button buttonCancel;
+
+    public CardDialogFragmentListener getmListener() {
+        return mListener;
+    }
+
+    public void setmListener(CardDialogFragmentListener mListener) {
+        this.mListener = mListener;
+    }
 
     public void setNumberOfCardsWhichUserMustChoose(int numberOfCardsWhichUserMustChoose) {
         this.numberOfCardsWhichUserMustChoose = numberOfCardsWhichUserMustChoose;
@@ -83,9 +92,11 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(Constants.MY_LOG, "dialog create");
         int style = DialogFragment.STYLE_NORMAL, theme = android.R.style.Theme_Holo_Light_DialogWhenLarge;
         setStyle(style, theme);
-        mListener= (CardDialogFragmentListener) getActivity();
+        mListener = (CardDialogFragmentListener) getActivity();
+
 
     }
 
@@ -94,6 +105,7 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Log.d(Constants.MY_LOG, "dialog createview");
         if(savedInstanceState!=null) {
             positionOfChoosenCard = new TreeSet<>(savedInstanceState.getIntegerArrayList(Constants.WAS_CHOSEN));
             numberOfCardsWhichUserMustChoose = savedInstanceState.getInt(Constants.NUMBER_OF_CARDS);

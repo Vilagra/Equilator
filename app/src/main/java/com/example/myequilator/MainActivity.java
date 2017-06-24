@@ -154,7 +154,6 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
         });
     }
     public void setTabColor(TabHost tabhost) {
-
         for(int i=0;i<tabhost.getTabWidget().getChildCount();i++)
             tabhost.getTabWidget().getChildAt(i).setBackgroundColor(getResources().getColor(R.color.white)); //unselected
             tabhost.getTabWidget().getChildAt(tabhost.getCurrentTab()).setBackgroundColor(getResources().getColor(R.color.cyan));
@@ -167,11 +166,11 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
         switch (tag) {
             case "tag1":
                 recyclerViewPosition = (RecyclerView) tabHost.findViewById(R.id.tab1).findViewById(R.id.recycler);
-                myPositionAdapter = new MyPositionAdapter(this, Arrays.copyOfRange(dataForRecyclerPosition, 4, dataForRecyclerPosition.length));
+                //myPositionAdapter = new MyPositionAdapter(this, Arrays.copyOfRange(dataForRecyclerPosition, 4, dataForRecyclerPosition.length));
                 break;
             case "tag2":
                 recyclerViewPosition = (RecyclerView) tabHost.findViewById(R.id.tab2).findViewById(R.id.recycler);
-                myPositionAdapter = new MyPositionAdapter(this, dataForRecyclerPosition);
+                //myPositionAdapter = new MyPositionAdapter(this, dataForRecyclerPosition);
                 break;
             default:
                 throw new IllegalArgumentException();
@@ -190,7 +189,7 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
         LinearLayoutManager managerPosition = new LinearLayoutManager(this, OrientationHelper.VERTICAL, false);
         recyclerViewPosition.setLayoutManager(managerPosition);
         recyclerViewStreet.setLayoutManager(managerStreet);
-        streetAdapter = new StreetAdapter(MainActivity.this, dataForRecyclerStreet);
+        //streetAdapter = new StreetAdapter(MainActivity.this, dataForRecyclerStreet);
         recyclerViewPosition.setAdapter(myPositionAdapter);
         recyclerViewStreet.setAdapter(streetAdapter);
     }
@@ -199,9 +198,9 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
             String currentTag = savedInstanceState.getString(Constants.CURRENT_TAG);
             tabHost.setCurrentTabByTag(currentTag);
             setRecycler(currentTag);
-            double[] equity = savedInstanceState.getDoubleArray(Constants.EQUITY);
             String[] textFomEditTextPosition = savedInstanceState.getStringArray(Constants.STRNGS_FROM_ADAPTER);
             String[]textFomEditTextStreet = savedInstanceState.getStringArray(Constants.STRNGS_FROM_STREET_ADAPTER);
+            double[] equity = savedInstanceState.getDoubleArray(Constants.EQUITY);
             IndexesDataWasChosen[] indexesFromPositionAdapter = (IndexesDataWasChosen[]) savedInstanceState.getSerializable(Constants.INDEXES_DATA_WAS_CHOSEN_BY_POSITION_ADAPTER);
             IndexesDataWasChosen[] indexesFromStreetAdapter = (IndexesDataWasChosen[]) savedInstanceState.getSerializable(Constants.INDEXES_DATA_WAS_CHOSEN_BY_STREET_ADAPTER);
 
@@ -286,7 +285,6 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
     @Override
     public void onDialogOkClick(DialogFragment dialog, Intent data) {
         onActivityResult(Constants.REQUEST_CODE_CARD, RESULT_OK, data);
-
     }
 
     @Override

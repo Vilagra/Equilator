@@ -1,6 +1,7 @@
 package com.example.myequilator.adapters;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
@@ -41,6 +42,7 @@ public class MyPositionAdapter extends MyAdapter<MyPositionAdapter.ViewHolder> {
     Context ctx;
     private String[] textFromTextView;
     private IndexesDataWasChosen[] arrayIndexesDataWhichWasChoosen;
+    private Fragment fragment;
 
     public void replacedIndexesDataWasChosen(DataFromIntent dataFromIntent){
         int position = dataFromIntent.getPositionOfAdapter();
@@ -98,14 +100,23 @@ public class MyPositionAdapter extends MyAdapter<MyPositionAdapter.ViewHolder> {
         return res;
     }
 
-    public MyPositionAdapter(Context ctx, String[] data) {
+    public MyPositionAdapter(Context ctx, String[] data, Fragment fragment) {
         this.ctx = ctx;
         mDataset = data;
+        this.fragment = fragment;
         textFromTextView = new String[data.length];
         equity = new double[data.length];
         arrayIndexesDataWhichWasChoosen = new IndexesDataWasChosen[data.length];
         Arrays.fill(textFromTextView, "");
         Arrays.fill(equity, -1.0);
+    }
+
+    public void clean(){
+        equity = new double[mDataset.length];
+        arrayIndexesDataWhichWasChoosen = new IndexesDataWasChosen[mDataset.length];
+        Arrays.fill(textFromTextView, "");
+        Arrays.fill(equity, -1.0);
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -151,6 +162,7 @@ public class MyPositionAdapter extends MyAdapter<MyPositionAdapter.ViewHolder> {
                     newFragment.setPositionOfAdapter(getAdapterPosition());
                     newFragment.setNumberOfCardsWhichUserMustChoose(2);
                     newFragment.setKindOfAdapter(Constants.POSITION_ADAPTER);
+                    //newFragment.setmListener((CardsDialogFragment.CardDialogFragmentListener) fragment);
                     ft.addToBackStack(null);
                     newFragment.show(ft, "dialog");
                     break;
@@ -160,7 +172,7 @@ public class MyPositionAdapter extends MyAdapter<MyPositionAdapter.ViewHolder> {
                     if(indexes!=null&&indexes.getType()==IndexesDataWasChosen.Type.RANGE){
                         intent.putExtra(Constants.INDEXES_DATA_WAS_CHOSEN,(HashSet)indexes.getIndexesDataWasChosen());
                     }
-                    ((Activity)ctx).startActivityForResult(intent, Constants.REQUEST_CODE_RANGE);
+                    fragment.getActivity().startActivityForResult(intent, Constants.REQUEST_CODE_RANGE);
                     break;
                 case R.id.remove:
                     if(indexes!=null) {
