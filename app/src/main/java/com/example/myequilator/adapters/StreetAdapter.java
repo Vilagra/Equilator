@@ -96,6 +96,7 @@ public class StreetAdapter extends MyAdapter<RecyclerView.ViewHolder> {
     public void clean() {
         arrayIndexesDataWhichWasChoosen = new IndexesDataWasChosen[mDataset.length];
         Arrays.fill(textFromEditViewStreet, "");
+        notifyDataSetChanged();
     }
 
     public class ButtonHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
