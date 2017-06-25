@@ -124,8 +124,8 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
 /*        if(!isResultDelivered){
             progressDialog.show();
             ((CalculationLoader)loader).setHandler(handler);
-        }*/
-    }
+}*/
+        }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

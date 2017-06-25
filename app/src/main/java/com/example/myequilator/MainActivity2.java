@@ -102,14 +102,6 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
         tabLayout.setupWithViewPager(viewPager);
 
 
-        // Восстанавливаем уже созданный фрагмент
-        //FragmentManager fm = getFragmentManager();
-        //fragment = (MainFragment) fm.findFragmentByTag(FRAGMENT_INSTANCE_NAME);
-        // Если фрагмент не сохранен, создаем новый экземпляр
-/*        if (fragment == null) {
-            fragment = new MainFragment();
-            fm.beginTransaction().add(R.id.container, fragment, FRAGMENT_INSTANCE_NAME).commit();
-        }*/
 
     }
 
@@ -158,12 +150,13 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
         onActivityResult(Constants.REQUEST_CODE_CARD, RESULT_OK, data);
     }
     private MainFragment getFragment(){
-        return (MainFragment) adapter.getRegisteredFragment(viewPager.getCurrentItem());
+        //return (MainFragment) adapter.getRegisteredFragment(viewPager.getCurrentItem());
+        return (MainFragment) viewPager.getAdapter().instantiateItem(viewPager, viewPager.getCurrentItem());
     }
 
     @Override
     public void onDialogCancelClick(DialogFragment dialog, int positionOfAdapter, String kindOfAdapter) {
-        ((MainFragment)getFragment()).noteCardsChoosenAfterCancelDialog(kindOfAdapter,positionOfAdapter);
+        getFragment().noteCardsChoosenAfterCancelDialog(kindOfAdapter,positionOfAdapter);
     }
 
     @Override
