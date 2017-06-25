@@ -105,8 +105,7 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
                 sendResult(progress.result());
             }
         };
-        //setPositionRecycler();
-        //setStreetRecycler();
+
 
         progressDialog = new ProgressDialog(getActivity(), R.style.MyProgress);
         progressDialog.setTitle(getString(R.string.calculate));
@@ -121,10 +120,7 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
         });
         progressDialog.setCancelable(false);
         progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-/*        if(!isResultDelivered){
-            progressDialog.show();
-            ((CalculationLoader)loader).setHandler(handler);
-}*/
+
         }
 
     @Override
@@ -135,7 +131,13 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
             view = inflater.inflate(R.layout.main_fragment, container, false);
             setPositionRecycler(savedInstanceState);
             setStreetRecycler(savedInstanceState);
-            getLoaderManager().initLoader(Constants.LOADER_ID, null, this);
+        }
+        Loader loader = getLoaderManager().initLoader(Constants.LOADER_ID, null, this);
+        if(savedInstanceState!=null)
+        isResultDelivered = savedInstanceState.getBoolean(Constants.IS_RESULT_DELIVERED);
+        if (!isResultDelivered) {
+            progressDialog.show();
+            ((CalculationLoader) loader).setHandler(handler);
         }
 
         return view;
