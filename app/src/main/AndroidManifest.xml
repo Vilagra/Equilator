@@ -26,8 +26,8 @@
             android:label="@string/speed_accuracy"
             android:theme="@style/AppTheme2" />
         <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_main2"
+            android:name=".DescriptionActivity"
+            android:label="@string/title_activity_description"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

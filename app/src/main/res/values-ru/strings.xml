@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="description">Описание</string>
+    <string name="text_of_description">     Это приложение для расчета вероятности выгрыша в покере, рука против руки, против ренжа, ренж против ренжа.</string>
+    <string name="credit2">Признательность</string>
+    <string name="credit3">Особая признательность</string>
+    <string name="credit_text">     <div>Исоны созданы <a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a> из <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> лицензируются <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank" title="Creative Commons BY 3.0">CC 3.0 BY</a></div></string>
+    <string name="credit_text_dzioba">     <div>Конечно же мой прекрасной жене <a href="https://www.instagram.com/shporishka" title="Flaticon">Дзьоба</a> )))</div></string>
+</resources>
