@@ -27,7 +27,7 @@
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:layout_margin="5dp"
-            android:src="@drawable/ic_domino" />
+            android:src="@drawable/ic_range" />
 
         <ImageButton
             android:id="@+id/hand"
