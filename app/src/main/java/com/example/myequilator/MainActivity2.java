@@ -26,28 +26,32 @@ import android.view.View;
 import com.example.myequilator.adapters.MyPositionAdapter;
 import com.example.myequilator.entity.DataFromIntent;
 import com.example.myequilator.entity.IndexesDataWasChosen;
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import android.app.FragmentManager;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-public class MainActivity2 extends AppCompatActivity implements CardsDialogFragment.CardDialogFragmentListener {
+public class MainActivity2 extends AppCompatActivity implements CardsDialogFragment.CardDialogFragmentListener,AdShower {
     private AdView mAdView;
+    private InterstitialAd mInterstitialAd;
+
 
     private static boolean RUN_ONCE = true;
 
-    public static String FRAGMENT_INSTANCE_NAME = "fragment";
-    MainFragment fragment = null;
 
     ViewPagerAdapter adapter;
     private TabLayout tabLayout;
     private ViewPager viewPager;
 
-    List<MainFragment> fragments;
+    private int tryToShowAd;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,14 +62,33 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
         actionBar.setDisplayShowCustomEnabled(true);
         actionBar.setDisplayShowTitleEnabled(false);
 
+        if (savedInstanceState!=null){
+           tryToShowAd = savedInstanceState.getInt("counter");
+        }
+
         LayoutInflater inflator = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View v = inflator.inflate(R.layout.ads, null);
 
         PreferenceManager.setDefaultValues(this.getApplicationContext(), R.xml.speed_accuracy, true);
         mAdView = (AdView) v.findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().addTestDevice("BC44035CB7EB870A409150BDE200B894").build();
+        final AdRequest adRequest = new AdRequest.Builder().addTestDevice("BC44035CB7EB870A409150BDE200B894").build();
         mAdView.loadAd(adRequest);
         actionBar.setCustomView(v);
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-7055288022092797/1744327063");
+        mInterstitialAd.loadAd(adRequest);
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                // Load the next interstitial.
+                mInterstitialAd.loadAd(adRequest);
+            }
+
+        });
+
+
+
 
         Toolbar parent = (Toolbar) v.getParent();
         parent.setPadding(0, 0, 0, 0);//for tab otherwise give space in tab
@@ -116,6 +139,7 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         menu.findItem(R.id.speed).setIntent(new Intent(this, SettingsActivity.class));
+        menu.findItem(R.id.credit).setIntent(new Intent(this, DescriptionActivity.class));
         return true;
     }
 
@@ -125,6 +149,7 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
         if (outState.isEmpty()) {
             outState.putBoolean("bug:fix", true);
         }
+        outState.putInt("counter", tryToShowAd);
     }
 
     @Override
@@ -148,6 +173,7 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
     @Override
     public void onDialogOkClick(DialogFragment dialog, Intent data) {
         onActivityResult(Constants.REQUEST_CODE_CARD, RESULT_OK, data);
+
     }
     private MainFragment getFragment(){
         //return (MainFragment) adapter.getRegisteredFragment(viewPager.getCurrentItem());
@@ -181,6 +207,14 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
                     }
                     break;
             }
+        }
+    }
+
+    @Override
+    public void adShow() {
+        tryToShowAd++;
+        if (tryToShowAd%5==0&&mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
         }
     }
 

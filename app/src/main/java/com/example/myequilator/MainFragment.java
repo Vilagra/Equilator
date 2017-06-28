@@ -106,7 +106,6 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
             }
         };
 
-
         progressDialog = new ProgressDialog(getActivity(), R.style.MyProgress);
         progressDialog.setTitle(getString(R.string.calculate));
         progressDialog.setMessage("Calculating in progress...");
@@ -194,6 +193,7 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
         if (myPositionAdapter.amountPlayers() < 2) {
             Toast.makeText(getActivity(), R.string.not_enough, Toast.LENGTH_SHORT).show();
         } else {
+            ((AdShower)getActivity()).adShow();
             Loader loader = getLoaderManager().restartLoader(Constants.LOADER_ID, null, this);
             //Loader loader = getLoaderManager().initLoader(Constants.LOADER_ID, null, this);
             progressDialog.show();

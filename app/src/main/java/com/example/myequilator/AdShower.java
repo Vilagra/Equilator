@@ -5,4 +5,5 @@ package com.example.myequilator;
  */
 
 public interface AdShower {
+    void adShow();
 }
