@@ -47,7 +47,7 @@ public class MyAdapterForCard extends RecyclerView.Adapter<MyAdapterForCard.View
         mDataset= AllCards.allCards;
         flags=AllCards.wasChosen;
         choosen =set;
-        marked=ColorStateList.valueOf(ContextCompat.getColor(ctx,R.color.colorAccent));
+        marked=ColorStateList.valueOf(ContextCompat.getColor(ctx,R.color.cyan));
         this.numberOfCardsWhichUserMustChoose=numberOfCardsWhichUserMustChoose;
     }
 
@@ -96,11 +96,13 @@ public class MyAdapterForCard extends RecyclerView.Adapter<MyAdapterForCard.View
         }else {
             if(flags[position]==true) {
                 holder.cardView.setEnabled(false);
-                holder.cardView.setVisibility(View.INVISIBLE);
+                //holder.cardView.setVisibility(View.INVISIBLE);
+                holder.cardView.setAlpha(0.3f);
             }
             else {
                 holder.cardView.setEnabled(true);
-                holder.cardView.setVisibility(View.VISIBLE);
+                holder.cardView.setAlpha(1.0f);
+                //holder.cardView.setVisibility(View.VISIBLE);
                 holder.cardView.setCardBackgroundColor(defaultColor);
             }
 
