@@ -98,19 +98,20 @@ public class RangeActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.procent:
                 final EditText input = new EditText(this);
+                input.setWidth(30);
+                input.setPadding(15,8,8,15);
                 input.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
                 input.setHint("00.0");
                 input.setBackground(getResources().getDrawable(R.drawable.blue_out_line));
                 input.setMaxWidth(40);
                 AlertDialog.Builder alert = new AlertDialog.Builder(this);
-                alert.setTitle("Range").
-                        setMessage("EnterRange").
+                alert.setTitle(getString(R.string.range2)).
+                        setMessage(getString(R.string.enter_range)).
                         setView(input).
                         setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String str = input.getText().toString();
-                        double res;
                         if(str.matches("[-+]?\\d*\\.?\\d*")){
                             if(str.matches("\\d*\\.\\d\\d+")){
                                 str = String.format("%.1f", Double.valueOf(str));
@@ -121,6 +122,8 @@ public class RangeActivity extends AppCompatActivity implements View.OnClickList
                         }
                     }
                 });
+                AlertDialog alertDialog = alert.create();
+                alertDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
                 alert.show();
         }
     }

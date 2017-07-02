@@ -111,4 +111,6 @@
     <string name="title_activity_description">DescriptionActivity</string>
     <string name="quit">exit</string>
     <string name="turn_off">Donate(disable ads)</string>
+    <string name="range2">Range</string>
+    <string name="enter_range">Enter range</string>
 </resources>
