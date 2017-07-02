@@ -21,6 +21,7 @@ import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.example.myequilator.adapters.MyPositionAdapter;
@@ -141,6 +142,16 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
         menu.findItem(R.id.speed).setIntent(new Intent(this, SettingsActivity.class));
         menu.findItem(R.id.credit).setIntent(new Intent(this, DescriptionActivity.class));
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.quit:
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
