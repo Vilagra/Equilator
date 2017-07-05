@@ -52,6 +52,7 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
     private ViewPager viewPager;
 
     private int tryToShowAd;
+    private int mCurrentPagerPosition;
 
 
     @Override
@@ -65,6 +66,7 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
 
         if (savedInstanceState!=null){
            tryToShowAd = savedInstanceState.getInt("counter");
+           mCurrentPagerPosition = savedInstanceState.getInt("currentPager");
         }
 
         LayoutInflater inflator = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -102,22 +104,23 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
-        viewPager.setCurrentItem(0);
+        //viewPager.setCurrentItem(0);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
             }
-
             @Override
             public void onPageSelected(int position) {
-                AllCards.resetWasChosen();
-                getFragment().cleanFragment();
+                if(position!=mCurrentPagerPosition) {
+                    AllCards.resetWasChosen();
+                    getFragment().cleanFragment();
+                }
+                mCurrentPagerPosition = position;
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
-
             }
         });
 
@@ -163,6 +166,7 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
             outState.putBoolean("bug:fix", true);
         }
         outState.putInt("counter", tryToShowAd);
+        outState.putInt("currentPager", mCurrentPagerPosition);
     }
 
     @Override
@@ -234,7 +238,6 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
 
     class ViewPagerAdapter extends FragmentStatePagerAdapter {
         private String tabTitles[] = new String[] { getString(R.string.for6),getString(R.string.for10) };
-        SparseArray<Fragment> registeredFragments = new SparseArray<>();
 
         public ViewPagerAdapter(FragmentManager manager) {
             super(manager);
@@ -260,19 +263,14 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
             Fragment fragment = (Fragment) super.instantiateItem(container, position);
-            registeredFragments.put(position, fragment);
             return fragment;
         }
 
         @Override
         public void destroyItem(ViewGroup container, int position, Object object) {
-            registeredFragments.remove(position);
             super.destroyItem(container, position, object);
         }
 
-        public Fragment getRegisteredFragment(int position) {
-            return registeredFragments.get(position);
-        }
     }
 
 }

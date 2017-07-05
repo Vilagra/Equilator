@@ -17,6 +17,7 @@ public class DescriptionActivity extends AppCompatActivity {
         setContentView(R.layout.content_description);
         TextView textView = (TextView) findViewById(R.id.credit_text);
         TextView textView2 = (TextView) findViewById(R.id.credit_text2);
+        //textView.setText(getString(R.string.credit_text)+"\n"+getString(R.string.credit_text2));
         textView.setMovementMethod(LinkMovementMethod.getInstance());
         textView2.setMovementMethod(LinkMovementMethod.getInstance());
 

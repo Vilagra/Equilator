@@ -32,13 +32,12 @@ public class CalculationLoader extends AsyncTaskLoader<double[]> implements Calc
     Enumerator[] enumerators = new Enumerator[threads];
 
     public void setHandler(Handler handler) {
-
         this.handler = handler;
     }
 
     public void finishLoad() {
         for (Enumerator enumerator : enumerators) {
-            //enumerator.setStopCalculation(cancel);
+            if(enumerator!=null)
             enumerator.interrupt();
         }
     }
@@ -90,7 +89,6 @@ public class CalculationLoader extends AsyncTaskLoader<double[]> implements Calc
         }
         nanosecs = System.currentTimeMillis() - nanosecs;
         System.out.println("sec"+nanosecs);
-        //double[] res = Showdown.calculate(hands, board, ranges.toArray(new String[0]), this, 15000);
         return Output.result(ui,enumerators);
     }
 
