@@ -150,6 +150,8 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
             case R.id.quit:
                 finish();
                 break;
+            case R.id.clear_all:
+                getFragment().cleanFragment();
         }
         return super.onOptionsItemSelected(item);
     }

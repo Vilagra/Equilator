@@ -109,8 +109,9 @@
     <string name="credit_text">   <div>Icons made by <a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank" title="Creative Commons BY 3.0">CC 3.0 BY</a></div></string>
     <string name="credit_text_dzioba">   <div>Конечно же мой прекрасной жене <a href="https://www.instagram.com/shporishka" title="Flaticon">Дзьоба</a> )))</div></string>
     <string name="title_activity_description">DescriptionActivity</string>
-    <string name="quit">exit</string>
+    <string name="quit">Exit</string>
     <string name="turn_off">Donate(disable ads)</string>
     <string name="range2">Range</string>
     <string name="enter_range">Enter range</string>
+    <string name="clear_all">Clear all</string>
 </resources>
