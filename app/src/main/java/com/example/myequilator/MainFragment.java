@@ -80,7 +80,7 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        //outState.putString(Constants.CURRENT_TAG, );
+
         outState.putStringArray(Constants.STRNGS_FROM_STREET_ADAPTER, streetAdapter.getTextFromEditViewStreet());
         outState.putSerializable(Constants.INDEXES_DATA_WAS_CHOSEN_BY_STREET_ADAPTER, streetAdapter.getArrayIndexesDataWhichWasChoosen());
         outState.putStringArray(Constants.STRNGS_FROM_ADAPTER, myPositionAdapter.getTextFromTextView());
@@ -109,7 +109,7 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
         progressDialog = new ProgressDialog(getActivity(), R.style.MyProgress);
         progressDialog.setTitle(getString(R.string.calculate));
         progressDialog.setMessage("Calculating in progress...");
-        progressDialog.setButton(Dialog.BUTTON_NEGATIVE, getString(R.string.cancel), new DialogInterface.OnClickListener() {
+        progressDialog.setButton(Dialog.BUTTON_NEGATIVE, getString(R.string.alert_dialog_cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Loader<double[]> loader = getLoaderManager().getLoader(Constants.LOADER_ID);

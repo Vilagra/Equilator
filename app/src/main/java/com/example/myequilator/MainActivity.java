@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements CardsDialogFragme
         progressDialog = new ProgressDialog(this, R.style.MyProgress);
         progressDialog.setTitle(getString(R.string.calculate));
         progressDialog.setMessage("Calculating in progress...");
-        progressDialog.setButton(Dialog.BUTTON_NEGATIVE, getString(R.string.cancel), new DialogInterface.OnClickListener() {
+        progressDialog.setButton(Dialog.BUTTON_NEGATIVE, getString(R.string.alert_dialog_cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Loader<double[]> loader=getLoaderManager().getLoader(Constants.LOADER_ID);

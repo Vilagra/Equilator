@@ -52,6 +52,6 @@
             android:id="@+id/cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cancel" />
+            android:text="@string/alert_dialog_cancel" />
     </LinearLayout>
 </LinearLayout>
