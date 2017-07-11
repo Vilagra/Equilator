@@ -7,5 +7,6 @@
     <string name="bb">BB</string>
     <string name="bu">BU</string>
     <string name="co">CO</string>
-    <string name="credit">ocenění</string>
+    <string name="credit">Ocenění</string>
+    <string name="calculate">vypočítat</string>
 </resources>

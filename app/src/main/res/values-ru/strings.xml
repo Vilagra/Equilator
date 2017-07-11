@@ -14,4 +14,7 @@
     <string name="bb">BB</string>
     <string name="bu">BU</string>
     <string name="co">CO</string>
+    <string name="credit">Признательность</string>
+    <string name="alert_dialog_ok">ок</string>
+    <string name="calculate">Вычеслить</string>
 </resources>

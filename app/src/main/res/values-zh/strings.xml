@@ -5,4 +5,8 @@
     <string name="banner_ad_unit_id">ca-app-pub-7055288022092797/1072163863</string>
     <string name="bu">BU</string>
     <string name="bb">BB</string>
+    <string name="co">CO</string>
+    <string name="credit">升值</string>
+    <string name="alert_dialog_ok">ок</string>
+    <string name="calculate">计算</string>
 </resources>
