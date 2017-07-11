@@ -103,8 +103,6 @@
     <string name="title_activity_main2">MainActivity2</string>
     <string name="description">Description</string>
     <string name="text_of_description">   This app for calculating probabilities win in poker.</string>
-    <string name="credit2">Credit</string>
-    <string name="credit3">Special credit</string>
     <string name="credit_text">   <div>Icons made by <a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank" title="Creative Commons BY 3.0">CC 3.0 BY</a></div></string>
     <string name="credit_text_dzioba">   <div>Конечно же мой прекрасной жене <a href="https://www.instagram.com/shporishka" title="Flaticon">Дзьоба</a> )))</div></string>
     <string name="credit_text2">   <div>Для вычеслений за основу взят алгоритм <a href="http://www.brecware.com/Software/software.html" title="Flaticon">Steve Brecher</a></div></string>

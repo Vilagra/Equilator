@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:649373108570:android:e6e1107c378d68e9",
         "android_client_info": {
-          "package_name": "com.example.myequilator"
+          "package_name": "com.levenko.myequilator"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "649373108570-9vtrikbhlus89f8cu2l8eu4nj6dfbauj.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.myequilator",
+            "package_name": "com.levenko.myequilator",
             "certificate_hash": "df7ecf131fe0fb88f46a6f126250446f7234fd24"
           }
         },
