@@ -9,4 +9,6 @@
     <string name="credit">чангаралт</string>
     <string name="alert_dialog_ok">ок</string>
     <string name="calculate">тооцоолох</string>
+    <string name="card_selection">Карт сонгох</string>
+    <string name="clear_all">Бүгдийг цэвэрлэ</string>
 </resources>

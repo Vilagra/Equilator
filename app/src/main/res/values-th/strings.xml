@@ -9,4 +9,6 @@
     <string name="credit">ชื่นชม</string>
     <string name="alert_dialog_ok">ок</string>
     <string name="calculate">คำนวณ</string>
+    <string name="card_selection">เลือกการ์ด</string>
+    <string name="clear_all">ลบทั้งหมด</string>
 </resources>

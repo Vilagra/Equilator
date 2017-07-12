@@ -9,4 +9,6 @@
     <string name="credit">प्रशंसा</string>
     <string name="alert_dialog_ok">ок</string>
     <string name="calculate">गणना</string>
+    <string name="card_selection">कार्ड चयन</string>
+    <string name="clear_all">सभी साफ करें</string>
 </resources>

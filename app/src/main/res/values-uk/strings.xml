@@ -9,4 +9,6 @@
     <string name="credit">Подяка</string>
     <string name="alert_dialog_ok">ок</string>
     <string name="calculate">Oбчислити</string>
+    <string name="card_selection">вибір карт</string>
+    <string name="clear_all">Очистити все</string>
 </resources>

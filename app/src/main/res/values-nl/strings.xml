@@ -9,4 +9,6 @@
     <string name="credit">waardering</string>
     <string name="alert_dialog_ok">ок</string>
     <string name="calculate">berekenen</string>
+    <string name="card_selection">Kaart selectie</string>
+    <string name="clear_all">Wis alles</string>
 </resources>

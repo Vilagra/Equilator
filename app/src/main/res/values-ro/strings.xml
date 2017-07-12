@@ -9,4 +9,6 @@
     <string name="credit">apreciere</string>
     <string name="alert_dialog_ok">ок</string>
     <string name="calculate">calcula</string>
+    <string name="card_selection">Selectarea cartelelor</string>
+    <string name="clear_all">Curata tot</string>
 </resources>

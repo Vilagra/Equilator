@@ -9,4 +9,6 @@
     <string name="co">CO</string>
     <string name="credit">Признателност</string>
     <string name="calculate">Изчислете</string>
+    <string name="card_selection">избор на карти</string>
+    <string name="clear_all">Изчисти всичко</string>
 </resources>

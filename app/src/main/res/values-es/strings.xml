@@ -9,4 +9,6 @@
     <string name="credit">Apreciación</string>
     <string name="alert_dialog_ok">ок</string>
     <string name="calculate">calcular</string>
+    <string name="card_selection">Selección de tarjetas</string>
+    <string name="clear_all">Limpiar todo</string>
 </resources>

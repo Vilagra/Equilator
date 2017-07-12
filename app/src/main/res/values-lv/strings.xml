@@ -9,4 +9,6 @@
     <string name="credit">atzinība</string>
     <string name="alert_dialog_ok">ок</string>
     <string name="calculate">aprēķināt</string>
+    <string name="card_selection">Kartes izvēle</string>
+    <string name="clear_all">Iztīrīt visu</string>
 </resources>

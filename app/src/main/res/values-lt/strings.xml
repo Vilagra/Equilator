@@ -9,4 +9,6 @@
     <string name="credit">įvertinimas</string>
     <string name="alert_dialog_ok">ок</string>
     <string name="calculate">apskaičiuoti</string>
+    <string name="card_selection">Kortelių pasirinkimas</string>
+    <string name="clear_all">Išvalyti viską</string>
 </resources>

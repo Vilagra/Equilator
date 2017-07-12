@@ -9,4 +9,6 @@
     <string name="credit">takdir</string>
     <string name="alert_dialog_ok">ок</string>
     <string name="calculate">hesaplamak</string>
+    <string name="card_selection">Kart seçimi</string>
+    <string name="clear_all">Hepsini temizle</string>
 </resources>

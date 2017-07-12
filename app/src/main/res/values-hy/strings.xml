@@ -9,4 +9,6 @@
     <string name="credit">արժեւորումը</string>
     <string name="alert_dialog_ok">ок</string>
     <string name="calculate">հաշվել</string>
+    <string name="card_selection">Քարտերի ընտրություն</string>
+    <string name="clear_all">Մաքրել բոլորը</string>
 </resources>

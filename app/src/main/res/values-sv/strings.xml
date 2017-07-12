@@ -9,4 +9,6 @@
     <string name="credit">uppskattning</string>
     <string name="alert_dialog_ok">ок</string>
     <string name="calculate">beräkna</string>
+    <string name="card_selection">Kortval</string>
+    <string name="clear_all">Rensa alla</string>
 </resources>

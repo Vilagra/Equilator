@@ -9,4 +9,6 @@
     <string name="credit">εκτίμηση</string>
     <string name="alert_dialog_ok">ок</string>
     <string name="calculate">Υπολογίστε</string>
+    <string name="card_selection">Επιλογή καρτών</string>
+    <string name="clear_all">Τα καθαρίζω όλα</string>
 </resources>

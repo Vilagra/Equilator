@@ -6,7 +6,9 @@
     <string name="bu">BU</string>
     <string name="bb">BB</string>
     <string name="co">CO</string>
-    <string name="credit">升值</string>
     <string name="alert_dialog_ok">ок</string>
     <string name="calculate">计算</string>
+    <string name="card_selection">卡选择</string>
+    <string name="credit">谢谢</string>
+    <string name="clear_all">全部清除</string>
 </resources>

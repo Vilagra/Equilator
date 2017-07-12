@@ -8,4 +8,6 @@
     <string name="credit">Pagpapahalaga</string>
     <string name="alert_dialog_ok">ок</string>
     <string name="calculate">kalkulahin</string>
+    <string name="card_selection">Pagpili ng mga card</string>
+    <string name="clear_all">Alisin lahat</string>
 </resources>

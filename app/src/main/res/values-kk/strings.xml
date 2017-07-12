@@ -9,4 +9,6 @@
     <string name="credit">ризашылығымыз</string>
     <string name="alert_dialog_ok">ок</string>
     <string name="calculate">есептеп шығару</string>
+    <string name="card_selection">Карталарды таңдау</string>
+    <string name="clear_all">Барлығын тазалау</string>
 </resources>

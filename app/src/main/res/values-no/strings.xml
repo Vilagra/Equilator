@@ -9,4 +9,6 @@
     <string name="credit">takknemlighet</string>
     <string name="alert_dialog_ok">ок</string>
     <string name="calculate">Beregn</string>
+    <string name="card_selection">Kortvalg</string>
+    <string name="clear_all">Rydd alt</string>
 </resources>

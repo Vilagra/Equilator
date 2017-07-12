@@ -9,4 +9,6 @@
     <string name="credit">Felértékelődés</string>
     <string name="alert_dialog_ok">ок</string>
     <string name="calculate">számol</string>
+    <string name="card_selection">Kártya kiválasztása</string>
+    <string name="clear_all">Kitörölni mindent</string>
 </resources>

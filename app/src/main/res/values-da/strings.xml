@@ -9,4 +9,6 @@
     <string name="co">CO</string>
     <string name="credit">Påskønnelse</string>
     <string name="calculate">Beregn</string>
+    <string name="card_selection">Kortvalg</string>
+    <string name="clear_all">Slet alt</string>
 </resources>

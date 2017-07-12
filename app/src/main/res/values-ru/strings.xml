@@ -17,4 +17,6 @@
     <string name="credit">Признательность</string>
     <string name="alert_dialog_ok">ок</string>
     <string name="calculate">Вычеслить</string>
+    <string name="card_selection">Выбор карт</string>
+    <string name="clear_all">Очистить все</string>
 </resources>

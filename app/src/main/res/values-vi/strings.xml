@@ -6,7 +6,9 @@
     <string name="bu">BU</string>
     <string name="bb">BB</string>
     <string name="co">CO</string>
-    <string name="credit">sự đánh giá</string>
+    <string name="credit">cảm tạ</string>
     <string name="alert_dialog_ok">ок</string>
     <string name="calculate">tính toán</string>
+    <string name="card_selection">lựa chọn thẻ</string>
+    <string name="clear_all">Làm sạch tất cả</string>
 </resources>

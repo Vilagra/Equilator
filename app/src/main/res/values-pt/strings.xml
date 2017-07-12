@@ -9,4 +9,6 @@
     <string name="credit">valorização</string>
     <string name="alert_dialog_ok">ок</string>
     <string name="calculate">calcular</string>
+    <string name="card_selection">Seleção de cartões</string>
+    <string name="clear_all">Limpar tudo</string>
 </resources>

@@ -9,4 +9,6 @@
     <string name="credit">Apresiasi</string>
     <string name="alert_dialog_ok">ок</string>
     <string name="calculate">menghitung</string>
+    <string name="card_selection">Pilihan kartu</string>
+    <string name="clear_all">Bersihkan semua</string>
 </resources>

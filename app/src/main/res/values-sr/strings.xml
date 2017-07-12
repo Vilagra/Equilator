@@ -9,4 +9,6 @@
     <string name="credit">захвалност</string>
     <string name="alert_dialog_ok">ок</string>
     <string name="calculate">израчунати</string>
+    <string name="card_selection">Избор картица</string>
+    <string name="clear_all">Избриши све</string>
 </resources>

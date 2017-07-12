@@ -9,4 +9,6 @@
     <string name="credit">Kallinemine</string>
     <string name="alert_dialog_ok">ок</string>
     <string name="calculate">arvutama</string>
+    <string name="card_selection">Kaartide valik</string>
+    <string name="clear_all">Kustuta kõik</string>
 </resources>

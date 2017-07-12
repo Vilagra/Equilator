@@ -9,4 +9,6 @@
     <string name="co">CO</string>
     <string name="credit">Ocenění</string>
     <string name="calculate">vypočítat</string>
+    <string name="card_selection">Výběr karet</string>
+    <string name="clear_all">Vymazat vše</string>
 </resources>

@@ -9,4 +9,6 @@
     <string name="credit">ocenenie</string>
     <string name="alert_dialog_ok">ок</string>
     <string name="calculate">vypočítať</string>
+    <string name="card_selection">Výber kariet</string>
+    <string name="clear_all">Zmazať všetko</string>
 </resources>
