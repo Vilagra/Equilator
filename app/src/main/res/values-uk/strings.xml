@@ -7,8 +7,11 @@
     <string name="bb">BB</string>
     <string name="co">CO</string>
     <string name="credit">Подяка</string>
-    <string name="alert_dialog_ok">ок</string>
     <string name="calculate">Oбчислити</string>
     <string name="card_selection">вибір карт</string>
     <string name="clear_all">Очистити все</string>
+    <string name="delete">Видалити</string>
+    <string name="enter_range">Введіть діапазон</string>
+    <string name="hands_quantity">Виберіть швидкість і точність</string>
+    <string name="help">Допомога</string>
 </resources>

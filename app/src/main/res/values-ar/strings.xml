@@ -3,11 +3,15 @@
     <string name="app_name">MyEquilator</string>
     <string name="calculate">حساب</string>
     <string name="alert_dialog_cancel">إلغاء</string>
-    <string name="alert_dialog_ok">ок</string>
     <string name="banner_ad_unit_id">ca-app-pub-7055288022092797/1072163863</string>
     <string name="bb">BB</string>
     <string name="bu">BU</string>
     <string name="credit">تقدير</string>
     <string name="card_selection">اختيار بطاقات</string>
     <string name="clear_all">امسح الكل</string>
+    <string name="co">CO</string>
+    <string name="delete">حذف</string>
+    <string name="enter_range">أدخل النطاق</string>
+    <string name="hands_quantity">اختيار السرعة والدقة</string>
+    <string name="help">مساعدة</string>
 </resources>

@@ -23,16 +23,17 @@ import java.util.Set;
  * Created by Vilagra on 10.01.2017.
  */
 
+@SuppressWarnings("DefaultFileTemplate")
 public class MyAdapterForCard extends RecyclerView.Adapter<MyAdapterForCard.ViewHolder>{
 
-    private List<Card> mDataset;
-    private boolean[] flags;
-    private Set<Integer> choosen;
-    Context ctx;
-    ColorStateList defaultColor;
-    ColorStateList marked;
-    MyAdapterForCardListener listener;
-    int numberOfCardsWhichUserMustChoose;
+    private final List<Card> mDataset;
+    private final boolean[] flags;
+    private final Set<Integer> choosen;
+    private final Context ctx;
+    private ColorStateList defaultColor;
+    private final ColorStateList marked;
+    private MyAdapterForCardListener listener;
+    private final int numberOfCardsWhichUserMustChoose;
 
     public void setListener(MyAdapterForCardListener listener) {
         this.listener = listener;
@@ -55,8 +56,8 @@ public class MyAdapterForCard extends RecyclerView.Adapter<MyAdapterForCard.View
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
-        public ImageView imageView;
-        CardView cardView;
+        public final ImageView imageView;
+        final CardView cardView;
         public ViewHolder(CardView card,ImageView v) {
             super(card);
             cardView=card;
@@ -75,8 +76,7 @@ public class MyAdapterForCard extends RecyclerView.Adapter<MyAdapterForCard.View
         if(defaultColor ==null) {
             defaultColor = cardView.getCardBackgroundColor();
         }
-        ViewHolder vh = new ViewHolder(cardView, (ImageView) cardView.findViewById(R.id.image_card));
-        return vh;
+        return new ViewHolder(cardView, (ImageView) cardView.findViewById(R.id.image_card));
     }
 
     public Set<Integer> getChoosen() {
@@ -86,7 +86,8 @@ public class MyAdapterForCard extends RecyclerView.Adapter<MyAdapterForCard.View
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         try {
-            holder.imageView.setImageDrawable(Drawable.createFromStream(ctx.getAssets().open(mDataset.get(position).getStringOfCard()+".png"), null));
+            holder.imageView.setImageDrawable(Drawable.createFromStream(ctx.getAssets().
+                    open(mDataset.get(position).getStringOfCard()+".png"), null));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -94,7 +95,7 @@ public class MyAdapterForCard extends RecyclerView.Adapter<MyAdapterForCard.View
         if(choosen.contains(position)){
             holder.cardView.setCardBackgroundColor(marked);
         }else {
-            if(flags[position]==true) {
+            if(flags[position]) {
                 holder.cardView.setEnabled(false);
                 //holder.cardView.setVisibility(View.INVISIBLE);
                 holder.cardView.setAlpha(0.3f);
@@ -115,7 +116,7 @@ public class MyAdapterForCard extends RecyclerView.Adapter<MyAdapterForCard.View
                         holder.cardView.setCardBackgroundColor(defaultColor);
                     }else {
                         holder.cardView.setCardBackgroundColor(marked);
-                        choosen.add(position);
+                        choosen.add(holder.getAdapterPosition());
                         listener.onClickByCard(choosen);
                     }
                 }

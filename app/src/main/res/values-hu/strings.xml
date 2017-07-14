@@ -7,8 +7,11 @@
     <string name="bu">BU</string>
     <string name="co">CO</string>
     <string name="credit">Felértékelődés</string>
-    <string name="alert_dialog_ok">ок</string>
     <string name="calculate">számol</string>
     <string name="card_selection">Kártya kiválasztása</string>
     <string name="clear_all">Kitörölni mindent</string>
+    <string name="delete">töröl</string>
+    <string name="enter_range">Adja meg a tartományt</string>
+    <string name="hands_quantity">Válasszon sebességet és pontosságot</string>
+    <string name="help">Segítség</string>
 </resources>

@@ -4,6 +4,7 @@ package com.levenko.myequilator.entity;
  * Created by Vilagra on 14.03.2017.
  */
 
+@SuppressWarnings("DefaultFileTemplate")
 public class Combination implements Comparable<Combination> {
 
 
@@ -15,10 +16,10 @@ public class Combination implements Comparable<Combination> {
     public enum Kind{
         POCKET,SUITED,OFFSUITED
     }
-    String combination;
-    double rankingOfHand;
-    Kind kind;
-    int indexInMatrixForRecycler;
+    private final String combination;
+    private final double rankingOfHand;
+    private final Kind kind;
+    private final int indexInMatrixForRecycler;
 
     public Combination(String combination, int indexInMatrixForRecycler, Kind kind, double rankingOfHand) {
         this.combination = combination;

@@ -8,29 +8,31 @@ import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 
+@SuppressWarnings("ALL")
 public final class Enumerator extends Thread {
 
     private final int nPlayers;
     private final int rangePlayers;
     private final int startIx;    // where to start outer loop through deck
     private final int increment;    // of outer loop through deck -- number of threads
-    private long[] wins, splits;
-    private double[] partialPots;
-    private long constantBoard;
+    private final long[] wins;
+    private final long[] splits;
+    private final double[] partialPots;
+    private final long constantBoard;
     private final int nBoardCards;
-    private long[] deck;
-    private boolean[] dealt;
-    private long[] holeHand;
-    private int[] handValue;
+    private final long[] deck;
+    private final boolean[] dealt;
+    private final long[] holeHand;
+    private final int[] handValue;
     private final int limitIx1, limitIx2, limitIx3, limitIx4, limitIx5;
     private long board1, board2, board3, board4, board5;
     private final int firstRangePlayer;
     public int gameAmount = 0;
-    CalculatingInProgressListener calculatingInProgressListener;
-    int amountGameForProgressDisplay =5000;
-    int amountOfNeededGames;
-    AtomicBoolean stopCalculation = new AtomicBoolean(false);
-    private ArrayList<ArrayList<int[]>> arrayListRanges = new ArrayList<>();
+    private final CalculatingInProgressListener calculatingInProgressListener;
+    private int amountGameForProgressDisplay =5000;
+    private final int amountOfNeededGames;
+    private AtomicBoolean stopCalculation = new AtomicBoolean(false);
+    private final ArrayList<ArrayList<int[]>> arrayListRanges = new ArrayList<>();
 
     public Enumerator(final int instance, final int instances, final CardSet deck,
                       final CardSet[] holeCards, String[] range, final CardSet boardCards, CalculatingInProgressListener listener, int amountOfNeededGames) {
@@ -67,11 +69,11 @@ public final class Enumerator extends Thread {
         this.amountOfNeededGames=amountOfNeededGames;
     }
 
-    public void setStopCalculation(boolean stopCalculation) {
+    public void setStopCalculation() {
         this.stopCalculation = new AtomicBoolean(true);
     }
 
-    public void parseRange(String[] ranges, CardSet deck) {
+    private void parseRange(String[] ranges, CardSet deck) {
         for (String range : ranges) {
             String[] rangeInString = range.split(",");
             ArrayList<int[]> arrayListRange = new ArrayList<>();

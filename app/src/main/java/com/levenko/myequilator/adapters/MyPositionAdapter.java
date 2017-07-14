@@ -1,5 +1,6 @@
 package com.levenko.myequilator.adapters;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -30,19 +31,20 @@ import java.util.TreeSet;
  * Created by Vilagra on 10.01.2017.
  */
 
+@SuppressWarnings("DefaultFileTemplate")
 public class MyPositionAdapter extends MyAdapter<MyPositionAdapter.ViewHolder> {
 
-    private String[] mDataset;
+    private final String[] mDataset;
 
     public double[] getEquity() {
         return equity;
     }
 
     private double[] equity;
-    Context ctx;
+    private final Context ctx;
     private String[] textFromTextView;
     private IndexesDataWasChosen[] arrayIndexesDataWhichWasChoosen;
-    private Fragment fragment;
+    private final Fragment fragment;
 
     public void replacedIndexesDataWasChosen(DataFromIntent dataFromIntent){
         int position = dataFromIntent.getPositionOfAdapter();
@@ -59,7 +61,7 @@ public class MyPositionAdapter extends MyAdapter<MyPositionAdapter.ViewHolder> {
         textFromTextView[dataFromIntent.getPositionOfAdapter()]=dataFromIntent.getTextFromTextView();
     }
 
-    public void removedDataByCurrentPosition(int position){
+    private void removedDataByCurrentPosition(int position){
         IndexesDataWasChosen indexesDataWasChosen=arrayIndexesDataWhichWasChoosen[position];
         if(indexesDataWasChosen!=null&&indexesDataWasChosen.getType()== IndexesDataWasChosen.Type.HAND){
             AllCards.unCheckFlags(indexesDataWasChosen.getIndexesDataWasChosen());
@@ -121,14 +123,14 @@ public class MyPositionAdapter extends MyAdapter<MyPositionAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         // each data item is just a string in this case
-        CardView cardView;
-        TextView mTextView;
-        TextView rangeOrHandTextView;
-        TextView result;
-        ImageButton range;
-        ImageButton hand;
-        ImageButton remove;
-        ImageButton random;
+        final CardView cardView;
+        final TextView mTextView;
+        final TextView rangeOrHandTextView;
+        final TextView result;
+        final ImageButton range;
+        final ImageButton hand;
+        final ImageButton remove;
+        final ImageButton random;
 
         //CardsDialogFragment newFragment;
         public ViewHolder(CardView card) {
@@ -183,7 +185,7 @@ public class MyPositionAdapter extends MyAdapter<MyPositionAdapter.ViewHolder> {
                 case R.id.random:
                     arrayIndexesDataWhichWasChoosen[position]=new IndexesDataWasChosen(AllCards.getIndexesByRecyclerBaseOnRanking(169), IndexesDataWasChosen.Type.RANGE);
                     textFromTextView[position]="random";
-                    rangeOrHandTextView.setText("random");
+                    rangeOrHandTextView.setText(R.string.random);
                     break;
             }
         }
@@ -196,11 +198,11 @@ public class MyPositionAdapter extends MyAdapter<MyPositionAdapter.ViewHolder> {
         // create a new view
         CardView cardView = (CardView) LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.data_item, parent, false);
-        ViewHolder vh = new ViewHolder(cardView);
-        return vh;
+        return new ViewHolder(cardView);
     }
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.mTextView.setText(mDataset[position]);

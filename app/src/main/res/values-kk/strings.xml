@@ -7,8 +7,11 @@
     <string name="bu">BU</string>
     <string name="co">CO</string>
     <string name="credit">ризашылығымыз</string>
-    <string name="alert_dialog_ok">ок</string>
     <string name="calculate">есептеп шығару</string>
     <string name="card_selection">Карталарды таңдау</string>
     <string name="clear_all">Барлығын тазалау</string>
+    <string name="delete">жою</string>
+    <string name="enter_range">Ауқымды енгізіңіз</string>
+    <string name="hands_quantity">Жылдамдық пен дәлдікті таңдаңыз</string>
+    <string name="help">Көмектесіңдер</string>
 </resources>

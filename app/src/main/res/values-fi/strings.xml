@@ -7,8 +7,11 @@
     <string name="bu">BU</string>
     <string name="co">CO</string>
     <string name="credit">Arvostus</string>
-    <string name="alert_dialog_ok">ок</string>
     <string name="calculate">laskea</string>
     <string name="card_selection">Korttien valinta</string>
     <string name="clear_all">Tyhjennä</string>
+    <string name="delete">poistaa</string>
+    <string name="enter_range">Anna alue</string>
+    <string name="hands_quantity">Valitse nopeus ja tarkkuus</string>
+    <string name="help">auta</string>
 </resources>

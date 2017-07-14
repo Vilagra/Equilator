@@ -39,23 +39,21 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    MyPositionAdapter myPositionAdapter;
-    StreetAdapter streetAdapter;
+    private MyPositionAdapter myPositionAdapter;
+    private StreetAdapter streetAdapter;
 
-    RecyclerView recyclerViewPosition;
-    Progress progress;
+    private Progress progress;
 
-    Handler handler;
+    private static Handler handler;
 
-    boolean isResultDelivered = true;
-    ProgressDialog progressDialog;
+    private boolean isResultDelivered = true;
+    private ProgressDialog progressDialog;
 
-    View view = null;
+    private View view = null;
 
 
     // TODO: Rename and change types of parameters
     private String stringIndicatorOfPlayersNumber;
-    private String mParam2;
 
     private OnFragmentInteractionListener mListener;
 
@@ -63,11 +61,11 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
         // Required empty public constructor
     }
 
-    public static MainFragment newInstance(String param1, String param2) {
+    public static MainFragment newInstance(String param1) {
         MainFragment fragment = new MainFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putString(ARG_PARAM2, "");
         fragment.setArguments(args);
         //fragment.setRetainInstance(true);
         return fragment;
@@ -90,7 +88,6 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             stringIndicatorOfPlayersNumber = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
         }
         handler = new Handler() {
             @Override
@@ -138,7 +135,7 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
 
     private void setPositionRecycler(Bundle savedInstanceState) {
         String[] dataForRecyclerPosition = getResources().getStringArray(R.array.positions);
-        recyclerViewPosition = (RecyclerView) view.findViewById(R.id.recycler);
+        RecyclerView recyclerViewPosition = (RecyclerView) view.findViewById(R.id.recycler);
         if (stringIndicatorOfPlayersNumber.equals(getString(R.string.for6))) {
             myPositionAdapter = new MyPositionAdapter(getActivity(), Arrays.copyOfRange(dataForRecyclerPosition, 4, dataForRecyclerPosition.length), this);
         } else if (stringIndicatorOfPlayersNumber.equals(getString(R.string.for10))) {
@@ -196,7 +193,7 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
         }
     }
 
-    public void sendResult(double[] result) {
+    private void sendResult(double[] result) {
         IndexesDataWasChosen[] indexes = myPositionAdapter.getArrayIndexesDataWhichWasChoosen();
         double[] equity = new double[indexes.length];
         Arrays.fill(equity, -1.0);
@@ -293,7 +290,7 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
 
     }
 
-    public interface OnFragmentInteractionListener {
+    private interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }

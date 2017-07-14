@@ -7,8 +7,11 @@
     <string name="bu">BU</string>
     <string name="co">CO</string>
     <string name="credit">þakklæti</string>
-    <string name="alert_dialog_ok">ок</string>
     <string name="calculate">reikna</string>
     <string name="card_selection">Spilakort</string>
     <string name="clear_all">Hreinsa allt</string>
+    <string name="delete">eyða</string>
+    <string name="enter_range">Sláðu inn svið</string>
+    <string name="hands_quantity">Veldu hraða og nákvæmni</string>
+    <string name="help">Hjálp</string>
 </resources>

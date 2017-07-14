@@ -4,6 +4,7 @@ package com.levenko.myequilator;
  * Created by Vilagra on 07.03.2017.
  */
 
+@SuppressWarnings("DefaultFileTemplate")
 public class Constants {
     public final static int REQUEST_CODE_RANGE = 1;
     public final static int REQUEST_CODE_CARD = 2;

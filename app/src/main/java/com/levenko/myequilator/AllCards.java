@@ -17,6 +17,7 @@ import java.util.Set;
  * Created by Vilagra on 11.01.2017.
  */
 
+@SuppressWarnings("DefaultFileTemplate")
 public class AllCards {
     private static final Character[] allSuit = {'d', 's', 'h', 'c'};
     private static final Character[] allRank = {'A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2'};
@@ -32,16 +33,16 @@ public class AllCards {
             "85o=75.9,84o=86.4,83o=94.6,82o=96.4,76o=61.7,75o=74.7,74o=85.5,73o=93.7,72o=99.1,65o=71.6,64o=83.4,63o=91.0,62o=98.2,54o=80.1,53o=89.1,52o=95.5,43o=91.9," +
             "42o=97.3,32o=100.0";
     public static final ArrayList<Card> allCards = new ArrayList<>(52);
-    public static final HashMap<String, Card> cardsMap = new HashMap<>();
+    private static final HashMap<String, Card> cardsMap = new HashMap<>();
     public static final boolean[] wasChosen = new boolean[52];
     public static final ArrayList<String> allCombinationsInRecyclerOrderInStrings = new ArrayList<>();
-    public static final ArrayList<Combination> allCombinationsInRecyclerOrder = new ArrayList<>();
+    private static final ArrayList<Combination> allCombinationsInRecyclerOrder = new ArrayList<>();
     public static final ArrayList<Combination> allCombinationsInRankingOrder = new ArrayList<>();
     public static final Map<String, Combination> combinationsMap = new HashMap<>();
-    public static final ArrayList<Integer> inexesForRecyclerByRanking = new ArrayList<>();
+    private static final ArrayList<Integer> inexesForRecyclerByRanking = new ArrayList<>();
 
 
-    public static void initializeData(Context context) {
+    public static void initializeData() {
         //all cards
         for (Character rank : allRank) {
             for (Character suit : allSuit) {
@@ -144,11 +145,11 @@ public class AllCards {
             }
             if ((rangeIsInterrupted || i + 14 >= allCombinationsInRecyclerOrderInStrings.size()) && !startOfRange.equals("")) {
                 if (startOfRange.equals(endOfRange)) {
-                    stringBuilder.append(startOfRange + ",");
+                    stringBuilder.append(startOfRange).append(",");
                 } else if (startOfRange.equals(firstHand)) {
-                    stringBuilder.append(endOfRange + "+,");
+                    stringBuilder.append(endOfRange).append("+,");
                 } else {
-                    stringBuilder.append(startOfRange + "-" + endOfRange + ",");
+                    stringBuilder.append(startOfRange).append("-").append(endOfRange).append(",");
                 }
                 startOfRange = "";
                 endOfRange = "";
@@ -175,11 +176,11 @@ public class AllCards {
                 }
                 if ((rangeIsInterrupted || j + 1 >= 13) && !startOfRange.equals("")) {
                     if (startOfRange.equals(endOfRange)) {
-                        stringBuilder.append(startOfRange + ",");
+                        stringBuilder.append(startOfRange).append(",");
                     } else if (startOfRange.equals(firstHand)) {
-                        stringBuilder.append(endOfRange + "+,");
+                        stringBuilder.append(endOfRange).append("+,");
                     } else {
-                        stringBuilder.append(startOfRange + "-" + endOfRange + ",");
+                        stringBuilder.append(startOfRange).append("-").append(endOfRange).append(",");
                     }
                     startOfRange = "";
                     endOfRange = "";
@@ -207,11 +208,11 @@ public class AllCards {
                 }
                 if ((rangeIsInterrupted || j + 1 >= 13) && !startOfRange.equals("")) {
                     if (startOfRange.equals(endOfRange)) {
-                        stringBuilder.append(startOfRange + ",");
+                        stringBuilder.append(startOfRange).append(",");
                     } else if (startOfRange.equals(firstHand)) {
-                        stringBuilder.append(endOfRange + "+,");
+                        stringBuilder.append(endOfRange).append("+,");
                     } else {
-                        stringBuilder.append(startOfRange + "-" + endOfRange + ",");
+                        stringBuilder.append(startOfRange).append("-").append(endOfRange).append(",");
                     }
                     startOfRange = "";
                     endOfRange = "";
@@ -254,7 +255,7 @@ public class AllCards {
         Arrays.fill(wasChosen, false);
     }
 
-    public static String getSetOfHandFromCombination(Combination comb){
+    private static String getSetOfHandFromCombination(Combination comb){
         StringBuilder result = new StringBuilder();
         if(comb.getKind()== Combination.Kind.POCKET){
             char rank =comb.getCombination().charAt(0);

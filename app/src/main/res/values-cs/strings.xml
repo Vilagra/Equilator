@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">MyEquilator</string>
     <string name="alert_dialog_cancel">zrušit</string>
-    <string name="alert_dialog_ok">ок</string>
     <string name="banner_ad_unit_id">ca-app-pub-7055288022092797/1072163863</string>
     <string name="bb">BB</string>
     <string name="bu">BU</string>
@@ -11,4 +10,8 @@
     <string name="calculate">vypočítat</string>
     <string name="card_selection">Výběr karet</string>
     <string name="clear_all">Vymazat vše</string>
+    <string name="delete">vymazat</string>
+    <string name="enter_range">Zadejte rozsah</string>
+    <string name="hands_quantity">Zvolte rychlost a přesnost</string>
+    <string name="help">Pomoc</string>
 </resources>

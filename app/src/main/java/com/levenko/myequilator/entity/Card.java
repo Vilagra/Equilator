@@ -9,10 +9,11 @@ import java.io.IOException;
  * Created by Vilagra on 11.01.2017.
  */
 
+@SuppressWarnings("DefaultFileTemplate")
 public class Card {
-    private Character rank;
-    private Character suit;
-    private String stringOfCard;
+    private final Character rank;
+    private final Character suit;
+    private final String stringOfCard;
     private Drawable picture;
 
     public Card(Character rank, Character suit) {
@@ -30,8 +31,7 @@ public class Card {
 
         Card card = (Card) o;
 
-        if (rank != null ? !rank.equals(card.rank) : card.rank != null) return false;
-        return suit != null ? suit.equals(card.suit) : card.suit == null;
+        return rank != null ? rank.equals(card.rank) : card.rank == null && (suit != null ? suit.equals(card.suit) : card.suit == null);
 
     }
 

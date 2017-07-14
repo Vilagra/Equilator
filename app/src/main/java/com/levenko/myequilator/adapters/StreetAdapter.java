@@ -30,15 +30,16 @@ import java.util.TreeSet;
  * Created by Vilagra on 10.01.2017.
  */
 
+@SuppressWarnings("DefaultFileTemplate")
 public class StreetAdapter extends MyAdapter<RecyclerView.ViewHolder> {
 
     private static final int VIEW_TYPE_FOOTER = 0;
     private static final int VIEW_TYPE_CELL = 1;
-    private String[] mDataset;
-    Context ctx;
+    private final String[] mDataset;
+    private final Context ctx;
     private String[] textFromEditViewStreet;
     private IndexesDataWasChosen[] arrayIndexesDataWhichWasChoosen;
-    private Fragment fragment;
+    private final Fragment fragment;
 
     public void setArrayIndexesDataWhichWasChoosen(IndexesDataWasChosen[] arrayIndexesDataWhichWasChoosen) {
         this.arrayIndexesDataWhichWasChoosen = arrayIndexesDataWhichWasChoosen;
@@ -89,7 +90,7 @@ public class StreetAdapter extends MyAdapter<RecyclerView.ViewHolder> {
     }
 
     public class ButtonHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        Button button;
+        final Button button;
 
         public ButtonHolder(Button itemView) {
             super(itemView);
@@ -105,11 +106,11 @@ public class StreetAdapter extends MyAdapter<RecyclerView.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         // each data item is just a string in this case
-        CardView cardView;
-        TextView mTextView;
-        TextView handText;
-        ImageButton hand;
-        ImageButton remove;
+        final CardView cardView;
+        final TextView mTextView;
+        final TextView handText;
+        final ImageButton hand;
+        final ImageButton remove;
 
         public ViewHolder(CardView card) {
             super(card);
@@ -202,24 +203,23 @@ public class StreetAdapter extends MyAdapter<RecyclerView.ViewHolder> {
             sHolder.handText.setText(s);
             if (position == 1 || position == 2) {
                 if (arrayIndexesDataWhichWasChoosen[position - 1] == null) {
-                    setImageButtonEnabled(ctx, false, sHolder.hand, R.drawable.ic_poker);
+                    setImageButtonEnabled(ctx, false, sHolder.hand);
                 }
                 else {
-                    setImageButtonEnabled(ctx,true,sHolder.hand,R.drawable.ic_poker);
+                    setImageButtonEnabled(ctx,true,sHolder.hand);
                 }
             }
         }
     }
 
-    public static void setImageButtonEnabled(Context ctxt, boolean enabled, ImageButton item,
-                                             int iconResId) {
+    private static void setImageButtonEnabled(Context ctxt, boolean enabled, ImageButton item) {
         item.setEnabled(enabled);
-        Drawable originalIcon = ctxt.getResources().getDrawable(iconResId);
+        @SuppressWarnings("deprecation") Drawable originalIcon = ctxt.getResources().getDrawable(R.drawable.ic_poker);
         Drawable icon = enabled ? originalIcon : convertDrawableToGrayScale(originalIcon);
         item.setImageDrawable(icon);
     }
 
-    public static Drawable convertDrawableToGrayScale(Drawable drawable) {
+    private static Drawable convertDrawableToGrayScale(Drawable drawable) {
         if (drawable == null) {
             return null;
         }

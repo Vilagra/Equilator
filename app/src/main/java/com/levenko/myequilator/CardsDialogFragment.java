@@ -1,7 +1,6 @@
 package com.levenko.myequilator;
 
 import android.app.DialogFragment;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -21,17 +20,17 @@ import java.util.TreeSet;
  * Created by Vilagra on 12.01.2017.
  */
 
+@SuppressWarnings("DefaultFileTemplate")
 public class CardsDialogFragment extends DialogFragment implements MyAdapterForCard.MyAdapterForCardListener{
 
-    MyAdapterForCard myAdapterForCard;
-    CardDialogFragmentListener mListener;
-    Set<Integer> positionOfChoosenCard = new TreeSet<>();
-    int positionOfAdapter;
-    int numberOfCardsWhichUserMustChoose;
-    String kindOfAdapter;
+    private MyAdapterForCard myAdapterForCard;
+    private CardDialogFragmentListener mListener;
+    private Set<Integer> positionOfChoosenCard = new TreeSet<>();
+    private int positionOfAdapter;
+    private int numberOfCardsWhichUserMustChoose;
+    private String kindOfAdapter;
 
-    Button buttonOk;
-    Button buttonCancel;
+    private Button buttonOk;
 
     public CardDialogFragmentListener getmListener() {
         return mListener;
@@ -57,8 +56,8 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
     }
 
     public interface CardDialogFragmentListener {
-        void onDialogOkClick(DialogFragment dialog, Intent data);
-        void onDialogCancelClick(DialogFragment dialog, int positionOfAdapter, String kindOfAdapter);
+        void onDialogOkClick(Intent data);
+        void onDialogCancelClick(int positionOfAdapter, String kindOfAdapter);
     }
 
     @Override
@@ -72,14 +71,9 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
     }
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-    }
-
-    @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putIntegerArrayList(Constants.WAS_CHOSEN,new ArrayList<Integer>(myAdapterForCard.getChoosen()));
+        outState.putIntegerArrayList(Constants.WAS_CHOSEN, new ArrayList<>(myAdapterForCard.getChoosen()));
         outState.putInt(Constants.POSITION_OF_ADAPTER,positionOfAdapter);
         outState.putInt(Constants.NUMBER_OF_CARDS,numberOfCardsWhichUserMustChoose);
         outState.putString(Constants.KIND_OF_ADAPTER,kindOfAdapter);
@@ -88,8 +82,8 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        int style = DialogFragment.STYLE_NORMAL, theme = android.R.style.Theme_Holo_Light_DialogWhenLarge;
-        setStyle(style, theme);
+        int theme = android.R.style.Theme_Holo_Light_DialogWhenLarge;
+        setStyle(DialogFragment.STYLE_NORMAL, theme);
         mListener = (CardDialogFragmentListener) getActivity();
 
 
@@ -118,7 +112,7 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
         if(positionOfChoosenCard.size()==numberOfCardsWhichUserMustChoose){
             buttonOk.setEnabled(true);
         }
-        buttonCancel = (Button) v.findViewById(R.id.cancel);
+        Button buttonCancel = (Button) v.findViewById(R.id.cancel);
         buttonOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,14 +120,14 @@ public class CardsDialogFragment extends DialogFragment implements MyAdapterForC
                 resultIntent.putExtra(Constants.INDEXES_DATA_WAS_CHOSEN,(TreeSet)myAdapterForCard.getChoosen());
                 resultIntent.putExtra(Constants.POSITION_OF_ADAPTER, positionOfAdapter);
                 resultIntent.putExtra(Constants.KIND_OF_ADAPTER,kindOfAdapter);
-                mListener.onDialogOkClick(CardsDialogFragment.this,resultIntent);
+                mListener.onDialogOkClick(resultIntent);
                 dismiss();
             }
         });
         buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mListener.onDialogCancelClick(CardsDialogFragment.this,positionOfAdapter,kindOfAdapter);
+                mListener.onDialogCancelClick(positionOfAdapter,kindOfAdapter);
                 dismiss();
             }
         });

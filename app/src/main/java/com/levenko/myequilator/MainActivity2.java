@@ -1,6 +1,6 @@
 package com.levenko.myequilator;
 
-import android.app.DialogFragment;
+import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
@@ -38,8 +38,6 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
     private static boolean RUN_ONCE = true;
 
 
-    ViewPagerAdapter adapter;
-    private TabLayout tabLayout;
     private ViewPager viewPager;
 
     private int tryToShowAd;
@@ -60,7 +58,7 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
         }
 
         LayoutInflater inflator = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View v = inflator.inflate(R.layout.ads, null);
+        @SuppressLint("InflateParams") View v = inflator.inflate(R.layout.ads, null);
 
         PreferenceManager.setDefaultValues(this.getApplicationContext(), R.xml.speed_accuracy, true);
         mAdView = (AdView) v.findViewById(R.id.adView);
@@ -88,7 +86,7 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
         parent.setContentInsetsAbsolute(0, 0);
 
         if (RUN_ONCE) {
-            AllCards.initializeData(getApplicationContext());
+            AllCards.initializeData();
             RUN_ONCE = false;
         }
 
@@ -114,7 +112,7 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
             }
         });
 
-        tabLayout = (TabLayout) findViewById(R.id.tab);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab);
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         tabLayout.setupWithViewPager(viewPager);
 
@@ -123,7 +121,7 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        adapter = new ViewPagerAdapter(getFragmentManager());
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getFragmentManager());
         viewPager.setAdapter(adapter);
     }
 
@@ -178,7 +176,7 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
     }
 
     @Override
-    public void onDialogOkClick(DialogFragment dialog, Intent data) {
+    public void onDialogOkClick(Intent data) {
         onActivityResult(Constants.REQUEST_CODE_CARD, RESULT_OK, data);
 
     }
@@ -188,7 +186,7 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
     }
 
     @Override
-    public void onDialogCancelClick(DialogFragment dialog, int positionOfAdapter, String kindOfAdapter) {
+    public void onDialogCancelClick(int positionOfAdapter, String kindOfAdapter) {
         getFragment().noteCardsChoosenAfterCancelDialog(kindOfAdapter,positionOfAdapter);
     }
 
@@ -227,7 +225,7 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
 
 
     class ViewPagerAdapter extends FragmentStatePagerAdapter {
-        private String tabTitles[] = new String[] { getString(R.string.for6),getString(R.string.for10) };
+        private final String[] tabTitles = new String[] { getString(R.string.for6),getString(R.string.for10) };
 
         public ViewPagerAdapter(FragmentManager manager) {
             super(manager);
@@ -235,7 +233,7 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
 
         @Override
         public Fragment getItem(int position) {
-            return MainFragment.newInstance(tabTitles[position],"");
+            return MainFragment.newInstance(tabTitles[position]);
         }
 
         @Override
@@ -252,13 +250,7 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
 
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
-            Fragment fragment = (Fragment) super.instantiateItem(container, position);
-            return fragment;
-        }
-
-        @Override
-        public void destroyItem(ViewGroup container, int position, Object object) {
-            super.destroyItem(container, position, object);
+            return super.instantiateItem(container, position);
         }
 
     }

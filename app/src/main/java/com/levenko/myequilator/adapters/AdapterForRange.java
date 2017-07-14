@@ -19,22 +19,22 @@ import java.util.Set;
 /**
  * Created by Vilagra on 06.03.2017.
  */
+@SuppressWarnings("DefaultFileTemplate")
 public class AdapterForRange extends RecyclerView.Adapter<AdapterForRange.ViewHolder> {
 
-    private List<String> mDataset;
-    private Set<Integer> choosen;
-    Context ctx;
+    private final List<String> mDataset;
+    private Set<Integer> chosen;
 
-    int choosenColor;
-    int pocketColor;
-    int suitColor;
-    int offsuitColor;
+    private final int chosenColor;
+    private final int pocketColor;
+    private final int suitColor;
+    private final int offsuitColor;
 
     public AdapterForRange(Context contexts, Set<Integer> set) {
-        ctx = contexts;
+        Context ctx = contexts;
         mDataset = AllCards.allCombinationsInRecyclerOrderInStrings;
-        choosen = set;
-        choosenColor=ContextCompat.getColor(ctx, R.color.yellow);
+        chosen = set;
+        chosenColor =ContextCompat.getColor(ctx, R.color.yellow);
         suitColor=ContextCompat.getColor(ctx,R.color.cyan);
         offsuitColor=ContextCompat.getColor(ctx,R.color.purple);
         pocketColor = ContextCompat.getColor(ctx,R.color.blue);
@@ -43,8 +43,8 @@ public class AdapterForRange extends RecyclerView.Adapter<AdapterForRange.ViewHo
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
-        public TextView textView;
-        CardView cardView;
+        public final TextView textView;
+        final CardView cardView;
 
         public ViewHolder(CardView card, TextView v) {
             super(card);
@@ -62,8 +62,7 @@ public class AdapterForRange extends RecyclerView.Adapter<AdapterForRange.ViewHo
         // create a new view
         CardView cardView = (CardView) LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.range_item, parent, false);
-        ViewHolder vh = new ViewHolder(cardView, (TextView) cardView.findViewById(R.id.combnation));
-        return vh;
+        return new ViewHolder(cardView, (TextView) cardView.findViewById(R.id.combnation));
     }
 
     @Override
@@ -71,15 +70,15 @@ public class AdapterForRange extends RecyclerView.Adapter<AdapterForRange.ViewHo
         final String value=mDataset.get(position);
         holder.textView.setText(value);
         final Combination.Kind kind=AllCards.combinationsMap.get(value).getKind();
-        setColor(kind,holder.textView,position);
+        setColor(kind,holder.textView,holder.getAdapterPosition());
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(choosen.remove(position)){
+                if(chosen.remove(position)){
                     setColor(kind,holder.textView,position);
                 }
                 else {
-                    choosen.add(position);
+                    chosen.add(position);
                     setColor(kind,holder.textView,position);
                 }
             }
@@ -87,9 +86,9 @@ public class AdapterForRange extends RecyclerView.Adapter<AdapterForRange.ViewHo
 
     }
 
-    void setColor(Combination.Kind kind, View v, int position){
-        if(choosen.contains(position)){
-            v.setBackgroundColor(choosenColor);
+    private void setColor(Combination.Kind kind, View v, int position){
+        if(chosen.contains(position)){
+            v.setBackgroundColor(chosenColor);
         }
         else if(kind== Combination.Kind.SUITED){
             v.setBackgroundColor(suitColor);
@@ -103,12 +102,12 @@ public class AdapterForRange extends RecyclerView.Adapter<AdapterForRange.ViewHo
 
     }
 
-    public Set<Integer> getChoosen() {
-        return choosen;
+    public Set<Integer> getChosen() {
+        return chosen;
     }
 
-    public void setChoosen(Set<Integer> choosen) {
-        this.choosen = choosen;
+    public void setChosen(Set<Integer> chosen) {
+        this.chosen = chosen;
     }
 
     @Override

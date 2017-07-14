@@ -7,8 +7,11 @@
     <string name="bu">BU</string>
     <string name="co">CO</string>
     <string name="credit">արժեւորումը</string>
-    <string name="alert_dialog_ok">ок</string>
     <string name="calculate">հաշվել</string>
     <string name="card_selection">Քարտերի ընտրություն</string>
     <string name="clear_all">Մաքրել բոլորը</string>
+    <string name="delete">Ջնջել</string>
+    <string name="enter_range">Մուտքագրեք շրջանակը</string>
+    <string name="hands_quantity">Ընտրեք արագություն եւ ճշգրտություն</string>
+    <string name="help">Օգնություն</string>
 </resources>

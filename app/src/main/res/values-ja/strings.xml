@@ -7,8 +7,11 @@
     <string name="bu">BU</string>
     <string name="co">CO</string>
     <string name="credit">感謝</string>
-    <string name="alert_dialog_ok">ок</string>
     <string name="calculate">計算します</string>
     <string name="card_selection">カードの選択</string>
     <string name="clear_all">すべてクリア</string>
+    <string name="delete">削除</string>
+    <string name="enter_range">範囲を入力</string>
+    <string name="hands_quantity">速度と精度を選択する</string>
+    <string name="help">助けて</string>
 </resources>

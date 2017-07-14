@@ -49,18 +49,18 @@ public class CardSet implements Set<Card> {
 	}
 
 	public CardSet() {
-		cards = new ArrayList<Card>();
+		cards = new ArrayList<>();
 	}
 
 	public CardSet(int initialCapacity) {
-		cards = new ArrayList<Card>(initialCapacity);
+		cards = new ArrayList<>(initialCapacity);
 	}
 
 	/**
 	 * Copy constructor
 	 */
 	public CardSet(CardSet source) {
-		cards = new ArrayList<Card>(source.cards);
+		cards = new ArrayList<>(source.cards);
 	}
 
 	/**
@@ -68,10 +68,8 @@ public class CardSet implements Set<Card> {
 	 * @return <code>true</code> if this CardSet did not already contain the specified Card.
 	 */
 	public boolean add(Card c) {
-		if (cards.contains(c))
-			return false;
-		return cards.add(c);
-	}
+        return !cards.contains(c) && cards.add(c);
+    }
 	
 	/**
 	 * Returns <code>true</code> if this CardSet changed as a result of the call.

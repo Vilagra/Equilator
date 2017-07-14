@@ -11,14 +11,16 @@ import java.util.Set;
  * Created by Vilagra on 10.03.2017.
  */
 
+@SuppressWarnings("DefaultFileTemplate")
 public class DataFromIntent {
-    private int positionOfAdapter;
-    private Set<Integer> indexesDataWasChosen;
-    private IndexesDataWasChosen.Type type;
+    private final int positionOfAdapter;
+    private final Set<Integer> indexesDataWasChosen;
+    private final IndexesDataWasChosen.Type type;
 
     public DataFromIntent(Intent data,IndexesDataWasChosen.Type type) {
         this.type = type;
         positionOfAdapter = data.getIntExtra(Constants.POSITION_OF_ADAPTER, -1);
+        //noinspection unchecked
         indexesDataWasChosen = (Set<Integer>) data.getSerializableExtra(Constants.INDEXES_DATA_WAS_CHOSEN);
     }
 

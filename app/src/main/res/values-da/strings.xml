@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">MyEquilator</string>
     <string name="alert_dialog_cancel">afbestille</string>
-    <string name="alert_dialog_ok">ок</string>
     <string name="banner_ad_unit_id">ca-app-pub-7055288022092797/1072163863</string>
     <string name="bb">BB</string>
     <string name="bu">BU</string>
@@ -11,4 +10,8 @@
     <string name="calculate">Beregn</string>
     <string name="card_selection">Kortvalg</string>
     <string name="clear_all">Slet alt</string>
+    <string name="delete">slette</string>
+    <string name="enter_range">Indtast rækkevidde</string>
+    <string name="hands_quantity">Vælg hastighed og nøjagtighed</string>
+    <string name="help">Hjælp</string>
 </resources>

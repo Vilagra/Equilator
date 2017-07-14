@@ -22,12 +22,13 @@ import java.util.ArrayList;
  * Created by Vilagra on 26.04.2017.
  */
 
+@SuppressWarnings("DefaultFileTemplate")
 public class CalculationLoader extends AsyncTaskLoader<double[]> implements CalculatingInProgressListener {
-    private IndexesDataWasChosen[] indexes;
-    private String[] arBoard;
+    private final IndexesDataWasChosen[] indexes;
+    private final String[] arBoard;
     private Handler handler;
-    private int threads = 3;
-    Enumerator[] enumerators = new Enumerator[threads];
+    private final int threads = 3;
+    private final Enumerator[] enumerators = new Enumerator[threads];
 
     public void setHandler(Handler handler) {
         this.handler = handler;
@@ -70,7 +71,7 @@ public class CalculationLoader extends AsyncTaskLoader<double[]> implements Calc
         if (hands.length() < 0) {
             hands = hands.substring(0, hands.length() - 1);
         }
-        UserInput ui = UserInput.newUserInput(hands, board,ranges.toArray(new String[0]),0);
+        UserInput ui = UserInput.newUserInput(hands, board,ranges.toArray(new String[0]));
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this.getContext());
         int numberOfHands = Integer.valueOf(sharedPref.getString(getContext().getString(R.string.speed_accuracy), "-1"));
         long nanosecs = System.currentTimeMillis();
@@ -80,6 +81,7 @@ public class CalculationLoader extends AsyncTaskLoader<double[]> implements Calc
             enumerators[i].start();
         }
         for (Enumerator enumerator : enumerators) {
+            //noinspection EmptyCatchBlock
             try {
                 enumerator.join();
             } catch (InterruptedException never) {

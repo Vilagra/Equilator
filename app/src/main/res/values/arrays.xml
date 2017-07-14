@@ -38,12 +38,12 @@
     </string-array>
 
 
-    <string name="utg">UTG</string>
-    <string name="utg1">UTG+1</string>
-    <string name="utg2">UTG+2</string>
-    <string name="mp1">MP1</string>
-    <string name="mp2">MP2</string>
-    <string name="mp3">MP3</string>
+    <string name="utg" translatable="false">UTG</string>
+    <string name="utg1" translatable="false">UTG+1</string>
+    <string name="utg2" translatable="false">UTG+2</string>
+    <string name="mp1" translatable="false">MP1</string>
+    <string name="mp2" translatable="false">MP2</string>
+    <string name="mp3" translatable="false">MP3</string>
     <string name="co">CO</string>
     <string name="bu">BU</string>
     <string name="sb">SB</string>

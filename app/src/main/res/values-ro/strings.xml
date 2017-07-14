@@ -7,8 +7,11 @@
     <string name="bu">BU</string>
     <string name="co">CO</string>
     <string name="credit">apreciere</string>
-    <string name="alert_dialog_ok">ок</string>
     <string name="calculate">calcula</string>
     <string name="card_selection">Selectarea cartelelor</string>
     <string name="clear_all">Curata tot</string>
+    <string name="delete">șterge</string>
+    <string name="enter_range">Introduceți intervalul</string>
+    <string name="hands_quantity">Alegeți viteza și precizia</string>
+    <string name="help">Ajutor</string>
 </resources>

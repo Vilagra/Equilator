@@ -7,8 +7,11 @@
     <string name="bu">BU</string>
     <string name="co">CO</string>
     <string name="credit">Zahvalnost</string>
-    <string name="alert_dialog_ok">ок</string>
     <string name="calculate">izračunati</string>
     <string name="card_selection">Odabir kartica</string>
     <string name="clear_all">Očistiti sve</string>
+    <string name="delete">izbrisati</string>
+    <string name="enter_range">Unesite raspon</string>
+    <string name="hands_quantity">Odaberite brzinu i točnost</string>
+    <string name="help">Pomoć</string>
 </resources>

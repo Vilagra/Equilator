@@ -8,10 +8,11 @@ import com.levenko.myequilator.Constants;
  * Created by Vilagra on 26.04.2017.
  */
 
+@SuppressWarnings("ALL")
 public class Progress {
-    private long[] wins;
-    private double[] partial;
-    private long trail;
+    private final long[] wins;
+    private final double[] partial;
+    private final long trail;
 
     public Progress(Bundle bundle) {
         this.partial = bundle.getDoubleArray(Constants.PARTIAL_POTS);

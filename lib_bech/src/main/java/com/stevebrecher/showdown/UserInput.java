@@ -35,9 +35,9 @@ public final class UserInput {
 
 	private UserInput() {}
 	
-	public static UserInput newUserInput(String cards, String board, String[] range, int numberOfRandom) {
+	public static UserInput newUserInput(String cards, String board, String[] range) {
 		UserInput ui = new UserInput();
-		ui.nUnknown=numberOfRandom;
+		ui.nUnknown= 0;
 		ui.range=range;
 
 		if (ui.getUserInput(cards,board))
@@ -111,6 +111,7 @@ public final class UserInput {
 		return !userQuits;
 	}
 
+	@SuppressWarnings("BooleanMethodIsAlwaysInverted")
 	private boolean getCards(String source, CardSet cardsDest) {
 		
 		Scanner scanner = new Scanner(source);
@@ -156,6 +157,7 @@ public final class UserInput {
 				s = s.substring(0, s.length() - 2) + input;
 			} while (s.endsWith("--"));
 		} catch (IOException e) {
+			//noinspection ThrowablePrintedToSystemOut
 			err.println(e);
 		}
 		return s;
@@ -248,7 +250,6 @@ public final class UserInput {
 		String s, prompt;
 		s="y";
 
-		prompt = String.format("%,.0f deals required.  Start dealing? (y/n) [y]: ", nDeals);
 		while (true) {
 /*			if ((s = getResponse(prompt, confirmHelp)) == null)
 				return false;*/

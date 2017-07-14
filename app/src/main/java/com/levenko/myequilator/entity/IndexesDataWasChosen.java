@@ -7,12 +7,13 @@ import java.util.Set;
  * Created by Vilagra on 07.03.2017.
  */
 
+@SuppressWarnings("ALL")
 public class IndexesDataWasChosen implements Serializable{
 
     public enum Type{HAND,RANGE};
 
-    Set<Integer> indexesDataWasChosen;
-    Type type;
+    private final Set<Integer> indexesDataWasChosen;
+    private final Type type;
 
     public IndexesDataWasChosen(Set<Integer> indexesDataWasChosen, Type type) {
         this.indexesDataWasChosen = indexesDataWasChosen;

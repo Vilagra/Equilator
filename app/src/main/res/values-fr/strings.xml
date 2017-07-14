@@ -7,8 +7,11 @@
     <string name="bu">BU</string>
     <string name="co">CO</string>
     <string name="credit">Appréciation</string>
-    <string name="alert_dialog_ok">ок</string>
     <string name="calculate">calculer</string>
     <string name="card_selection">Sélection des cartes</string>
     <string name="clear_all">Tout effacer</string>
+    <string name="delete">effacer</string>
+    <string name="enter_range">Entrer la gamme</string>
+    <string name="hands_quantity">Choisissez la vitesse et la précision</string>
+    <string name="help">Aidez-moi</string>
 </resources>
