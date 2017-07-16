@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="alert_dialog_cancel">kanselahin</string>
+    <string name="banner_ad_unit_id">ca-app-pub-7055288022092797/1072163863</string>
+    <string name="bb">BB</string>
+    <string name="bu">BU</string>
+    <string name="co">CO</string>
+    <string name="credit">Pagpapahalaga</string>
+    <string name="calculate">kalkulahin</string>
+    <string name="card_selection">Pagpili ng mga card</string>
+    <string name="clear_all">Alisin lahat</string>
+    <string name="delete">Tanggalin</string>
+    <string name="enter_range">Ipasok ang saklaw</string>
+    <string name="hands_quantity">Pumili ng bilis at katumpakan</string>
+    <string name="help">Tulong</string>
 </resources>

@@ -2,4 +2,16 @@
 <resources>
     <string name="app_name">MyEquilator</string>
     <string name="alert_dialog_cancel">күшін жою</string>
+    <string name="banner_ad_unit_id">ca-app-pub-7055288022092797/1072163863</string>
+    <string name="bb">BB</string>
+    <string name="bu">BU</string>
+    <string name="co">CO</string>
+    <string name="credit">ризашылығымыз</string>
+    <string name="calculate">есептеп шығару</string>
+    <string name="card_selection">Карталарды таңдау</string>
+    <string name="clear_all">Барлығын тазалау</string>
+    <string name="delete">жою</string>
+    <string name="enter_range">Ауқымды енгізіңіз</string>
+    <string name="hands_quantity">Жылдамдық пен дәлдікті таңдаңыз</string>
+    <string name="help">Көмектесіңдер</string>
 </resources>

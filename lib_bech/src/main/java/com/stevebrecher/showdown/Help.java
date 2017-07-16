@@ -2,7 +2,7 @@ package com.stevebrecher.showdown;
 
 import static java.lang.System.out;
 
-public class Help {
+class Help {
 
 	static void generalHelp() {
 

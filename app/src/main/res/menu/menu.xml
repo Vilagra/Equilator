@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/clear_all"
         android:title="@string/clear_all"
-        android:showAsAction="never"/>
+        android:showAsAction="never"
+        tools:ignore="AppCompatResource" />
     <item android:id="@+id/speed"
         android:title="@string/speed_accuracy"
-        android:showAsAction="never"/>
-    <item android:id="@+id/turn_off_ad"
+        android:showAsAction="never"
+        tools:ignore="AppCompatResource" />
+    <item
         android:title="@string/turn_off"
-        android:showAsAction="never"/>
-    <item android:id="@+id/help"
+        android:showAsAction="never"
+        tools:ignore="AppCompatResource" />
+    <item
         android:title="@string/help"
-        android:showAsAction="never"/>
+        android:showAsAction="never"
+        tools:ignore="AppCompatResource" />
     <item android:id="@+id/credit"
         android:title="@string/credit"
-        android:showAsAction="never"/>
+        android:showAsAction="never"
+        tools:ignore="AppCompatResource" />
     <item android:id="@+id/quit"
         android:title="@string/quit"
-        android:showAsAction="never"/>
+        android:showAsAction="never"
+        tools:ignore="AppCompatResource" />
 
 </menu>

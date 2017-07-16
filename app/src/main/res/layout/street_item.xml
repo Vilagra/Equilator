@@ -2,6 +2,7 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="3dp"
@@ -25,7 +26,8 @@
             android:layout_margin="5dp"
             android:adjustViewBounds="true"
             android:onClick="onClick"
-            android:src="@drawable/ic_poker" />
+            android:src="@drawable/ic_poker"
+            tools:ignore="ContentDescription" />
 
         <ImageButton
             android:id="@+id/remove_street"
@@ -33,7 +35,8 @@
             android:layout_height="32dp"
             android:layout_margin="5dp"
             android:onClick="onClick"
-            android:src="@drawable/ic_x" />
+            android:src="@drawable/ic_x"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/hand_text"
@@ -42,7 +45,6 @@
             android:layout_gravity="center"
             android:layout_margin="5dp"
             android:padding="3dp"
-            android:text="8h"
             android:gravity="center_vertical"
             android:background="@drawable/blue_out_line" />
 

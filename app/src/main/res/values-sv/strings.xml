@@ -2,4 +2,16 @@
 <resources>
     <string name="app_name">MyEquilator</string>
     <string name="alert_dialog_cancel">avboka</string>
+    <string name="banner_ad_unit_id">ca-app-pub-7055288022092797/1072163863</string>
+    <string name="bb">BB</string>
+    <string name="bu">BU</string>
+    <string name="co">CO</string>
+    <string name="credit">uppskattning</string>
+    <string name="calculate">beräkna</string>
+    <string name="card_selection">Kortval</string>
+    <string name="clear_all">Rensa alla</string>
+    <string name="delete">radera</string>
+    <string name="enter_range">Ange intervall</string>
+    <string name="hands_quantity">Välj hastighet och noggrannhet</string>
+    <string name="help">Hjälpa</string>
 </resources>

@@ -2,4 +2,16 @@
 <resources>
     <string name="app_name">MyEquilator</string>
     <string name="alert_dialog_cancel">otkazati</string>
+    <string name="banner_ad_unit_id">ca-app-pub-7055288022092797/1072163863</string>
+    <string name="bb">BB</string>
+    <string name="bu">BU</string>
+    <string name="co">CO</string>
+    <string name="credit">Zahvalnost</string>
+    <string name="calculate">izračunati</string>
+    <string name="card_selection">Odabir kartica</string>
+    <string name="clear_all">Očistiti sve</string>
+    <string name="delete">izbrisati</string>
+    <string name="enter_range">Unesite raspon</string>
+    <string name="hands_quantity">Odaberite brzinu i točnost</string>
+    <string name="help">Pomoć</string>
 </resources>

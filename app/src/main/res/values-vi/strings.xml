@@ -2,4 +2,16 @@
 <resources>
     <string name="app_name">MyEquilator</string>
     <string name="alert_dialog_cancel">megszünteti</string>
+    <string name="banner_ad_unit_id">ca-app-pub-7055288022092797/1072163863</string>
+    <string name="bu">BU</string>
+    <string name="bb">BB</string>
+    <string name="co">CO</string>
+    <string name="credit">cảm tạ</string>
+    <string name="calculate">tính toán</string>
+    <string name="card_selection">lựa chọn thẻ</string>
+    <string name="clear_all">Làm sạch tất cả</string>
+    <string name="delete">xóa bỏ</string>
+    <string name="enter_range">Nhập dải</string>
+    <string name="hands_quantity">Chọn tốc độ và độ chính xác</string>
+    <string name="help">Cứu giúp</string>
 </resources>

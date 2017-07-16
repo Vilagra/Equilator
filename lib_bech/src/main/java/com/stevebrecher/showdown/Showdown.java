@@ -1,19 +1,13 @@
 package com.stevebrecher.showdown;
 
-import java.io.*;
+final class Showdown {
 
-import static java.lang.System.*;
-
-import java.util.*;
-
-public final class Showdown {
-
-    static int threads = 8;
+    private static final int threads = 8;
 
 
     public static double[] calculate(String cards, String bord, String[] ranges, CalculatingInProgressListener listener, int trail) {
         Enumerator[] enumerators = new Enumerator[threads];
-        UserInput ui = UserInput.newUserInput(cards, bord,ranges,0);
+        UserInput ui = UserInput.newUserInput(cards, bord,ranges);
         long nanosecs = System.currentTimeMillis();
         for (int i = 0; i < enumerators.length; i++) {
             enumerators[i] = new Enumerator(i, threads,
@@ -21,6 +15,7 @@ public final class Showdown {
             enumerators[i].start();
         }
         for (Enumerator enumerator : enumerators) {
+            //noinspection EmptyCatchBlock
             try {
                 enumerator.join();
             } catch (InterruptedException never) {

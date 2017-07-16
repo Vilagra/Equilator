@@ -2,14 +2,24 @@
 <resources>
     <string name="description">Описание</string>
     <string name="text_of_description">     Это приложение для расчета вероятности выгрыша в покере, рука против руки, против спектра, спектр против спектра.</string>
-    <string name="credit2">Признательность</string>
-    <string name="credit3">Особая признательность</string>
     <string name="credit_text">     <div>Иконки созданы <a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">
         Madebyoliver</a> из <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> лицензируется
         <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank" title="Creative Commons BY 3.0">CC 3.0 BY</a> \n
         Для вычеслений за основу взят алгоритм <a href="http://www.brecware.com/Software/software.html"
-            title="Flaticon">Steve Brecher</a></div></string>
-    <string name="help_text">   </string>>
-    <string name="credit_text_dzioba">     <div>Конечно же мой прекрасной жене <a href="https://www.instagram.com/shporishka" title="Flaticon">Дзьоба</a> )))</div></string>
+            title="Flaticon">Steve Brecher</a></div></string><![CDATA[
+    >
+    ]]>
     <string name="alert_dialog_cancel">отмена</string>
+    <string name="banner_ad_unit_id">ca-app-pub-7055288022092797/1072163863</string>
+    <string name="bb">BB</string>
+    <string name="bu">BU</string>
+    <string name="co">CO</string>
+    <string name="credit">Признательность</string>
+    <string name="calculate">Вычеслить</string>
+    <string name="card_selection">Выбор карт</string>
+    <string name="clear_all">Очистить все</string>
+    <string name="delete">удалить</string>
+    <string name="enter_range">Введите диапазон</string>
+    <string name="hands_quantity">Выберите скорость и точность</string>
+    <string name="help">Помощь</string>
 </resources>

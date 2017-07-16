@@ -2,4 +2,16 @@
 <resources>
     <string name="app_name">MyEquilator</string>
     <string name="alert_dialog_cancel">kanselleer</string>
+    <string name="banner_ad_unit_id">ca-app-pub-7055288022092797/1072163863</string>
+    <string name="bb">BB</string>
+    <string name="bu">BU</string>
+    <string name="calculate">Bereken</string>
+    <string name="card_selection">Kaarte seleksie</string>
+    <string name="clear_all">Maak alles skoon</string>
+    <string name="co">CO</string>
+    <string name="credit">Waardering</string>
+    <string name="delete">verwyder</string>
+    <string name="enter_range">Gee bereik</string>
+    <string name="hands_quantity">Kies spoed en akkuraatheid</string>
+    <string name="help">help</string>
 </resources>

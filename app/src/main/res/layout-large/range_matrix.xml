@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -30,7 +31,7 @@
             android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:max="1000"
-            android:progress="5"></SeekBar>
+            android:progress="5" />
 
         <TextView
             android:id="@+id/procent"
@@ -40,7 +41,8 @@
             android:background="@drawable/blue_out_line"
             android:gravity="center"
             android:text="00.0"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/ok"
@@ -52,6 +54,7 @@
             android:id="@+id/cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/alert_dialog_cancel" />
+            android:text="@string/alert_dialog_cancel"
+            tools:ignore="ButtonOrder" />
     </LinearLayout>
 </LinearLayout>

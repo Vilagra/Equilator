@@ -2,4 +2,16 @@
 <resources>
     <string name="app_name">MyEquilator</string>
     <string name="alert_dialog_cancel">ακυρώσει</string>
+    <string name="banner_ad_unit_id">ca-app-pub-7055288022092797/1072163863</string>
+    <string name="bb">BB</string>
+    <string name="bu">BU</string>
+    <string name="co">CO</string>
+    <string name="credit">εκτίμηση</string>
+    <string name="calculate">Υπολογίστε</string>
+    <string name="card_selection">Επιλογή καρτών</string>
+    <string name="clear_all">Τα καθαρίζω όλα</string>
+    <string name="delete">διαγράφω</string>
+    <string name="enter_range">Εισαγωγή εύρους</string>
+    <string name="hands_quantity">Επιλέξτε ταχύτητα και ακρίβεια</string>
+    <string name="help">Βοήθεια</string>
 </resources>

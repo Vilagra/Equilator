@@ -1,4 +1,4 @@
-package com.example;
+package com.levenko;
 
 public class MyClass {
 }

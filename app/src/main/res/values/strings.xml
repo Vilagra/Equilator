@@ -1,19 +1,18 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">MyEquilator</string>
-    <string name="for6">6-max</string>
-    <string name="for10">10-max</string>
-    <string name="alert_dialog_ok">ок</string>
+    <string name="for6" translatable="false">6-max</string>
+    <string name="for10" translatable="false">10-max</string>
     <string name="alert_dialog_cancel">cancel</string>
-    <string name="card_selection">Card selecion</string>
-    <string name="ок">ок</string>
-    <string name="flop">Flop</string>
+    <string name="card_selection">Cards selecion</string>
+    <string name="ок">ok</string>
+    <string name="flop" translatable="false">Flop</string>
     <string name="turn">Turn</string>
     <string name="river">River</string>
     <string name="calculate">Calculate</string>
     <string name="not_enough">Not enough players for calculation must be at least 2!</string>
     <string name="banner_ad_unit_id">ca-app-pub-7055288022092797/1072163863</string>
     <string name="credit">Credit</string>
-    <string name="speed_accuracy"><![CDATA[Speed & Accuracy]]></string>
+    <string name="speed_accuracy">Speed and Accuracy</string>
     <string name="help">Help</string>
     <string name="position">position</string>
     <string name="range">range</string>
@@ -21,94 +20,11 @@
     <string name="random">random</string>
     <string name="delete">delete</string>
     <string name="hands">hands</string>
-    <string name="equity">equity</string>
-    <string name="hands_quantity">Choose hands quantity</string>
-    <string name="title_activity_settings">Settings</string>
-
-    <!-- Strings related to Settings -->
-
-    <!-- Example General settings -->
-    <string name="pref_header_general">General</string>
-
-    <string name="pref_title_social_recommendations">Enable social recommendations</string>
-    <string name="pref_description_social_recommendations">Recommendations for people to contact
-        based on your message history
-    </string>
-
-    <string name="pref_title_display_name">Display name</string>
-    <string name="pref_default_display_name">John Smith</string>
-
-    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
-    <string-array name="pref_example_list_titles">
-        <item>Always</item>
-        <item>When possible</item>
-        <item>Never</item>
-    </string-array>
-    <string-array name="pref_example_list_values">
-        <item>1</item>
-        <item>0</item>
-        <item>-1</item>
-    </string-array>
-
-    <!-- Example settings for Data & Sync -->
-    <string name="pref_header_data_sync">Data &amp; sync</string>
-
-    <string name="pref_title_sync_frequency">Sync frequency</string>
-    <string-array name="pref_sync_frequency_titles">
-        <item>15 minutes</item>
-        <item>30 minutes</item>
-        <item>1 hour</item>
-        <item>3 hours</item>
-        <item>6 hours</item>
-        <item>Never</item>
-    </string-array>
-    <string-array name="pref_sync_frequency_values">
-        <item>15</item>
-        <item>30</item>
-        <item>60</item>
-        <item>180</item>
-        <item>360</item>
-        <item>-1</item>
-    </string-array>
-
-    <string-array name="list_preference_entries">
-        <item>Entry 1</item>
-        <item>Entry 2</item>
-        <item>Entry 3</item>
-    </string-array>
-
-    <string-array name="list_preference_entry_values">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
-
-    <string-array name="multi_select_list_preference_default_value" />
-
-    <string name="pref_title_system_sync_settings">System sync settings</string>
-
-    <!-- Example settings for Notifications -->
-    <string name="pref_header_notifications">Notifications</string>
-
-    <string name="pref_title_new_message_notifications">New message notifications</string>
-
-    <string name="pref_title_ringtone">Ringtone</string>
-    <string name="pref_ringtone_silent">Silent</string>
-
-    <string name="pref_title_vibrate">Vibrate</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_main3">Main3Activity</string>
-    <string name="title_activity_main2">MainActivity2</string>
+    <string name="equity" translatable="false">equity</string>
+    <string name="hands_quantity">Choose speed and accuracy</string>
     <string name="description">Description</string>
     <string name="text_of_description">   This app for calculating probabilities win in poker.</string>
-    <string name="credit2">Credit</string>
-    <string name="credit3">Special credit</string>
     <string name="credit_text">   <div>Icons made by <a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank" title="Creative Commons BY 3.0">CC 3.0 BY</a></div></string>
-    <string name="credit_text_dzioba">   <div>Конечно же мой прекрасной жене <a href="https://www.instagram.com/shporishka" title="Flaticon">Дзьоба</a> )))</div></string>
-    <string name="credit_text2">   <div>Для вычеслений за основу взят алгоритм <a href="http://www.brecware.com/Software/software.html" title="Flaticon">Steve Brecher</a></div></string>
-    <string name="title_activity_description">DescriptionActivity</string>
     <string name="quit">Exit</string>
     <string name="turn_off">Donate(disable ads)</string>
     <string name="range2">Range</string>

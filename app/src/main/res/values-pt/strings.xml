@@ -2,4 +2,16 @@
 <resources>
     <string name="app_name">MyEquilator</string>
     <string name="alert_dialog_cancel">cancelar</string>
+    <string name="banner_ad_unit_id">ca-app-pub-7055288022092797/1072163863</string>
+    <string name="bb">BB</string>
+    <string name="bu">BU</string>
+    <string name="co">CO</string>
+    <string name="credit">valorização</string>
+    <string name="calculate">calcular</string>
+    <string name="card_selection">Seleção de cartões</string>
+    <string name="clear_all">Limpar tudo</string>
+    <string name="delete">excluir</string>
+    <string name="enter_range">Intervalo de entrada</string>
+    <string name="hands_quantity">Escolha velocidade e precisão</string>
+    <string name="help">Socorro</string>
 </resources>

@@ -2,4 +2,16 @@
 <resources>
     <string name="app_name">MyEquilator</string>
     <string name="alert_dialog_cancel">रद्द करना</string>
+    <string name="banner_ad_unit_id">ca-app-pub-7055288022092797/1072163863</string>
+    <string name="bb">BB</string>
+    <string name="bu">BU</string>
+    <string name="co">CO</string>
+    <string name="credit">प्रशंसा</string>
+    <string name="calculate">गणना</string>
+    <string name="card_selection">कार्ड चयन</string>
+    <string name="clear_all">सभी साफ करें</string>
+    <string name="delete">हटाना</string>
+    <string name="enter_range">श्रेणी दर्ज करें</string>
+    <string name="hands_quantity">गति और सटीकता चुनें</string>
+    <string name="help">मदद</string>
 </resources>

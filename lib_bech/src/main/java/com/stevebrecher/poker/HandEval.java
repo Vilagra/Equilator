@@ -111,6 +111,7 @@ package com.stevebrecher.poker;
 // 2006Dec05.0
 //		original Java release, ported from C
 
+@SuppressWarnings("ALL")
 public final class HandEval {
 
 	private HandEval() {}	// no instances
@@ -139,7 +140,7 @@ public final class HandEval {
 		return result;
 	}
 
-	public static enum HandCategory { NO_PAIR, PAIR, TWO_PAIR, THREE_OF_A_KIND, STRAIGHT,
+	public enum HandCategory { NO_PAIR, PAIR, TWO_PAIR, THREE_OF_A_KIND, STRAIGHT,
 							FLUSH, FULL_HOUSE, FOUR_OF_A_KIND, STRAIGHT_FLUSH; }
 
 	private static final int   RANK_SHIFT_1		= 4;
@@ -161,7 +162,7 @@ public final class HandEval {
 	/**
 	 *  Greater than any return value of the HandEval evaluation methods.
 	 */
-	public static final int NO_8_LOW = STRAIGHT_FLUSH + (1 << VALUE_SHIFT);
+	private static final int NO_8_LOW = STRAIGHT_FLUSH + (1 << VALUE_SHIFT);
 
 	private static final int   ARRAY_SIZE		= 0x1FC0 + 1;			// all combos of up to 7 of LS 13 bits on
 	/* Arrays for which index is bit mask of card ranks in hand: */
@@ -310,7 +311,8 @@ public final class HandEval {
 		 */
 			if ((i = flushAndOrStraight7(ranks, c, d, h, s)) != 0)
 				return i;
-			return  NO_PAIR | hiUpTo5Ranks[ranks];
+            //noinspection PointlessBitwiseExpression
+            return  NO_PAIR | hiUpTo5Ranks[ranks];
 
 		} /* end switch */
 
@@ -399,16 +401,19 @@ public final class HandEval {
 			return PAIR | (hiRank[j] << RANK_SHIFT_4) | (hiUpTo5Ranks[i] << RANK_SHIFT_1);
 
 		case 5:
-			return NO_PAIR |  hiUpTo5Ranks[ranks];
+            //noinspection PointlessBitwiseExpression
+            return NO_PAIR |  hiUpTo5Ranks[ranks];
 
 		case 6:
 			i = ranks ^ (1 << hiRank[ranks]);
-			return NO_PAIR |  hiUpTo5Ranks[i];
+            //noinspection PointlessBitwiseExpression
+            return NO_PAIR |  hiUpTo5Ranks[i];
 
 		case 7:
 			i = ranks ^ (1 << hiRank[ranks]);
 			i ^= (1 << hiRank[i]);
-			return NO_PAIR |  hiUpTo5Ranks[i];
+            //noinspection PointlessBitwiseExpression
+            return NO_PAIR |  hiUpTo5Ranks[i];
 
 		} /* end switch */
 
@@ -512,7 +517,8 @@ public final class HandEval {
 			case 6:	/* flush and/or straight or no pair */
 					if ((i = flushAndOrStraight6(ranks, c, d, h, s)) != 0)
 						return i;
-	                return NO_PAIR |  hiUpTo5Ranks[ranks];
+                //noinspection PointlessBitwiseExpression
+                return NO_PAIR |  hiUpTo5Ranks[ranks];
 
 	        } /* end switch */
 
@@ -524,7 +530,7 @@ public final class HandEval {
 	 * @param hand bit mask with one bit set for each of 5 cards.
 	 * @return the value of the hand.
 	 */
-	public static int hand5Eval(long hand) {
+	private static int hand5Eval(long hand) {
 	
 		final int c = (int)hand & 0x1FFF;
 		final int d = ((int)hand >>> 16) & 0x1FFF;
@@ -681,7 +687,7 @@ public final class HandEval {
 	 * @param hand bit mask with one bit set for each of 0 to 52 cards.
 	 * @return the bitwise OR of the suit masks comprising <code>hand</code>.
 	 */
-	public static int ranksMaskLo(long hand) {
+	private static int ranksMaskLo(long hand) {
 		
 		return (	((((int)hand & 0x0FFF) << 1)  + (((int)hand & 0x1000) >> 12))
 				|	((((int)hand >> 15) & 0x1FFE) + (((int)hand & (0x1000  << 16)) >> 28))

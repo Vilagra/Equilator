@@ -11,7 +11,7 @@ public class Card implements Comparable<Card> {
 	/**
 	 * The card ranks, from two (deuce) to ace.
 	 */
-	public static enum Rank {
+	public enum Rank {
 		TWO, THREE, FOUR, FIVE, SIX, SEVEN,
 		EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE;
 		
@@ -49,7 +49,7 @@ public class Card implements Comparable<Card> {
 	/**
 	 * The card suits, from club to spade.
 	 */
-	public static enum Suit {CLUB, DIAMOND, HEART, SPADE;
+	public enum Suit {CLUB, DIAMOND, HEART, SPADE;
 		
 		/**
 		 * @return the character in {@link #SUIT_CHARS} denoting this suit.
@@ -99,6 +99,7 @@ public class Card implements Comparable<Card> {
 
 		if (rs.length() != 2)
 			throw new IllegalArgumentException('"' + rs + "\".length != 2");
+		//noinspection CaughtExceptionImmediatelyRethrown
 		try {
 			this.rank = Rank.fromChar(rs.charAt(0));
 			this.suit = Suit.fromChar(rs.charAt(1));
@@ -135,6 +136,7 @@ public class Card implements Comparable<Card> {
 	public static Card getInstance(String rs) {
 		if (rs.length() != 2)
 			throw new IllegalArgumentException('"' + rs + "\".length != 2");
+		//noinspection CaughtExceptionImmediatelyRethrown
 		try {
 			Rank rank = Rank.fromChar(rs.charAt(0));
 			Suit suit = Suit.fromChar(rs.charAt(1));

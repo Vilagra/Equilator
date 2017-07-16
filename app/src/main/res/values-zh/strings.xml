@@ -2,4 +2,16 @@
 <resources>
     <string name="app_name">MyEquilator</string>
     <string name="alert_dialog_cancel">取消</string>
+    <string name="banner_ad_unit_id">ca-app-pub-7055288022092797/1072163863</string>
+    <string name="bu">BU</string>
+    <string name="bb">BB</string>
+    <string name="co">CO</string>
+    <string name="calculate">计算</string>
+    <string name="card_selection">卡选择</string>
+    <string name="credit">谢谢</string>
+    <string name="clear_all">全部清除</string>
+    <string name="delete">删除</string>
+    <string name="enter_range">输入范围</string>
+    <string name="hands_quantity">选择速度和准确性</string>
+    <string name="help">帮帮我</string>
 </resources>
