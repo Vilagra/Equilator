@@ -15,9 +15,11 @@ import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -33,7 +35,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-public class RangeActivity extends AppCompatActivity implements View.OnClickListener,SeekBar.OnSeekBarChangeListener {
+public class RangeActivity extends AppCompatActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener {
     private AdapterForRange adapterForRange;
     private SeekBar seekBar;
     private EditText procent;
@@ -48,7 +50,7 @@ public class RangeActivity extends AppCompatActivity implements View.OnClickList
         actionBar.setDisplayShowCustomEnabled(true);
         actionBar.setDisplayShowTitleEnabled(false);
 
-        LayoutInflater inflator = (LayoutInflater) this .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflator = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         @SuppressLint("InflateParams") View v = inflator.inflate(R.layout.ads, null);
 
         mAdView = (AdView) v.findViewById(R.id.adView);
@@ -61,7 +63,7 @@ public class RangeActivity extends AppCompatActivity implements View.OnClickList
         seekBar = (SeekBar) findViewById(R.id.sbWeight);
         seekBar.setMax(1000);
         procent = (EditText) findViewById(R.id.procent);
-        TextWatcher textWatcher=new TextWatcher() {
+/*        TextWatcher textWatcher=new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
@@ -70,7 +72,7 @@ public class RangeActivity extends AppCompatActivity implements View.OnClickList
             }
 
             @Override
-            public void afterTextChanged(final Editable s) { //if text in editText was changed update buttons
+            public void afterTextChanged(final Editable s) {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -87,8 +89,26 @@ public class RangeActivity extends AppCompatActivity implements View.OnClickList
                 });
 
             }
-        };
-        procent.addTextChangedListener(textWatcher);
+        };*/
+        // procent.addTextChangedListener(textWatcher);
+        procent.setOnEditorActionListener(new EditText.OnEditorActionListener() {
+
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    String str = procent.getText().toString();
+                    if (str.matches("[-+]?\\d*\\.?\\d*")) {
+                        if (str.matches("\\d*\\.\\d\\d+")) {
+                            str = String.format("%.1f", Double.valueOf(str));
+                            str = str.replace(",", ".");
+                        }
+                        setViewByProcent(Double.valueOf(str));
+                        //return true;
+                    }
+                }
+                return false;
+            }
+        });
         seekBar.setOnSeekBarChangeListener(this);
         procent.setOnClickListener(this);
         buttonOk.setOnClickListener(this);
@@ -101,8 +121,8 @@ public class RangeActivity extends AppCompatActivity implements View.OnClickList
         if (idexesDataWasChoosen != null) {
             adapterForRange.setChosen(idexesDataWasChoosen);
             @SuppressWarnings("unchecked") int lastIndex = AllCards.areAllHandsInRankingOrder(new HashSet(idexesDataWasChoosen));
-            if(lastIndex!=-1){
-                double currenProcent=AllCards.allCombinationsInRankingOrder.get(lastIndex).getRankingOfHand();
+            if (lastIndex != -1) {
+                double currenProcent = AllCards.allCombinationsInRankingOrder.get(lastIndex).getRankingOfHand();
                 setViewByProcent(currenProcent);
             }
         }
@@ -173,15 +193,15 @@ public class RangeActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    private void setViewByProcent(Double res){
-        res=res>100?100:res;
+    private void setViewByProcent(Double res) {
+        res = res > 100 ? 100 : res;
         procent.setText(String.valueOf(res));
-        seekBar.setProgress((int) (res*10));
+        seekBar.setProgress((int) (res * 10));
     }
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        double progress2 = progress/10.0;
+        double progress2 = progress / 10.0;
         procent.setText(String.valueOf(progress2));
         setInAdapterRangeByProcent(progress2);
 
@@ -197,9 +217,9 @@ public class RangeActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
-    private void setInAdapterRangeByProcent(double progress){
-        int index= Collections.binarySearch(AllCards.allCombinationsInRankingOrder,new Combination(null,-1,null,progress));
-        index=index<0?(-(index)-2):index+1;
+    private void setInAdapterRangeByProcent(double progress) {
+        int index = Collections.binarySearch(AllCards.allCombinationsInRankingOrder, new Combination(null, -1, null, progress));
+        index = index < 0 ? (-(index) - 2) : index + 1;
         adapterForRange.setChosen(AllCards.getIndexesByRecyclerBaseOnRanking(index));
         adapterForRange.notifyDataSetChanged();
     }
