@@ -117,6 +117,8 @@ public class RangeActivity extends AppCompatActivity implements View.OnClickList
                                 str = String.format("%.1f", Double.valueOf(str));
                                 str=str.replace(",",".");
                             }
+                            if(str.equals(""))
+                                str="0";
                             setViewByProcent(Double.valueOf(str));
 
                         }

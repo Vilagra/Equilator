@@ -27,7 +27,7 @@
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:layout_margin="5dp"
-            android:src="@drawable/ic_range" />
+            android:src="@drawable/ic_photo_2017_07_08_21_49_52" />
 
         <ImageButton
             android:id="@+id/hand"
