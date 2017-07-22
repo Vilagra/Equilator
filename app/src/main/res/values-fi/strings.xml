@@ -14,4 +14,10 @@
     <string name="enter_range">Anna alue</string>
     <string name="hands_quantity">Valitse nopeus ja tarkkuus</string>
     <string name="help">auta</string>
+    <string name="not_enough">Ei riitä pelaajille laskennan on oltava vähintään 2!</string>
+    <string name="position">asento</string>
+    <string name="quit">poistuminen</string>
+    <string name="random">satunnainen</string>
+    <string name="range">valikoima</string>
+    <string name="speed_accuracy">Nopeus ja tarkkuus</string>
 </resources>

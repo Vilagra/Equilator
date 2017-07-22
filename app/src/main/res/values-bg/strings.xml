@@ -14,4 +14,10 @@
     <string name="enter_range">Въведете диапазон</string>
     <string name="hands_quantity">Изберете скорост и точност</string>
     <string name="help">Помогне</string>
+    <string name="not_enough">Не достатъчно играчи за изчисление трябва да бъде най-малко 2!</string>
+    <string name="position">позиция</string>
+    <string name="quit">изход</string>
+    <string name="random">случаен</string>
+    <string name="range">диапазон на</string>
+    <string name="speed_accuracy">Скорост и точност</string>
 </resources>

@@ -14,4 +14,10 @@
     <string name="enter_range">Gee bereik</string>
     <string name="hands_quantity">Kies spoed en akkuraatheid</string>
     <string name="help">help</string>
+    <string name="not_enough">Nie genoeg spelers vir berekening moet minstens 2 wees nie!</string>
+    <string name="position">posisie</string>
+    <string name="quit">uitgang</string>
+    <string name="random">ewekansige</string>
+    <string name="range">reeks</string>
+    <string name="speed_accuracy">Spoed en akkuraatheid</string>
 </resources>

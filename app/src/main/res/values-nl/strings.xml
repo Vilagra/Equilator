@@ -14,4 +14,10 @@
     <string name="enter_range">Enter bereik</string>
     <string name="hands_quantity">Kies snelheid en nauwkeurigheid</string>
     <string name="help">Helpen</string>
+    <string name="not_enough">Niet genoeg spelers voor berekening moeten minimaal 2 zijn!</string>
+    <string name="position">positie</string>
+    <string name="quit">Uitgang</string>
+    <string name="random">toevallig</string>
+    <string name="range">scala aan</string>
+    <string name="speed_accuracy">Snelheid en nauwkeurigheid</string>
 </resources>

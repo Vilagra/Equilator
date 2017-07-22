@@ -14,4 +14,10 @@
     <string name="enter_range">Sláðu inn svið</string>
     <string name="hands_quantity">Veldu hraða og nákvæmni</string>
     <string name="help">Hjálp</string>
+    <string name="not_enough">Ekki nóg leikmenn til útreiknings verða að vera að minnsta kosti 2!</string>
+    <string name="position">staða</string>
+    <string name="quit">Hætta</string>
+    <string name="random">handahófi</string>
+    <string name="range">Umfang</string>
+    <string name="speed_accuracy">Hraði og nákvæmni</string>
 </resources>

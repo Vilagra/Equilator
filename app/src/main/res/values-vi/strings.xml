@@ -14,4 +14,10 @@
     <string name="enter_range">Nhập dải</string>
     <string name="hands_quantity">Chọn tốc độ và độ chính xác</string>
     <string name="help">Cứu giúp</string>
+    <string name="not_enough">Không đủ người chơi để tính toán phải có ít nhất 2!</string>
+    <string name="position">vị trí</string>
+    <string name="quit">lối ra</string>
+    <string name="random">Ngẫu nhiên</string>
+    <string name="range">phạm vi của</string>
+    <string name="speed_accuracy">Tốc độ và độ chính xác</string>
 </resources>

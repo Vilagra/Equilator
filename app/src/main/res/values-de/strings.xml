@@ -14,4 +14,10 @@
     <string name="enter_range">Bereich eingeben</string>
     <string name="hands_quantity">Wählen Sie Geschwindigkeit und Genauigkeit</string>
     <string name="help">Hilfe</string>
+    <string name="not_enough">Nicht genug Spieler für die Berechnung müssen mindestens 2 sein!</string>
+    <string name="position">Position</string>
+    <string name="quit">Ausfahrt</string>
+    <string name="random">zufällig</string>
+    <string name="range">Bereich von</string>
+    <string name="speed_accuracy">Geschwindigkeit und Genauigkeit</string>
 </resources>

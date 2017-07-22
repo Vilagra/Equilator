@@ -14,4 +14,10 @@
     <string name="enter_range">Įveskite diapazoną</string>
     <string name="hands_quantity">Pasirinkite greitį ir tikslumą</string>
     <string name="help">Pagalba</string>
+    <string name="not_enough">Apytiksliai skaičiui žaidėjų turi būti ne mažiau kaip 2!</string>
+    <string name="position">pozicija</string>
+    <string name="quit">išeiti</string>
+    <string name="random">Atsitiktinis</string>
+    <string name="range">asortimentas</string>
+    <string name="speed_accuracy">Greitis ir tikslumas</string>
 </resources>

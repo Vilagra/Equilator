@@ -14,4 +14,10 @@
     <string name="enter_range">Ange intervall</string>
     <string name="hands_quantity">Välj hastighet och noggrannhet</string>
     <string name="help">Hjälpa</string>
+    <string name="not_enough">Inte tillräckligt med spelare för beräkning måste vara minst 2!</string>
+    <string name="position">ställning</string>
+    <string name="quit">Utgång</string>
+    <string name="random">slumpmässig</string>
+    <string name="range">intervall av</string>
+    <string name="speed_accuracy">Hastighet och noggrannhet</string>
 </resources>

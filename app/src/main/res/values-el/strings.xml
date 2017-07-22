@@ -14,4 +14,10 @@
     <string name="enter_range">Εισαγωγή εύρους</string>
     <string name="hands_quantity">Επιλέξτε ταχύτητα και ακρίβεια</string>
     <string name="help">Βοήθεια</string>
+    <string name="not_enough">Δεν υπάρχουν αρκετοί παίκτες για τον υπολογισμό πρέπει να είναι τουλάχιστον 2!</string>
+    <string name="position">θέση</string>
+    <string name="quit">έξοδος</string>
+    <string name="random">τυχαίος</string>
+    <string name="range">φάσμα</string>
+    <string name="speed_accuracy">Ταχύτητα και ακρίβεια</string>
 </resources>

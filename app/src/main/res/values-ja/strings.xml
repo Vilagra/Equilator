@@ -14,4 +14,10 @@
     <string name="enter_range">範囲を入力</string>
     <string name="hands_quantity">速度と精度を選択する</string>
     <string name="help">助けて</string>
+    <string name="not_enough">計算に必要なプレイヤーは少なくても2人以上でなければなりません！</string>
+    <string name="position">位置</string>
+    <string name="quit">出口</string>
+    <string name="random">ランダム</string>
+    <string name="range">の範囲</string>
+    <string name="speed_accuracy">速度と精度</string>
 </resources>

@@ -14,4 +14,10 @@
     <string name="enter_range">Sisestage vahemik</string>
     <string name="hands_quantity">Valige kiirus ja täpsus</string>
     <string name="help">Abi</string>
+    <string name="not_enough">Arvutamiseks ei tohiks piisavalt mängijaid olla vähemalt 2!</string>
+    <string name="position">seisukoht</string>
+    <string name="quit">Väljapääs</string>
+    <string name="random">Juhuslikult</string>
+    <string name="range">vahemikus</string>
+    <string name="speed_accuracy">Kiirus ja täpsus</string>
 </resources>

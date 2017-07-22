@@ -14,4 +14,10 @@
     <string name="enter_range">Ievadiet diapazonu</string>
     <string name="hands_quantity">Izvēlies ātrumu un precizitāti</string>
     <string name="help">Palīdzība</string>
+    <string name="not_enough">Nepietiek spēlētājiem aprēķināšanai jābūt vismaz 2!</string>
+    <string name="position">pozīcija</string>
+    <string name="quit">izeja</string>
+    <string name="random">Izlases veidā</string>
+    <string name="range">diapazons</string>
+    <string name="speed_accuracy">Ātrums un precizitāte</string>
 </resources>

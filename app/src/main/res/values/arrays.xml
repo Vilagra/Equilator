@@ -46,7 +46,7 @@
     <string name="mp3" translatable="false">MP3</string>
     <string name="co">CO</string>
     <string name="bu">BU</string>
-    <string name="sb">SB</string>
+    <string name="sb" translatable="false">SB</string>
     <string name="bb">BB</string>
     <string name="fastest">Fastest(20000 hands, speed 0.5 seconds,acurracy +-1.0%)</string>
     <string name="faster">Faster(50000 hands, speed 1 seconds,acurracy +-0.5%)</string>
@@ -55,5 +55,5 @@
     <string name="slow">Slow(500000 hands, speed 6 seconds,acurracy +-0.15%)</string>
     <string name="slower">Slower(1000000 hands, speed 15 seconds,acurracy +-0.07%)</string>
     <string name="slowest">Slowest(3000000 hands, speed 50 seconds,acurracy +-0.03%)</string>
-    <string name="vFaster">16000</string>
+    <string name="vFaster" translatable="false">16000</string>
 </resources>

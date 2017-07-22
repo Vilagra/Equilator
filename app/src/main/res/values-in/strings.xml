@@ -14,4 +14,10 @@
     <string name="enter_range">Masukkan rentang</string>
     <string name="hands_quantity">Pilih kecepatan dan ketepatan</string>
     <string name="help">Membantu</string>
+    <string name="not_enough">Tidak cukup pemain untuk perhitungan minimal harus 2!</string>
+    <string name="position">posisi</string>
+    <string name="quit">keluar</string>
+    <string name="random">acak</string>
+    <string name="range">berbagai</string>
+    <string name="speed_accuracy">Kecepatan dan Akurasi</string>
 </resources>

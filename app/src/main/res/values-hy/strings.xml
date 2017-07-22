@@ -14,4 +14,10 @@
     <string name="enter_range">Մուտքագրեք շրջանակը</string>
     <string name="hands_quantity">Ընտրեք արագություն եւ ճշգրտություն</string>
     <string name="help">Օգնություն</string>
+    <string name="not_enough">Հաշվարկների համար բավարար խաղացողներ պետք է լինեն առնվազն 2:</string>
+    <string name="position">դիրք</string>
+    <string name="quit">Ելք</string>
+    <string name="random">Պատահական</string>
+    <string name="range">շրջանակ</string>
+    <string name="speed_accuracy">Արագություն եւ ճշգրտություն</string>
 </resources>
