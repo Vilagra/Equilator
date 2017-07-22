@@ -14,4 +14,10 @@
     <string name="enter_range">Введіть діапазон</string>
     <string name="hands_quantity">Виберіть швидкість і точність</string>
     <string name="help">Допомога</string>
+    <string name="not_enough">Недостатньо гравців для розрахунку має бути щонайменше 2!</string>
+    <string name="position">позиція</string>
+    <string name="quit">Вихід</string>
+    <string name="random">Випадковий</string>
+    <string name="range">діапазон</string>
+    <string name="speed_accuracy">Швидкість і точність</string>
 </resources>

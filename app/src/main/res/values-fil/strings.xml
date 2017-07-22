@@ -13,4 +13,10 @@
     <string name="enter_range">Ipasok ang saklaw</string>
     <string name="hands_quantity">Pumili ng bilis at katumpakan</string>
     <string name="help">Tulong</string>
+    <string name="not_enough">Hindi sapat ang mga manlalaro para sa pagkalkula ay dapat na hindi bababa sa 2!</string>
+    <string name="position">posisyon</string>
+    <string name="quit">lumabas</string>
+    <string name="random">Random</string>
+    <string name="range">hanay ng mga</string>
+    <string name="speed_accuracy">Bilis at Katumpakan</string>
 </resources>

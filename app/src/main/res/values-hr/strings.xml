@@ -14,4 +14,10 @@
     <string name="enter_range">Unesite raspon</string>
     <string name="hands_quantity">Odaberite brzinu i točnost</string>
     <string name="help">Pomoć</string>
+    <string name="not_enough">Nema dovoljno igrača za izračun mora biti najmanje 2!</string>
+    <string name="position">pozicija</string>
+    <string name="quit">Izlaz</string>
+    <string name="random">slučajan</string>
+    <string name="range">raspon</string>
+    <string name="speed_accuracy">Brzina i točnost</string>
 </resources>

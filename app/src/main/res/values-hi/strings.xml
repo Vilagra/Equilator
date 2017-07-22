@@ -14,4 +14,10 @@
     <string name="enter_range">श्रेणी दर्ज करें</string>
     <string name="hands_quantity">गति और सटीकता चुनें</string>
     <string name="help">मदद</string>
+    <string name="not_enough">गणना के लिए पर्याप्त खिलाड़ी कम से कम 2 होना चाहिए!</string>
+    <string name="position">स्थिति</string>
+    <string name="quit">निकास</string>
+    <string name="random">बिना सोचे समझे</string>
+    <string name="range">की सीमा</string>
+    <string name="speed_accuracy">गति और सटीकता</string>
 </resources>

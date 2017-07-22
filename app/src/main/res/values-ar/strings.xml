@@ -14,4 +14,10 @@
     <string name="enter_range">أدخل النطاق</string>
     <string name="hands_quantity">اختيار السرعة والدقة</string>
     <string name="help">مساعدة</string>
+    <string name="not_enough">لا يكفي لاعبين لحساب يجب أن يكون لا يقل عن 2!</string>
+    <string name="position">موقف</string>
+    <string name="quit">خروج</string>
+    <string name="random">عشوائي</string>
+    <string name="range">مجموعة من</string>
+    <string name="speed_accuracy">السرعة والدقة</string>
 </resources>

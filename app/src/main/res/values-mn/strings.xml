@@ -14,4 +14,10 @@
     <string name="enter_range">Хүрээ оруулна уу</string>
     <string name="hands_quantity">Хурд ба нарийвчлалыг сонгох</string>
     <string name="help">Туслаач</string>
+    <string name="not_enough">Тооцох тоглогч хангалттай биш байх ёстой 2-оос доошгүй байх ёстой!</string>
+    <string name="position">албан тушаал</string>
+    <string name="quit">гарах</string>
+    <string name="random">Санамсаргүй</string>
+    <string name="range">хүрээ</string>
+    <string name="speed_accuracy">Хурд ба нарийвчлал</string>
 </resources>

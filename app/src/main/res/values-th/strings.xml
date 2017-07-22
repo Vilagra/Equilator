@@ -14,4 +14,10 @@
     <string name="enter_range">ป้อนช่วง</string>
     <string name="hands_quantity">เลือกความเร็วและความแม่นยำ</string>
     <string name="help">ช่วยด้วย</string>
+    <string name="not_enough">ผู้เล่นไม่เพียงพอสำหรับการคำนวณต้องมีอย่างน้อย 2!</string>
+    <string name="position">ตำแหน่ง</string>
+    <string name="quit">ทางออก</string>
+    <string name="random">สุ่ม</string>
+    <string name="range">ช่วงของ</string>
+    <string name="speed_accuracy">ความเร็วและความแม่นยำ</string>
 </resources>

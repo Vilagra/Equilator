@@ -4,10 +4,10 @@
     <string name="for10" translatable="false">10-max</string>
     <string name="alert_dialog_cancel">cancel</string>
     <string name="card_selection">Cards selecion</string>
-    <string name="ок">ok</string>
+    <string name="ок" translatable="false">ok</string>
     <string name="flop" translatable="false">Flop</string>
-    <string name="turn">Turn</string>
-    <string name="river">River</string>
+    <string name="turn" translatable="false">Turn</string>
+    <string name="river" translatable="false">River</string>
     <string name="calculate">Calculate</string>
     <string name="not_enough">Not enough players for calculation must be at least 2!</string>
     <string name="banner_ad_unit_id">ca-app-pub-7055288022092797/1072163863</string>
@@ -27,7 +27,6 @@
     <string name="credit_text">   <div>Icons made by <a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank" title="Creative Commons BY 3.0">CC 3.0 BY</a></div></string>
     <string name="quit">Exit</string>
     <string name="turn_off">Donate(disable ads)</string>
-    <string name="range2">Range</string>
     <string name="enter_range">Enter range</string>
     <string name="clear_all">Clear all</string>
 </resources>

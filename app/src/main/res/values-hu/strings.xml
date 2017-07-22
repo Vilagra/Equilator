@@ -14,4 +14,10 @@
     <string name="enter_range">Adja meg a tartományt</string>
     <string name="hands_quantity">Válasszon sebességet és pontosságot</string>
     <string name="help">Segítség</string>
+    <string name="not_enough">Nem elég játékos számításhoz legalább 2!</string>
+    <string name="position">pozíció</string>
+    <string name="quit">kijárat</string>
+    <string name="random">véletlen</string>
+    <string name="range">tartományban</string>
+    <string name="speed_accuracy">Sebesség és pontosság</string>
 </resources>

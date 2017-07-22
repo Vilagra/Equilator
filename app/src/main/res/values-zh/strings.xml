@@ -14,4 +14,10 @@
     <string name="enter_range">输入范围</string>
     <string name="hands_quantity">选择速度和准确性</string>
     <string name="help">帮帮我</string>
+    <string name="not_enough">沒有足夠的玩家計算必須至少2！</string>
+    <string name="position">位置</string>
+    <string name="quit">Exit</string>
+    <string name="random">随机</string>
+    <string name="range">的范围</string>
+    <string name="speed_accuracy">速度和准确度</string>
 </resources>

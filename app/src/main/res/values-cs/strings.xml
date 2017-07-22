@@ -14,4 +14,10 @@
     <string name="enter_range">Zadejte rozsah</string>
     <string name="hands_quantity">Zvolte rychlost a přesnost</string>
     <string name="help">Pomoc</string>
+    <string name="not_enough">Nedostatek hráčů pro výpočet musí být alespoň 2!</string>
+    <string name="position">pozice</string>
+    <string name="quit">výjezd</string>
+    <string name="random">náhodný</string>
+    <string name="range">řada</string>
+    <string name="speed_accuracy">Rychlost a přesnost</string>
 </resources>

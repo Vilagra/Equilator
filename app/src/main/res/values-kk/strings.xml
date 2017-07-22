@@ -14,4 +14,10 @@
     <string name="enter_range">Ауқымды енгізіңіз</string>
     <string name="hands_quantity">Жылдамдық пен дәлдікті таңдаңыз</string>
     <string name="help">Көмектесіңдер</string>
+    <string name="not_enough">Есептеу үшін жеткіліксіз ойыншылар кем дегенде 2 болуы керек!</string>
+    <string name="position">позиция</string>
+    <string name="quit">кету</string>
+    <string name="random">Кездейсоқ</string>
+    <string name="range">ауқымы</string>
+    <string name="speed_accuracy">Жылдамдық және дәлдік</string>
 </resources>

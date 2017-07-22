@@ -14,4 +14,10 @@
     <string name="enter_range">Menzil gir</string>
     <string name="hands_quantity">Hız ve doğruluğu seçin</string>
     <string name="help">yardım et</string>
+    <string name="not_enough">Hesaplama için yeterli oyuncu yeterli olmamalıdır!</string>
+    <string name="position">pozisyon</string>
+    <string name="quit">çıkış</string>
+    <string name="random">rasgele</string>
+    <string name="range">aralığı</string>
+    <string name="speed_accuracy">Hız ve Doğruluk</string>
 </resources>

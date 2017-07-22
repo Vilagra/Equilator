@@ -14,4 +14,10 @@
     <string name="enter_range">Wprowadź zakres</string>
     <string name="hands_quantity">Wybierz prędkość i dokładność</string>
     <string name="help">Wsparcie</string>
+    <string name="not_enough">Nie ma wystarczającej liczby graczy do wyliczenia co najmniej 2!</string>
+    <string name="position">pozycja</string>
+    <string name="quit">Wyjście</string>
+    <string name="random">losowy</string>
+    <string name="range">Zakres</string>
+    <string name="speed_accuracy">Szybkość i dokładność</string>
 </resources>

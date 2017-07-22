@@ -14,4 +14,10 @@
     <string name="enter_range">Indtast rækkevidde</string>
     <string name="hands_quantity">Vælg hastighed og nøjagtighed</string>
     <string name="help">Hjælp</string>
+    <string name="not_enough">Ikke nok spillere til beregning skal være mindst 2!</string>
+    <string name="position">position</string>
+    <string name="quit">Udgang</string>
+    <string name="random">tilfældig</string>
+    <string name="range">række</string>
+    <string name="speed_accuracy">Hastighed og nøjagtighed</string>
 </resources>

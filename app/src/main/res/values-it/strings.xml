@@ -14,4 +14,10 @@
     <string name="enter_range">Inserisci intervallo</string>
     <string name="hands_quantity">Scegli la velocità e l\'accuratezza</string>
     <string name="help">Aiuto</string>
+    <string name="not_enough">Non abbastanza giocatori per il calcolo devono essere almeno 2!</string>
+    <string name="position">posizione</string>
+    <string name="quit">uscita</string>
+    <string name="random">casuale</string>
+    <string name="range">gamma di</string>
+    <string name="speed_accuracy">Velocità e precisione</string>
 </resources>

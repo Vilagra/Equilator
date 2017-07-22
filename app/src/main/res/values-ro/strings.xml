@@ -14,4 +14,10 @@
     <string name="enter_range">Introduceți intervalul</string>
     <string name="hands_quantity">Alegeți viteza și precizia</string>
     <string name="help">Ajutor</string>
+    <string name="not_enough">Nu sunt suficienți jucători pentru calcul trebuie să fie cel puțin 2!</string>
+    <string name="position">poziție</string>
+    <string name="quit">ieşire</string>
+    <string name="random">întâmplător</string>
+    <string name="range">gama de</string>
+    <string name="speed_accuracy">Viteză și precizie</string>
 </resources>

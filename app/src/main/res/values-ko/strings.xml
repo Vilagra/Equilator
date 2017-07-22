@@ -14,4 +14,10 @@
     <string name="enter_range">범위 입력</string>
     <string name="hands_quantity">속도와 정확성 선택</string>
     <string name="help">도움</string>
+    <string name="not_enough">계산에 필요한 플레이어가 2 명 이상이어야합니다!</string>
+    <string name="position">위치</string>
+    <string name="quit">출구</string>
+    <string name="random">무작위의</string>
+    <string name="range">의 범위</string>
+    <string name="speed_accuracy">속도와 정확도</string>
 </resources>
