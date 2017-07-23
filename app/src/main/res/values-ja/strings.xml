@@ -20,4 +20,5 @@
     <string name="random">ランダム</string>
     <string name="range">の範囲</string>
     <string name="speed_accuracy">速度と精度</string>
+    <string name="turn_off">Donate(広告を無効にする)</string>
 </resources>

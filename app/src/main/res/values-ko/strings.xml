@@ -20,4 +20,5 @@
     <string name="random">무작위의</string>
     <string name="range">의 범위</string>
     <string name="speed_accuracy">속도와 정확도</string>
+    <string name="turn_off">Donate(광고 사용 중지)</string>
 </resources>

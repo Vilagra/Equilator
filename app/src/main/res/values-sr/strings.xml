@@ -20,4 +20,5 @@
     <string name="random">Случајно</string>
     <string name="range">опсег</string>
     <string name="speed_accuracy">Брзина и тачност</string>
+    <string name="turn_off">Donate(Онемогућити огласе)</string>
 </resources>

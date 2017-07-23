@@ -20,4 +20,5 @@
     <string name="random">aleatória</string>
     <string name="range">gama de</string>
     <string name="speed_accuracy">Velocidade e precisão</string>
+    <string name="turn_off">Donate(Desativar anúncios)</string>
 </resources>

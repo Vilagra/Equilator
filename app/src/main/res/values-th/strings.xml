@@ -20,4 +20,5 @@
     <string name="random">สุ่ม</string>
     <string name="range">ช่วงของ</string>
     <string name="speed_accuracy">ความเร็วและความแม่นยำ</string>
+    <string name="turn_off">Donate(ปิดการใช้งานโฆษณา)</string>
 </resources>

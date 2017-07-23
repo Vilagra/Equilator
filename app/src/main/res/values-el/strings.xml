@@ -20,4 +20,5 @@
     <string name="random">τυχαίος</string>
     <string name="range">φάσμα</string>
     <string name="speed_accuracy">Ταχύτητα και ακρίβεια</string>
+    <string name="turn_off">Donate(Απενεργοποίηση διαφημίσεων)</string>
 </resources>

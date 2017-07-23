@@ -20,4 +20,5 @@
     <string name="random">rasgele</string>
     <string name="range">aralığı</string>
     <string name="speed_accuracy">Hız ve Doğruluk</string>
+    <string name="turn_off">Donate(Reklamları devre dışı bırak)</string>
 </resources>

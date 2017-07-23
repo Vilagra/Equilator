@@ -20,4 +20,5 @@
     <string name="random">Atsitiktinis</string>
     <string name="range">asortimentas</string>
     <string name="speed_accuracy">Greitis ir tikslumas</string>
+    <string name="turn_off">Donate(Išjungti skelbimus)</string>
 </resources>

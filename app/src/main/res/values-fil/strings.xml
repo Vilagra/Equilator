@@ -19,4 +19,6 @@
     <string name="random">Random</string>
     <string name="range">hanay ng mga</string>
     <string name="speed_accuracy">Bilis at Katumpakan</string>
+    <string name="turn_off">Donate(Huwag paganahin ang mga ad)</string>
+    <string name="app_name">MyEquilator</string>
 </resources>

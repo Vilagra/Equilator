@@ -20,4 +20,5 @@
     <string name="random">losowy</string>
     <string name="range">Zakres</string>
     <string name="speed_accuracy">Szybkość i dokładność</string>
+    <string name="turn_off">Donate(Wyłącz reklamy)</string>
 </resources>

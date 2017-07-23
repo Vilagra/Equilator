@@ -20,4 +20,5 @@
     <string name="random">tilfeldig</string>
     <string name="range">spekter av</string>
     <string name="speed_accuracy">Hastighet og nøyaktighet</string>
+    <string name="turn_off">Donate(Deaktiver annonser)</string>
 </resources>

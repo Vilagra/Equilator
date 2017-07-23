@@ -20,4 +20,5 @@
     <string name="random">Санамсаргүй</string>
     <string name="range">хүрээ</string>
     <string name="speed_accuracy">Хурд ба нарийвчлал</string>
+    <string name="turn_off">Donate(Заруудыг идэвхгүй болгох)</string>
 </resources>

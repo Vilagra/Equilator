@@ -20,4 +20,5 @@
     <string name="random">随机</string>
     <string name="range">的范围</string>
     <string name="speed_accuracy">速度和准确度</string>
+    <string name="turn_off">Donate(停用广告)</string>
 </resources>

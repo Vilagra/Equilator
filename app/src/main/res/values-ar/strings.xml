@@ -20,4 +20,5 @@
     <string name="random">عشوائي</string>
     <string name="range">مجموعة من</string>
     <string name="speed_accuracy">السرعة والدقة</string>
+    <string name="turn_off">Donate(تعطيل الإعلانات)</string>
 </resources>

@@ -20,4 +20,5 @@
     <string name="random">zufällig</string>
     <string name="range">Bereich von</string>
     <string name="speed_accuracy">Geschwindigkeit und Genauigkeit</string>
+    <string name="turn_off">Donate(Anzeigen deaktivieren)</string>
 </resources>

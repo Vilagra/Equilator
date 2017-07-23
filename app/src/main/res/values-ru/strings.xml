@@ -2,13 +2,6 @@
 <resources>
     <string name="description">Описание</string>
     <string name="text_of_description">     Это приложение для расчета вероятности выгрыша в покере, рука против руки, против спектра, спектр против спектра.</string>
-    <string name="credit_text">     <div>Иконки созданы <a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">
-        Madebyoliver</a> из <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> лицензируется
-        <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank" title="Creative Commons BY 3.0">CC 3.0 BY</a> \n
-        Для вычеслений за основу взят алгоритм <a href="http://www.brecware.com/Software/software.html"
-            title="Flaticon">Steve Brecher</a></div></string><![CDATA[
-    >
-    ]]>
     <string name="alert_dialog_cancel">отмена</string>
     <string name="banner_ad_unit_id">ca-app-pub-7055288022092797/1072163863</string>
     <string name="bb">BB</string>
@@ -28,4 +21,6 @@
     <string name="random">случайный</string>
     <string name="range">диапазон</string>
     <string name="speed_accuracy">Скорость и точность</string>
+    <string name="turn_off">Donate(Отключить рекламу)</string>
+    <string name="app_name">MyEquilator</string>
 </resources>
