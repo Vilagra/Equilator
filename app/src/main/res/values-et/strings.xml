@@ -21,4 +21,14 @@
     <string name="range">vahemikus</string>
     <string name="speed_accuracy">Kiirus ja täpsus</string>
     <string name="turn_off">Donate(Keelata reklaamid)</string>
+    <string name="fast">Kiire (100,000 käed, kiirus 1,5 sekundi täpsusega ± 0,4%)</string>
+    <string name="faster">Kiirem (50,000 käed, kiirus 1 sekundi täpsusega ± 0,5%)</string>
+    <string name="fastest">Kiireim (20,000 käed, kiirus 0,5 sekundit, täpsust + -1,0%)</string>
+    <string name="normal">Tavaline (200000 väljamaksed, Speed 3 sekundi täpsusega ± 0,2%)</string>
+    <string name="slow">Aeglane (500,000 käed, kiirus 6 sekundit, täpsus + -0,15%)</string>
+    <string name="slower">Aeglasem (1000000 käed, kiirus 15 sekundi täpsusega + -0,07%)</string>
+    <string name="slowest">Aeglaseim (3 000 000 käed, kiirus 50 sekundi täpsusega + -0,03%)</string>
+    <string name="description">Kirjeldus</string>
+    <string name="text_of_description">See rakendus on arvutada tõenäosust võita võidukombinatsioon vastu küljest vastu illustreeriv, vahemikus vastu vahemikus.</string>
+    <string name="dectionary">sõnastik</string>
 </resources>

@@ -21,4 +21,14 @@
     <string name="range">tartományban</string>
     <string name="speed_accuracy">Sebesség és pontosság</string>
     <string name="turn_off">Donate(Tilts le hirdetéseket)</string>
+    <string name="fast">Gyors (100.000 kéz, a sebesség 1,5 másodperc pontossággal + -0,4%)</string>
+    <string name="faster">Gyorsabb (50.000 kezét, a sebesség 1 másodperc, a pontossága ± 0,5%)</string>
+    <string name="fastest">Leggyorsabb (20.000 kezét, a sebesség 0,5 másodperc, pontossága + -1.0%)</string>
+    <string name="normal">Közepes (200.000 eloszlások, sebesség 3 másodperc, a pontossága ± 0,2%)</string>
+    <string name="slow">Lassú (500.000 kezek, sebesség 6 másodperc pontossággal + -0,15%)</string>
+    <string name="slower">Lassabb (1.000.000 kéz, a sebesség 15 másodperc, a pontossága + -0.07%)</string>
+    <string name="slowest">A leglassabb (3 000 000 kezek, a sebesség 50 másodperc, a pontossága + -0,03%)</string>
+    <string name="description">Leírás</string>
+    <string name="text_of_description">Ez az alkalmazás számítani a valószínűsége nyerő kéz ellen viszont ellen tartományban, a tartomány ellen tartományban.</string>
+    <string name="dectionary">szójegyzék</string>
 </resources>

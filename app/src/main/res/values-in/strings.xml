@@ -21,4 +21,14 @@
     <string name="range">berbagai</string>
     <string name="speed_accuracy">Kecepatan dan Akurasi</string>
     <string name="turn_off">Donate(Nonaktifkan iklan)</string>
+    <string name="fast">Cepat (100.000 tangan, kecepatan 1,5 detik, akurasi + -0,4%)</string>
+    <string name="faster">Lebih cepat (50.000 tangan, kecepatan 1 detik, akurasi + -0,5%)</string>
+    <string name="fastest">Tercepat (20.000 tangan, kecepatan 0,5 detik, akurasi + -1.0%)</string>
+    <string name="normal">Menengah (200.000 distribusi, Kecepatan 3 detik, akurasi + -0,2%)</string>
+    <string name="slow">Lambat (500.000 tangan, kecepatan 6 detik, akurasi + -0,15%)</string>
+    <string name="slower">Lebih lambat (1.000.000 tangan, kecepatan 15 detik, akurasi + -0,07%)</string>
+    <string name="slowest">Paling lambat (3 000 000 tangan, kecepatan 50 detik, akurasi + -0,03%)</string>
+    <string name="description">Deskripsi</string>
+    <string name="text_of_description">Aplikasi ini adalah untuk menghitung probabilitas menang poker tangan melawan tangan, terhadap jangkauan, rentang terhadap jangkauan.</string>
+    <string name="dectionary">glosarium</string>
 </resources>

@@ -21,4 +21,14 @@
     <string name="range">gama de</string>
     <string name="speed_accuracy">Viteză și precizie</string>
     <string name="turn_off">Donate(Dezactivați anunțurile)</string>
+    <string name="fast">Rapid (100.000 de mâini, viteza de 1,5 secunde, precizia de + -0.4%)</string>
+    <string name="faster">Mai rapid (50.000 de mâini, viteza de 1 secundă, precizia de + -0,5%)</string>
+    <string name="fastest">Cea mai rapidă (20.000 mâini, viteza de 0,5 secundă, precizie + -1.0%)</string>
+    <string name="normal">Medium (200.000 distribuții, viteza de 3 secunde, precizia de + -0.2%)</string>
+    <string name="slow">Lent (500.000 de mâini, viteza de 6 secunde, precizie + -0.15%)</string>
+    <string name="slower">Mai lent (1.000.000 de mâini, viteza de 15 secunde, precizia de + -0.07%)</string>
+    <string name="slowest">Cea mai lentă (3 000 000 de mâini, viteza de 50 de secunde, precizia de + -0.03%)</string>
+    <string name="description">Descriere</string>
+    <string name="text_of_description">Această aplicație este de a calcula probabilitatea de a câștiga mână de poker cu mâna, împotriva gama, gama împotriva gamei.</string>
+    <string name="dectionary">glosar</string>
 </resources>

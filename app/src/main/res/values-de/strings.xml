@@ -21,4 +21,14 @@
     <string name="range">Bereich von</string>
     <string name="speed_accuracy">Geschwindigkeit und Genauigkeit</string>
     <string name="turn_off">Donate(Anzeigen deaktivieren)</string>
+    <string name="fast">Quick (100.000 Hände, die Geschwindigkeit von 1,5 Sekunden, die Genauigkeit von + -0,4%)</string>
+    <string name="faster">Faster (50.000 Hände, die Geschwindigkeit von 1 Sekunde, die Genauigkeit von + -0,5%)</string>
+    <string name="fastest">Schnellsten (20.000 Hände, die Geschwindigkeit von 0,5 Sekunden, die die Präzision + -1,0%)</string>
+    <string name="normal">Normal (200.000 Verteilungen, Geschwindigkeit 3 Sekunden, die Genauigkeit von + -0,2%)</string>
+    <string name="slow">Langsam (500.000 Hände, Geschwindigkeit 6 Sekunden Genauigkeit + -0,15%)</string>
+    <string name="slower">Langsamer (1.000.000 Hände, die Geschwindigkeit von 15 Sekunden, die Genauigkeit von + -0.07%)</string>
+    <string name="slowest">Langsamsten (3 000 000 Hände, die Geschwindigkeit von 50 Sekunden wird die Genauigkeit von + -0.03%)</string>
+    <string name="description">Beschreibung</string>
+    <string name="text_of_description">Diese Anwendung ist die Wahrscheinlichkeit des Gewinnens Poker Hand gegen Hand, gegen den Bereich zu berechnen, wobei der Bereich gegen Bereich.</string>
+    <string name="dectionary">Glossar</string>
 </resources>

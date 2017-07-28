@@ -21,4 +21,14 @@
     <string name="range">gama de</string>
     <string name="speed_accuracy">Velocidade e precisão</string>
     <string name="turn_off">Donate(Desativar anúncios)</string>
+    <string name="fast">Rápido (100.000 mãos, a velocidade de 1,5 segundos, a precisão de + -0,4%)</string>
+    <string name="faster">Mais rápido (50.000 mãos, a velocidade de um segundo, a exactidão de + -0,5%)</string>
+    <string name="fastest">Mais rápidas (20.000 mãos, a velocidade de 0,5 segundo, a precisão + -1,0%)</string>
+    <string name="normal">Médio (200.000 distribuições, Velocidade de 3 segundos, a precisão de + -0,2%)</string>
+    <string name="slow">Lenta (500.000 mãos, velocidade 6 segundos, precisão + -0,15%)</string>
+    <string name="slower">Mais lento (1.000.000 mãos, a velocidade de 15 segundos, a precisão de + -0,07%)</string>
+    <string name="slowest">Mais lento (3 000 000 mãos, a velocidade dos 50 segundos, a precisão de + -0.03%)</string>
+    <string name="description">Descrição</string>
+    <string name="text_of_description">Esta aplicação é a de calcular a probabilidade de ganhar mão de póquer contra mão, contra o intervalo, o intervalo contra gama.</string>
+    <string name="dectionary">glossário</string>
 </resources>

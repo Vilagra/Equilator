@@ -21,4 +21,14 @@
     <string name="range">хүрээ</string>
     <string name="speed_accuracy">Хурд ба нарийвчлал</string>
     <string name="turn_off">Donate(Заруудыг идэвхгүй болгох)</string>
+    <string name="fast">Түргэн (100,000 гар, 1.5 секундын хурд, + -0.4% нарийвчлал)</string>
+    <string name="faster">Хурдан (50,000 гар, 1 секундэд хурд, + -0.5% нарийвчлал)</string>
+    <string name="fastest">Хамгийн хурдан (20,000 гар, 0.5 секундэд хурд, нарийвчлал + -1.0%),</string>
+    <string name="normal">Дунд зэрэг (200,000 тархалт, хурд 3 секунд + -0.2% нарийвчлал)</string>
+    <string name="slow">Удаан (500,000 гар, хурд нь 6 секунд, нарийвчлал + -0.15%)</string>
+    <string name="slower">Удаан (1,000,000 гар, 15 секундын хурд, + -0.07% нарийвчлал)</string>
+    <string name="slowest">Хамгийн удаан (3 000 000 гар, 50 секундын хурд, + -0.03% нарийвчлал)</string>
+    <string name="description">Тодорхойлолт</string>
+    <string name="text_of_description">Энэ програм нь төрөл бүрийн, хүрээний эсрэг хүрээний эсрэг талаас эсрэг покер гараа ялалт магадлалыг тооцох явдал юм.</string>
+    <string name="dectionary">Нэр томъёоны тайлбар</string>
 </resources>

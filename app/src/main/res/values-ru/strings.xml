@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="description">Описание</string>
-    <string name="text_of_description">     Это приложение для расчета вероятности выгрыша в покере, рука против руки, против спектра, спектр против спектра.</string>
+    <string name="text_of_description">Это приложение для расчета вероятности победы в покере, рука против руки, против диапазона, диапазон против диапазона.</string>
     <string name="alert_dialog_cancel">отмена</string>
     <string name="banner_ad_unit_id">ca-app-pub-7055288022092797/1072163863</string>
     <string name="bb">BB</string>
@@ -23,4 +23,12 @@
     <string name="speed_accuracy">Скорость и точность</string>
     <string name="turn_off">Donate(Отключить рекламу)</string>
     <string name="app_name">MyEquilator</string>
+    <string name="fast">Быстрый (100 000 раздач, скорость 1,5 секунды, точность + -0,4%)</string>
+    <string name="faster">Более быстрый (50 000 раздач, скорость 1 секунды, точность +-0,5%)</string>
+    <string name="fastest">Самый быстрый (20 000 раздач, скорость 0,5 секунды, точность +-1,0%)</string>
+    <string name="normal">Средний (200 000 раздач, скорость 3 секунды, точность +-0,2%)</string>
+    <string name="slow">Медленный (500 000 раздач, скорость 6 секунд, точность +-0,15%)</string>
+    <string name="slower">Более медленный (1 000 000 раздач, скорость 15 секунд, точность +-0,07%)</string>
+    <string name="slowest">Самый медленный (раздач 3 000 000, СКОРОСТЬ 50 секунд, точность + -0,03%)</string>
+    <string name="dectionary">Словарь терминов</string>
 </resources>

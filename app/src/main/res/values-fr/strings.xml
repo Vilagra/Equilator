@@ -21,4 +21,14 @@
     <string name="range">gamme de</string>
     <string name="speed_accuracy">Vitesse et précision</string>
     <string name="turn_off">Donate(Désactiver les publicités)</string>
+    <string name="fast">Rapide (100.000 mains, la vitesse de 1,5 secondes, la précision de + -0,4%)</string>
+    <string name="faster">Plus rapide (50.000 mains, la vitesse de 1 seconde, la précision de + -0,5%)</string>
+    <string name="fastest">La plus rapide (20.000 mains, la vitesse de 0,5 seconde, la précision + -1,0%)</string>
+    <string name="normal">Moyenne (200.000 distributions, vitesse de 3 secondes, la précision de + -0,2%)</string>
+    <string name="slow">Lent (500.000 mains, vitesse 6 secondes, précision + -0,15%)</string>
+    <string name="slower">Plus lent (1.000.000 mains, la vitesse de 15 secondes, la précision de + -0,07%)</string>
+    <string name="slowest">Slowest (3 000 000 mains, la vitesse de 50 secondes, la précision de + -0,03%)</string>
+    <string name="description">La description</string>
+    <string name="text_of_description">Cette application est de calculer la probabilité de gagner la main de poker contre la main, contre la plage, la plage contre gamme.</string>
+    <string name="dectionary">glossaire</string>
 </resources>

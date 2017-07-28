@@ -21,4 +21,14 @@
     <string name="speed_accuracy">Bilis at Katumpakan</string>
     <string name="turn_off">Donate(Huwag paganahin ang mga ad)</string>
     <string name="app_name">MyEquilator</string>
+    <string name="fast">Quick (100,000 mga kamay, ang bilis ng 1.5 segundo, ang kawastuhan ng + -0.4%)</string>
+    <string name="faster">Mas mabilis (50,000 mga kamay, ang bilis ng 1 segundo, ang kawastuhan ng + -0.5%)</string>
+    <string name="fastest">Pinakamabilis (20,000 mga kamay, ang bilis ng 0.5 segundo, katumpakan + -1.0%)</string>
+    <string name="normal">Normal (200,000 distribusyon, Bilis ng 3 segundo, ang kawastuhan ng + -0.2%)</string>
+    <string name="slow">Slow (500,000 kamay, bilis 6 na segundo, kawastuhan + -0.15%)</string>
+    <string name="slower">Mas mabagal (1,000,000 mga kamay, ang bilis ng 15 segundo, ang katumpakan ng + -0.07%)</string>
+    <string name="slowest">Pinakamabagal (3 000 000 mga kamay, ang bilis ng 50 segundo, ang kawastuhan ng + -0.03%)</string>
+    <string name="description">Paglalarawan</string>
+    <string name="text_of_description">Ang application na ito ay upang makalkula ang probabilidad ng panalong poker kamay laban sa kamay, laban sa mga hanay, ang hanay laban sa range.</string>
+    <string name="dectionary">Glossary</string>
 </resources>

@@ -21,4 +21,14 @@
     <string name="range">ауқымы</string>
     <string name="speed_accuracy">Жылдамдық және дәлдік</string>
     <string name="turn_off">Donate(Жарнамаларды өшіру)</string>
+    <string name="fast">Жылдам (100,000 қолдар, 1,5 секунд жылдамдығы, + -0,4% дәлдігі)</string>
+    <string name="faster">Faster (50000 қолдар, 1 секунд жылдамдығы, + -0,5% дәлдігі)</string>
+    <string name="fastest">Ең жылдам (20,000 қолдар, 0,5 секунд, дәлдік + -1.0% жылдамдығы)</string>
+    <string name="normal">Орташа (200,000 бөлу, Speed 3 секунд, + -0,2% дәлдігі)</string>
+    <string name="slow">Баяу (500,000 қолдар, жылдамдық 6 секунд, дәлдігі + -0.15%)</string>
+    <string name="slower">Баяу (1,000,000 қолдар, 15 секунд жылдамдығы, + -0.07% дәлдігі)</string>
+    <string name="slowest">Ең баяу (3 000 000 қолдар, 50 секунд жылдамдығы, + -0.03% дәлдігі)</string>
+    <string name="description">Сипаттама</string>
+    <string name="text_of_description">Бұл бағдарлама, ауқымы қарсы, ауқымы қарсы ауқымды жағынан қарсы покер қолын жеңіске ықтималдығын есептеу болып табылады.</string>
+    <string name="dectionary">түсініктер</string>
 </resources>

@@ -21,4 +21,14 @@
     <string name="range">շրջանակ</string>
     <string name="speed_accuracy">Արագություն եւ ճշգրտություն</string>
     <string name="turn_off">Donate(Անջատել գովազդները)</string>
+    <string name="fast">Արագ (100.000 ձեռքերը, արագությունը 1,5 վայրկյանում, իսկ ճշգրտությունը + -0.4%)</string>
+    <string name="faster">Ավելի արագ (50000 ձեռքերը, արագությունը 1 վայրկյանում, ճշգրտությունը + -0.5%)</string>
+    <string name="fastest">Ամենաարագ (20,000 ձեռքերը, որ արագությունը 0,5 վայրկյանում, ճշտությունը + -1.0%)</string>
+    <string name="normal">Միջին (200,000 բաշխման, Speed 3 վայրկյան, իսկ ճշգրտությունը + -0.2%)</string>
+    <string name="slow">Դանդաղ (500,000 ձեռքերը, արագության 6 վայրկյան, ճշտությունը + -0.15%)</string>
+    <string name="slower">Ավելի դանդաղ (1,000,000 ձեռքերը, արագությունը 15 վայրկյան, ճշգրտությունը + -0.07%)</string>
+    <string name="slowest">Slowest (3 000 000 ձեռքերը, արագությունը 50 վայրկյան, ճշգրտությունը + -0.03%)</string>
+    <string name="description">Նկարագրություն</string>
+    <string name="text_of_description">Այս դիմումը հաշվարկել հավանականությունը հաղթելու poker ձեռքը դեմ ձեռքին, դեմ միջակայքում, միջակայքում դեմ տիրույթում:</string>
+    <string name="dectionary">մասնագիտական տերմինաբանական բառարան</string>
 </resources>

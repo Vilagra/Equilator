@@ -21,4 +21,14 @@
     <string name="range">的范围</string>
     <string name="speed_accuracy">速度和准确度</string>
     <string name="turn_off">Donate(停用广告)</string>
+    <string name="fast">快速（100,000手，1.5秒的速度，+0.4％的准确度）</string>
+    <string name="faster">更快（50000手，1秒速度，+0.5％的准确度）</string>
+    <string name="fastest">最快（20,000手，0.5秒的速度，精确度±1.0％）</string>
+    <string name="normal">Medium (200000 väljamaksed, Speed 3 sekundi täpsusega ± 0,2%)</string>
+    <string name="slow">慢（500,000手，速度6秒，精度±0.15％）</string>
+    <string name="slower">慢（1,000,000手，15秒的速度，+-0.07％的准确度）</string>
+    <string name="slowest">最慢的（3分000 000的手，50秒的速度，+-0.03％的准确度）</string>
+    <string name="description">描述</string>
+    <string name="text_of_description">这个应用程序是计算扑克牌赢手对手，对范围，对范围的范围内的概率。</string>
+    <string name="dectionary">词汇表</string>
 </resources>

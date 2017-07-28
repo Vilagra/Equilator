@@ -21,4 +21,14 @@
     <string name="range">діапазон</string>
     <string name="speed_accuracy">Швидкість і точність</string>
     <string name="turn_off">Donate(Відключити рекламу)</string>
+    <string name="fast">Швидкий (100 000 роздач, швидкість 1,5 секунди, точність + -0,4%)</string>
+    <string name="faster">Більш швидкий (50 000 роздач, швидкість 1 секунди, точність ± 0,5%)</string>
+    <string name="fastest">Найшвидший (20 000 роздач, швидкість 0,5 секунди, точність + -1,0%)</string>
+    <string name="normal">Середній (200 000 роздач, швидкість 3 секунди, точність + -0,2%)</string>
+    <string name="slow">Повільний (500 000 роздач, швидкість 6 секунд, точність + -0,15%)</string>
+    <string name="slower">Більш повільний (1 000 000 роздач, швидкість 15 секунд, точність + -0,07%)</string>
+    <string name="slowest">Найповільніший (3 000 000 роздач, швидкість 50 секунд, точність + -0,03%)</string>
+    <string name="description">Опис</string>
+    <string name="text_of_description">Ця програма для розрахунку ймовірності перемоги в покері, рука проти руки, проти діапазону, діапазон проти діапазону.</string>
+    <string name="dectionary">Словник термінів</string>
 </resources>

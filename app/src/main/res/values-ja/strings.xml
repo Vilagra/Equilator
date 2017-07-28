@@ -21,4 +21,14 @@
     <string name="range">の範囲</string>
     <string name="speed_accuracy">速度と精度</string>
     <string name="turn_off">Donate(広告を無効にする)</string>
+    <string name="fast">クイック（10万手、1.5秒の速度、+-0.4％の精度）</string>
+    <string name="faster">高速（50,000手、1秒の速度、±0.5％の精度）</string>
+    <string name="fastest">最速（2万手、0.5秒の速度、精度+1.0％）</string>
+    <string name="normal">培地（20万分布、速度3秒、±0.2％の精度）</string>
+    <string name="slow">スロー（50万手、スピード6秒、精度+-0.15％）</string>
+    <string name="slower">遅い（1,000,000手、15秒の速度、+-0.07％の精度）</string>
+    <string name="slowest">最も遅い（3本の000000手、50秒の速度、+-0.03％の精度）</string>
+    <string name="description">説明</string>
+    <string name="text_of_description">このアプリケーションは、範囲に対して、範囲に対して範囲を手に対して、ポーカーハンドの勝利の確率を計算することです。</string>
+    <string name="dectionary">用語集</string>
 </resources>

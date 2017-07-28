@@ -48,12 +48,12 @@
     <string name="bu">BU</string>
     <string name="sb" translatable="false">SB</string>
     <string name="bb">BB</string>
-    <string name="fastest">Fastest(20000 hands, speed 0.5 seconds,acurracy +-1.0%)</string>
-    <string name="faster">Faster(50000 hands, speed 1 seconds,acurracy +-0.5%)</string>
-    <string name="fast">Fast(100000 hands, speed 1.5 seconds,acurracy +-0.4%)</string>
-    <string name="normal">Normal(200000 hands, speed 3 seconds,acurracy +-0.2%)</string>
+    <string name="fastest">The fastest (50,000 hands, 1 second, accuracy + -0.5%)</string>
+    <string name="faster">Faster (50,000 hands, 1 second, accuracy + -0.5%)</string>
+    <string name="fast">Fast (100,000 hands, 1.5 seconds, accuracy + -0.4%)</string>
+    <string name="normal">Normal (200,000 hands, 3 seconds, accuracy + -0.2%)</string>
     <string name="slow">Slow(500000 hands, speed 6 seconds,acurracy +-0.15%)</string>
-    <string name="slower">Slower(1000000 hands, speed 15 seconds,acurracy +-0.07%)</string>
-    <string name="slowest">Slowest(3000000 hands, speed 50 seconds,acurracy +-0.03%)</string>
+    <string name="slower">Slower (1 million hands, 15 seconds, accuracy + -0.07%)</string>
+    <string name="slowest">The slowest (3,000,000 hands, 50 seconds, accuracy + -0.03%)</string>
     <string name="vFaster" translatable="false">16000</string>
 </resources>

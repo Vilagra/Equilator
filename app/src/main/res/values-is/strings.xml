@@ -21,4 +21,14 @@
     <string name="range">Umfang</string>
     <string name="speed_accuracy">Hraði og nákvæmni</string>
     <string name="turn_off">Donate(Slökkva á auglýsingum)</string>
+    <string name="fast">Quick (100.000 hendur, hraða 1,5 sekúndum, nákvæmni + -0,4%)</string>
+    <string name="faster">Hraðar (50.000 hendur, hraða 1 sekúndu, nákvæmni ± 0,5%)</string>
+    <string name="fastest">Festa (20.000 hendur, the hraði af 0,5 second, nákvæmni + -1.0%)</string>
+    <string name="normal">Medium (200.000 dreifingar, Hraði 3 sekúndur, nákvæmni + -0,2%)</string>
+    <string name="slow">Slow (500.000 hendur, hraði 6 sekúndur, nákvæmni + -0,15%)</string>
+    <string name="slower">Hægari (1.000.000 hendur, hraða 15 sekúndur, nákvæmni + -0.07%)</string>
+    <string name="slowest">Hægur (3 000 000 hendur, hraða 50 sekúndur, nákvæmni + -0,03%)</string>
+    <string name="description">Lýsing</string>
+    <string name="text_of_description">Þetta forrit er til að reikna út líkur á að vinna póker hönd gegn hendi, gegn svið, svið gegn svið.</string>
+    <string name="dectionary">Orðalisti</string>
 </resources>

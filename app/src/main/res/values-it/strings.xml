@@ -21,4 +21,14 @@
     <string name="range">gamma di</string>
     <string name="speed_accuracy">Velocità e precisione</string>
     <string name="turn_off">Donate(Disabilitare gli annunci)</string>
+    <string name="fast">Breve (100.000 le mani, la velocità di 1,5 secondi, la precisione di + 0,4%)</string>
+    <string name="faster">Veloce (50,000 mani, la velocità di 1 secondo, l\'accuratezza di + -0.5%)</string>
+    <string name="fastest">Veloci (20.000 mani, la velocità di 0,5 secondi, precisione + -1.0%)</string>
+    <string name="normal">Medium (200.000 distribuzioni, Velocità 3 secondi, la precisione di + -0,2%)</string>
+    <string name="slow">Lento (500.000 mani, velocità di 6 secondi, precisione + -0,15%)</string>
+    <string name="slower">Lento (1.000.000 mani, la velocità di 15 secondi, l\'accuratezza di + -0.07%)</string>
+    <string name="slowest">Più lento (3 000 000 mani, la velocità di 50 secondi, la precisione di + -0.03%)</string>
+    <string name="description">Descrizione</string>
+    <string name="text_of_description">Questa applicazione è quello di calcolare la probabilità di vincere la mano di poker contro la mano, contro il campo, il campo contro il range.</string>
+    <string name="dectionary">glossario</string>
 </resources>

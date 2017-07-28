@@ -21,4 +21,14 @@
     <string name="range">aralığı</string>
     <string name="speed_accuracy">Hız ve Doğruluk</string>
     <string name="turn_off">Donate(Reklamları devre dışı bırak)</string>
+    <string name="fast">Hızlı (100,000 el, 1,5 saniye hızı, ±% 0.4 doğruluğu)</string>
+    <string name="faster">Daha hızlı (50,000 eller, 1 saniye hızı, +% 0,5\'lik bir doğruluk)</string>
+    <string name="fastest">En hızlı (20,000 eller, 0,5 saniye hızı, doğruluk ± 1.0%)</string>
+    <string name="normal">Orta (200,000 dağılımları, Hız 3 saniye, ± 0.2% doğruluğu)</string>
+    <string name="slow">Yavaş (500,000 el, 6 hızında saniye doğruluğu + -0.15%)</string>
+    <string name="slower">Daha yavaş (1,000,000 eller, 15 saniye hızı, ± 0.07% doğruluğu)</string>
+    <string name="slowest">En yavaş (3 000 000 eller, 50 saniye hızı, ± 0.03% doğruluğu)</string>
+    <string name="description">Açıklama</string>
+    <string name="text_of_description">Bu uygulama aralığı, aralığına karşı aralığına karşı, el karşı poker elini kazanma olasılığı hesaplamaktır.</string>
+    <string name="dectionary">sözlük</string>
 </resources>

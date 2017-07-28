@@ -21,4 +21,14 @@
     <string name="range">rad</string>
     <string name="speed_accuracy">Rýchlosť a presnosť</string>
     <string name="turn_off">Donate(Zakázanie reklám)</string>
+    <string name="fast">Quick (100,000 ruky, rýchlosť 1,5 sekundy, presnosť ± 0,4%)</string>
+    <string name="faster">Rýchlejšie (50,000 ruky, rýchlosť 1 sekundu, presnosť ± 0,5%)</string>
+    <string name="fastest">Najrýchlejší (20.000 ruky, rýchlosť 0,5 sekundy, presnosť + -1,0%)</string>
+    <string name="normal">Medium (200.000 rozvody, rýchlosť 3 sekundy, presnosť ± 0,2%)</string>
+    <string name="slow">Slow (500.000 ruky, rýchlosť 6 sekúnd, presnosť + -0,15%)</string>
+    <string name="slower">Pomalší (1,000,000 ruky, rýchlosť 15 sekúnd, presnosť + -0.07%)</string>
+    <string name="slowest">Самый медленный (раздач 3 000 000, скорость 50 секунд, точность + -0,03%)</string>
+    <string name="description">popis</string>
+    <string name="text_of_description">Táto aplikácia je výpočet pravdepodobnosť výhry poker ruku na strane proti rozsahu, rozsah proti rozsahu.</string>
+    <string name="dectionary">glosár</string>
 </resources>

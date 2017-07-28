@@ -21,4 +21,14 @@
     <string name="range">диапазон на</string>
     <string name="speed_accuracy">Скорост и точност</string>
     <string name="turn_off">Donate(Деактивиране на рекламите)</string>
+    <string name="fast">Бързо (100,000 ръце, скоростта на 1,5 секунди, точността на + -0.4%)</string>
+    <string name="faster">По-бързо (50,000 ръце, скоростта от 1 секунда, точността на ± 0.5%)</string>
+    <string name="fastest">Най-(20,000 ръце, скоростта от 0.5 секунда, точност + -1.0%)</string>
+    <string name="normal">Нормални (200,000 ръце, скорост 3 секунди, точността на + -0.2%)</string>
+    <string name="slow">Slow (500,000 ръце, скорост 6 секунди, точност + -0,15%)</string>
+    <string name="slower">Бавен (1000000 ръце, скоростта на 15 секунди, точността на + -0.07%)</string>
+    <string name="slowest">Най-бавно (3 000 000 ръце, скоростта на 50 секунди, точността на + -0.03%)</string>
+    <string name="description">описание</string>
+    <string name="text_of_description">Това приложение е за изчисляване на вероятността за печалба на покер ръка срещу ръка, срещу обхвата, границите срещу диапазон.</string>
+    <string name="dectionary">глосар</string>
 </resources>

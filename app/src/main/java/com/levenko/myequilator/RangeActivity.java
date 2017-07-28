@@ -63,34 +63,7 @@ public class RangeActivity extends AppCompatActivity implements View.OnClickList
         seekBar = (SeekBar) findViewById(R.id.sbWeight);
         seekBar.setMax(1000);
         procent = (EditText) findViewById(R.id.procent);
-/*        TextWatcher textWatcher=new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
 
-            @Override
-            public void afterTextChanged(final Editable s) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        String str = s.toString();
-                        if(str.matches("[-+]?\\d*\\.?\\d*")){
-                            if(str.matches("\\d*\\.\\d\\d+")){
-                                str = String.format("%.1f", Double.valueOf(str));
-                                str=str.replace(",",".");
-                            }
-                            setViewByProcent(Double.valueOf(str));
-
-                        }
-                    }
-                });
-
-            }
-        };*/
-        // procent.addTextChangedListener(textWatcher);
         procent.setOnEditorActionListener(new EditText.OnEditorActionListener() {
 
             @Override
@@ -103,7 +76,6 @@ public class RangeActivity extends AppCompatActivity implements View.OnClickList
                             str = str.replace(",", ".");
                         }
                         setViewByProcent(Double.valueOf(str));
-                        //return true;
                     }
                 }
                 return false;
@@ -146,50 +118,6 @@ public class RangeActivity extends AppCompatActivity implements View.OnClickList
                 setResult(RESULT_CANCELED);
                 finish();
                 break;
-            case R.id.procent:
-/*                final EditText input = new EditText(this);
-                LinearLayout layout = new LinearLayout(this);
-                layout.setOrientation(LinearLayout.VERTICAL);
-                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                        150, 130);
-                params.gravity = Gravity.CENTER;
-                params.setMargins(20, 0, 30, 0);
-                input.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-                input.setHint("00.0");
-                layout.addView(input, params);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                    //noinspection deprecation
-                    input.setBackground(getResources().getDrawable(R.drawable.blue_out_line));
-                }
-                else{
-                    //noinspection deprecation
-                    input.setBackgroundDrawable(getResources().getDrawable(R.drawable.blue_out_line));
-                }
-                input.setMaxWidth(40);
-                AlertDialog.Builder alert = new AlertDialog.Builder(this);
-                alert.setTitle(getString(R.string.enter_range)).
-                        //setMessage(getString(R.string.enter_range)).
-                        setView(layout).
-                        setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                    @SuppressLint("DefaultLocale")
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String str = input.getText().toString();
-                        if(str.matches("[-+]?\\d*\\.?\\d*")){
-                            if(str.matches("\\d*\\.\\d\\d+")){
-                                str = String.format("%.1f", Double.valueOf(str));
-                                str=str.replace(",",".");
-                            }
-                            if(str.equals(""))
-                                str="0";
-                            setViewByProcent(Double.valueOf(str));
-
-                        }
-                    }
-                });
-                AlertDialog alertDialog = alert.create();
-                alertDialog.getWindow().setBackgroundDrawableResource(R.drawable.blue_out_line);
-                alert.show();*/
         }
     }
 

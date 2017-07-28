@@ -21,4 +21,14 @@
     <string name="range">asortimentas</string>
     <string name="speed_accuracy">Greitis ir tikslumas</string>
     <string name="turn_off">Donate(Išjungti skelbimus)</string>
+    <string name="fast">Greita (100.000 rankos, 1,5 sekundes greitis, iš + -0.4% tikslumas)</string>
+    <string name="faster">Greičiau (50000 rankos, 1 sekundę greičio, pasiekia + -0.5% tikslumas)</string>
+    <string name="fastest">Greičiausi (20000 rankas, 0,5 sekundę greičio, tikslumo + -1,0%)</string>
+    <string name="normal">Medium (200.000 skirstiniai, greitis 3 sekundes, kad + -0,2% tikslumas)</string>
+    <string name="slow">Lėtas (500.000 rankos, greitis 6 sekundes, tikslumas + -0,15%)</string>
+    <string name="slower">Lėtesnis (1,000,000 rankos, 15 sekundžių greitis, iš + -0.07% tikslumas)</string>
+    <string name="slowest">Lėčiausiai (3 000 000 rankų, nuo 50 sekundžių greitis, iš + -0.03% tikslumas)</string>
+    <string name="description">Aprašymas</string>
+    <string name="text_of_description">Ši programa yra apskaičiuoti laimėti pokerio ranką vertus, prieš asortimentą, diapazone nuo diapazone tikimybę.</string>
+    <string name="dectionary">glosarijus</string>
 </resources>

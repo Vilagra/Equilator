@@ -21,4 +21,14 @@
     <string name="range">مجموعة من</string>
     <string name="speed_accuracy">السرعة والدقة</string>
     <string name="turn_off">Donate(تعطيل الإعلانات)</string>
+    <string name="fast">خيارات (100،000 اليدين، سرعة 1.5 ثانية، ودقة + -0.4٪)</string>
+    <string name="faster">أسرع (50000 اليدين، سرعة 1 ثانية، ودقة + -0.5٪)</string>
+    <string name="fastest">أسرع (20000 اليدين، سرعة 0.5 ثانية، ودقة + -1.0٪)</string>
+    <string name="normal">العادية (200،000 توزيعات، سرعة 3 ثوان، ودقة + -0.2٪)</string>
+    <string name="slow">Stadig (500000 hande, spoed 6 sekondes, akkuraatheid + -0,15%)</string>
+    <string name="slower">أبطأ (1،000،000 اليدين وسرعة 15 ثانية، ودقة + -0.07٪)</string>
+    <string name="slowest">أبطأ (000 3 000 اليدين، سرعة 50 ثانية، ودقة + -0.03٪)</string>
+    <string name="description">وصف</string>
+    <string name="text_of_description">هذا التطبيق هو لحساب احتمال فوز اليد لعبة البوكر ضد جهة، ضد طائفة، وطائفة ضد طائفة.</string>
+    <string name="dectionary">قاموس مصطلحات</string>
 </resources>

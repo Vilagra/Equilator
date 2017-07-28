@@ -21,4 +21,14 @@
     <string name="range">ช่วงของ</string>
     <string name="speed_accuracy">ความเร็วและความแม่นยำ</string>
     <string name="turn_off">Donate(ปิดการใช้งานโฆษณา)</string>
+    <string name="fast">ด่วน (100,000 มือความเร็ว 1.5 วินาทีความถูกต้องของ + -0.4%) ที่</string>
+    <string name="faster">ได้เร็วขึ้น (50,000 มือความเร็วของ 1 วินาทีที่ความถูกต้องของ + -0.5%) ที่</string>
+    <string name="fastest">ที่เร็วที่สุด (20,000 มือความเร็ว 0.5 วินาทีความถูกต้อง + -1.0%)</string>
+    <string name="normal">ปานกลาง (200,000 กระจายความเร็ว 3 วินาที, ความถูกต้องของ + -0.2%) ที่</string>
+    <string name="slow">ช้า (500,000 มือความเร็ว 6 วินาที, ความถูกต้อง + -0.15%)</string>
+    <string name="slower">ช้าลง (1,000,000 มือความเร็ว 15 วินาที, ความถูกต้องของ + -0.07%) ที่</string>
+    <string name="slowest">ช้าที่สุด (3 000 000 มือความเร็ว 50 วินาที, ความถูกต้องของ + -0.03%) ที่</string>
+    <string name="description">ลักษณะ</string>
+    <string name="text_of_description">โปรแกรมนี้คือการคำนวณความน่าจะเป็นในการชนะมือโป๊กเกอร์กับมือกับช่วงช่วงกับช่วง</string>
+    <string name="dectionary">อภิธานศัพท์</string>
 </resources>

@@ -21,4 +21,14 @@
     <string name="range">gama de</string>
     <string name="speed_accuracy">Velocidad y Precisión</string>
     <string name="turn_off">Donate(Inhabilitar anuncios)</string>
+    <string name="fast">Quick (100.000 manos, la velocidad de 1,5 segundos, la exactitud de + -0,4%)</string>
+    <string name="faster">Faster (50.000 manos, la velocidad de 1 segundo, la exactitud de + -0,5%)</string>
+    <string name="fastest">Más rápida (20.000 manos, la velocidad de 0,5 segundos, exactitud + -1,0%)</string>
+    <string name="normal">Normales (200.000 distribuciones, velocidad de 3 segundos, la exactitud de + -0.2%)</string>
+    <string name="slow">Slow (500.000 manos, velocidad 6 segundos, exactitud + -0,15%)</string>
+    <string name="slower">Más lento (1.000.000 manos, la velocidad de 15 segundos, la exactitud de + -0,07%)</string>
+    <string name="slowest">Más lento (3 000 000 manos, la velocidad de 50 segundos, la exactitud de + -0,03%)</string>
+    <string name="description">Descripción</string>
+    <string name="text_of_description">Esta aplicación consiste en calcular la probabilidad de ganar mano contra la, en contra de la cocina, ésta contra el rango.</string>
+    <string name="dectionary">glosario</string>
 </resources>

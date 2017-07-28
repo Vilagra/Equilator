@@ -21,4 +21,14 @@
     <string name="range">scala aan</string>
     <string name="speed_accuracy">Snelheid en nauwkeurigheid</string>
     <string name="turn_off">Donate(Advertenties uitschakelen)</string>
+    <string name="fast">Quick (100.000 handen, de snelheid van 1,5 seconden, de nauwkeurigheid van + -0,4%)</string>
+    <string name="faster">Sneller (50.000 handen, een frequentie van 1 seconde, de nauwkeurigheid van ± 0,5%)</string>
+    <string name="fastest">Snelste (20.000 handen, de snelheid van 0,5 seconde, nauwkeurigheid + -1.0%)</string>
+    <string name="normal">Medium (200.000 distributies, snelheid 3 seconden, de nauwkeurigheid van + -0,2%)</string>
+    <string name="slow">Slow (500.000 handen, snelheid 6 seconden, nauwkeurigheid + -0.15%)</string>
+    <string name="slower">Langzamer (1.000.000 handen, de snelheid van 15 seconden, de nauwkeurigheid van + -0,07%)</string>
+    <string name="slowest">Langzaamst (3 000 000 handen, de snelheid van 50 seconden wordt de nauwkeurigheid van + -0,03%)</string>
+    <string name="description">Beschrijving</string>
+    <string name="text_of_description">Deze applicatie is om de kans op het winnen van poker hand tegen de hand, tegen het bereik, het bereik tegen bereik te berekenen.</string>
+    <string name="dectionary">woordenlijst</string>
 </resources>
