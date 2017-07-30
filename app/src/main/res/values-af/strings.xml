@@ -21,4 +21,14 @@
     <string name="range">reeks</string>
     <string name="speed_accuracy">Spoed en akkuraatheid</string>
     <string name="turn_off">Donate(Deaktiveer advertensies)</string>
+    <string name="fast">Vinnige (100000 hande, die spoed van 1.5 sekondes, die akkuraatheid van + -0,4%)</string>
+    <string name="faster">Vinniger (50000 hande, die spoed van 1 sekonde, die akkuraatheid van + -0,5%)</string>
+    <string name="fastest">The fastest (20,000 hands, 0.5 seconds, accuracy + -1.0%)</string>
+    <string name="normal">Normale (200000 uitkerings, Speed 3 sekondes, die akkuraatheid van + -0,2%)</string>
+    <string name="slow">Slow (500,000 hands, 6 seconds, accuracy + -0.15%)</string>
+    <string name="slower">Stadiger (1000000 hande, die spoed van 15 sekondes, die akkuraatheid van + -0,07%)</string>
+    <string name="slowest">Stadigste (3 000 000 hande, die spoed van 50 sekondes, die akkuraatheid van + -0,03%)</string>
+    <string name="description">beskrywing</string>
+    <string name="text_of_description">Hierdie aansoek is om die kans om te wen poker hand teen hand, teen die reeks, die reeks teen verskeidenheid bereken.</string>
+    <string name="dectionary">Woordelys</string>
 </resources>

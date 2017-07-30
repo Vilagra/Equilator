@@ -132,6 +132,7 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
         inflater.inflate(R.menu.menu, menu);
         menu.findItem(R.id.speed).setIntent(new Intent(this, SettingsActivity.class));
         menu.findItem(R.id.credit).setIntent(new Intent(this, DescriptionActivity.class));
+        menu.findItem(R.id.help).setIntent(new Intent(this, HelpActivity.class));
         return true;
     }
 

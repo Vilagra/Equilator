@@ -16,22 +16,30 @@
     <string name="help">Help</string>
     <string name="position">position</string>
     <string name="range">range</string>
-    <string name="hand">hand</string>
+    <string name="hand" translatable="false">hand</string>
     <string name="random">random</string>
     <string name="delete">delete</string>
-    <string name="hands">hands</string>
+    <string name="hands" translatable="false">hands</string>
     <string name="equity" translatable="false">equity</string>
     <string name="hands_quantity">Choose speed and accuracy</string>
     <string name="description">Description</string>
-    <string name="text_of_description">   This app for calculating probabilities win in poker.</string>
+    <string name="text_of_description">This app is for calculating the probability of winning poker, hand against hand, against range, range vs. range.</string>
     <string name="credit_text" translatable="false">   <div>Icons made by <a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a>
-        from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank"
-            title="Creative Commons BY 3.0">CC 3.0 BY</a> \n \n  The basis for calculting is algorithm of <a href="http://www.brecware.com/Software/software.html"
-            title="Flaticon">Steve Brecher</a>\n \n And of course my beautiful wife:) </div></string><![CDATA[
+        from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank" title="Creative Commons BY 3.0">CC 3.0 BY</a> \n \n  The basis for calculting is algorithm of <a href="http://www.brecware.com/Software/software.html" title="Flaticon">Steve Brecher</a>\n \n And of course my beautiful wife:) </div></string>
+    <![CDATA[
     >
     ]]>
     <string name="quit">Exit</string>
     <string name="turn_off">Donate(disable ads)</string>
     <string name="enter_range">Enter range</string>
     <string name="clear_all">Clear all</string>
+    <string name="title_activity_help" translatable="false">HelpActivity</string>
+    <string name="dectionary">Glossary of terms</string>
+    <string name="description_of_position">позиции игроков за столом</string>
+    <string name="description_of_street">улицы торговли в покере</string>
+    <string name="description_equity">вероятность победы в процентах,этой конкретной руки или диапазона против введеных карт соперников</string>
+    <string name="description_hand">конкретные 2 карты игрока, например Туз чирва,Король пика</string>
+    <string name="description_range">возможные комбинации рук, которые могут быть у соперника, например все тузы, или все тузы и все короли, или вобще все комбинации и т.д.</string>
+    <string name="description_hands">текстовое отображение конкретной введеной руки или диапазона</string>
+    <string name="description_size_of_table">Размер стола на 6 человек или же на 10</string>
 </resources>

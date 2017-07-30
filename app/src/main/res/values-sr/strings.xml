@@ -21,4 +21,14 @@
     <string name="range">опсег</string>
     <string name="speed_accuracy">Брзина и тачност</string>
     <string name="turn_off">Donate(Онемогућити огласе)</string>
+    <string name="fast">Брзо (100.000 руке, брзина од 1,5 секунде, тачност ± 0,4%)</string>
+    <string name="faster">Фастер (50.000 руке, брзина 1 секунду, тачност + -0,5%)</string>
+    <string name="fastest">Најбрже (20.000 рукама, брзина од 0,5 секунде, тачност + -1.0%)</string>
+    <string name="normal">Медиум (200.000 дистрибуције, Спеед 3 секунде, тачност ± 0,2%)</string>
+    <string name="slow">Слов (500.000 руке, брзине 6 секунди, тачност + -0.15%)</string>
+    <string name="slower">Спорији (1,000,000 руке, брзина од 15 секунди, тачност + -0,07%)</string>
+    <string name="slowest">Самыи медленныи (раздач 3 000 000, скорости 50 секунд, точность + -0.03%)</string>
+    <string name="description">Опис</string>
+    <string name="text_of_description">Ова апликација је израчунати вероватноћу победе покер руку на руку, против опсега, у распону од опсега.</string>
+    <string name="dectionary">глосар</string>
 </resources>

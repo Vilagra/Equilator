@@ -21,4 +21,14 @@
     <string name="range">की सीमा</string>
     <string name="speed_accuracy">गति और सटीकता</string>
     <string name="turn_off">Donate(विज्ञापन अक्षम करें)</string>
+    <string name="fast">त्वरित (100,000 हाथ, 1.5 सेकंड की गति, के + -0.4% सटीकता)</string>
+    <string name="faster">तेजी से (50,000 हाथ, 1 सेकंड की गति, के + -0.5% सटीकता)</string>
+    <string name="fastest">सबसे तेजी से (20,000 हाथ, 0.5 सेकंड की गति, सटीकता + -1.0%)</string>
+    <string name="normal">मध्यम (200,000 वितरण, स्पीड 3 सेकंड, के + -0.2% सटीकता)</string>
+    <string name="slow">धीरे (500,000 हाथ, गति 6 सेकंड, सटीकता + -0.15%)</string>
+    <string name="slower">धीमी (1,000,000 हाथ, 15 सेकंड की गति, के + -0.07% सटीकता)</string>
+    <string name="slowest">सबसे धीमा (3 000 000 हाथ, 50 सेकंड की गति, के + -0.03% सटीकता)</string>
+    <string name="description">विवरण</string>
+    <string name="text_of_description">इस एप्लिकेशन के पास, हाथ के खिलाफ पोकर हाथ जीतने रेंज, रेंज के खिलाफ श्रृंखला के खिलाफ की संभावना की गणना करने के लिए है।</string>
+    <string name="dectionary">शब्दकोष</string>
 </resources>

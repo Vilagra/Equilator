@@ -21,4 +21,14 @@
     <string name="range">의 범위</string>
     <string name="speed_accuracy">속도와 정확도</string>
     <string name="turn_off">Donate(광고 사용 중지)</string>
+    <string name="fast">빠른 (100,000 손, 1.5 초의 속도, + -0.4 %의 정확도)</string>
+    <string name="faster">빠른 (50,000 손, 1 초 속도, ± 0.5 %의 정밀도)</string>
+    <string name="fastest">최단 (20,000 손 0.5 초의 속도, 정확도 + -1.0 %)</string>
+    <string name="normal">중간 (20 만 개 분포, 속도 삼초, ± 0.2 %의 정확도)</string>
+    <string name="slow">느린 (500000 손, 속도 육초, 정확성 + -0.15 %)</string>
+    <string name="slower">느린 (1,000,000 손을 15 초의 속도, ± 0.07 %의 정확도)</string>
+    <string name="slowest">느린 (3 000 000 손 50 (초) 속도 + -0.03 %의 정확성)</string>
+    <string name="description">기술</string>
+    <string name="text_of_description">본 출원의 범위는, 범위에 대하여 범위에 대해, 손에 대해 포커 손 당첨 확률을 계산하는 것이다.</string>
+    <string name="dectionary">어휘</string>
 </resources>

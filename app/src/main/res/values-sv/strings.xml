@@ -21,4 +21,14 @@
     <string name="range">intervall av</string>
     <string name="speed_accuracy">Hastighet och noggrannhet</string>
     <string name="turn_off">Donate(Inaktivera annonser)</string>
+    <string name="fast">Snabb (100.000 händer, hastigheten på 1,5 sekunder, den noggrannhet på + -0,4%)</string>
+    <string name="faster">Snabbare (50.000 händer, hastigheten på en sekund, den noggrannhet på + -0,5%)</string>
+    <string name="fastest">Snabbast (20.000 händer, hastigheten på 0,5 sekund, noggrannhet + -1,0%)</string>
+    <string name="normal">Medium (200,000 fördelningar , hastighet 3 sekunder, den noggrannhet på + -0,2%)</string>
+    <string name="slow">Långsam (500.000 händer, hastighet 6 sekunder, noggrannhet + -0,15%)</string>
+    <string name="slower">Långsammare (1.000.000 händer, hastigheten på 15 sekunder, den noggrannhet på + -0,07%)</string>
+    <string name="slowest">Långsammaste (3 000 000 händer, hastigheten på 50 sekunder, den noggrannhet på + -0,03%)</string>
+    <string name="description">Beskrivning</string>
+    <string name="text_of_description">Denna ansökan är att beräkna sannolikheten för att vinna pokerhand mot handen, mot området, området mot intervallet.</string>
+    <string name="dectionary">Ordlista</string>
 </resources>

@@ -21,4 +21,14 @@
     <string name="range">spekter av</string>
     <string name="speed_accuracy">Hastighet og nøyaktighet</string>
     <string name="turn_off">Donate(Deaktiver annonser)</string>
+    <string name="fast">Rask (100.000 hender, hastigheten på 1,5 sekunder, nøyaktighet + -0,4%)</string>
+    <string name="faster">Raskere (50.000 hender, vil hastigheten på 1 sekund, er nøyaktigheten ved + -0.5%)</string>
+    <string name="fastest">Raskest (20.000 hender, hastigheten til 0,5 sekund, nøyaktighet + -1.0%)</string>
+    <string name="normal">Medium (200.000 distribusjoner, Speed 3 sekunder, nøyaktighet + -0,2%)</string>
+    <string name="slow">Sakte (500.000 hender, hastighet 6 sekunder, nøyaktighet + -0,15%)</string>
+    <string name="slower">Langsommere (1.000.000 hender, vil hastigheten på 15 sekunder, er nøyaktigheten ved + -0,07%)</string>
+    <string name="slowest">Langsomste (3 000 000 hender, vil hastigheten på 50 sekunder, er nøyaktigheten ved + -0,03%)</string>
+    <string name="description">Beskrivelse</string>
+    <string name="text_of_description">Denne applikasjonen er å beregne sannsynligheten for å vinne poker hånd mot hånd, mot området, området mot serien.</string>
+    <string name="dectionary">Ordliste</string>
 </resources>

@@ -21,4 +21,14 @@
     <string name="range">række</string>
     <string name="speed_accuracy">Hastighed og nøjagtighed</string>
     <string name="turn_off">Donate(Deaktiver annoncer)</string>
+    <string name="fast">Hurtig (100.000 hænder, hastigheden på 1,5 sekunder, nøjagtigheden af + -0,4%)</string>
+    <string name="faster">Hurtigere (50.000 hænder, hastigheden på 1 sekund, nøjagtigheden af + -0.5%)</string>
+    <string name="fastest">Hurtigste (20.000 hænder, hastigheden af 0,5 sekund, nøjagtighed + -1.0%)</string>
+    <string name="normal">Normale (200.000 distributioner, hastighed 3 sekunder, nøjagtigheden af ± 0,2%)</string>
+    <string name="slow">Langsom (500.000 hænder, hastighed 6 sekunder, nøjagtighed + -0,15%)</string>
+    <string name="slower">Langsommere (1.000.000 hænder, hastigheden af 15 sekunder, nøjagtigheden af + -0,07%)</string>
+    <string name="slowest">Langsomste (3 000 000 hænder, hastigheden af 50 sekunder, nøjagtigheden af + -0.03%)</string>
+    <string name="description">Beskrivelse</string>
+    <string name="text_of_description">Denne applikation er at beregne sandsynligheden for at vinde poker hånd mod hånd, mod området, området mod rækkevidde.</string>
+    <string name="dectionary">Ordliste</string>
 </resources>

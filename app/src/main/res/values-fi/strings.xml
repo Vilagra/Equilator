@@ -21,4 +21,14 @@
     <string name="range">valikoima</string>
     <string name="speed_accuracy">Nopeus ja tarkkuus</string>
     <string name="turn_off">Donate(Poista mainokset käytöstä)</string>
+    <string name="fast">Nopea (100000 kädet, nopeus 1,5 sekuntia, tarkkuus on + -0,4%)</string>
+    <string name="faster">Nopeammin (50000 kädet, nopeus 1 sekunnin, tarkkuus ± 0,5%)</string>
+    <string name="fastest">Nopein (20000 kädet, nopeus 0,5 sekuntia, tarkkuus + -1,0%)</string>
+    <string name="normal">Normaali (200000 jakaumat, nopeus 3 sekuntia, tarkkuus ± 0,2%)</string>
+    <string name="slow">Hidas (500000 kädet, nopeus 6 sekuntia, tarkkuus + -0,15%)</string>
+    <string name="slower">Hitaampi (1000000 kädet, nopeus 15 sekuntia, tarkkuus on + -0,07%)</string>
+    <string name="slowest">Hitain (3 000 000 kädet, nopeudella 50 sekuntia, tarkkuus on + -0,03%)</string>
+    <string name="description">Kuvaus</string>
+    <string name="text_of_description">Tämä sovellus on laskea todennäköisyys voittaa käsi vastaan käsi, vastaan alue, alue vastaan alueella.</string>
+    <string name="dectionary">sanasto</string>
 </resources>

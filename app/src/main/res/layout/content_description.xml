@@ -5,26 +5,6 @@
     android:layout_height="fill_parent"
     android:orientation="vertical">
 
-
-    <TextView
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimary"
-        android:textSize="20dp"
-        android:text="@string/description"
-        tools:ignore="SpUsage" />
-
-    <TextView
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/text_of_description" />
-
     <TextView
         android:layout_marginTop="15dp"
         android:layout_marginLeft="5dp"

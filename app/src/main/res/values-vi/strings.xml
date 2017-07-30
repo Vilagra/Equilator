@@ -21,4 +21,14 @@
     <string name="range">phạm vi của</string>
     <string name="speed_accuracy">Tốc độ và độ chính xác</string>
     <string name="turn_off">Donate(Vô hiệu hóa quảng cáo)</string>
+    <string name="fast">Nhanh (100.000 tay, tốc độ 1,5 giây, tính chính xác của + -0.4%)</string>
+    <string name="faster">Nhanh hơn (50.000 tay, tốc độ của 1 giây, độ chính xác của + -0,5%)</string>
+    <string name="fastest">Nhanh nhất (20.000 tay, tốc độ 0,5 giây, độ chính xác + -1.0%)</string>
+    <string name="normal">Medium (200.000 phân phối, Speed 3 giây, tính chính xác của + -0.2%)</string>
+    <string name="slow">Chậm (500.000 tay, tốc độ 6 giây, độ chính xác + -0,15%)</string>
+    <string name="slower">Chậm hơn (1.000.000 tay, tốc độ 15 giây, độ chính xác của + -0,07%)</string>
+    <string name="slowest">Chậm nhất (3 000 000 tay, tốc độ 50 giây, độ chính xác của + -0,03%)</string>
+    <string name="description">Sự miêu tả</string>
+    <string name="text_of_description">Ứng dụng này là để tính toán xác suất chiến thắng tay chơi poker chống tay, với phạm vi, phạm vi đối với phạm vi.</string>
+    <string name="dectionary">Thuật ngữ</string>
 </resources>
