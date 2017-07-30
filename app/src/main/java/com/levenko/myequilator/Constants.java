@@ -30,4 +30,5 @@ public class Constants {
     public static final String WINS = "wins";
     public static final String PARTIAL_POTS = "partial pots";
     public static final String TRAIL = "gameAmount";
+    public static boolean isAdsDisabled;
 }

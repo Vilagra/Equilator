@@ -216,10 +216,10 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
     public void noteCardsChoosenAfterCancelDialog(String kindOfAdapter, int positionOfAdapter) {
         IndexesDataWasChosen indexes = null;
         switch (kindOfAdapter) {
-            case (Constants.POSITION_ADAPTER):
+            case Constants.POSITION_ADAPTER:
                 indexes = myPositionAdapter.getArrayIndexesDataWhichWasChoosen()[positionOfAdapter];
                 break;
-            case (Constants.STREET_ADAPTER):
+            case Constants.STREET_ADAPTER:
                 indexes = streetAdapter.getArrayIndexesDataWhichWasChoosen()[positionOfAdapter];
                 break;
         }

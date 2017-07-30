@@ -35,11 +35,11 @@
     <string name="clear_all">Clear all</string>
     <string name="title_activity_help" translatable="false">HelpActivity</string>
     <string name="dectionary">Glossary of terms</string>
-    <string name="description_of_position">позиции игроков за столом</string>
-    <string name="description_of_street">улицы торговли в покере</string>
-    <string name="description_equity">вероятность победы в процентах,этой конкретной руки или диапазона против введеных карт соперников</string>
-    <string name="description_hand">конкретные 2 карты игрока, например Туз чирва,Король пика</string>
-    <string name="description_range">возможные комбинации рук, которые могут быть у соперника, например все тузы, или все тузы и все короли, или вобще все комбинации и т.д.</string>
-    <string name="description_hands">текстовое отображение конкретной введеной руки или диапазона</string>
-    <string name="description_size_of_table">Размер стола на 6 человек или же на 10</string>
+    <string name="description_of_position" translatable="false">позиции игроков за столом</string>
+    <string name="description_of_street" translatable="false">улицы торговли в покере</string>
+    <string name="description_equity" translatable="false">вероятность победы в процентах,этой конкретной руки или диапазона против введеных карт соперников</string>
+    <string name="description_hand" translatable="false">конкретные 2 карты игрока, например Туз чирва,Король пика</string>
+    <string name="description_range" translatable="false">возможные комбинации рук, которые могут быть у соперника, например все тузы, или все тузы и все короли, или вобще все комбинации и т.д.</string>
+    <string name="description_hands" translatable="false">текстовое отображение конкретной введеной руки или диапазона</string>
+    <string name="description_size_of_table" translatable="false">Размер стола на 6 человек или же на 10</string>
 </resources>

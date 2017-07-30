@@ -42,6 +42,7 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
 
     private int tryToShowAd;
     private int mCurrentPagerPosition;
+    private MyBilling myBilling;
 
 
     @Override
@@ -51,6 +52,9 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowCustomEnabled(true);
         actionBar.setDisplayShowTitleEnabled(false);
+
+        myBilling = new MyBilling(this);
+        myBilling.onCreate();
 
         if (savedInstanceState!=null){
            tryToShowAd = savedInstanceState.getInt("counter");
@@ -144,6 +148,10 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
                 break;
             case R.id.clear_all:
                 getFragment().cleanFragment();
+                break;
+            case R.id.donate:
+                myBilling.purchaseRemoveAds();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -173,8 +181,10 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
     @Override
     protected void onDestroy() {
         mAdView.destroy();
+        myBilling.onDestroy();
         super.onDestroy();
     }
+
 
     @Override
     public void onDialogOkClick(Intent data) {
@@ -211,6 +221,9 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
                             getFragment().updateMyPositionAdapter(dataFromIntent,Constants.STREET_ADAPTER);
                             break;
                     }
+                    break;
+                case MyBilling.RC_REQUEST:
+                    myBilling.onActivityResult(requestCode,resultCode,data);
                     break;
             }
         }

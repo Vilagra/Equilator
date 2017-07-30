@@ -10,6 +10,7 @@
         android:showAsAction="never"
         tools:ignore="AppCompatResource" />
     <item
+        android:id="@+id/donate"
         android:title="@string/turn_off"
         android:showAsAction="never"
         tools:ignore="AppCompatResource" />
