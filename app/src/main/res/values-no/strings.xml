@@ -31,4 +31,9 @@
     <string name="description">Beskrivelse</string>
     <string name="text_of_description">Denne applikasjonen er å beregne sannsynligheten for å vinne poker hånd mot hånd, mot området, området mot serien.</string>
     <string name="dectionary">Ordliste</string>
+    <string name="description_equity" translatable="false">sannsynligheten for å vinne i prosent, dette spesifikke hånd eller mot innføring av et utvalg av motstandere kortene</string>
+    <string name="description_hand">betong 2 player kartet, for eksempel Ace of Hearts, konge i spar</string>
+    <string name="description_hands">tekstvisning særlig innføring av hånden eller området</string>
+    <string name="description_of_position">posisjon spillere ved bordet</string>
+    <string name="description_of_street">Handel gate i poker</string>
 </resources>

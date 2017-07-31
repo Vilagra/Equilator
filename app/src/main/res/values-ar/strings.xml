@@ -31,4 +31,9 @@
     <string name="description">وصف</string>
     <string name="text_of_description">هذا التطبيق هو لحساب احتمال فوز اليد لعبة البوكر ضد جهة، ضد طائفة، وطائفة ضد طائفة.</string>
     <string name="dectionary">قاموس مصطلحات</string>
+    <string name="description_equity">احتمال الفوز كنسبة مئوية، هذا من ناحية معينة أو ضد إدخال مجموعة من بطاقات المعارضين</string>
+    <string name="description_hand">ملموسة الخريطة 2 لاعب مثل الآس القلوب، ملك البستوني</string>
+    <string name="description_hands">عرض نص معين إدخال اليد أو مجموعة</string>
+    <string name="description_of_position">موقف اللاعبين على طاولة</string>
+    <string name="description_of_street">الشارع التجاري في لعبة البوكر</string>
 </resources>

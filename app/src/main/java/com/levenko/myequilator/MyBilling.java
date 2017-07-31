@@ -4,6 +4,8 @@ package com.levenko.myequilator;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.levenko.myequilator.util.IabHelper;
@@ -22,6 +24,7 @@ public class MyBilling {
     static final int RC_REQUEST = 10111;
 
     Activity activity;
+    BillingListener billingListener;
 
     // The helper object
     IabHelper mHelper;
@@ -32,6 +35,7 @@ public class MyBilling {
 
     public MyBilling(Activity launcher) {
         this.activity = launcher;
+        billingListener = (BillingListener) launcher;
     }
 
     public void onCreate() {
@@ -97,11 +101,16 @@ public class MyBilling {
 
             // Do we have the premium upgrade?
             Purchase removeAdsPurchase = inventory.getPurchase(SKU_REMOVE_ADS);
-            Constants.isAdsDisabled = (removeAdsPurchase != null && verifyDeveloperPayload(removeAdsPurchase));
+            boolean isAdsDisabled = (removeAdsPurchase != null && verifyDeveloperPayload(removeAdsPurchase));
+            SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(activity);
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putBoolean(Constants.wasAdsDisabled,isAdsDisabled);
+            editor.commit();
+            billingListener.adBanner(isAdsDisabled);
             removeAds();
 
             Log.d(TAG, "User has "
-                    + (Constants.isAdsDisabled ? "REMOVED ADS"
+                    + (isAdsDisabled ? "REMOVED ADS"
                     : "NOT REMOVED ADS"));
 
             // setWaitScreen(false);
@@ -242,6 +251,10 @@ public class MyBilling {
                 bld.create().show();
             }
         });
+    }
+
+    interface BillingListener{
+       void adBanner(boolean flag);
     }
 
 }

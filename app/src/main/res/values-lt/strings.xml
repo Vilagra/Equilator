@@ -31,4 +31,9 @@
     <string name="description">Aprašymas</string>
     <string name="text_of_description">Ši programa yra apskaičiuoti laimėti pokerio ranką vertus, prieš asortimentą, diapazone nuo diapazone tikimybę.</string>
     <string name="dectionary">glosarijus</string>
+    <string name="description_equity" translatable="false">laimėjimo procentais, šiuo konkrečiu ranka arba prieš tam oponentų kortų diapazoną įvedimo tikimybė</string>
+    <string name="description_hand">Betono 2 žaidėjas žemėlapis, pavyzdžiui, \"Hearts\" Ace, King of Spades</string>
+    <string name="description_hands">teksto ekranas ypač rankos ar diapazono Įvadas</string>
+    <string name="description_of_position">padetis žaidėjai prie stalo</string>
+    <string name="description_of_street">Prekybos gatvė pokerio</string>
 </resources>

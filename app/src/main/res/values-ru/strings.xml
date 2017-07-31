@@ -29,6 +29,11 @@
     <string name="normal">Средний (200 000 раздач, скорость 3 секунды, точность +-0,2%)</string>
     <string name="slow">Медленный (500 000 раздач, скорость 6 секунд, точность +-0,15%)</string>
     <string name="slower">Более медленный (1 000 000 раздач, скорость 15 секунд, точность +-0,07%)</string>
-    <string name="slowest">Самый медленный (раздач 3 000 000, СКОРОСТЬ 50 секунд, точность + -0,03%)</string>
+    <string name="slowest">Самый медленный (раздач 3 000 000, скорость 50 секунд, точность + -0,03%)</string>
     <string name="dectionary">Словарь терминов</string>
+    <string name="description_equity" translatable="false">вероятность победы в процентах, этот конкретная руке или диапазон против введеных карт соперников</string>
+    <string name="description_hand">2 карты игрока конкретные, например Туз черв, Король пик</string>
+    <string name="description_hands">текстовое отображение конкретной введеной руки или диапазона</string>
+    <string name="description_of_position">позиции игроков за столом</string>
+    <string name="description_of_street">улицы торговли в покере</string>
 </resources>

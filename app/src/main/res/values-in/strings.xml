@@ -31,4 +31,9 @@
     <string name="description">Deskripsi</string>
     <string name="text_of_description">Aplikasi ini adalah untuk menghitung probabilitas menang poker tangan melawan tangan, terhadap jangkauan, rentang terhadap jangkauan.</string>
     <string name="dectionary">glosarium</string>
+    <string name="description_equity" translatable="false">probabilitas menang sebagai persentase, tangan tertentu atau terhadap pengenalan berbagai kartu lawan</string>
+    <string name="description_hand">beton peta 2 pemain, seperti Ace of Hearts, Raja sekop</string>
+    <string name="description_hands">display teks tertentu pengenalan tangan atau rentang</string>
+    <string name="description_of_position">posisi pemain di meja</string>
+    <string name="description_of_street">Perdagangan jalanan di poker</string>
 </resources>

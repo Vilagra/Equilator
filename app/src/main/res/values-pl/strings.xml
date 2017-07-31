@@ -31,4 +31,9 @@
     <string name="description">Opis</string>
     <string name="text_of_description">Ta aplikacja jest obliczenie prawdopodobieństwa wygranej w pokera rękę na dłoni, przeciwko zakresie, zakresie against.</string>
     <string name="dectionary">słowniczek</string>
+    <string name="description_equity" translatable="false">prawdopodobieństwo wygranej jako wartość procentowa, tym konkretnym strony lub przeciwko wprowadzeniu szeregu kart przeciwników</string>
+    <string name="description_hand">beton 2 gracz map, takich jak as kier, król pik</string>
+    <string name="description_hands">Wyświetlacz tekstowy szczególności wprowadzenie ręki lub zakresu</string>
+    <string name="description_of_position">Gracze pozycji przy stole</string>
+    <string name="description_of_street">ulica handlowa w pokera</string>
 </resources>

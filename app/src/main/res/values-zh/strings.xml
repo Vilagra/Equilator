@@ -31,4 +31,9 @@
     <string name="description">描述</string>
     <string name="text_of_description">这个应用程序是计算扑克牌赢手对手，对范围，对范围的范围内的概率。</string>
     <string name="dectionary">词汇表</string>
+    <string name="description_equity" translatable="false">获奖的百分比，这个特定的手或反对推行了一系列的对手牌的概率</string>
+    <string name="description_hand">混凝土2人地图，如心的王牌，黑桃王</string>
+    <string name="description_hands">文本显示特定引入手或范围的</string>
+    <string name="description_of_position">位置的球员在餐桌上</string>
+    <string name="description_of_street">在撲克商業街</string>
 </resources>

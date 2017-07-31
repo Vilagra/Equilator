@@ -31,4 +31,9 @@
     <string name="description">описание</string>
     <string name="text_of_description">Това приложение е за изчисляване на вероятността за печалба на покер ръка срещу ръка, срещу обхвата, границите срещу диапазон.</string>
     <string name="dectionary">глосар</string>
+    <string name="description_equity">вероятността за спечелване в проценти, този конкретен ръка или с въвеждането на набор от опонентите карти</string>
+    <string name="description_hand">бетон карта 2 играч, като асо купа, кралят на пика</string>
+    <string name="description_hands">показване на текст-специално въвеждането на ръката или обхват</string>
+    <string name="description_of_position">позиционни играчи на масата</string>
+    <string name="description_of_street">търговия улица в покер</string>
 </resources>

@@ -4,7 +4,9 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -39,24 +41,29 @@ public class RangeActivity extends AppCompatActivity implements View.OnClickList
     private AdapterForRange adapterForRange;
     private SeekBar seekBar;
     private EditText procent;
+    private boolean isAdsDisable;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.range_matrix);
-        AdView mAdView;
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayShowCustomEnabled(true);
-        actionBar.setDisplayShowTitleEnabled(false);
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        isAdsDisable = sharedPref.getBoolean(Constants.wasAdsDisabled, false);
+        if(!isAdsDisable) {
+            AdView mAdView;
+            ActionBar actionBar = getSupportActionBar();
+            actionBar.setDisplayShowCustomEnabled(true);
+            actionBar.setDisplayShowTitleEnabled(false);
 
-        LayoutInflater inflator = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        @SuppressLint("InflateParams") View v = inflator.inflate(R.layout.ads, null);
+            LayoutInflater inflator = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            @SuppressLint("InflateParams") View v = inflator.inflate(R.layout.ads, null);
 
-        mAdView = (AdView) v.findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().addTestDevice("BC44035CB7EB870A409150BDE200B894").build();
-        mAdView.loadAd(adRequest);
-        actionBar.setCustomView(v);
+            mAdView = (AdView) v.findViewById(R.id.adView);
+            AdRequest adRequest = new AdRequest.Builder().addTestDevice("BC44035CB7EB870A409150BDE200B894").build();
+            mAdView.loadAd(adRequest);
+            actionBar.setCustomView(v);
+        }
 
         Button buttonOk = (Button) findViewById(R.id.ok);
         Button buttonCancel = (Button) findViewById(R.id.cancel);

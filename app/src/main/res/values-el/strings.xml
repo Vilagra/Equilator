@@ -31,4 +31,9 @@
     <string name="description">Περιγραφή</string>
     <string name="text_of_description">Η εφαρμογή αυτή είναι να υπολογιστεί η πιθανότητα νίκης χέρι πόκερ ενάντια στο χέρι, εναντίον της σειράς, της σειράς κατά σειρά.</string>
     <string name="dectionary">γλωσσάριο</string>
+    <string name="description_equity">η πιθανότητα νίκης ως ποσοστό, αυτό το συγκεκριμένο χέρι ή κατά την εισαγωγή ενός εύρους των αντιπάλων καρτών</string>
+    <string name="description_hand">σκυρόδεμα χάρτη 2 player, όπως το Ace of Hearts, ο βασιλιάς της μπαστούνι</string>
+    <string name="description_hands">οθόνη κειμένου ιδιαίτερα η εισαγωγή του χεριού ή το εύρος</string>
+    <string name="description_of_position">φορείς θέση στο τραπέζι</string>
+    <string name="description_of_street">Εμπόριο δρόμο στο πόκερ</string>
 </resources>

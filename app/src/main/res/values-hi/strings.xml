@@ -31,4 +31,9 @@
     <string name="description">विवरण</string>
     <string name="text_of_description">इस एप्लिकेशन के पास, हाथ के खिलाफ पोकर हाथ जीतने रेंज, रेंज के खिलाफ श्रृंखला के खिलाफ की संभावना की गणना करने के लिए है।</string>
     <string name="dectionary">शब्दकोष</string>
+    <string name="description_equity" translatable="false">एक प्रतिशत, इस विशिष्ट हाथ के रूप में या विरोधियों ताश के पत्तों की एक श्रृंखला की शुरूआत के खिलाफ जीत की संभावना</string>
+    <string name="description_hand">पान के ऐस, हुकुम के राजा के रूप ठोस 2 खिलाड़ी नक्शा,</string>
+    <string name="description_hands">पाठ प्रदर्शन विशेष रूप से हाथ या रेंज की शुरूआत</string>
+    <string name="description_of_position">मेज पर स्थिति खिलाड़ियों</string>
+    <string name="description_of_street">पोकर में व्यापार सड़क</string>
 </resources>

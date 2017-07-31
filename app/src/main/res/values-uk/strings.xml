@@ -31,4 +31,9 @@
     <string name="description">Опис</string>
     <string name="text_of_description">Ця програма для розрахунку ймовірності перемоги в покері, рука проти руки, проти діапазону, діапазон проти діапазону.</string>
     <string name="dectionary">Словник термінів</string>
+    <string name="description_equity" translatable="false">ймовірність перемоги у відсотках, цієї конкретної руки або діапазону проти введених карт суперників</string>
+    <string name="description_hand">конкретні 2 карти гравця, наприклад Туз черв, Король пік</string>
+    <string name="description_hands">текстове відображення конкретної введеної руки або діапазону</string>
+    <string name="description_of_position">позиції гравців за столом</string>
+    <string name="description_of_street">вулиці торгівлі в покері</string>
 </resources>

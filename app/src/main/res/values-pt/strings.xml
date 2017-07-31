@@ -31,4 +31,9 @@
     <string name="description">Descrição</string>
     <string name="text_of_description">Esta aplicação é a de calcular a probabilidade de ganhar mão de póquer contra mão, contra o intervalo, o intervalo contra gama.</string>
     <string name="dectionary">glossário</string>
+    <string name="description_equity" translatable="false">a probabilidade de ganhar como uma percentagem, esse lado específico ou contra a introdução de uma variedade de cartões oponentes</string>
+    <string name="description_hand">concreto mapa de 2 jogadores, como o Ás de Copas, rei de espadas</string>
+    <string name="description_hands">Ver o texto particular, a introdução da mão ou intervalo</string>
+    <string name="description_of_position">jogadores posição na mesa</string>
+    <string name="description_of_street">Comércio de rua no poker</string>
 </resources>

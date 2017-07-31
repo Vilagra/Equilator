@@ -31,4 +31,9 @@
     <string name="description">Opis</string>
     <string name="text_of_description">Ovaj program je izračunati vjerojatnost za pobjedu poker ruku na ruku, protiv rasponu, u rasponu od raspona.</string>
     <string name="dectionary">glosar</string>
+    <string name="description_equity" translatable="false">vjerojatnost za pobjedu u postotku, ovom konkretnom ruci ili protiv uvođenja niza protivnike kartice</string>
+    <string name="description_hand">beton 2 igrača karta, kao što je herc, kralj pik</string>
+    <string name="description_hands">Prikaz teksta posebno uvođenje ruke ili raspon</string>
+    <string name="description_of_position">pozicije igrača za stolom</string>
+    <string name="description_of_street">Trgovina ulica u pokeru</string>
 </resources>

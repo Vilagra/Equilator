@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyEquilatorGit.iml" filepath="$PROJECT_DIR$/MyEquilatorGit.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/calc.iml" filepath="$PROJECT_DIR$/calc.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib_bech/lib_bech.iml" filepath="$PROJECT_DIR$/lib_bech/lib_bech.iml" />
     </modules>
   </component>

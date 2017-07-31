@@ -31,4 +31,9 @@
     <string name="description">Beschrijving</string>
     <string name="text_of_description">Deze applicatie is om de kans op het winnen van poker hand tegen de hand, tegen het bereik, het bereik tegen bereik te berekenen.</string>
     <string name="dectionary">woordenlijst</string>
+    <string name="description_equity" translatable="false">de kans op het winnen als een percentage, deze specifieke hand of tegen de invoering van een reeks van tegenstanders kaarten</string>
+    <string name="description_hand">beton 2 player map, zoals de Ace of Hearts, Koning van spades</string>
+    <string name="description_hands">tekstweergave name de invoering van de hand of het bereik</string>
+    <string name="description_of_position">positie spelers aan de tafel</string>
+    <string name="description_of_street">Handel straat in poker</string>
 </resources>

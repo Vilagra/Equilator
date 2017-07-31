@@ -31,4 +31,9 @@
     <string name="description">Leírás</string>
     <string name="text_of_description">Ez az alkalmazás számítani a valószínűsége nyerő kéz ellen viszont ellen tartományban, a tartomány ellen tartományban.</string>
     <string name="dectionary">szójegyzék</string>
+    <string name="description_equity" translatable="false">a valószínűsége, győztes százalékos ez az egyedi kézzel vagy bevezetése ellen számos ellenfelek kártyák</string>
+    <string name="description_hand">beton 2 játékos térkép, mint az Ace of Hearts, pikk király</string>
+    <string name="description_hands">szöveges kijelző különösen a bevezetése a kéz vagy tartomány</string>
+    <string name="description_of_position">pozíció az asztalnál ülő játékosok</string>
+    <string name="description_of_street">Kereskedelmi utca pókerben</string>
 </resources>

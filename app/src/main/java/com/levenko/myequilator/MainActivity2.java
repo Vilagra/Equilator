@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 
@@ -30,64 +31,38 @@ import com.google.android.gms.ads.InterstitialAd;
 import android.app.FragmentManager;
 import android.view.ViewGroup;
 
-public class MainActivity2 extends AppCompatActivity implements CardsDialogFragment.CardDialogFragmentListener,AdShower {
+public class MainActivity2 extends AppCompatActivity implements CardsDialogFragment.CardDialogFragmentListener, AdShower, MyBilling.BillingListener {
     private AdView mAdView;
     private InterstitialAd mInterstitialAd;
 
 
     private static boolean RUN_ONCE = true;
 
-
+    boolean isAdsDisable;
     private ViewPager viewPager;
 
     private int tryToShowAd;
     private int mCurrentPagerPosition;
     private MyBilling myBilling;
-
+    ActionBar actionBar;
+    private Menu myMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayShowCustomEnabled(true);
-        actionBar.setDisplayShowTitleEnabled(false);
-
-        myBilling = new MyBilling(this);
-        myBilling.onCreate();
-
-        if (savedInstanceState!=null){
-           tryToShowAd = savedInstanceState.getInt("counter");
-           mCurrentPagerPosition = savedInstanceState.getInt("currentPager");
+        PreferenceManager.setDefaultValues(this.getApplicationContext(), R.xml.speed_accuracy, true);
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        isAdsDisable = sharedPref.getBoolean(Constants.wasAdsDisabled, false);
+        if (!isAdsDisable) {
+            myBilling = new MyBilling(this);
+            myBilling.onCreate();
+        }
+        if (savedInstanceState != null) {
+            tryToShowAd = savedInstanceState.getInt("counter");
+            mCurrentPagerPosition = savedInstanceState.getInt("currentPager");
         }
 
-        LayoutInflater inflator = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        @SuppressLint("InflateParams") View v = inflator.inflate(R.layout.ads, null);
-
-        PreferenceManager.setDefaultValues(this.getApplicationContext(), R.xml.speed_accuracy, true);
-        mAdView = (AdView) v.findViewById(R.id.adView);
-        final AdRequest adRequest = new AdRequest.Builder().addTestDevice("BC44035CB7EB870A409150BDE200B894").build();
-        mAdView.loadAd(adRequest);
-        actionBar.setCustomView(v);
-
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-7055288022092797/1744327063");
-        mInterstitialAd.loadAd(adRequest);
-        mInterstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-                // Load the next interstitial.
-                mInterstitialAd.loadAd(adRequest);
-            }
-
-        });
-
-
-
-
-        Toolbar parent = (Toolbar) v.getParent();
-        parent.setPadding(0, 0, 0, 0);//for tab otherwise give space in tab
-        parent.setContentInsetsAbsolute(0, 0);
 
         if (RUN_ONCE) {
             AllCards.initializeData();
@@ -102,9 +77,10 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
             }
+
             @Override
             public void onPageSelected(int position) {
-                if(position!=mCurrentPagerPosition) {
+                if (position != mCurrentPagerPosition) {
                     AllCards.resetWasChosen();
                     getFragment().cleanFragment();
                 }
@@ -119,10 +95,8 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab);
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         tabLayout.setupWithViewPager(viewPager);
-
-
-
     }
+
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getFragmentManager());
@@ -134,6 +108,10 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
+        myMenu = menu;
+        if (isAdsDisable) {
+            menu.findItem(R.id.donate).setVisible(false);
+        }
         menu.findItem(R.id.speed).setIntent(new Intent(this, SettingsActivity.class));
         menu.findItem(R.id.credit).setIntent(new Intent(this, DescriptionActivity.class));
         menu.findItem(R.id.help).setIntent(new Intent(this, HelpActivity.class));
@@ -142,7 +120,7 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.quit:
                 finish();
                 break;
@@ -168,14 +146,16 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
 
     @Override
     protected void onPause() {
-        mAdView.pause();
+        if (mAdView != null)
+            mAdView.pause();
         super.onPause();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        mAdView.resume();
+        if (mAdView != null)
+            mAdView.resume();
     }
 
     @Override
@@ -191,14 +171,15 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
         onActivityResult(Constants.REQUEST_CODE_CARD, RESULT_OK, data);
 
     }
-    private MainFragment getFragment(){
+
+    private MainFragment getFragment() {
         //return (MainFragment) adapter.getRegisteredFragment(viewPager.getCurrentItem());
         return (MainFragment) viewPager.getAdapter().instantiateItem(viewPager, viewPager.getCurrentItem());
     }
 
     @Override
     public void onDialogCancelClick(int positionOfAdapter, String kindOfAdapter) {
-        getFragment().noteCardsChoosenAfterCancelDialog(kindOfAdapter,positionOfAdapter);
+        getFragment().noteCardsChoosenAfterCancelDialog(kindOfAdapter, positionOfAdapter);
     }
 
     @Override
@@ -208,23 +189,61 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
             switch (requestCode) {
                 case Constants.REQUEST_CODE_RANGE:
                     dataFromIntent = new DataFromIntent(data, IndexesDataWasChosen.Type.RANGE);
-                    getFragment().updateMyPositionAdapter(dataFromIntent,Constants.POSITION_ADAPTER);
+                    getFragment().updateMyPositionAdapter(dataFromIntent, Constants.POSITION_ADAPTER);
                     break;
                 case Constants.REQUEST_CODE_CARD:
                     dataFromIntent = new DataFromIntent(data, IndexesDataWasChosen.Type.HAND);
                     String type_of_adapter = data.getStringExtra(Constants.KIND_OF_ADAPTER);
                     switch (type_of_adapter) {
                         case Constants.POSITION_ADAPTER:
-                            getFragment().updateMyPositionAdapter(dataFromIntent,Constants.POSITION_ADAPTER);
+                            getFragment().updateMyPositionAdapter(dataFromIntent, Constants.POSITION_ADAPTER);
                             break;
                         case Constants.STREET_ADAPTER:
-                            getFragment().updateMyPositionAdapter(dataFromIntent,Constants.STREET_ADAPTER);
+                            getFragment().updateMyPositionAdapter(dataFromIntent, Constants.STREET_ADAPTER);
                             break;
                     }
                     break;
                 case MyBilling.RC_REQUEST:
-                    myBilling.onActivityResult(requestCode,resultCode,data);
+                    myBilling.onActivityResult(requestCode, resultCode, data);
                     break;
+            }
+        }
+    }
+
+    public void adBanner(boolean isDisabled) {
+        isAdsDisable = isDisabled;
+        if (!isDisabled) {
+            actionBar = getSupportActionBar();
+            actionBar.setDisplayShowCustomEnabled(true);
+            actionBar.setDisplayShowTitleEnabled(false);
+            LayoutInflater inflator = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            @SuppressLint("InflateParams") View v = inflator.inflate(R.layout.ads, null);
+            mAdView = (AdView) v.findViewById(R.id.adView);
+            final AdRequest adRequest = new AdRequest.Builder().addTestDevice("BC44035CB7EB870A409150BDE200B894").build();
+            mAdView.loadAd(adRequest);
+            actionBar.setCustomView(v);
+
+            mInterstitialAd = new InterstitialAd(this);
+            mInterstitialAd.setAdUnitId("ca-app-pub-7055288022092797/1744327063");
+            mInterstitialAd.loadAd(adRequest);
+            mInterstitialAd.setAdListener(new AdListener() {
+                @Override
+                public void onAdClosed() {
+                    // Load the next interstitial.
+                    mInterstitialAd.loadAd(adRequest);
+                }
+
+            });
+
+            Toolbar parent = (Toolbar) v.getParent();
+            parent.setPadding(0, 0, 0, 0);//for tab otherwise give space in tab
+            parent.setContentInsetsAbsolute(0, 0);
+        } else {
+            if (mAdView != null) {
+                mAdView.setVisibility(View.GONE);
+            }
+            if (myMenu != null) {
+                myMenu.findItem(R.id.donate).setVisible(false);
             }
         }
     }
@@ -232,14 +251,14 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
     @Override
     public void adShow() {
         tryToShowAd++;
-        if (tryToShowAd%5==0&&mInterstitialAd.isLoaded()) {
+        if (!isAdsDisable && tryToShowAd % 5 == 0 && mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
         }
     }
 
 
     class ViewPagerAdapter extends FragmentStatePagerAdapter {
-        private final String[] tabTitles = new String[] { getString(R.string.for6),getString(R.string.for10) };
+        private final String[] tabTitles = new String[]{getString(R.string.for6), getString(R.string.for10)};
 
         public ViewPagerAdapter(FragmentManager manager) {
             super(manager);
@@ -254,7 +273,6 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
         public int getCount() {
             return tabTitles.length;
         }
-
 
 
         @Override

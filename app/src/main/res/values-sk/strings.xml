@@ -27,8 +27,13 @@
     <string name="normal">Medium (200.000 rozvody, rýchlosť 3 sekundy, presnosť ± 0,2%)</string>
     <string name="slow">Slow (500.000 ruky, rýchlosť 6 sekúnd, presnosť + -0,15%)</string>
     <string name="slower">Pomalší (1,000,000 ruky, rýchlosť 15 sekúnd, presnosť + -0.07%)</string>
-    <string name="slowest">Самый медленный (раздач 3 000 000, скорость 50 секунд, точность + -0,03%)</string>
+    <string name="slowest">Najpomalší (ruky 3 000 000, rýchlosť 50 sekúnd, presnosť ± 0,03%)</string>
     <string name="description">popis</string>
     <string name="text_of_description">Táto aplikácia je výpočet pravdepodobnosť výhry poker ruku na strane proti rozsahu, rozsah proti rozsahu.</string>
     <string name="dectionary">glosár</string>
+    <string name="description_equity" translatable="false">pravdepodobnosť výhry v percentách, toto konkrétne strane alebo proti zavedenie mnohých súperov kariet</string>
+    <string name="description_hand">betón mapa 2 hráčov, ako je srdcové eso, kráľ piky</string>
+    <string name="description_hands">Zobrazenie textu najmä zavedenie ruky alebo rozsah</string>
+    <string name="description_of_position">pozície hráča pri stole</string>
+    <string name="description_of_street">Trade street v pokri</string>
 </resources>

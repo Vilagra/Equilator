@@ -31,4 +31,9 @@
     <string name="description">Beschreibung</string>
     <string name="text_of_description">Diese Anwendung ist die Wahrscheinlichkeit des Gewinnens Poker Hand gegen Hand, gegen den Bereich zu berechnen, wobei der Bereich gegen Bereich.</string>
     <string name="dectionary">Glossar</string>
+    <string name="description_equity">die Wahrscheinlichkeit, als Prozentsatz des Gewinnens, diese spezielle Hand oder gegen die Einführung einer Reihe von Gegnern Karten</string>
+    <string name="description_hand">Beton 2 Spieler Karte, wie das Herz-As, Pik-König</string>
+    <string name="description_hands">Textanzeige insbesondere die Einführung der Hand oder des Bereichs</string>
+    <string name="description_of_position">Position Spieler am Tisch</string>
+    <string name="description_of_street">Handelsstraße im Poker</string>
 </resources>

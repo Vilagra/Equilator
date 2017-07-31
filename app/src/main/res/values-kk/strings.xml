@@ -31,4 +31,9 @@
     <string name="description">Сипаттама</string>
     <string name="text_of_description">Бұл бағдарлама, ауқымы қарсы, ауқымы қарсы ауқымды жағынан қарсы покер қолын жеңіске ықтималдығын есептеу болып табылады.</string>
     <string name="dectionary">түсініктер</string>
+    <string name="description_equity" translatable="false">пайыз ретінде жеңіске ықтималдығы, осы нақты қолмен немесе қарсыластары карточкалар диапазонында енгізуге қарсы</string>
+    <string name="description_hand">Мұндай жүректер ACE, Күрек Патшасы ретінде бетон 2 ойыншы картасы,</string>
+    <string name="description_hands">мәтінді қолмен немесе ауқымның енгізу, атап айтқанда көрсету</string>
+    <string name="description_of_position">үстел басында позиция ойыншылар</string>
+    <string name="description_of_street">покер сауда көшесі</string>
 </resources>
