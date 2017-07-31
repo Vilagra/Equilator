@@ -36,4 +36,6 @@
     <string name="description_hands">zobrazení textu zejména zavedení ruky nebo rozsah</string>
     <string name="description_of_position">pozice hráče u stolu</string>
     <string name="description_of_street">Trade street v pokeru</string>
+    <string name="description_range">možných kombinací rukou, že hráč může být například všechna esa, nebo všechny esa a všichni králové, nebo kombinace všech připomínek, atd</string>
+    <string name="description_size_of_table">Velikost stůl pro 6 osob, nebo 10</string>
 </resources>

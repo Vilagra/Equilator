@@ -36,4 +36,6 @@
     <string name="description_hands">Özellikle metin görüntüleme elin veya aralığın giriş</string>
     <string name="description_of_position">masada pozisyon oyuncuları</string>
     <string name="description_of_street">pokerde Ticaret sokak</string>
+    <string name="description_range">oyuncu olabileceğini, örneğin, tüm işaretlemeleri tüm as veya tüm aslar ve tüm krallar, ya kombinasyonları vb ellerin olası kombinasyonları</string>
+    <string name="description_size_of_table">6 kişilik veya 10 için Boyut tablosu</string>
 </resources>

@@ -36,4 +36,6 @@
     <string name="description_hands">عرض نص معين إدخال اليد أو مجموعة</string>
     <string name="description_of_position">موقف اللاعبين على طاولة</string>
     <string name="description_of_street">الشارع التجاري في لعبة البوكر</string>
+    <string name="description_range">مزيج ممكن من الأيدي أن اللاعب قد يكون، على سبيل المثال، كل الأوراق الرابحة، أو كل الأوراق الرابحة وجميع الملوك، أو مزيج من كل هوامش الربح، الخ</string>
+    <string name="description_size_of_table">الجدول حجم ل 6 أشخاص، أو 10</string>
 </resources>

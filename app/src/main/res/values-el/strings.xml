@@ -36,4 +36,6 @@
     <string name="description_hands">οθόνη κειμένου ιδιαίτερα η εισαγωγή του χεριού ή το εύρος</string>
     <string name="description_of_position">φορείς θέση στο τραπέζι</string>
     <string name="description_of_street">Εμπόριο δρόμο στο πόκερ</string>
+    <string name="description_range">δυνατοί συνδυασμοί χεριών ότι ο παίκτης μπορεί να είναι, για παράδειγμα, όλες οι άσους, ή όλα άσους και όλες βασιλιάδες, ή συνδυασμοί όλων των σημειώσεων, κλπ</string>
+    <string name="description_size_of_table">Πίνακας μεγέθους για 6 άτομα, ή 10</string>
 </resources>

@@ -36,4 +36,6 @@
     <string name="description_hands">tekstdisplay især indførelsen af hånden eller område</string>
     <string name="description_of_position">position spillere ved bordet</string>
     <string name="description_of_street">Handel gade i poker</string>
+    <string name="description_range">mulige kombinationer af hænder, som spilleren kan for eksempel alle esser eller alle esser og alle konger eller kombinationer af alle opmærkninger, etc.</string>
+    <string name="description_size_of_table">Størrelse bord til 6 personer eller 10</string>
 </resources>

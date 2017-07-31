@@ -36,4 +36,6 @@
     <string name="description_hands">Textanzeige insbesondere die Einführung der Hand oder des Bereichs</string>
     <string name="description_of_position">Position Spieler am Tisch</string>
     <string name="description_of_street">Handelsstraße im Poker</string>
+    <string name="description_range">mögliche Kombinationen von Händen, dass der Spieler sein kann, beispielsweise alle Asse oder alle Asse und alle Könige oder Kombinationen aller Markups, usw.</string>
+    <string name="description_size_of_table">Größentabelle für 6 Personen oder 10</string>
 </resources>

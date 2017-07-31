@@ -39,7 +39,7 @@
     <string name="description_of_street">Streets of poker</string>
     <string name="description_equity">Probability of winning in percent, this particular hand or range against the entered cards of opponents</string>
     <string name="description_hand">Specific 2 player cards, for example Ace of hearts, King of spades</string>
-    <string name="description_range">возможные комбинации рук, которые могут быть у соперника, например все тузы, или все тузы и все короли, или вобще все комбинации и т.д.</string>
+    <string name="description_range">Possible combinations of hands that a player can have, such as all aces, or all aces and all kings, or just do all combinations, etc.</string>
     <string name="description_hands">Text display of a specific entered hand or range</string>
-    <string name="description_size_of_table">Размер стола на 6 человек или же на 10</string>
+    <string name="description_size_of_table">Table size for 6 people or 10</string>
 </resources>

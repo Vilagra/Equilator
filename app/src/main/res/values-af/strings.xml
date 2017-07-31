@@ -36,4 +36,6 @@
     <string name="description_hands">teks vertoon besonder die bekendstelling van die hand of reeks</string>
     <string name="description_of_position">posisie spelers by die tafel</string>
     <string name="description_of_street">Handel straat in poker</string>
+    <string name="description_range">moontlike kombinasies van hande wat die speler kan wees, byvoorbeeld, al aces, of al aces en al die konings, of kombinasies van al ups, ens</string>
+    <string name="description_size_of_table">Grootte tafel vir 6 mense, of 10</string>
 </resources>

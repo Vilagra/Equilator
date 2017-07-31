@@ -36,4 +36,6 @@
     <string name="description_hands">tekstweergave name de invoering van de hand of het bereik</string>
     <string name="description_of_position">positie spelers aan de tafel</string>
     <string name="description_of_street">Handel straat in poker</string>
+    <string name="description_range">mogelijke combinaties van handen die de speler kan zijn, bijvoorbeeld alle aces, of alle azen en koningen, of combinaties van alle markeringen, etc.</string>
+    <string name="description_size_of_table">Size tafel voor 6 personen, of 10</string>
 </resources>

@@ -36,4 +36,6 @@
     <string name="description_hands">특히 텍스트 표시 손 또는 범위의 도입</string>
     <string name="description_of_position">테이블에 위치 플레이어</string>
     <string name="description_of_street">포커 무역 거리</string>
+    <string name="description_range">플레이어가 될 수 있음을, 예를 들면, 전체 인상 에이스 모든 또는 모든 에이스 모든 왕, 또는 이들의 조합 등의 가능한 조합 손</string>
+    <string name="description_size_of_table">육명, 또는 10 사이즈 표</string>
 </resources>

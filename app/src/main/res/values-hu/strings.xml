@@ -36,4 +36,6 @@
     <string name="description_hands">szöveges kijelző különösen a bevezetése a kéz vagy tartomány</string>
     <string name="description_of_position">pozíció az asztalnál ülő játékosok</string>
     <string name="description_of_street">Kereskedelmi utca pókerben</string>
+    <string name="description_range">lehetséges kombinációját kezét, hogy a játékos lehet, például az összes ász, vagy az összes ász és minden királyok, vagy ezek kombinációi minden jelölések stb</string>
+    <string name="description_size_of_table">Méret asztal 6 személyes, vagy 10</string>
 </resources>

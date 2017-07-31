@@ -36,4 +36,6 @@
     <string name="description_hands">ข้อความที่แสดงโดยเฉพาะอย่างยิ่งการแนะนำของมือหรือช่วง</string>
     <string name="description_of_position">ตำแหน่งผู้เล่นที่โต๊ะ</string>
     <string name="description_of_street">สถานที่การค้าในโป๊กเกอร์</string>
+    <string name="description_range">ผสมเป็นไปได้ของมือที่ผู้เล่นอาจจะยกตัวอย่างเช่นเอซทั้งหมดหรือเอซและกษัตริย์ทั้งหมดหรือการรวมกันของมาร์คทั้งหมด ฯลฯ</string>
+    <string name="description_size_of_table">ตารางขนาด 6 คนหรือ 10</string>
 </resources>

@@ -36,4 +36,6 @@
     <string name="description_hands">мәтінді қолмен немесе ауқымның енгізу, атап айтқанда көрсету</string>
     <string name="description_of_position">үстел басында позиция ойыншылар</string>
     <string name="description_of_street">покер сауда көшесі</string>
+    <string name="description_range">қолынан мүмкін комбинациялары ойыншы болуы мүмкін, мысалы, барлық тузы, немесе барлық тузы және барлық патшалар, немесе барлық түзетулердің комбинациялары, т.б.</string>
+    <string name="description_size_of_table">6 адам, немесе 10 өлшемі үстел</string>
 </resources>

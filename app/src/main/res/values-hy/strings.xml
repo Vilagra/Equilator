@@ -36,4 +36,6 @@
     <string name="description_hands">տեքստային ցուցադրում մասնավորապես ներդրումը ձեռքը կամ տիրույթում</string>
     <string name="description_of_position">պաշտոնը խաղացողներ են սեղանի</string>
     <string name="description_of_street">Առեւտրի փողոց poker</string>
+    <string name="description_range">հնարավոր զուգորդումները ձեռքերը, որ խաղացողը կարող է լինել, օրինակ, բոլոր Aces կամ բոլոր Aces եւ բոլոր թագավորները, կամ համակցություններ բոլոր markups, եւ այլն:</string>
+    <string name="description_size_of_table">Չափ սեղան `6 մարդ, կամ 10</string>
 </resources>

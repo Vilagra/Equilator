@@ -36,4 +36,6 @@
     <string name="description_hands">текстовое отображение конкретной введеной руки или диапазона</string>
     <string name="description_of_position">позиции игроков за столом</string>
     <string name="description_of_street">улицы торговли в покере</string>
+    <string name="description_range">возможные комбинации рук, которые могут быть у игрока, например все тузы, или все тузы и все короли, или вобще все комбинации и т.д.</string>
+    <string name="description_size_of_table">Размер стола на 6 человек или же на 10</string>
 </resources>

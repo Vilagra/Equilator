@@ -36,4 +36,6 @@
     <string name="description_hands">पाठ प्रदर्शन विशेष रूप से हाथ या रेंज की शुरूआत</string>
     <string name="description_of_position">मेज पर स्थिति खिलाड़ियों</string>
     <string name="description_of_street">पोकर में व्यापार सड़क</string>
+    <string name="description_range">खिलाड़ी हो सकता है, उदाहरण के लिए, सभी इक्के, या सभी इक्के और सभी राजाओं, या संयोजन सभी मार्कअप की, आदि हाथ से संभव संयोजनों</string>
+    <string name="description_size_of_table">6 लोगों के, या 10 के लिए आकार मेज</string>
 </resources>

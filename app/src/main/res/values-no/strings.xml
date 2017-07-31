@@ -36,4 +36,6 @@
     <string name="description_hands">tekstvisning særlig innføring av hånden eller området</string>
     <string name="description_of_position">posisjon spillere ved bordet</string>
     <string name="description_of_street">Handel gate i poker</string>
+    <string name="description_range">mulige kombinasjoner av hender at spilleren kan være, for eksempel, alle ess, eller alle ess og alle konger, eller kombinasjoner av alle markeringer, etc.</string>
+    <string name="description_size_of_table">Størrelse bord for 6 personer, eller 10</string>
 </resources>

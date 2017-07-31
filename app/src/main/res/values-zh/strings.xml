@@ -36,4 +36,6 @@
     <string name="description_hands">文本显示特定引入手或范围的</string>
     <string name="description_of_position">位置的球员在餐桌上</string>
     <string name="description_of_street">在撲克商業街</string>
+    <string name="description_range">手的可能的组合，玩家可以为，例如，所有的尖子，或所有的尖子和国王所有，或组合所有加价等</string>
+    <string name="description_size_of_table">为6人，或10规格表</string>
 </resources>

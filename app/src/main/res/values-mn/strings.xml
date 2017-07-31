@@ -36,4 +36,6 @@
     <string name="description_hands">текст гаргах тодорхой гарт болон нурууны танилцуулга</string>
     <string name="description_of_position">ширээн дээр байр суурь тоглогчид</string>
     <string name="description_of_street">покер худалдаа гудамж</string>
+    <string name="description_range">тоглогч байж болохын тулд, жишээ нь, бүх markups бүх Aces, эсвэл бүх Aces, бүх хаад, эсвэл хослолууд гэх мэт гарын боломжтой хослолууд</string>
+    <string name="description_size_of_table">6 хүн буюу 10 хувьд Хэмжээ хүснэгт</string>
 </resources>

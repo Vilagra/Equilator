@@ -36,4 +36,6 @@
     <string name="description_hands">teksta displejs īpaši ieviešana roku vai diapazons</string>
     <string name="description_of_position">pozīciju spēlētāji pie galda</string>
     <string name="description_of_street">Prekybos gatvė pokerio</string>
+    <string name="description_range">iespējamās kombinācijas rokās, ka spēlētājs var būt, piemēram, visi dūži, vai visi dūži un visi karaļi, vai kombinācijas visu uzcenojumi utt</string>
+    <string name="description_size_of_table">Izmērs galds 6 personām, vai 10</string>
 </resources>

@@ -36,4 +36,6 @@
     <string name="description_hands">Wyświetlacz tekstowy szczególności wprowadzenie ręki lub zakresu</string>
     <string name="description_of_position">Gracze pozycji przy stole</string>
     <string name="description_of_street">ulica handlowa w pokera</string>
+    <string name="description_range">możliwe kombinacje rąk, które gracz może być, na przykład, wszystkie asy lub wszystkie asy i wszyscy królowie, lub kombinacje wszystkich znaczników, etc.</string>
+    <string name="description_size_of_table">Tabela rozmiarów dla 6 osób, lub 10</string>
 </resources>

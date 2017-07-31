@@ -36,4 +36,6 @@
     <string name="description_hands">tekstiga ekraan eelkõige kasutuselevõtu poolt või vahemik</string>
     <string name="description_of_position">positsiooni lauas</string>
     <string name="description_of_street">Trade tänaval pokkeri</string>
+    <string name="description_range">võimalike kombinatsioonide käed, et mängija võib olla näiteks, kõik ässad, või kõik ässad ja kõik kuningad või kombinatsioone kõik juurdehindlused jne</string>
+    <string name="description_size_of_table">Suurus tabel 6 inimest või 10</string>
 </resources>
