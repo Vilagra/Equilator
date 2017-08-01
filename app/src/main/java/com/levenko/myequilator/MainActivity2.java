@@ -160,8 +160,12 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
 
     @Override
     protected void onDestroy() {
-        mAdView.destroy();
-        myBilling.onDestroy();
+        if(mAdView!=null) {
+            mAdView.destroy();
+        }
+        if(myBilling!=null){
+            myBilling.onDestroy();
+        }
         super.onDestroy();
     }
 
