@@ -10,14 +10,14 @@
     <string name="calculate">Oбчислити</string>
     <string name="card_selection">вибір карт</string>
     <string name="clear_all">Очистити все</string>
-    <string name="delete">Видалити</string>
+    <string name="delete">видалити</string>
     <string name="enter_range">Введіть діапазон</string>
     <string name="hands_quantity">Виберіть швидкість і точність</string>
     <string name="help">Допомога</string>
     <string name="not_enough">Недостатньо гравців для розрахунку має бути щонайменше 2!</string>
     <string name="position">позиція</string>
     <string name="quit">Вихід</string>
-    <string name="random">Випадковий</string>
+    <string name="random">випадковий</string>
     <string name="range">діапазон</string>
     <string name="speed_accuracy">Швидкість і точність</string>
     <string name="turn_off">Donate(Відключити рекламу)</string>

@@ -74,7 +74,6 @@ public class CalculationLoader extends AsyncTaskLoader<double[]> implements Calc
         UserInput ui = UserInput.newUserInput(hands, board,ranges.toArray(new String[0]));
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this.getContext());
         int numberOfHands = Integer.valueOf(sharedPref.getString(getContext().getString(R.string.speed_accuracy), "-1"));
-        long nanosecs = System.currentTimeMillis();
         for (int i = 0; i < enumerators.length; i++) {
             enumerators[i] = new Enumerator(i, threads,
                     ui.deck(), ui.holeCards(),ui.getRange(), ui.boardCards(),this,numberOfHands);
@@ -87,8 +86,6 @@ public class CalculationLoader extends AsyncTaskLoader<double[]> implements Calc
             } catch (InterruptedException never) {
             }
         }
-        nanosecs = System.currentTimeMillis() - nanosecs;
-        System.out.println("sec"+nanosecs);
         return Output.result(ui,enumerators);
     }
 

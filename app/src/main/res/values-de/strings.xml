@@ -18,7 +18,7 @@
     <string name="position">Position</string>
     <string name="quit">Ausfahrt</string>
     <string name="random">zufällig</string>
-    <string name="range">Bereich von</string>
+    <string name="range">Bereich</string>
     <string name="speed_accuracy">Geschwindigkeit und Genauigkeit</string>
     <string name="turn_off">Donate(Anzeigen deaktivieren)</string>
     <string name="fast">Quick (100.000 Hände, die Geschwindigkeit von 1,5 Sekunden, die Genauigkeit von + -0,4%)</string>
