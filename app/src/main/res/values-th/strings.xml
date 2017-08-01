@@ -31,7 +31,7 @@
     <string name="description">ลักษณะ</string>
     <string name="text_of_description">โปรแกรมนี้คือการคำนวณความน่าจะเป็นในการชนะมือโป๊กเกอร์กับมือกับช่วงช่วงกับช่วง</string>
     <string name="dectionary">อภิธานศัพท์</string>
-    <string name="description_equity" translatable="false">ความน่าจะเป็นในการชนะเป็นเปอร์เซ็นต์มือนี้โดยเฉพาะหรือกับการแนะนำของช่วงของการ์ดฝ่ายตรงข้ามที่</string>
+    <string name="description_equity">ความน่าจะเป็นในการชนะเป็นเปอร์เซ็นต์มือนี้โดยเฉพาะหรือกับการแนะนำของช่วงของการ์ดฝ่ายตรงข้ามที่</string>
     <string name="description_hand">คอนกรีตแผนที่ผู้เล่น 2 คนเช่นเอซโพแดงคิงโพดำ</string>
     <string name="description_hands">ข้อความที่แสดงโดยเฉพาะอย่างยิ่งการแนะนำของมือหรือช่วง</string>
     <string name="description_of_position">ตำแหน่งผู้เล่นที่โต๊ะ</string>

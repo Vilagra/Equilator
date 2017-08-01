@@ -31,7 +31,7 @@
     <string name="description">beskrywing</string>
     <string name="text_of_description">Hierdie aansoek is om die kans om te wen poker hand teen hand, teen die reeks, die reeks teen verskeidenheid bereken.</string>
     <string name="dectionary">Woordelys</string>
-    <string name="description_equity" translatable="false">die kans om te wen as \'n persentasie, hierdie spesifieke hand of teen die bekendstelling van \'n verskeidenheid van teenstanders kaarte</string>
+    <string name="description_equity">die kans om te wen as \'n persentasie, hierdie spesifieke hand of teen die bekendstelling van \'n verskeidenheid van teenstanders kaarte</string>
     <string name="description_hand">konkrete 2-speler kaart, soos die Ace of Hearts, Koning van grawe</string>
     <string name="description_hands">teks vertoon besonder die bekendstelling van die hand of reeks</string>
     <string name="description_of_position">posisie spelers by die tafel</string>

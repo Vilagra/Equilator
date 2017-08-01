@@ -31,7 +31,7 @@
     <string name="description">説明</string>
     <string name="text_of_description">このアプリケーションは、範囲に対して、範囲に対して範囲を手に対して、ポーカーハンドの勝利の確率を計算することです。</string>
     <string name="dectionary">用語集</string>
-    <string name="description_equity" translatable="false">割合として勝利の確率、この特定の手や相手のカードの範囲の導入に対して、</string>
+    <string name="description_equity">割合として勝利の確率、この特定の手や相手のカードの範囲の導入に対して、</string>
     <string name="description_hand">そのようなハートのエース、スペードのキングなど、具体的な2プレイヤーマップ、</string>
     <string name="description_hands">特定のテキスト表示、手又は範囲の導入</string>
     <string name="description_of_position">テーブルで野手</string>

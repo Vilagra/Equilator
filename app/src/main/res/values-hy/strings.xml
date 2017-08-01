@@ -31,7 +31,7 @@
     <string name="description">Նկարագրություն</string>
     <string name="text_of_description">Այս դիմումը հաշվարկել հավանականությունը հաղթելու poker ձեռքը դեմ ձեռքին, դեմ միջակայքում, միջակայքում դեմ տիրույթում:</string>
     <string name="dectionary">մասնագիտական տերմինաբանական բառարան</string>
-    <string name="description_equity" translatable="false">հավանականությունը հաղթելու է որպես տոկոսային, այս կոնկրետ ձեռքին կամ դեմ ներդրման մի շարք հակառակորդների քարտերով</string>
+    <string name="description_equity">հավանականությունը հաղթելու է որպես տոկոսային, այս կոնկրետ ձեռքին կամ դեմ ներդրման մի շարք հակառակորդների քարտերով</string>
     <string name="description_hand">կոնկրետ 2 խաղացող քարտեզը, ինչպես, օրինակ, Ace սրտերում, թագավորի spades</string>
     <string name="description_hands">տեքստային ցուցադրում մասնավորապես ներդրումը ձեռքը կամ տիրույթում</string>
     <string name="description_of_position">պաշտոնը խաղացողներ են սեղանի</string>

@@ -31,7 +31,7 @@
     <string name="description">popis</string>
     <string name="text_of_description">Táto aplikácia je výpočet pravdepodobnosť výhry poker ruku na strane proti rozsahu, rozsah proti rozsahu.</string>
     <string name="dectionary">glosár</string>
-    <string name="description_equity" translatable="false">pravdepodobnosť výhry v percentách, toto konkrétne strane alebo proti zavedenie mnohých súperov kariet</string>
+    <string name="description_equity">pravdepodobnosť výhry v percentách, toto konkrétne strane alebo proti zavedenie mnohých súperov kariet</string>
     <string name="description_hand">betón mapa 2 hráčov, ako je srdcové eso, kráľ piky</string>
     <string name="description_hands">Zobrazenie textu najmä zavedenie ruky alebo rozsah</string>
     <string name="description_of_position">pozície hráča pri stole</string>

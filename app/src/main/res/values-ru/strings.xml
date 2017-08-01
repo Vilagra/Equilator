@@ -8,7 +8,7 @@
     <string name="bu">BU</string>
     <string name="co">CO</string>
     <string name="credit">Признательность</string>
-    <string name="calculate">Вычеслить</string>
+    <string name="calculate">Вычислить</string>
     <string name="card_selection">Выбор карт</string>
     <string name="clear_all">Очистить все</string>
     <string name="delete">удалить</string>
@@ -31,7 +31,7 @@
     <string name="slower">Более медленный (1 000 000 раздач, скорость 15 секунд, точность +-0,07%)</string>
     <string name="slowest">Самый медленный (раздач 3 000 000, скорость 50 секунд, точность + -0,03%)</string>
     <string name="dectionary">Словарь терминов</string>
-    <string name="description_equity" translatable="false">вероятность победы в процентах, этот конкретная руке или диапазон против введеных карт соперников</string>
+    <string name="description_equity">вероятность победы в процентах, этот конкретная руке или диапазон против введеных карт соперников</string>
     <string name="description_hand">2 карты игрока конкретные, например Туз черв, Король пик</string>
     <string name="description_hands">текстовое отображение конкретной введеной руки или диапазона</string>
     <string name="description_of_position">позиции игроков за столом</string>

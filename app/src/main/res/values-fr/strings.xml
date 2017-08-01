@@ -31,7 +31,7 @@
     <string name="description">La description</string>
     <string name="text_of_description">Cette application est de calculer la probabilité de gagner la main de poker contre la main, contre la plage, la plage contre gamme.</string>
     <string name="dectionary">glossaire</string>
-    <string name="description_equity" translatable="false">la probabilité de gagner en pourcentage, cette main spécifique ou contre l\'introduction d\'une gamme de cartes adversaires</string>
+    <string name="description_equity">la probabilité de gagner en pourcentage, cette main spécifique ou contre l\'introduction d\'une gamme de cartes adversaires</string>
     <string name="description_hand">béton carte 2 joueurs, comme l\'as de cœur, roi de pique</string>
     <string name="description_hands">affichage de texte particulier, l\'introduction de la main ou de la plage</string>
     <string name="description_of_position">les joueurs de position à la table</string>

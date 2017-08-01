@@ -31,7 +31,7 @@
     <string name="description">Тодорхойлолт</string>
     <string name="text_of_description">Энэ програм нь төрөл бүрийн, хүрээний эсрэг хүрээний эсрэг талаас эсрэг покер гараа ялалт магадлалыг тооцох явдал юм.</string>
     <string name="dectionary">Нэр томъёоны тайлбар</string>
-    <string name="description_equity" translatable="false">хувиар, энэ тодорхой талаас буюу өрсөлдөгчид карт нь төрөл бүрийн нэвтрүүлэх эсрэг ялалт магадлал</string>
+    <string name="description_equity">хувиар, энэ тодорхой талаас буюу өрсөлдөгчид карт нь төрөл бүрийн нэвтрүүлэх эсрэг ялалт магадлал</string>
     <string name="description_hand">Ийм зүрх сэтгэлийнх нь тамга, хүрз Хаан бетон 2 тоглогч зураг</string>
     <string name="description_hands">текст гаргах тодорхой гарт болон нурууны танилцуулга</string>
     <string name="description_of_position">ширээн дээр байр суурь тоглогчид</string>

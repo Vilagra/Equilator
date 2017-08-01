@@ -31,7 +31,7 @@
     <string name="description">Beskrivelse</string>
     <string name="text_of_description">Denne applikation er at beregne sandsynligheden for at vinde poker hånd mod hånd, mod området, området mod rækkevidde.</string>
     <string name="dectionary">Ordliste</string>
-    <string name="description_equity" translatable="false">sandsynligheden for at vinde i procent, denne specifikke hånd eller imod indførelsen af en række modstandere kort</string>
+    <string name="description_equity">sandsynligheden for at vinde i procent, denne specifikke hånd eller imod indførelsen af en række modstandere kort</string>
     <string name="description_hand">beton 2-spiller kort, såsom Ace of Hearts, konge af spader</string>
     <string name="description_hands">tekstdisplay især indførelsen af hånden eller område</string>
     <string name="description_of_position">position spillere ved bordet</string>

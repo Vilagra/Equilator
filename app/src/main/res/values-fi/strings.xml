@@ -31,7 +31,7 @@
     <string name="description">Kuvaus</string>
     <string name="text_of_description">Tämä sovellus on laskea todennäköisyys voittaa käsi vastaan käsi, vastaan alue, alue vastaan alueella.</string>
     <string name="dectionary">sanasto</string>
-    <string name="description_equity" translatable="false">todennäköisyys voittaa prosentteina, tämä erityinen käsi tai sitä vastaan, että erilaisia vastustajan kortteja</string>
+    <string name="description_equity">todennäköisyys voittaa prosentteina, tämä erityinen käsi tai sitä vastaan, että erilaisia vastustajan kortteja</string>
     <string name="description_hand">betoon 2 mängija kaarti, nagu Ace of Hearts, King poti</string>
     <string name="description_hands">tekstinäyttö erityisesti käyttöönoton käden tai alue</string>
     <string name="description_of_position">asento pelaajat pöydässä</string>

@@ -31,7 +31,7 @@
     <string name="description">Apraksts</string>
     <string name="text_of_description">Šis pieteikums ir aprēķināt varbūtību uzvarēt pokera roku pret roku, pret diapazona robežās pret diapazonā.</string>
     <string name="dectionary">glosārijs</string>
-    <string name="description_equity" translatable="false">varbūtība uzvarēt procentos, šo konkrēto roku vai pret ieviešanu virkni pretinieki kartēm</string>
+    <string name="description_equity">varbūtība uzvarēt procentos, šo konkrēto roku vai pret ieviešanu virkni pretinieki kartēm</string>
     <string name="description_hand">betona 2 player karte, piemēram, Ace sirdis, King pīķa</string>
     <string name="description_hands">teksta displejs īpaši ieviešana roku vai diapazons</string>
     <string name="description_of_position">pozīciju spēlētāji pie galda</string>

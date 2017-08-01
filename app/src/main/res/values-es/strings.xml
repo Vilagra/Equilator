@@ -31,7 +31,7 @@
     <string name="description">Descripción</string>
     <string name="text_of_description">Esta aplicación consiste en calcular la probabilidad de ganar mano contra la, en contra de la cocina, ésta contra el rango.</string>
     <string name="dectionary">glosario</string>
-    <string name="description_equity" translatable="false">la probabilidad de ganar como un porcentaje, esta mano específica o contra la introducción de una gama de tarjetas oponentes</string>
+    <string name="description_equity">la probabilidad de ganar como un porcentaje, esta mano específica o contra la introducción de una gama de tarjetas oponentes</string>
     <string name="description_hand">hormigón mapa 2 jugador, tales como el as de corazones, rey de espadas</string>
     <string name="description_hands">pantalla de texto particular, la introducción de la mano o gama</string>
     <string name="description_of_position">jugadores de posición en la mesa</string>

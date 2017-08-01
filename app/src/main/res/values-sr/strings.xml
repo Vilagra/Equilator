@@ -31,7 +31,7 @@
     <string name="description">Опис</string>
     <string name="text_of_description">Ова апликација је израчунати вероватноћу победе покер руку на руку, против опсега, у распону од опсега.</string>
     <string name="dectionary">глосар</string>
-    <string name="description_equity" translatable="false">вероватноћа победе као проценат, конкретном руци или против увођења низа дестак картица</string>
+    <string name="description_equity">вероватноћа победе као проценат, конкретном руци или против увођења низа дестак картица</string>
     <string name="description_hand">бетон 2 играча карту, као што је Аце оф Хеартс, Кинг оф Спадес</string>
     <string name="description_hands">Текст дисплеј посебно увођење руке или опсега</string>
     <string name="description_of_position">позиција играча на столу</string>

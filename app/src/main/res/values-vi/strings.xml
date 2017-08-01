@@ -31,7 +31,7 @@
     <string name="description">Sự miêu tả</string>
     <string name="text_of_description">Ứng dụng này là để tính toán xác suất chiến thắng tay chơi poker chống tay, với phạm vi, phạm vi đối với phạm vi.</string>
     <string name="dectionary">Thuật ngữ</string>
-    <string name="description_equity" translatable="false">xác suất chiến thắng là một tỷ lệ phần trăm, tay cụ thể này hoặc chống lại sự ra đời của một loạt các thẻ đối thủ</string>
+    <string name="description_equity">xác suất chiến thắng là một tỷ lệ phần trăm, tay cụ thể này hoặc chống lại sự ra đời của một loạt các thẻ đối thủ</string>
     <string name="description_hand">bê tông 2 người chơi đồ, chẳng hạn như Ace of Hearts, King of Spades</string>
     <string name="description_hands">hiển thị văn bản đặc biệt sự ra đời của tay hoặc dải</string>
     <string name="description_of_position">người chơi vị trí tại bàn</string>

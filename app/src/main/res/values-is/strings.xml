@@ -31,7 +31,7 @@
     <string name="description">Lýsing</string>
     <string name="text_of_description">Þetta forrit er til að reikna út líkur á að vinna póker hönd gegn hendi, gegn svið, svið gegn svið.</string>
     <string name="dectionary">Orðalisti</string>
-    <string name="description_equity" translatable="false">líkurnar á að vinna sem hundraðshluti, þetta tiltekna hönd eða á móti lögleiðingu ýmsum andstæðingum kortum</string>
+    <string name="description_equity">líkurnar á að vinna sem hundraðshluti, þetta tiltekna hönd eða á móti lögleiðingu ýmsum andstæðingum kortum</string>
     <string name="description_hand">steypu 2 spilari kort, svo sem Ace of Hearts, konungur Spades</string>
     <string name="description_hands">Textinn sýna einkum innleiðingu á hendi eða svið</string>
     <string name="description_of_position">staða leikmenn á borð</string>

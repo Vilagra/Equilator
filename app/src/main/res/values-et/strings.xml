@@ -31,7 +31,7 @@
     <string name="description">Kirjeldus</string>
     <string name="text_of_description">See rakendus on arvutada tõenäosust võita võidukombinatsioon vastu küljest vastu illustreeriv, vahemikus vastu vahemikus.</string>
     <string name="dectionary">sõnastik</string>
-    <string name="description_equity" translatable="false">tõenäosus võita protsendina, selle konkreetse poolt või vastu võtta kasutusele erinevaid vastased kaardid</string>
+    <string name="description_equity">tõenäosus võita protsendina, selle konkreetse poolt või vastu võtta kasutusele erinevaid vastased kaardid</string>
     <string name="description_hand">betoon 2 mängija kaarti, nagu Ace of Hearts, King poti</string>
     <string name="description_hands">tekstiga ekraan eelkõige kasutuselevõtu poolt või vahemik</string>
     <string name="description_of_position">positsiooni lauas</string>

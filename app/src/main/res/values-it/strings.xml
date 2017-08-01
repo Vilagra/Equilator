@@ -31,7 +31,7 @@
     <string name="description">Descrizione</string>
     <string name="text_of_description">Questa applicazione è quello di calcolare la probabilità di vincere la mano di poker contro la mano, contro il campo, il campo contro il range.</string>
     <string name="dectionary">glossario</string>
-    <string name="description_equity" translatable="false">la probabilità di vincere in percentuale, questa mano specifica o contro l\'introduzione di una gamma di carte avversari</string>
+    <string name="description_equity">la probabilità di vincere in percentuale, questa mano specifica o contro l\'introduzione di una gamma di carte avversari</string>
     <string name="description_hand">cemento mappa 2 giocatori, come ad esempio l\'asso di cuori, re di picche</string>
     <string name="description_hands">visualizzazione del testo particolare l\'introduzione della mano o intervallo</string>
     <string name="description_of_position">staða leikmenn á borð</string>
