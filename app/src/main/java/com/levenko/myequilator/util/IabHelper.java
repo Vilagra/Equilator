@@ -28,6 +28,7 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.android.vending.billing.IInAppBillingService;
 
@@ -816,11 +817,15 @@ public class IabHelper {
     }
 
     void flagStartAsync(String operation) {
-        if (mAsyncInProgress) throw new IllegalStateException("Can't start async operation (" +
-                operation + ") because another async operation(" + mAsyncOperation + ") is in progress.");
-        mAsyncOperation = operation;
-        mAsyncInProgress = true;
-        logDebug("Starting async operation: " + operation);
+        if (mAsyncInProgress) {
+            Toast.makeText(mContext, "Can't start async operation", Toast.LENGTH_SHORT).show();
+            //throw new IllegalStateException("Can't start async operation (" +
+            //operation + ") because another async operation(" + mAsyncOperation + ") is in progress.");
+        }else {
+            mAsyncOperation = operation;
+            mAsyncInProgress = true;
+            logDebug("Starting async operation: " + operation);
+        }
     }
 
     void flagEndAsync() {
