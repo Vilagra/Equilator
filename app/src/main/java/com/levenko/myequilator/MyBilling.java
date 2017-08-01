@@ -102,10 +102,7 @@ public class MyBilling {
             // Do we have the premium upgrade?
             Purchase removeAdsPurchase = inventory.getPurchase(SKU_REMOVE_ADS);
             boolean isAdsDisabled = (removeAdsPurchase != null && verifyDeveloperPayload(removeAdsPurchase));
-            SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(activity);
-            SharedPreferences.Editor editor = sharedPref.edit();
-            editor.putBoolean(Constants.wasAdsDisabled,isAdsDisabled);
-            editor.commit();
+            updatePref(isAdsDisabled);
             billingListener.adBanner(isAdsDisabled);
             removeAds();
 
@@ -117,6 +114,13 @@ public class MyBilling {
             Log.d(TAG, "Initial inventory query finished; enabling main UI.");
         }
     };
+
+    private void updatePref(boolean flag) {
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(activity);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putBoolean(Constants.wasAdsDisabled, flag);
+        editor.commit();
+    }
 
     // User clicked the "Remove Ads" button.
     public void purchaseRemoveAds() {
@@ -212,6 +216,8 @@ public class MyBilling {
             if (purchase.getSku().equals(SKU_REMOVE_ADS)) {
                 // bought the premium upgrade!
                 removeAds();
+                updatePref(true);
+                billingListener.adBanner(true);
 
             }
         }
@@ -253,8 +259,8 @@ public class MyBilling {
         });
     }
 
-    interface BillingListener{
-       void adBanner(boolean flag);
+    interface BillingListener {
+        void adBanner(boolean flag);
     }
 
 }
