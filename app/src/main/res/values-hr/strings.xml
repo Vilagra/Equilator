@@ -38,4 +38,5 @@
     <string name="description_of_street">Trgovina ulica u pokeru</string>
     <string name="description_range">moguće kombinacije rukama da igrač može biti, na primjer, svi aduti ili sve asova i svi kraljevi, ili kombinacije svih markups, itd</string>
     <string name="description_size_of_table">Veličina stol za 6 osoba ili 10</string>
+    <string name="calculating_in_progress">računanje</string>
 </resources>

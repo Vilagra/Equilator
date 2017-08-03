@@ -38,4 +38,5 @@
     <string name="description_of_street">strada commerciale nel poker</string>
     <string name="description_range">le possibili combinazioni di mani che il giocatore può essere, ad esempio, tutti gli assi, o tutti assi e tutti i re, o combinazioni di tutti i margini di profitto, ecc</string>
     <string name="description_size_of_table">La tabella di formato per 6 persone, o 10</string>
+    <string name="calculating_in_progress">Cálculo</string>
 </resources>

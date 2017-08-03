@@ -38,4 +38,5 @@
     <string name="description_of_street">Kauppa katu pokerissa</string>
     <string name="description_range">kombinaatioiden käsiä, että pelaaja voi olla esimerkiksi kaikki ässät, tai kaikki ässää ja kaikki kuninkaat, tai niiden yhdistelmiä kaikkien merkintöjen jne</string>
     <string name="description_size_of_table">Koko 6 hengen pöytä, tai 10</string>
+    <string name="calculating_in_progress">laskelma</string>
 </resources>

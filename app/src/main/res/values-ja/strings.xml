@@ -38,4 +38,5 @@
     <string name="description_of_street">ポーカーの貿易ストリート</string>
     <string name="description_range">プレイヤがあり得ること、例えば、すべてのマークアップのすべてのACE、またはすべてのACEおよびすべての王、またはそれらの組み合わせなどの手の可能な組合せ</string>
     <string name="description_size_of_table">6人、または10のサイズ表</string>
+    <string name="calculating_in_progress">計算</string>
 </resources>

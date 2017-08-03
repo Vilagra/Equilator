@@ -38,4 +38,5 @@
     <string name="description_of_street">calle comercio de póquer</string>
     <string name="description_range">posibles combinaciones de manos que el jugador puede ser, por ejemplo, todos los ases, o todos los ases y todos los reyes, o combinaciones de todas las marcas, etc.</string>
     <string name="description_size_of_table">La tabla del tamaño para 6 personas, o el 10</string>
+    <string name="calculating_in_progress">Cálculo</string>
 </resources>

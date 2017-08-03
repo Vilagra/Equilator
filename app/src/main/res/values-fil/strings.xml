@@ -31,11 +31,12 @@
     <string name="description">Paglalarawan</string>
     <string name="text_of_description">Ang application na ito ay upang makalkula ang probabilidad ng panalong poker kamay laban sa kamay, laban sa mga hanay, ang hanay laban sa range.</string>
     <string name="dectionary">Glossary</string>
-    <string name="description_equity" translatable="false">ang probabilidad ng panalong bilang isang porsyento, ito tiyak na mga kamay o laban sa pagpapakilala ng isang hanay ng mga opponents card</string>
+    <string name="description_equity">ang probabilidad ng panalong bilang isang porsyento, ito tiyak na mga kamay o laban sa pagpapakilala ng isang hanay ng mga opponents card</string>
     <string name="description_hand">kongkreto 2 player na mapa, tulad ng Ace of Hearts, si Haring of Spades</string>
     <string name="description_hands">text display partikular na sa pagpapakilala ng mga kamay o hanay</string>
     <string name="description_of_position">posisyon manlalaro sa mesa</string>
     <string name="description_of_street">Trade kalye sa poker</string>
     <string name="description_range">posibleng mga kumbinasyon ng mga kamay na ang player ay maaaring, halimbawa, ang lahat ng aces, o lahat ng mga aces at ang lahat ng mga hari, o kumbinasyon ng lahat ng mga markups, at iba pa</string>
     <string name="description_size_of_table">Laki ng table para sa 6 mga tao, o 10</string>
+    <string name="calculating_in_progress">Pagkalkula</string>
 </resources>

@@ -38,4 +38,5 @@
     <string name="description_of_street">Handelsstraße im Poker</string>
     <string name="description_range">mögliche Kombinationen von Händen, dass der Spieler sein kann, beispielsweise alle Asse oder alle Asse und alle Könige oder Kombinationen aller Markups, usw.</string>
     <string name="description_size_of_table">Größentabelle für 6 Personen oder 10</string>
+    <string name="calculating_in_progress">Berechnung</string>
 </resources>

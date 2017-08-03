@@ -38,4 +38,5 @@
     <string name="description_of_street">вулиці торгівлі в покері</string>
     <string name="description_range">можливі комбінації рук, які можуть бути у гравця, наприклад все тузи, або все тузи і всі королі, або вобще все комбінації і т.д.</string>
     <string name="description_size_of_table">Розмір столу на 6 осіб або ж на 10</string>
+    <string name="calculating_in_progress">Розрахунок</string>
 </resources>

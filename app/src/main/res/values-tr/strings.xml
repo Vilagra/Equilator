@@ -38,4 +38,5 @@
     <string name="description_of_street">pokerde Ticaret sokak</string>
     <string name="description_range">oyuncu olabileceğini, örneğin, tüm işaretlemeleri tüm as veya tüm aslar ve tüm krallar, ya kombinasyonları vb ellerin olası kombinasyonları</string>
     <string name="description_size_of_table">6 kişilik veya 10 için Boyut tablosu</string>
+    <string name="calculating_in_progress">hesaplama</string>
 </resources>

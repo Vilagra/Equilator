@@ -38,4 +38,5 @@
     <string name="description_of_street">đường phố thương mại trong poker</string>
     <string name="description_range">kết hợp có thể có của tay mà người chơi có thể, ví dụ, tất cả các con át chủ bài, hoặc tất cả các con át chủ bài và tất cả các vị vua, hoặc sự kết hợp của tất cả các đánh dấu vv</string>
     <string name="description_size_of_table">Kích thước bảng cho 6 người, hoặc 10</string>
+    <string name="calculating_in_progress">Tính toán</string>
 </resources>

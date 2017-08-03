@@ -38,4 +38,5 @@
     <string name="description_of_street">Prekybos gatvė pokerio</string>
     <string name="description_range">galimų kombinacijų rankas, kad žaidėjas gali būti, pavyzdžiui, visi tūzai, ar visi tūzai ir visi karaliai, ar deriniai visų antkainiai ir tt</string>
     <string name="description_size_of_table">Dydis stalas 6 žmonės, arba 10</string>
+    <string name="calculating_in_progress">Apskaičiavimas</string>
 </resources>
