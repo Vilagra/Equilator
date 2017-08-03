@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -25,6 +26,7 @@ public class HelpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
+
 
         TextView tvDictionaryValues = (TextView) findViewById(R.id.dictionary_text1);
         String term = getString(R.string.mp2) + "," + getString(R.string.co) + "," + getString(R.string.bu) + "...";
@@ -72,6 +74,16 @@ public class HelpActivity extends AppCompatActivity {
         tv.setText(TextUtils.concat(span1, " - ", span2));
 
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+        return false;
     }
 
 }
