@@ -184,7 +184,7 @@ public class MyPositionAdapter extends MyAdapter<MyPositionAdapter.ViewHolder> {
                     break;
                 case R.id.random:
                     arrayIndexesDataWhichWasChoosen[position]=new IndexesDataWasChosen(AllCards.getIndexesByRecyclerBaseOnRanking(169), IndexesDataWasChosen.Type.RANGE);
-                    textFromTextView[position]="random";
+                    textFromTextView[position]= ctx.getString(R.string.random);
                     rangeOrHandTextView.setText(R.string.random);
                     break;
             }
