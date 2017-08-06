@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">MyEquilator</string>
     <string name="alert_dialog_cancel">atšaukti</string>
     <string name="banner_ad_unit_id">ca-app-pub-7055288022092797/1072163863</string>
@@ -31,7 +31,7 @@
     <string name="description">Aprašymas</string>
     <string name="text_of_description">Ši programa yra apskaičiuoti laimėti pokerio ranką vertus, prieš asortimentą, diapazone nuo diapazone tikimybę.</string>
     <string name="dectionary">glosarijus</string>
-    <string name="description_equity">laimėjimo procentais, šiuo konkrečiu ranka arba prieš tam oponentų kortų diapazoną įvedimo tikimybė</string>
+    <string name="description_equity" tools:ignore="ExtraTranslation">laimėjimo procentais, šiuo konkrečiu ranka arba prieš tam oponentų kortų diapazoną įvedimo tikimybė</string>
     <string name="description_hand">Betono 2 žaidėjas žemėlapis, pavyzdžiui, \"Hearts\" Ace, King of Spades</string>
     <string name="description_hands">teksto ekranas ypač rankos ar diapazono Įvadas</string>
     <string name="description_of_position">padetis žaidėjai prie stalo</string>

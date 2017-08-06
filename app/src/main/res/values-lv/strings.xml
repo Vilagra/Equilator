@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">MyEquilator</string>
     <string name="alert_dialog_cancel">atcelt</string>
     <string name="banner_ad_unit_id">ca-app-pub-7055288022092797/1072163863</string>
@@ -31,7 +31,7 @@
     <string name="description">Apraksts</string>
     <string name="text_of_description">Šis pieteikums ir aprēķināt varbūtību uzvarēt pokera roku pret roku, pret diapazona robežās pret diapazonā.</string>
     <string name="dectionary">glosārijs</string>
-    <string name="description_equity">varbūtība uzvarēt procentos, šo konkrēto roku vai pret ieviešanu virkni pretinieki kartēm</string>
+    <string name="description_equity" tools:ignore="ExtraTranslation">varbūtība uzvarēt procentos, šo konkrēto roku vai pret ieviešanu virkni pretinieki kartēm</string>
     <string name="description_hand">betona 2 player karte, piemēram, Ace sirdis, King pīķa</string>
     <string name="description_hands">teksta displejs īpaši ieviešana roku vai diapazons</string>
     <string name="description_of_position">pozīciju spēlētāji pie galda</string>

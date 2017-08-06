@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">MyEquilator</string>
     <string name="alert_dialog_cancel">iptal</string>
     <string name="banner_ad_unit_id">ca-app-pub-7055288022092797/1072163863</string>
@@ -31,7 +31,7 @@
     <string name="description">Açıklama</string>
     <string name="text_of_description">Bu uygulama aralığı, aralığına karşı aralığına karşı, el karşı poker elini kazanma olasılığı hesaplamaktır.</string>
     <string name="dectionary">sözlük</string>
-    <string name="description_equity">yüzde, bu özel el olarak veya rakipler kartlarının serisiyle karşı kazanma olasılığı</string>
+    <string name="description_equity" tools:ignore="ExtraTranslation">yüzde, bu özel el olarak veya rakipler kartlarının serisiyle karşı kazanma olasılığı</string>
     <string name="description_hand">Böyle Kalplerin Ace, maça Kralı olarak beton 2 oyuncu haritası</string>
     <string name="description_hands">Özellikle metin görüntüleme elin veya aralığın giriş</string>
     <string name="description_of_position">masada pozisyon oyuncuları</string>

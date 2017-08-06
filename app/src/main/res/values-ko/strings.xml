@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">MyEquilator</string>
     <string name="alert_dialog_cancel">취소</string>
     <string name="banner_ad_unit_id">ca-app-pub-7055288022092797/1072163863</string>
@@ -31,7 +31,7 @@
     <string name="description">기술</string>
     <string name="text_of_description">본 출원의 범위는, 범위에 대하여 범위에 대해, 손에 대해 포커 손 당첨 확률을 계산하는 것이다.</string>
     <string name="dectionary">어휘</string>
-    <string name="description_equity">비율이 특정 손 또는 상대 카드의 범위의 도입에 승리의 확률</string>
+    <string name="description_equity" tools:ignore="ExtraTranslation">비율이 특정 손 또는 상대 카드의 범위의 도입에 승리의 확률</string>
     <string name="description_hand">이러한 하트의 에이스, 스페이드의 왕 콘크리트 2 선수지도</string>
     <string name="description_hands">특히 텍스트 표시 손 또는 범위의 도입</string>
     <string name="description_of_position">테이블에 위치 플레이어</string>

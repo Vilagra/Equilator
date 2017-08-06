@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">MyEquilator</string>
     <string name="alert_dialog_cancel">annullare</string>
     <string name="banner_ad_unit_id">ca-app-pub-7055288022092797/1072163863</string>
@@ -31,7 +31,7 @@
     <string name="description">Descrizione</string>
     <string name="text_of_description">Questa applicazione è quello di calcolare la probabilità di vincere la mano di poker contro la mano, contro il campo, il campo contro il range.</string>
     <string name="dectionary">glossario</string>
-    <string name="description_equity">la probabilità di vincere in percentuale, questa mano specifica o contro l\'introduzione di una gamma di carte avversari</string>
+    <string name="description_equity" tools:ignore="ExtraTranslation">la probabilità di vincere in percentuale, questa mano specifica o contro l\'introduzione di una gamma di carte avversari</string>
     <string name="description_hand">cemento mappa 2 giocatori, come ad esempio l\'asso di cuori, re di picche</string>
     <string name="description_hands">visualizzazione del testo particolare l\'introduzione della mano o intervallo</string>
     <string name="description_of_position">staða leikmenn á borð</string>
