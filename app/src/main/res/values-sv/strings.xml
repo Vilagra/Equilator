@@ -38,4 +38,5 @@
     <string name="description_of_street">Handel gata i poker</string>
     <string name="description_range">möjliga kombinationer av händer som spelaren kan vara, till exempel, alla ess, eller alla ess och alla kungar, eller kombinationer av alla markeringar, etc.</string>
     <string name="description_size_of_table">Storlekstabell för 6 personer, eller 10</string>
+    <string name="calculating_in_progress">beräkning</string>
 </resources>

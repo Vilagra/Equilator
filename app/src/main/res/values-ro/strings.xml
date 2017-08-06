@@ -7,7 +7,7 @@
     <string name="bu">BU</string>
     <string name="co">CO</string>
     <string name="credit">apreciere</string>
-    <string name="calculate">calcula</string>
+    <string name="calculate">calcul</string>
     <string name="card_selection">Selectarea cartelelor</string>
     <string name="clear_all">Curata tot</string>
     <string name="delete">șterge</string>
@@ -38,4 +38,5 @@
     <string name="description_of_street">stradă Comerț în poker</string>
     <string name="description_range">combinații posibile de mâini pe care jucătorul poate fi, de exemplu, toți ași, sau toți ași și toți regi, sau combinații ale tuturor adaosurilor, etc.</string>
     <string name="description_size_of_table">Tabel de dimensiuni pentru 6 persoane, sau 10</string>
+    <string name="calculating_in_progress">calculat</string>
 </resources>

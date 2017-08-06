@@ -42,5 +42,5 @@
     <string name="description_range">Possible combinations of hands that a player can have, such as all aces, or all aces and all kings, or just do all combinations, etc.</string>
     <string name="description_hands">Text display of a specific entered hand or range</string>
     <string name="description_size_of_table">Table size for 6 people or 10</string>
-    <string name="calculating_in_progress" translatable="false">Calculating in progress...</string>
+    <string name="calculating_in_progress">Calculation</string>
 </resources>

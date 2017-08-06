@@ -38,4 +38,5 @@
     <string name="description_of_street">търговия улица в покер</string>
     <string name="description_range">възможни комбинации на ръце, че играчът може да бъде, например, всички аса или всички аса и всички крале, или комбинации от всички надценки и т.н.</string>
     <string name="description_size_of_table">Размер маса за 6 души, или 10</string>
+    <string name="calculating_in_progress">Изчисление</string>
 </resources>

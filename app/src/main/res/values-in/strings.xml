@@ -38,4 +38,5 @@
     <string name="description_of_street">Perdagangan jalanan di poker</string>
     <string name="description_range">kemungkinan kombinasi dari tangan bahwa pemain mungkin, misalnya, semua ace, atau semua ace dan semua raja, atau kombinasi dari semua markup, dll</string>
     <string name="description_size_of_table">Ukuran meja untuk 6 orang, atau 10</string>
+    <string name="calculating_in_progress">Perhitungan</string>
 </resources>

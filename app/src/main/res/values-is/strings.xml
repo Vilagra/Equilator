@@ -38,4 +38,5 @@
     <string name="description_of_street">Trade götu í póker</string>
     <string name="description_range">mögulegar samsetningar af höndum sem leikmaður getur verið, til dæmis, allar Aces eða allt ásar og allir konungar, eða sambland af öllum markups, o.fl.</string>
     <string name="description_size_of_table">Stærð borð fyrir 6 manns, eða 10</string>
+    <string name="calculating_in_progress">Útreikningur</string>
 </resources>

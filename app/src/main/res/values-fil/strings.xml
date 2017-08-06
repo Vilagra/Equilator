@@ -38,4 +38,5 @@
     <string name="description_of_street">Trade kalye sa poker</string>
     <string name="description_range">posibleng mga kumbinasyon ng mga kamay na ang player ay maaaring, halimbawa, ang lahat ng aces, o lahat ng mga aces at ang lahat ng mga hari, o kumbinasyon ng lahat ng mga markups, at iba pa</string>
     <string name="description_size_of_table">Laki ng table para sa 6 mga tao, o 10</string>
+    <string name="calculating_in_progress">Pagkalkula</string>
 </resources>

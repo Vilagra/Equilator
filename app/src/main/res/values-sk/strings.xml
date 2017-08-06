@@ -38,4 +38,5 @@
     <string name="description_of_street">Trade street v pokri</string>
     <string name="description_range">možných kombinácií rúk, že hráč môže byť napríklad všetky esá, alebo všetky esá a všetci králi, alebo kombinácia všetkých pripomienok, atď</string>
     <string name="description_size_of_table">Veľkosť stôl pre 6 osôb, alebo 10</string>
+    <string name="calculating_in_progress">kalkulácie</string>
 </resources>
