@@ -26,7 +26,10 @@ public class HelpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
-
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        if(actionBar!=null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         TextView tvDictionaryValues = (TextView) findViewById(R.id.dictionary_text1);
         String term = getString(R.string.mp2) + "," + getString(R.string.co) + "," + getString(R.string.bu) + "...";

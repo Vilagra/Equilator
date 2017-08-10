@@ -52,12 +52,8 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         PreferenceManager.setDefaultValues(this.getApplicationContext(), R.xml.speed_accuracy, true);
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-        //isAdsDisable = sharedPref.getBoolean(Constants.wasAdsDisabled, false);
-        //if (!isAdsDisable) {
-            myBilling = new MyBilling(this);
-            myBilling.onCreate();
-        //}
+        myBilling = new MyBilling(this);
+        myBilling.onCreate();
         if (savedInstanceState != null) {
             tryToShowAd = savedInstanceState.getInt("counter");
             mCurrentPagerPosition = savedInstanceState.getInt("currentPager");
@@ -160,10 +156,10 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
 
     @Override
     protected void onDestroy() {
-        if(mAdView!=null) {
+        if (mAdView != null) {
             mAdView.destroy();
         }
-        if(myBilling!=null){
+        if (myBilling != null) {
             myBilling.onDestroy();
         }
         super.onDestroy();
