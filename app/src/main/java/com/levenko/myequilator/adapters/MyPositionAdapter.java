@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -147,6 +148,7 @@ public class MyPositionAdapter extends MyAdapter<MyPositionAdapter.ViewHolder> {
             remove.setOnClickListener(this);
             range.setOnClickListener(this);
             random.setOnClickListener(this);
+            rangeOrHandTextView.setOnClickListener(this);
         }
 
         public void onClick(View v) {
@@ -184,10 +186,34 @@ public class MyPositionAdapter extends MyAdapter<MyPositionAdapter.ViewHolder> {
                     break;
                 case R.id.random:
                     arrayIndexesDataWhichWasChoosen[position]=new IndexesDataWasChosen(AllCards.getIndexesByRecyclerBaseOnRanking(169), IndexesDataWasChosen.Type.RANGE);
-                    textFromTextView[position]="random";
+                    textFromTextView[position]= ctx.getString(R.string.random);
                     rangeOrHandTextView.setText(R.string.random);
                     break;
+                case R.id.hand_range:
+                    showDialog();
             }
+        }
+
+        public void showDialog(){
+            LayoutInflater layoutInflater = LayoutInflater.from(ctx);
+            View promptView = layoutInflater.inflate(R.layout.dialog_layout, null);
+            final AlertDialog alertD = new AlertDialog.Builder(ctx).setView(promptView).create();
+            promptView.findViewById(R.id.dialog_range).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    range.performClick();
+                    alertD.dismiss();
+
+                }
+            });
+            promptView.findViewById(R.id.dialog_hand).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    hand.performClick();
+                    alertD.dismiss();
+                }
+            });
+            alertD.show();
         }
     }
 

@@ -36,6 +36,11 @@
             android:name=".HelpActivity"
             android:label="@string/help"
             android:theme="@style/AppTheme2"></activity>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="5b9010a7d5579c8d67d718a80615999d6ae8fef1" />
+
     </application>
 
 </manifest>

@@ -21,6 +21,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.crashlytics.android.Crashlytics;
 import com.levenko.myequilator.entity.DataFromIntent;
 import com.levenko.myequilator.entity.IndexesDataWasChosen;
 import com.google.android.gms.ads.AdListener;
@@ -30,6 +31,7 @@ import com.google.android.gms.ads.InterstitialAd;
 
 import android.app.FragmentManager;
 import android.view.ViewGroup;
+import io.fabric.sdk.android.Fabric;
 
 public class MainActivity2 extends AppCompatActivity implements CardsDialogFragment.CardDialogFragmentListener, AdShower, MyBilling.BillingListener {
     private AdView mAdView;
@@ -50,6 +52,7 @@ public class MainActivity2 extends AppCompatActivity implements CardsDialogFragm
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_main2);
         PreferenceManager.setDefaultValues(this.getApplicationContext(), R.xml.speed_accuracy, true);
         myBilling = new MyBilling(this);

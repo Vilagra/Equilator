@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import com.levenko.myequilator.entity.IndexesDataWasChosen;
 import com.stevebrecher.showdown.CalculatingInProgressListener;
@@ -50,6 +51,7 @@ public class CalculationLoader extends AsyncTaskLoader<double[]> implements Calc
 
     @Override
     public double[] loadInBackground() {
+        Log.d("loader",handler.toString()+toString());
         String hands = "";
         String board = "";
         ArrayList<String> ranges = new ArrayList<>();
@@ -91,12 +93,14 @@ public class CalculationLoader extends AsyncTaskLoader<double[]> implements Calc
 
     @Override
     public void sendProgress(long[] wins, double[] pars, long trail) {
-        Message msg = handler.obtainMessage();
-        Bundle bundle = new Bundle();
-        bundle.putLongArray(Constants.WINS,wins);
-        bundle.putDoubleArray(Constants.PARTIAL_POTS,pars);
-        bundle.putLong(Constants.TRAIL,trail);
-        msg.setData(bundle);
-        handler.sendMessage(msg);
+        if(handler!=null) {
+            Message msg = handler.obtainMessage();
+            Bundle bundle = new Bundle();
+            bundle.putLongArray(Constants.WINS, wins);
+            bundle.putDoubleArray(Constants.PARTIAL_POTS, pars);
+            bundle.putLong(Constants.TRAIL, trail);
+            msg.setData(bundle);
+            handler.sendMessage(msg);
+        }
     }
 }

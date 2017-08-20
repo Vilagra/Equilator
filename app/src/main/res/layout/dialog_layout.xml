@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/main_text"
+        android:text="@string/dialog_main_text" />
+
+    <TextView
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/range"
+        android:layout_marginTop="15dp"
+        android:layout_alignLeft="@id/main_text"
+        android:layout_below="@+id/main_text"
+        android:textSize="10dp"
+        android:id="@+id/range_dialog_text"/>
+
+    <TextView
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/hand"
+        android:layout_alignRight="@id/main_text"
+        android:layout_below="@+id/main_text"
+        android:textSize="10dp"
+        android:id="@+id/hand_dialog_text"/>
+
+    <ImageButton
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/dialog_range"
+        android:src="@drawable/ic_photo_2017_07_08_21_49_52"
+        android:layout_below="@+id/range_dialog_text"
+        android:layout_alignRight="@+id/range_dialog_text"
+        android:layout_alignEnd="@+id/range_dialog_text"
+        android:layout_marginRight="13dp"
+        android:layout_marginEnd="13dp" />
+
+    <ImageButton
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignTop="@+id/dialog_range"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="15dp"
+        android:id="@+id/dialog_hand"
+        android:layout_below="@+id/range_dialog_text"
+        android:layout_alignRight="@+id/hand_dialog_text"
+        android:src="@drawable/ic_poker"
+        android:layout_marginBottom="20dp"/>
+
+
+</RelativeLayout>

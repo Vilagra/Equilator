@@ -44,7 +44,7 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
 
     private Progress progress;
 
-    private static Handler handler;
+    private Handler handler;
 
     private boolean isResultDelivered = true;
     private ProgressDialog progressDialog;
@@ -97,6 +97,7 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
                 sendResult(progress.result());
             }
         };
+
 
         progressDialog = new ProgressDialog(getActivity(), R.style.MyProgress);
         progressDialog.setTitle(getString(R.string.calculate));

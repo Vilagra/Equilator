@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">MyEquilator</string>
     <string name="alert_dialog_cancel">anula</string>
     <string name="banner_ad_unit_id">ca-app-pub-7055288022092797/1072163863</string>
@@ -31,7 +31,7 @@
     <string name="description">Descriere</string>
     <string name="text_of_description">Această aplicație este de a calcula probabilitatea de a câștiga mână de poker cu mâna, împotriva gama, gama împotriva gamei.</string>
     <string name="dectionary">glosar</string>
-    <string name="description_equity">probabilitatea de a câștiga ca procent, această mână specifică sau împotriva introducerii unei game de carduri adversarii</string>
+    <string name="description_equity" tools:ignore="ExtraTranslation">probabilitatea de a câștiga ca procent, această mână specifică sau împotriva introducerii unei game de carduri adversarii</string>
     <string name="description_hand">harta 2 jucător de beton, cum ar fi asul de cupă, regele de pică</string>
     <string name="description_hands">textul de pe ecran special introducerea mâinii sau a intervalului</string>
     <string name="description_of_position">jucători de poziție la masă</string>

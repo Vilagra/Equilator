@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">MyEquilator</string>
     <string name="alert_dialog_cancel">avboka</string>
     <string name="banner_ad_unit_id">ca-app-pub-7055288022092797/1072163863</string>
@@ -31,7 +31,7 @@
     <string name="description">Beskrivning</string>
     <string name="text_of_description">Denna ansökan är att beräkna sannolikheten för att vinna pokerhand mot handen, mot området, området mot intervallet.</string>
     <string name="dectionary">Ordlista</string>
-    <string name="description_equity">sannolikheten att vinna i procent, detta specifika hand eller mot införsel av en rad motståndare kort</string>
+    <string name="description_equity" tools:ignore="ExtraTranslation">sannolikheten att vinna i procent, detta specifika hand eller mot införsel av en rad motståndare kort</string>
     <string name="description_hand">betong 2 spelare kartan, såsom hjärter ess, kung av spader</string>
     <string name="description_hands">textvisning särskilt införandet av handen eller intervall</string>
     <string name="description_of_position">läges spelare vid bordet</string>
