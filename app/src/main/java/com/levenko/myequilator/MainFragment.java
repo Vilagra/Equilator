@@ -101,7 +101,7 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
 
         progressDialog = new ProgressDialog(getActivity(), R.style.MyProgress);
         progressDialog.setTitle(getString(R.string.calculate));
-        progressDialog.setMessage(getString(R.string.calculating_in_progress));
+        progressDialog.setMessage(getString(R.string.calculating_in_progress)+'\u0020'+'\u0020'+'\u0020'+'\u0020'+'\u0020'+'\u0020'+'\u0020'+'\u0020');
         progressDialog.setButton(Dialog.BUTTON_NEGATIVE, getString(R.string.alert_dialog_cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

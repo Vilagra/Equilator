@@ -14,7 +14,9 @@
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity2">
+        <activity android:name=".MainActivity2"
+                  android:label="@string/app_name"
+                  android:icon="@mipmap/ic_launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,14 +30,17 @@
             android:theme="@style/AppTheme2" />
         <activity
             android:name=".DescriptionActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme2"
+            android:label="@string/credit"/>
         <activity
             android:name=".HelpActivity"
-            android:label="@string/title_activity_help"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:label="@string/help"
+            android:theme="@style/AppTheme2"></activity>
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="5b9010a7d5579c8d67d718a80615999d6ae8fef1" />
+
     </application>
 
 </manifest>
