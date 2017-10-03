@@ -39,4 +39,5 @@
     <string name="description_range">combinații posibile de mâini pe care jucătorul poate fi, de exemplu, toți ași, sau toți ași și toți regi, sau combinații ale tuturor adaosurilor, etc.</string>
     <string name="description_size_of_table">Tabel de dimensiuni pentru 6 persoane, sau 10</string>
     <string name="calculating_in_progress">calculat</string>
+    <string name="dialog_main_text">Alegeți una dintre opțiuni!</string>
 </resources>

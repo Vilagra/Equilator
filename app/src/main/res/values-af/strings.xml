@@ -39,4 +39,5 @@
     <string name="description_range">moontlike kombinasies van hande wat die speler kan wees, byvoorbeeld, al aces, of al aces en al die konings, of kombinasies van al ups, ens</string>
     <string name="description_size_of_table">Grootte tafel vir 6 mense, of 10</string>
     <string name="calculating_in_progress">berekening</string>
+    <string name="dialog_main_text">Kies een van die opsies!</string>
 </resources>

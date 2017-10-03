@@ -39,4 +39,5 @@
     <string name="description_range">қолынан мүмкін комбинациялары ойыншы болуы мүмкін, мысалы, барлық тузы, немесе барлық тузы және барлық патшалар, немесе барлық түзетулердің комбинациялары, т.б.</string>
     <string name="description_size_of_table">6 адам, немесе 10 өлшемі үстел</string>
     <string name="calculating_in_progress">Есептеу</string>
+    <string name="dialog_main_text">Опциялардың бірін таңдаңыз!</string>
 </resources>

@@ -39,4 +39,5 @@
     <string name="description_range">võimalike kombinatsioonide käed, et mängija võib olla näiteks, kõik ässad, või kõik ässad ja kõik kuningad või kombinatsioone kõik juurdehindlused jne</string>
     <string name="description_size_of_table">Suurus tabel 6 inimest või 10</string>
     <string name="calculating_in_progress">Arvutamine</string>
+    <string name="dialog_main_text">Valige üks valikutest!</string>
 </resources>

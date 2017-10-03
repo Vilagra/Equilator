@@ -39,4 +39,5 @@
     <string name="description_range">combinaisons possibles de mains que le joueur peut être, par exemple, tous les aces, ou tous les aces et tous les rois, ou des combinaisons de tous les marges bénéficiaires, etc.</string>
     <string name="description_size_of_table">Table de taille pour 6 personnes, ou 10</string>
     <string name="calculating_in_progress">Calcul</string>
+    <string name="dialog_main_text">Choisissez l\'une des options!</string>
 </resources>

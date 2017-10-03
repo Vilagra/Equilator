@@ -39,4 +39,5 @@
     <string name="description_range">mulige kombinasjoner av hender at spilleren kan være, for eksempel, alle ess, eller alle ess og alle konger, eller kombinasjoner av alle markeringer, etc.</string>
     <string name="description_size_of_table">Størrelse bord for 6 personer, eller 10</string>
     <string name="calculating_in_progress">beregningen</string>
+    <string name="dialog_main_text">Velg ett av alternativene!</string>
 </resources>

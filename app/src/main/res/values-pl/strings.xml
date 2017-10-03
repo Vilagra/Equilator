@@ -39,4 +39,5 @@
     <string name="description_range">możliwe kombinacje rąk, które gracz może być, na przykład, wszystkie asy lub wszystkie asy i wszyscy królowie, lub kombinacje wszystkich znaczników, etc.</string>
     <string name="description_size_of_table">Tabela rozmiarów dla 6 osób, lub 10</string>
     <string name="calculating_in_progress">Obliczenia</string>
+    <string name="dialog_main_text">Wybierz jedną z opcji!</string>
 </resources>

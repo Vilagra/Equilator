@@ -39,4 +39,5 @@
     <string name="description_range">հնարավոր զուգորդումները ձեռքերը, որ խաղացողը կարող է լինել, օրինակ, բոլոր Aces կամ բոլոր Aces եւ բոլոր թագավորները, կամ համակցություններ բոլոր markups, եւ այլն:</string>
     <string name="description_size_of_table">Չափ սեղան `6 մարդ, կամ 10</string>
     <string name="calculating_in_progress">Հաշվարկը</string>
+    <string name="dialog_main_text">Ընտրեք ընտրանքներից մեկը:</string>
 </resources>

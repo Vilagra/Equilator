@@ -39,4 +39,5 @@
     <string name="description_range">могуће комбинације руку да играч може бити, на пример, све аса, или сви асови и сви краљеви или комбинације свих маркерским језицима, итд</string>
     <string name="description_size_of_table">Сизе табле за 6 особа, или 10</string>
     <string name="calculating_in_progress">Израчунавање</string>
+    <string name="dialog_main_text">Изаберите једну од опција!</string>
 </resources>

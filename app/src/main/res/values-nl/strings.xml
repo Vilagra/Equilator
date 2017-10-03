@@ -39,4 +39,5 @@
     <string name="description_range">mogelijke combinaties van handen die de speler kan zijn, bijvoorbeeld alle aces, of alle azen en koningen, of combinaties van alle markeringen, etc.</string>
     <string name="description_size_of_table">Size tafel voor 6 personen, of 10</string>
     <string name="calculating_in_progress">berekening</string>
+    <string name="dialog_main_text">Kies een van de opties!</string>
 </resources>

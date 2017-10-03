@@ -255,48 +255,49 @@ public class AllCards {
         Arrays.fill(wasChosen, false);
     }
 
-    private static String getSetOfHandFromCombination(Combination comb){
+    private static String getSetOfHandFromCombination(Combination comb) {
         StringBuilder result = new StringBuilder();
-        if(comb.getKind()== Combination.Kind.POCKET){
-            char rank =comb.getCombination().charAt(0);
-            for (int i = 0; i < allSuit.length-1; i++) {
-                for (int j = i+1; j < allSuit.length; j++) {
-                    result.append(new char[]{rank,allSuit[i],rank,allSuit[j],','});
+        if (comb.getKind() == Combination.Kind.POCKET) {
+            char rank = comb.getCombination().charAt(0);
+            for (int i = 0; i < allSuit.length - 1; i++) {
+                for (int j = i + 1; j < allSuit.length; j++) {
+                    result.append(new char[]{rank, allSuit[i], rank, allSuit[j], ','});
                 }
             }
         }
-        if(comb.getKind()==Combination.Kind.SUITED){
+        if (comb.getKind() == Combination.Kind.SUITED) {
             char rank1 = comb.getCombination().charAt(0);
             char rank2 = comb.getCombination().charAt(1);
             for (Character suit : allSuit) {
-                result.append(new char[]{rank1,suit,rank2,suit,','});
+                result.append(new char[]{rank1, suit, rank2, suit, ','});
             }
         }
-        if(comb.getKind()==Combination.Kind.OFFSUITED){
+        if (comb.getKind() == Combination.Kind.OFFSUITED) {
             char rank1 = comb.getCombination().charAt(0);
             char rank2 = comb.getCombination().charAt(1);
             for (Character suit1 : allSuit) {
                 for (Character suit2 : allSuit) {
-                    if(suit1!=suit2){
-                        result.append(new char[]{rank1,suit1,rank2,suit2,','});
+                    if (suit1 != suit2) {
+                        result.append(new char[]{rank1, suit1, rank2, suit2, ','});
                     }
                 }
             }
         }
-        result.deleteCharAt(result.length()-1);
+        result.deleteCharAt(result.length() - 1);
         return result.toString();
     }
-    public static String getSetOfHandFromCombinations(Set<Integer> indexesWereChoosen){
+
+    public static String getSetOfHandFromCombinations(Set<Integer> indexesWereChoosen) {
         StringBuilder result = new StringBuilder("");
         for (Integer integer : indexesWereChoosen) {
             result.append(getSetOfHandFromCombination(allCombinationsInRecyclerOrder.get(integer)));
             result.append(',');
         }
-        result.deleteCharAt(result.length()-1);
+        if (result.length() > 0) {
+            result.deleteCharAt(result.length() - 1);
+        }
         return result.toString();
     }
-
-
 
 
 }

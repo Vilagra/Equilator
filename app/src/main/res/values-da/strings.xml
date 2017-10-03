@@ -39,4 +39,5 @@
     <string name="description_range">mulige kombinationer af hænder, som spilleren kan for eksempel alle esser eller alle esser og alle konger eller kombinationer af alle opmærkninger, etc.</string>
     <string name="description_size_of_table">Størrelse bord til 6 personer eller 10</string>
     <string name="calculating_in_progress">Beregning</string>
+    <string name="dialog_main_text">Vælg en af mulighederne!</string>
 </resources>

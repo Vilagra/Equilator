@@ -39,4 +39,5 @@
     <string name="description_range">खिलाड़ी हो सकता है, उदाहरण के लिए, सभी इक्के, या सभी इक्के और सभी राजाओं, या संयोजन सभी मार्कअप की, आदि हाथ से संभव संयोजनों</string>
     <string name="description_size_of_table">6 लोगों के, या 10 के लिए आकार मेज</string>
     <string name="calculating_in_progress">गणना</string>
+    <string name="dialog_main_text">एक विकल्प चुनें!</string>
 </resources>

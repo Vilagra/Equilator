@@ -39,4 +39,5 @@
     <string name="description_range">lehetséges kombinációját kezét, hogy a játékos lehet, például az összes ász, vagy az összes ász és minden királyok, vagy ezek kombinációi minden jelölések stb</string>
     <string name="description_size_of_table">Méret asztal 6 személyes, vagy 10</string>
     <string name="calculating_in_progress">számítás</string>
+    <string name="dialog_main_text">Válasszon egyet a lehetőségek közül!</string>
 </resources>

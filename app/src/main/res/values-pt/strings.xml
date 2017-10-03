@@ -39,4 +39,5 @@
     <string name="description_range">combinações possíveis de mãos que o jogador pode ser, por exemplo, todos os ases, ou todos os ases e todos os reis, ou combinações de todas as marcações, etc.</string>
     <string name="description_size_of_table">tamanho mesa para 6 pessoas, ou 10</string>
     <string name="calculating_in_progress">Cálculo</string>
+    <string name="dialog_main_text">Escolha uma das opções!</string>
 </resources>

@@ -33,7 +33,7 @@
             android:max="1000"
             android:progress="5" />
 
-        <TextView
+        <EditText
             android:id="@+id/procent"
             android:layout_width="35dp"
             android:layout_height="35dp"
@@ -41,6 +41,8 @@
             android:background="@drawable/blue_out_line"
             android:gravity="center"
             android:text="00.0"
+            android:inputType="numberDecimal"
+            android:imeOptions="actionDone"
             android:textSize="15sp"
             tools:ignore="HardcodedText" />
 
