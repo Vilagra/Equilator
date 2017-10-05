@@ -17,6 +17,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -101,7 +102,7 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
 
         progressDialog = new ProgressDialog(getActivity(), R.style.MyProgress);
         progressDialog.setTitle(getString(R.string.calculate));
-        progressDialog.setMessage(getString(R.string.calculating_in_progress)+'\u0020'+'\u0020'+'\u0020'+'\u0020'+'\u0020'+'\u0020'+'\u0020'+'\u0020');
+        progressDialog.setMessage(getString(R.string.calculating_in_progress) + '\u0020' + '\u0020' + '\u0020' + '\u0020' + '\u0020' + '\u0020' + '\u0020' + '\u0020');
         progressDialog.setButton(Dialog.BUTTON_NEGATIVE, getString(R.string.alert_dialog_cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -113,7 +114,7 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
         progressDialog.setCancelable(false);
         progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
-        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -123,9 +124,10 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
             setPositionRecycler(savedInstanceState);
             setStreetRecycler(savedInstanceState);
         }
+        Log.d("savedstate", (savedInstanceState == null) + "");
         Loader loader = getLoaderManager().initLoader(Constants.LOADER_ID, null, this);
-        if(savedInstanceState!=null)
-        isResultDelivered = savedInstanceState.getBoolean(Constants.IS_RESULT_DELIVERED);
+        if (savedInstanceState != null)
+            isResultDelivered = savedInstanceState.getBoolean(Constants.IS_RESULT_DELIVERED);
         if (!isResultDelivered) {
             progressDialog.show();
             ((CalculationLoader) loader).setHandler(handler);
@@ -146,7 +148,10 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
         }
         if (savedInstanceState != null) {
             double[] equity = savedInstanceState.getDoubleArray(Constants.EQUITY);
-            IndexesDataWasChosen[] indexesFromPositionAdapter = (IndexesDataWasChosen[]) savedInstanceState.getSerializable(Constants.INDEXES_DATA_WAS_CHOSEN_BY_POSITION_ADAPTER);
+            Object[] objects = (Object[])
+                    savedInstanceState.getSerializable(Constants.INDEXES_DATA_WAS_CHOSEN_BY_POSITION_ADAPTER);
+            IndexesDataWasChosen[] indexesFromPositionAdapter = Arrays.copyOf(objects, objects.length,
+                    IndexesDataWasChosen[].class);
             String[] textFomEditTextPosition = savedInstanceState.getStringArray(Constants.STRNGS_FROM_ADAPTER);
             myPositionAdapter.setEquity(equity);
             myPositionAdapter.setTextFromTextView(textFomEditTextPosition);
@@ -173,7 +178,10 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
         streetAdapter = new StreetAdapter(getActivity(), dataForRecyclerStreet, this);
         if (savedInstanceState != null) {
             String[] textFomEditTextStreet = savedInstanceState.getStringArray(Constants.STRNGS_FROM_STREET_ADAPTER);
-            IndexesDataWasChosen[] indexesFromStreetAdapter = (IndexesDataWasChosen[]) savedInstanceState.getSerializable(Constants.INDEXES_DATA_WAS_CHOSEN_BY_STREET_ADAPTER);
+            Object[] objects = (Object[])
+                    savedInstanceState.getSerializable(Constants.INDEXES_DATA_WAS_CHOSEN_BY_STREET_ADAPTER);
+            IndexesDataWasChosen[] indexesFromStreetAdapter = Arrays.copyOf(objects, objects.length,
+                    IndexesDataWasChosen[].class);
             streetAdapter.setTextFromEditViewStreet(textFomEditTextStreet);
             streetAdapter.setArrayIndexesDataWhichWasChoosen(indexesFromStreetAdapter);
         }
@@ -185,7 +193,7 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
         if (myPositionAdapter.amountPlayers() < 2) {
             Toast.makeText(getActivity(), R.string.not_enough, Toast.LENGTH_SHORT).show();
         } else {
-            ((AdShower)getActivity()).adShow();
+            ((AdShower) getActivity()).adShow();
             Loader loader = getLoaderManager().restartLoader(Constants.LOADER_ID, null, this);
             //Loader loader = getLoaderManager().initLoader(Constants.LOADER_ID, null, this);
             progressDialog.show();
@@ -272,7 +280,8 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
     @Override
     public Loader<double[]> onCreateLoader(int id, Bundle args) {
         if (id == Constants.LOADER_ID) {
-            return new CalculationLoader(getActivity(), myPositionAdapter.getArrayIndexesDataWhichWasChoosen(), streetAdapter.getTextFromEditViewStreet(), handler);
+            return new CalculationLoader(getActivity(), myPositionAdapter.getArrayIndexesDataWhichWasChoosen(),
+                    streetAdapter.getTextFromEditViewStreet(), handler);
         }
         return null;
     }
